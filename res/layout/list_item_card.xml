@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--suppress AndroidLintUselessParent -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" style="@style/card_outer">
+
+    <RelativeLayout android:id="@+id/inner_frame" style="@style/card_inner">
+
+        <!--suppress AndroidLintContentDescription -->
+        <ImageView android:id="@+id/icon" style="@style/card_thumbnail"/>
+
+        <RelativeLayout android:id="@+id/titleFrame" style="@style/card_title_frame">
+
+            <TextView android:id="@+id/title" style="@style/card_title"/>
+
+            <!--suppress AndroidLintContentDescription >
+            <ImageButton android:id="@+id/button1" style="@style/card_popup_anchor" /-->
+
+        </RelativeLayout>
+
+        <TextView android:id="@+id/content" style="@style/card_content"/>
+
+        <!-- View
+            android:id="@+id/divider"
+    		android:layout_width="fill_parent"
+    		android:layout_height="1dip"
+    		android:layout_below="@id/content"
+    		android:background="?android:attr/dividerHorizontal" /-->
+        
+        <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal" 
+	        android:layout_below="@id/content"
+	        >
+	
+	        <Button
+	            android:id="@+id/btnDownload"
+	            style="@style/card_button"
+	            android:layout_width="wrap_content"
+	            android:layout_height="fill_parent"
+	            android:layout_weight="1"
+	            android:text="@string/download" />
+		    
+		    <Button
+		        android:id="@+id/btnPlay"
+		        style="@style/card_button"
+		        android:layout_width="wrap_content"
+		        android:layout_height="fill_parent"
+		        android:layout_weight="1"
+		        android:text="@string/play" />
+        
+	    </LinearLayout>
+    </RelativeLayout>
+
+    
+    
+    <!--suppress AndroidLintContentDescription -->
+    <ImageView style="@style/card_shadow"/>
+
+</LinearLayout>

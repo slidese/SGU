@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--suppress AndroidLintUselessParent -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" style="@style/card_outer">
+
+    <RelativeLayout android:id="@+id/inner_frame" style="@style/card_inner">
+
+        <!--suppress AndroidLintContentDescription -->
+        <ImageView android:id="@android:id/icon" style="@style/card_thumbnail"/>
+
+        <RelativeLayout android:id="@+id/titleFrame" style="@style/card_title_frame"
+                        android:paddingBottom="@dimen/card_inner_padding_vertical"
+                        android:layout_centerVertical="true">
+
+            <TextView android:id="@android:id/title" style="@style/card_title"
+                      android:layout_centerVertical="true"/>
+
+            <!--suppress AndroidLintContentDescription -->
+            <ImageButton android:id="@android:id/button1" style="@style/card_popup_anchor"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!--suppress AndroidLintContentDescription -->
+    <ImageView style="@style/card_shadow"/>
+
+</LinearLayout>

@@ -1,0 +1,26 @@
+<resources>
+
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+	<!-- Account settings -->
+	<string name="pref_header_account">Account</string>
+	<string name="pref_title_username">Username</string>
+	<string name="pref_title_password">Password</string>
+
+	<!-- Download settings -->
+	<string name="pref_header_download">Download</string>
+	
+	<string-array name="pref_download_over_titles">
+        <item>Over Wi-Fi or mobile network</item>
+        <item>Over Wi-Fi- only</item>
+    </string-array>
+    <string-array name="pref_download_over_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    
+    <string name="pref_title_auto_download">Download automatically</string>
+    
+</resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/inner_frame"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/card_inner"
+        >
+
+        <!--suppress AndroidLintContentDescription -->
+        <ImageView android:id="@+id/icon" style="@style/card_thumbnail" android:contentDescription="TODO"/>
+
+        <RelativeLayout android:id="@+id/titleFrame" style="@style/card_title_frame" android:layout_marginBottom="8dp">
+
+            <TextView android:id="@+id/title" style="@style/card_title" />
+
+            <!--suppress AndroidLintContentDescription -->
+            <!-- ImageButton android:id="@+id/button1" style="@style/card_popup_anchor"/-->
+
+        </RelativeLayout>
+
+        <!-- com.afollestad.silk.views.text.SilkTextView android:id="@android:id/content" style="@style/card_content"/-->
+        
+        <TextView android:id="@+id/content" style="@style/card_content"/>
+
+        <LinearLayout
+	        style="?android:attr/buttonBarStyle"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal" 
+	        android:layout_below="@id/content"
+	        >
+	
+	        <Button
+	            android:id="@+id/btnCancel"
+	            style="@android:style/Widget.Holo.Light.Button.Borderless.Small"
+	            android:layout_width="wrap_content"
+	            android:layout_height="fill_parent"
+	            android:layout_weight="1"
+	            android:text="@string/download" />
+		    
+		    <!-- Button
+		        android:id="@+id/btnOk"
+		        style="@android:style/Widget.Holo.Light.Button.Borderless.Small"
+		        android:layout_width="wrap_content"
+		        android:layout_height="fill_parent"
+		        android:layout_weight="1"
+		        android:text="@string/ok" /-->
+        
+	    </LinearLayout>
+        
+        
+    </RelativeLayout>

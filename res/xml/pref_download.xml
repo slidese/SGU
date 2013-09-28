@@ -1,0 +1,17 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+   
+    <ListPreference
+        android:defaultValue="1"
+        android:entries="@array/pref_download_over_titles"
+        android:entryValues="@array/pref_download_over_values"
+        android:key="download"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_header_download" />
+    
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="auto_download"
+        android:title="@string/pref_title_auto_download" />
+
+</PreferenceScreen>

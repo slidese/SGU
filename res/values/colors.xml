@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="card_pressed">#7E0099CC</color>
+    <color name="header_button_default">#494949</color>
+    <color name="card_gray">#DEDEDE</color>
+    <color name="gray_background">#fefefe</color>
+    
+    <color name="sgu_team">#333</color>
+
+</resources>
