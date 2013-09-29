@@ -7,10 +7,13 @@
         android:gravity="bottom"
         android:orientation="horizontal" >
 
-        <ImageView
+    	<ImageButton
+            android:id="@+id/showContentButton"
+            style="@android:style/Holo.Light.ButtonBar"
             android:layout_width="60dp"
-            android:layout_height="60dp" />
-
+            android:layout_height="60dp"
+            android:src="@drawable/ic_action_expand" />
+    
         <SeekBar
             android:id="@+id/seekBar1"
             android:layout_width="0dp"

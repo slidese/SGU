@@ -4,8 +4,8 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageButton;
@@ -36,6 +36,9 @@ public class AdFreeContentFragment extends Fragment {
                 Toast.makeText(view.getContext(), "Click!", Toast.LENGTH_SHORT).show();
             }
         });
+        
+        View footerView =  inflater.inflate(R.layout.footer, null, false);
+        mListview.addFooterView(footerView);
         
         //LinearLayout playerLinearLayout = (LinearLayout) view.findViewById(R.id.player_linearlayout);
         //playerLinearLayout.setBackground(new ColorDrawable(Color.parseColor("#aa000000")));

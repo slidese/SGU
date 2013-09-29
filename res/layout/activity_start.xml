@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,12 +9,12 @@
 	    android:id="@+id/adfree_content_list_container"
 	    android:name="se.slide.sgu.AdFreeContentFragment"
 	    android:layout_width="match_parent"
-	    android:layout_height="0dp"
+	    android:layout_height="fill_parent"
 	    android:layout_marginBottom="0dp"
 	    android:layout_marginLeft="0dp"
 	    android:layout_marginRight="0dp"
 	    android:layout_marginTop="0dp"
-	    android:layout_weight="1"
+	    
 	    tools:context=".StartActivity"
 	    tools:layout="@layout/fragment_adfreecontent" />
 	    
@@ -30,6 +30,6 @@
 	    android:layout_marginTop="0dp"
 	    tools:context=".StartActivity"
 	    tools:layout="@layout/fragment_player" />
-
-</LinearLayout>
+	
+</FrameLayout>
 
