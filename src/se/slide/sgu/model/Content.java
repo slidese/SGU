@@ -6,9 +6,10 @@ import android.net.Uri;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-import java.io.File;
-
 import se.slide.sgu.Utils;
+
+import java.io.File;
+import java.util.Date;
 
 @DatabaseTable
 public class Content {
@@ -21,6 +22,15 @@ public class Content {
     
     @DatabaseField(id = true)
     public String mp3;
+    
+    @DatabaseField
+    public Date published;
+    
+    @DatabaseField
+    public int length;
+    
+    @DatabaseField
+    public String guid;
     
     public Content() {
         

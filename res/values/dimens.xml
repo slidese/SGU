@@ -27,4 +27,9 @@
     <dimen name="card_header_button_padding_side">8dp</dimen>
     <dimen name="card_header_button_padding_top">5dp</dimen>
     <dimen name="card_header_button_margin_left">10dp</dimen>
+    
+    <!-- Sliding layer -->
+    <dimen name="layer_width">240dp</dimen>
+    
+    
 </resources>

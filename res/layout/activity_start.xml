@@ -1,15 +1,14 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="0dp"
-    android:orientation="vertical" >
-
+    >
+    
 	<fragment
 	    android:id="@+id/adfree_content_list_container"
 	    android:name="se.slide.sgu.AdFreeContentFragment"
 	    android:layout_width="match_parent"
-	    android:layout_height="fill_parent"
+	    android:layout_height="match_parent"
 	    android:layout_marginBottom="0dp"
 	    android:layout_marginLeft="0dp"
 	    android:layout_marginRight="0dp"
@@ -18,18 +17,56 @@
 	    tools:context=".StartActivity"
 	    tools:layout="@layout/fragment_adfreecontent" />
 	    
-	<fragment
+	<!-- fragment
 	    android:id="@+id/player_container"
 	    android:name="se.slide.sgu.PlayerFragment"
 	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
+	    android:layout_height="match_parent"
 	    android:layout_gravity="bottom"
 	    android:layout_marginBottom="0dp"
 	    android:layout_marginLeft="0dp"
 	    android:layout_marginRight="0dp"
 	    android:layout_marginTop="0dp"
 	    tools:context=".StartActivity"
-	    tools:layout="@layout/fragment_player" />
+	    tools:layout="@layout/fragment_player" /-->
+
+	<com.slidinglayer.SlidingLayer
+        xmlns:slidingLayer="http://schemas.android.com/apk/res/com.slidinglayer"
+        android:id="@+id/slidingLayer1"
+        android:layout_width="@dimen/layer_width"
+        android:layout_height="match_parent"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#14ad8f">
+                
+            <TextView 
+                android:id="@+id/swipeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:fontFamily="sans-serif-medium"
+                android:drawablePadding="15dip"
+                android:paddingBottom="80dp"
+                android:textSize="17sp"
+                android:textColor="#074035"/>
+
+            <Button
+                android:id="@+id/buttonClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="60dp"
+                android:text="@string/app_name" />
+
+        </RelativeLayout>
+
+    </com.slidinglayer.SlidingLayer>
 	
-</FrameLayout>
+	
+</RelativeLayout>
 

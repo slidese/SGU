@@ -6,17 +6,18 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
+import android.util.Base64;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.params.ClientPNames;
-import org.apache.http.client.params.CookiePolicy;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.protocol.HTTP;
+import org.developerworks.android.FeedParser;
+import org.developerworks.android.FeedParserFactory;
+import org.developerworks.android.Message;
+import org.developerworks.android.ParserType;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -28,7 +29,6 @@ import se.slide.sgu.model.Content;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +52,7 @@ public class DownloaderService extends Service {
         if (username == null || password == null)
             stopSelf();
 
-        new DownloadAsyncTask(username, password);
+        new DownloadAsyncTask(username, password).execute();
 
         return super.onStartCommand(intent, flags, startId);
     }
@@ -73,8 +73,9 @@ public class DownloaderService extends Service {
 
             StringBuilder builder = new StringBuilder();
 
-            DefaultHttpClient httpclient = new DefaultHttpClient();
+            //DefaultHttpClient httpclient = new DefaultHttpClient();
 
+            /*
             httpclient.getParams().setParameter(ClientPNames.COOKIE_POLICY, CookiePolicy.BROWSER_COMPATIBILITY);
 
             HttpPost httpost = new HttpPost("http://www.theskepticsguide.org/wp-login.php");
@@ -93,9 +94,17 @@ public class DownloaderService extends Service {
                 returnValue = false;
                 Utils.sendExceptionToGoogleAnalytics(getApplicationContext(), Thread.currentThread().getName(), e, false);
             }
+            */
+            
+            HttpUriRequest request = new HttpGet("https://www.theskepticsguide.org/premium");
+            String credentials = username + ":" + password;
+            String base64EncodedCredentials = Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
+            request.addHeader("Authorization", "Basic " + base64EncodedCredentials);
+
+            HttpClient httpclient = new DefaultHttpClient();
 
             try {
-                HttpResponse response = httpclient.execute(httpost);
+                HttpResponse response = httpclient.execute(request);
 
                 String inputLine;
                 BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
@@ -120,9 +129,9 @@ public class DownloaderService extends Service {
                 Utils.sendExceptionToGoogleAnalytics(getApplicationContext(), Thread.currentThread().getName(), e, false);
             }
 
-            // Try to parse the html content
+            // Try to parse the content
             try {
-                parseMembersOnlyHtml(builder.toString());
+                parseRss(builder.toString());
             } catch (Exception e) {
                 e.printStackTrace();
                 returnValue = false;
@@ -133,6 +142,33 @@ public class DownloaderService extends Service {
 
         }
 
+        private void parseRss(String rss) throws Exception {
+            FeedParser parser = FeedParserFactory.getParser(ParserType.ANDROID_SAX, rss);
+            List<Message> messages = parser.parse();
+            
+            List<Content> listOfContent = new ArrayList<Content>();
+            
+            for (Message message : messages) {
+                Content content = new Content();
+                content.title = message.getTitle();
+                content.description = message.getDescription();
+                content.mp3 = message.getEnclosureUrl().toExternalForm();
+                content.length = message.getEnclosureLength();
+                content.published = message.getDateObject();
+                content.guid = message.getGuId();
+                
+                listOfContent.add(content);
+            }
+            
+            DatabaseManager.getInstance().addContent(listOfContent);
+        }
+        
+        /**
+         * Legacy method for parsing the members content Wordpress-page
+         * 
+         * @param html
+         * @throws Exception
+         */
         private void parseMembersOnlyHtml(String html) throws Exception {
             Document doc = Jsoup.parse(html);
 
