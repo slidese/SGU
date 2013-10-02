@@ -1,13 +1,15 @@
 package se.slide.sgu;
 
+import android.app.ActionBar;
+import android.app.ActionBar.OnNavigationListener;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -37,8 +39,10 @@ public class AdFreeContentFragment extends Fragment {
             }
         });
         
+        /*
         View footerView =  inflater.inflate(R.layout.footer, null, false);
         mListview.addFooterView(footerView);
+        */
         
         //LinearLayout playerLinearLayout = (LinearLayout) view.findViewById(R.id.player_linearlayout);
         //playerLinearLayout.setBackground(new ColorDrawable(Color.parseColor("#aa000000")));
@@ -61,11 +65,29 @@ public class AdFreeContentFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         
+        String[] actions = new String[] {
+                "Last hour",
+                "Today",
+                "This week",
+                "Everything"
+        };
+        
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, actions);
+        
+        getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+        getActivity().getActionBar().setListNavigationCallbacks(adapter, new OnNavigationListener() {
+            
+            @Override
+            public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+                return false;
+            }
+        });
+        
         updateAdapter();
     }
     
     public void updateAdapter() {
-        List<Content> listOfContent = DatabaseManager.getInstance().getAllContents();
+        List<Content> listOfContent = DatabaseManager.getInstance().getAdFreeContents();
         mAdapter = new ContentAdapter(getActivity(), R.layout.list_item_card, listOfContent);
         mListview.setAdapter(mAdapter);
     }

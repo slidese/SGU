@@ -5,7 +5,7 @@
     <RelativeLayout android:id="@+id/inner_frame" style="@style/card_inner">
 
         <!--suppress AndroidLintContentDescription -->
-        <ImageView android:id="@+id/icon" style="@style/card_thumbnail"/>
+        <ImageView android:id="@+id/icon" style="@style/card_thumbnail" android:contentDescription="@string/image_card_thumbnail" />
 
         <RelativeLayout android:id="@+id/titleFrame" style="@style/card_title_frame">
 
@@ -18,18 +18,20 @@
 
         <TextView android:id="@+id/content" style="@style/card_content"/>
 
-        <!-- View
+        <View
             android:id="@+id/divider"
-    		android:layout_width="fill_parent"
+    		android:layout_width="match_parent"
     		android:layout_height="1dip"
+    		android:layout_marginLeft="16dp"
+    		android:layout_marginRight="16dp"
     		android:layout_below="@id/content"
-    		android:background="?android:attr/dividerHorizontal" /-->
+    		android:background="?android:attr/dividerHorizontal" />
         
         <LinearLayout
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:orientation="horizontal" 
-	        android:layout_below="@id/content"
+	        android:layout_below="@id/divider"
 	        >
 	
 	        <Button

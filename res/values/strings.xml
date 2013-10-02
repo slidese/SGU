@@ -4,9 +4,11 @@
     <string name="app_name">SGU</string>
     <string name="action_settings">Settings</string>
     <string name="action_reload">Reload</string>
+    <string name="action_show_player">Show player</string>
     <string name="ok">Main</string>
     <string name="download">Download</string>
     <string name="play">Play</string>
+    <string name="image_card_thumbnail">Card thumbnail</string>
     <string name="title_section3">Section 3</string>
     
     <string name="backdrop">Backdrop</string>

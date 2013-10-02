@@ -20,6 +20,8 @@ import se.slide.sgu.db.DatabaseManager;
 
 public class StartActivity extends Activity {
     
+    private final String TAG = "StartActivity";
+    
     private SlidingLayer mSlidingLayer;
     private Button mCloseButton;
 
@@ -32,6 +34,7 @@ public class StartActivity extends Activity {
         initState();
         
         DatabaseManager.init(this);
+        ContentDownloadManager.INSTANCE.init(getApplicationContext()); // Use application context since the download manager should live during the app's entire life
         AppRater.app_launched(this);
     }
     
@@ -72,6 +75,12 @@ public class StartActivity extends Activity {
             
             return true;
         }
+        else if (item.getItemId() == R.id.action_show_player) {
+            if (mSlidingLayer.isOpened())
+                mSlidingLayer.closeLayer(true);
+            else
+                mSlidingLayer.openLayer(true);
+        }
         else if (item.getItemId() == R.id.action_settings) {
             
             Intent intent = new Intent(this, SettingsActivity.class);
@@ -108,5 +117,7 @@ public class StartActivity extends Activity {
                 mSlidingLayer.closeLayer(true);
             }
         });
+        
+        getActionBar().setTitle("");
     }
 }

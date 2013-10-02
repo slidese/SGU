@@ -30,6 +30,26 @@ public class DatabaseManager {
         return helper;
     }
 
+    public List<Content> getPremiumContents() {
+        List<Content> listOfContent = null;
+        try {
+            listOfContent = getHelper().getContentDao().query(getHelper().getContentDao().queryBuilder().where().like("title", "%SGU Premium%").prepare());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listOfContent;
+    }
+    
+    public List<Content> getAdFreeContents() {
+        List<Content> listOfContent = null;
+        try {
+            listOfContent = getHelper().getContentDao().query(getHelper().getContentDao().queryBuilder().where().like("title", "%The Skeptics Guide%").prepare());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listOfContent;
+    }
+    
     public List<Content> getAllContents() {
         List<Content> listOfContent = null;
         try {

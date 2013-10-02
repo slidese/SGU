@@ -8,6 +8,13 @@
         android:title="@string/action_reload"/>
     
     <item
+        android:id="@+id/action_show_player"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:icon="@drawable/ic_action_headphones"
+        android:title="@string/action_reload"/>
+    
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never"
