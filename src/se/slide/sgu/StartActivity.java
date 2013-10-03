@@ -62,8 +62,6 @@ public class StartActivity extends Activity {
 
         if (item.getItemId() == R.id.action_reload) {
             
-            mSlidingLayer.openLayer(true);
-            
             startService(new Intent(this, DownloaderService.class));
             
             /*
