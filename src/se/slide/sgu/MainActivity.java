@@ -93,7 +93,7 @@ public class MainActivity extends FragmentActivity {
         getActionBar().setTitle("");
         //getActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.ab_background_textured_example));
         
-        setContentView(R.layout.fragment_adfreecontent);
+        setContentView(R.layout.fragment_content);
 
         DatabaseManager.init(this);
         

@@ -1,12 +1,15 @@
 package se.slide.sgu;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.app.ActionBar.OnNavigationListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
@@ -24,6 +27,11 @@ public class StartActivity extends Activity {
     
     private SlidingLayer mSlidingLayer;
     private Button mCloseButton;
+    
+    final String[] actions = new String[] {
+            "Ad Free",
+            "Premium"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +121,54 @@ public class StartActivity extends Activity {
             @Override
             public void onClick(View v) {
                 mSlidingLayer.closeLayer(true);
+            }
+        });
+        
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, actions);
+        
+        getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+        getActionBar().setListNavigationCallbacks(adapter, new OnNavigationListener() {
+            
+            @Override
+            public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+                ContentFragment fragment = (ContentFragment) getFragmentManager().findFragmentById(R.id.adfree_content_list_container);
+                
+                if (fragment == null)
+                    return false;
+                
+                if (itemPosition == 0) {
+                   fragment.setMode(ContentFragment.MODE_ADFREE);
+                    
+                    
+                    /*
+                    Bundle args = new Bundle();
+                    args.putInt(ContentFragment.CONTENT_KEY, ContentFragment.CONTENT_TYPE_ADFREE);
+                    
+                    ContentFragment fragment = new ContentFragment();
+                    fragment.setArguments(args);
+                    
+                    getFragmentManager().beginTransaction()
+                        .replace(R.id.adfree_content_list_container, fragment)
+                        .commit();
+                    */
+                }
+                else {
+                    fragment.setMode(ContentFragment.MODE_PREMIUM);
+                    
+                    /*
+                    Bundle args = new Bundle();
+                    args.putInt(ContentFragment.CONTENT_KEY, ContentFragment.CONTENT_TYPE_PREMIUM);
+                    
+                    ContentFragment fragment = new ContentFragment();
+                    fragment.setArguments(args);
+                    
+                    getFragmentManager().beginTransaction()
+                        .replace(R.id.adfree_content_list_container, fragment)
+                        .commit();
+                    */
+                }
+                
+                return false;
             }
         });
         

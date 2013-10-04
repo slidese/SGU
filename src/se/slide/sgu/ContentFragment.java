@@ -1,7 +1,5 @@
 package se.slide.sgu;
 
-import android.app.ActionBar;
-import android.app.ActionBar.OnNavigationListener;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,26 +7,42 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.haarman.listviewanimations.swinginadapters.prepared.SwingLeftInAnimationAdapter;
 
 import se.slide.sgu.db.DatabaseManager;
 import se.slide.sgu.model.Content;
 
 import java.util.List;
 
-public class AdFreeContentFragment extends Fragment {
+public class ContentFragment extends Fragment {
+    
+    public static final int MODE_ADFREE = 0;
+    public static final int MODE_PREMIUM = 1;
+    
+    private int mode = 0;
     
     ListView mListview;
     ImageButton mPlayButton;
     ContentAdapter mAdapter;
+    
+    public ContentFragment() {
+        
+    }
+    
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         
-        View view = inflater.inflate(R.layout.fragment_adfreecontent, null);
+        View view = inflater.inflate(R.layout.fragment_content, null);
         
         mListview = (ListView) view.findViewById(android.R.id.list);
         mListview.setOnItemClickListener(new OnItemClickListener() {
@@ -65,30 +79,24 @@ public class AdFreeContentFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         
-        String[] actions = new String[] {
-                "Last hour",
-                "Today",
-                "This week",
-                "Everything"
-        };
-        
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, actions);
-        
-        getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-        getActivity().getActionBar().setListNavigationCallbacks(adapter, new OnNavigationListener() {
-            
-            @Override
-            public boolean onNavigationItemSelected(int itemPosition, long itemId) {
-                return false;
-            }
-        });
-        
         updateAdapter();
     }
     
-    public void updateAdapter() {
-        List<Content> listOfContent = DatabaseManager.getInstance().getAdFreeContents();
+    public void setMode(int mode) {
+        this.mode = mode;
+        updateAdapter();
+    }
+    
+    private void updateAdapter() {
+        List<Content> listOfContent = null;
+        if (mode == MODE_ADFREE)
+            listOfContent = DatabaseManager.getInstance().getAdFreeContents();
+        else
+            listOfContent = DatabaseManager.getInstance().getPremiumContents();
+        
         mAdapter = new ContentAdapter(getActivity(), R.layout.list_item_card, listOfContent);
-        mListview.setAdapter(mAdapter);
+        SwingLeftInAnimationAdapter animationAdapter = new SwingLeftInAnimationAdapter(mAdapter);
+        animationAdapter.setAbsListView(mListview);
+        mListview.setAdapter(animationAdapter);
     }
 }
