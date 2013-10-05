@@ -42,7 +42,31 @@
             android:layout_height="match_parent"
             android:background="@color/player_dark_gray">
             
+            <TextView
+                android:id="@+id/playerTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_alignParentTop="true"
+                android:fontFamily="sans-serif-light"
+                android:textSize="@dimen/card_title"
+                android:textColor="@android:color/primary_text_dark"
+                />
             
+            <TextView
+                android:id="@+id/playerDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_below="@id/playerTitle"
+                android:fontFamily="sans-serif-light"
+                android:textSize="@dimen/card_content"
+                android:textColor="@android:color/primary_text_dark"
+                />
             
             <!-- TextView 
                 android:id="@+id/swipeText"
@@ -83,12 +107,13 @@
 		            android:src="@drawable/ic_action_expand" /-->
 		    
 		        <SeekBar
-		            android:id="@+id/seekBar1"
+		            android:id="@+id/seeker"
 		            android:layout_width="0dp"
 		            android:layout_height="wrap_content"
 		            android:layout_gravity="center_horizontal|center_vertical"
 		            android:layout_weight="1"
 		            android:layout_marginLeft="16dp"
+		            android:layout_marginRight="8dp"
 		            android:maxHeight="11dip"
 		            android:minHeight="11dip" />
 		

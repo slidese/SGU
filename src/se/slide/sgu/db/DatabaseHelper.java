@@ -11,16 +11,26 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+import se.slide.sgu.Utils;
 import se.slide.sgu.model.Content;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
+
+    private final String TAG = "DatabaseHelper";
+
     private static final String DATABASE_NAME = "SGU.sqlite";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private Dao<Content, Integer> contentDao = null;
+    private Context context = null;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
+        this.context = context;
     }
 
     @Override
@@ -37,19 +47,26 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase arg0, ConnectionSource arg1, int arg2,
-            int arg3) {
+    public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int oldVersion, int newVersion) {
 
-        /*
-         * try { List<String> allSql = new ArrayList<String>();
-         * switch(oldVersion) { case 1:
-         * //allSql.add("alter table AdData add column `new_col` VARCHAR");
-         * //allSql.add("alter table AdData add column `new_col2` VARCHAR"); }
-         * for (String sql : allSql) { db.execSQL(sql); } } catch (SQLException
-         * e) { Log.e(DatabaseHelper.class.getName(),
-         * "exception during onUpgrade", e); throw new RuntimeException(e); }
-         */
+        // http://www.sqlite.org/datatype3.html
+        try {
+            List<String> allSql = new ArrayList<String>();
 
+            if (oldVersion == 1) {
+                allSql.add("alter table Content add column `played` INTEGER");
+            }
+
+            // Execute all changes
+            for (String sql : allSql) {
+                db.execSQL(sql);
+            }
+
+        } catch (SQLException e) {
+            Log.e(TAG, "Exception during onUpgrade", e);
+            Utils.sendExceptionToGoogleAnalytics(context, Thread.currentThread().getName(), e, false);
+            throw new RuntimeException(e);
+        }
     }
 
     public Dao<Content, Integer> getContentDao() {

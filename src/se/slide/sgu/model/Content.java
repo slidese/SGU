@@ -32,6 +32,12 @@ public class Content {
     @DatabaseField
     public String guid;
     
+    @DatabaseField
+    public int duration;
+    
+    @DatabaseField
+    public boolean played;
+    
     public Content() {
         
     }

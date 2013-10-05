@@ -6,7 +6,9 @@ import java.util.List;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
+import android.app.Notification.Builder;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -78,6 +80,12 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     public void onStart(Intent intent, int startId) {
         Log.i(TAG, "AudioPlayer: onStart() called, instance=" + this.hashCode());
     }
+    
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+
+        return START_NOT_STICKY;
+    }
 
     @Override
     public void onDestroy() {
@@ -99,6 +107,31 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         nextTrack();
     }
     
+    private void startAsForeground() {
+        
+        Intent i = new Intent(this, StartActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pi = PendingIntent.getActivity(this, 0, i, 0);
+        
+        Builder builder = new Notification.Builder(this);
+        //builder.addAction(R.drawable.stat_notify_chat, "Can you hear the music?", System.currentTimeMillis());
+        
+        builder.setSmallIcon(R.drawable.ic_action_planet);
+        builder.setTicker("Can you hear the music?");
+        builder.setWhen(System.currentTimeMillis());
+        builder.setContentIntent(pi);
+        
+        Notification note = builder.build();
+        
+        //Notification note = new Notification(R.drawable.stat_notify_chat, "Can you hear the music?", System.currentTimeMillis());
+        
+
+        //note.setLatestEventInfo(this, "Fake Player", "Now Playing: \"Ummmm, Nothing\"", pi);
+        note.flags |= Notification.FLAG_NO_CLEAR;
+
+        startForeground(1337, note);
+    }
+    
     private void release() {
         if( mediaPlayer == null) {
             return;
@@ -109,6 +142,8 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         }
         mediaPlayer.release();
         mediaPlayer = null;
+        
+        stopForeground(true);
     }
 
     public void addTrack(Content track) {
@@ -133,6 +168,8 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         }
         
         Content track = tracks.get(0);
+        
+        startAsForeground();
 
         if( mediaPlayer != null && paused) {
             mediaPlayer.start();
@@ -148,6 +185,8 @@ public class AudioPlayer extends Service implements OnCompletionListener {
             mediaPlayer.prepare();
             mediaPlayer.start();
             mediaPlayer.setOnCompletionListener(this);
+            
+            track.duration = mediaPlayer.getDuration();
         } catch (IOException ioe) {
             Log.e(TAG,"error trying to play " + track , ioe);
             String message = "error trying to play track: " + track + ".\nError: " + ioe.getMessage();

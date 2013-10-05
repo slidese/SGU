@@ -22,6 +22,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.google.analytics.tracking.android.EasyTracker;
 import com.slidinglayer.SlidingLayer;
@@ -40,6 +42,8 @@ public class StartActivity extends Activity implements ContentListener {
     
     private SlidingLayer                    mSlidingLayer;
     private ImageButton                     mPlayButton;
+    private TextView                        mPlayerTitle;
+    private TextView                        mPlayerDescription;
     private BroadcastReceiver               mDownloadBroadcastReceiver = new DownloadBroadcastReceiver();
     private ServiceConnection               mServiceConnection = new AudioPlayerServiceConnection();
     private AudioPlayer                     mAudioPlayer;
@@ -48,6 +52,7 @@ public class StartActivity extends Activity implements ContentListener {
     private BroadcastReceiver               mAudioPlayerBroadcastReceiver = new AudioPlayerBroadCastReceiver();
     private Timer                           mWaitForAudioPlayertimer = new Timer();
     private Handler                         mHandler = new Handler();
+    private SeekBar                         mSeeker;
     
     final String[] actions = new String[] {
             "Ad Free",
@@ -161,6 +166,9 @@ public class StartActivity extends Activity implements ContentListener {
     private void bindViews() {
         mSlidingLayer = (SlidingLayer) findViewById(R.id.slidingLayer1);
         mPlayButton = (ImageButton) findViewById(R.id.playButton);
+        mSeeker = (SeekBar) findViewById(R.id.seeker);
+        mPlayerTitle = (TextView) findViewById(R.id.playerTitle);
+        mPlayerDescription = (TextView) findViewById(R.id.playerDescription);
     }
     
     /**
@@ -180,10 +188,12 @@ public class StartActivity extends Activity implements ContentListener {
             public void onClick(View v) {
                 if (mAudioPlayer.isPlaying()) {
                     mAudioPlayer.pause();
+                    //mUpdateCurrentTrackTask.pause();
                 }
                 else {
                     if (mAudioPlayer.hasTracks()) {
                         mAudioPlayer.play();
+                        //mUpdateCurrentTrackTask.pause();
                     }
                 }
                 
@@ -275,10 +285,16 @@ public class StartActivity extends Activity implements ContentListener {
                 
         updatePlayPauseButtonState();
         
-        if( mUpdateCurrentTrackTask == null) {
+        if(mUpdateCurrentTrackTask == null) {
             mUpdateCurrentTrackTask = new UpdateCurrentTrackTask();
             mUpdateCurrentTrackTask.execute();
         } else {
+            /*
+            if (mAudioPlayer.isPlaying()) {
+                mUpdateCurrentTrackTask.unPause();
+            }
+            */
+            
             Log.e(TAG, "updateCurrentTrackTask is not null" );
         }
     }
@@ -287,13 +303,14 @@ public class StartActivity extends Activity implements ContentListener {
         runOnUiThread(new Runnable() {
             
             public void run() {
-                /*
-                int elapsedMillis = audioPlayer.elapsed();
-                String message = track.getTitle() + " - " + Formatter.formatTimeFromMillis(elapsedMillis);
-                timeLine.setMax(track.getDuration());
-                timeLine.setProgress(elapsedMillis);
-                PlayQueueActivity.this.elapsed.setText(message);
-                */
+                int elapsedMillis = mAudioPlayer.elapsed();
+                //String message = track.getTitle() + " - " + Formatter.formatTimeFromMillis(elapsedMillis);
+                mSeeker.setMax(track.duration);
+                mSeeker.setProgress(elapsedMillis);
+                //PlayQueueActivity.this.elapsed.setText(message);
+                
+                mPlayerTitle.setText(track.title);
+                mPlayerDescription.setText(track.description);
             }
         });
     }
@@ -311,7 +328,7 @@ public class StartActivity extends Activity implements ContentListener {
      */
     
     public void playContent(Content content) {
-        mAudioPlayer.addTrack(content);
+        mAudioPlayer.play(content);
     }
     
     /**
