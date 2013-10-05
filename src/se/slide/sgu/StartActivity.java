@@ -94,6 +94,10 @@ public class StartActivity extends Activity implements ContentListener {
     protected void onResume() {
         super.onResume();
         
+        // Bind activity to service
+        mAudioPlayerIntent = new Intent(this, AudioPlayer.class);
+        bindService(mAudioPlayerIntent, mServiceConnection, Context.BIND_AUTO_CREATE);
+        
         IntentFilter downloadFilter = new IntentFilter(DownloaderService.CONTENT_UPDATED);
         registerReceiver(mDownloadBroadcastReceiver, downloadFilter);
         
@@ -107,6 +111,8 @@ public class StartActivity extends Activity implements ContentListener {
     @Override
     protected void onPause() {
         super.onPause();
+        
+        unbindService(mServiceConnection);
         
         unregisterReceiver(mDownloadBroadcastReceiver);
         unregisterReceiver(mAudioPlayerBroadcastReceiver);
@@ -251,9 +257,7 @@ public class StartActivity extends Activity implements ContentListener {
         
         getActionBar().setTitle("");
         
-        // Bind activity to service
-        mAudioPlayerIntent = new Intent(this, AudioPlayer.class);
-        bindService(mAudioPlayerIntent, mServiceConnection, Context.BIND_AUTO_CREATE);
+        
     }
     
     private void refreshScreen() {
