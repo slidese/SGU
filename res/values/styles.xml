@@ -179,5 +179,16 @@
     <style name="Widget.Light.ActionBar.Transparent">
         <item name="android:background">@android:color/transparent</item>
     </style>
+    
+    <!-- Extra styling not added by http://jgilfelt.github.io/android-actionbarstylegenerator -->
+    <!-- http://jgilfelt.github.io/android-actionbarstylegenerator/#name=sgu&compat=holo&theme=light_dark&actionbarstyle=solid&texture=0&hairline=0&backColor=2D2D2D%2C100&secondaryColor=555555%2C100&tabColor=33B5E5%2C100&tertiaryColor=3F3F3F%2C100&accentColor=33B5E5%2C100&cabBackColor=002E3E%2C100&cabHighlightColor=33B5E5%2C100 -->
+    
+    <style name="sgu_DropDownItem" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+    	<item name="android:textAppearance">?android:attr/textAppearanceInverse</item>
+	</style>
+	 
+	<style name="sgu_SpinnerItem" parent="@android:style/Widget.TextView.SpinnerItem">
+	    <item name="android:textAppearance">?android:attr/textAppearanceInverse</item>
+	</style>
 	
 </resources>

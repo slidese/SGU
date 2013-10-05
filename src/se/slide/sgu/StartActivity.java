@@ -309,6 +309,7 @@ public class StartActivity extends Activity implements ContentListener {
                 mSeeker.setProgress(elapsedMillis);
                 //PlayQueueActivity.this.elapsed.setText(message);
                 
+                
                 mPlayerTitle.setText(track.title);
                 mPlayerDescription.setText(track.description);
             }
