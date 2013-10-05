@@ -40,9 +40,11 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#14ad8f">
-                
-            <TextView 
+            android:background="@color/player_dark_gray">
+            
+            
+            
+            <!-- TextView 
                 android:id="@+id/swipeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -61,7 +63,45 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="60dp"
-                android:text="@string/app_name" />
+                android:text="@string/app_name" /-->
+            
+            <LinearLayout
+		        android:id="@+id/player_linearlayout"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentBottom="true"
+		        android:background="@color/player_dark_gray"
+		        android:clickable="true"
+		        android:gravity="bottom"
+		        android:orientation="horizontal" >
+		
+		    	<!-- ImageButton
+		            android:id="@+id/showContentButton"
+		            style="@android:style/Holo.Light.ButtonBar"
+		            android:layout_width="60dp"
+		            android:layout_height="60dp"
+		            android:src="@drawable/ic_action_expand" /-->
+		    
+		        <SeekBar
+		            android:id="@+id/seekBar1"
+		            android:layout_width="0dp"
+		            android:layout_height="wrap_content"
+		            android:layout_gravity="center_horizontal|center_vertical"
+		            android:layout_weight="1"
+		            android:layout_marginLeft="16dp"
+		            android:maxHeight="11dip"
+		            android:minHeight="11dip" />
+		
+		        <ImageButton
+		            android:id="@+id/playButton"
+		            style="@android:style/Holo.Light.ButtonBar"
+		            android:contentDescription="@string/desc_play_button"
+		            android:background="@android:color/holo_blue_light"
+		            android:layout_width="60dp"
+		            android:layout_height="60dp"
+		            android:src="@drawable/ic_action_playback_play" />
+		
+			</LinearLayout>
 
         </RelativeLayout>
 

@@ -10,10 +10,13 @@
     <string name="play">Play</string>
     <string name="image_card_thumbnail">Card thumbnail</string>
     <string name="title_section3">Section 3</string>
-    
-    <string name="backdrop">Backdrop</string>
-    
     <string name="see_more">See more</string>
     <string name="closing_low_memory">Low memory, closing player</string>
+    <string name="backdrop">Backdrop</string>
+    
+    <!-- Image descriptions -->
+    <string name="desc_play_button">Play button</string>
+    
+    
 
 </resources>

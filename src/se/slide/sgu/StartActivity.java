@@ -1,16 +1,25 @@
 package se.slide.sgu;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.ActionBar.OnNavigationListener;
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.ServiceConnection;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 
@@ -20,19 +29,37 @@ import com.slidinglayer.SlidingLayer;
 import org.codechimp.apprater.AppRater;
 
 import se.slide.sgu.db.DatabaseManager;
+import se.slide.sgu.model.Content;
 
-public class StartActivity extends Activity {
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class StartActivity extends Activity implements ContentListener {
     
     private final String TAG = "StartActivity";
     
-    private SlidingLayer mSlidingLayer;
-    private Button mCloseButton;
+    private SlidingLayer                    mSlidingLayer;
+    private ImageButton                     mPlayButton;
+    private BroadcastReceiver               mDownloadBroadcastReceiver = new DownloadBroadcastReceiver();
+    private ServiceConnection               mServiceConnection = new AudioPlayerServiceConnection();
+    private AudioPlayer                     mAudioPlayer;
+    private Intent                          mAudioPlayerIntent;
+    private UpdateCurrentTrackTask          mUpdateCurrentTrackTask;
+    private BroadcastReceiver               mAudioPlayerBroadcastReceiver = new AudioPlayerBroadCastReceiver();
+    private Timer                           mWaitForAudioPlayertimer = new Timer();
+    private Handler                         mHandler = new Handler();
     
     final String[] actions = new String[] {
             "Ad Free",
             "Premium"
     };
+    
+    static final int UPDATE_INTERVAL = 250;
 
+    /**
+     * Life-cycle methods
+     */
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +84,37 @@ public class StartActivity extends Activity {
       super.onStop();
       EasyTracker.getInstance(this).activityStop(this);
     }
+    
+    @Override
+    protected void onResume() {
+        super.onResume();
+        
+        IntentFilter downloadFilter = new IntentFilter(DownloaderService.CONTENT_UPDATED);
+        registerReceiver(mDownloadBroadcastReceiver, downloadFilter);
+        
+        mAudioPlayerBroadcastReceiver = new AudioPlayerBroadCastReceiver();
+        IntentFilter audioPlayerFilter = new IntentFilter(AudioPlayer.UPDATE_PLAYLIST);
+        registerReceiver(mAudioPlayerBroadcastReceiver, audioPlayerFilter);
+        
+        refreshScreen();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        
+        unregisterReceiver(mDownloadBroadcastReceiver);
+        unregisterReceiver(mAudioPlayerBroadcastReceiver);
+        
+        mAudioPlayerBroadcastReceiver = null;
+        
+        mUpdateCurrentTrackTask.stop();
+        mUpdateCurrentTrackTask = null;
+    }
+    
+    /**
+     * Menu methods
+     */
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -102,7 +160,7 @@ public class StartActivity extends Activity {
      */
     private void bindViews() {
         mSlidingLayer = (SlidingLayer) findViewById(R.id.slidingLayer1);
-        mCloseButton = (Button) findViewById(R.id.buttonClose);
+        mPlayButton = (ImageButton) findViewById(R.id.playButton);
     }
     
     /**
@@ -116,11 +174,20 @@ public class StartActivity extends Activity {
         mSlidingLayer.setOffsetWidth(0);
         mSlidingLayer.setLayoutParams(rlp);
         
-        mCloseButton.setOnClickListener(new OnClickListener() {
+        mPlayButton.setOnClickListener(new OnClickListener() {
             
             @Override
             public void onClick(View v) {
-                mSlidingLayer.closeLayer(true);
+                if (mAudioPlayer.isPlaying()) {
+                    mAudioPlayer.pause();
+                }
+                else {
+                    if (mAudioPlayer.hasTracks()) {
+                        mAudioPlayer.play();
+                    }
+                }
+                
+                refreshScreen();
             }
         });
         
@@ -173,5 +240,173 @@ public class StartActivity extends Activity {
         });
         
         getActionBar().setTitle("");
+        
+        // Bind activity to service
+        mAudioPlayerIntent = new Intent(this, AudioPlayer.class);
+        bindService(mAudioPlayerIntent, mServiceConnection, Context.BIND_AUTO_CREATE);
+    }
+    
+    private void refreshScreen() {
+        if(mAudioPlayer == null) {
+            updateScreenAsync();
+        } else {
+            updatePlayQueue();
+        }
+    }
+    
+    private void updateScreenAsync() {
+        mWaitForAudioPlayertimer.scheduleAtFixedRate( new TimerTask() {
+            
+            public void run() {
+                Log.d(TAG,"updateScreenAsync running timmer");
+                if(mAudioPlayer != null) {
+                    mWaitForAudioPlayertimer.cancel();
+                    mHandler.post( new Runnable() {
+                        public void run() {
+                            updatePlayQueue();
+                        }
+                    });
+                }
+            }
+            }, 10, UPDATE_INTERVAL);
+    }
+    
+    public void updatePlayQueue() {
+                
+        updatePlayPauseButtonState();
+        
+        if( mUpdateCurrentTrackTask == null) {
+            mUpdateCurrentTrackTask = new UpdateCurrentTrackTask();
+            mUpdateCurrentTrackTask.execute();
+        } else {
+            Log.e(TAG, "updateCurrentTrackTask is not null" );
+        }
+    }
+    
+    private void updatePlayPanel(final Content track) {
+        runOnUiThread(new Runnable() {
+            
+            public void run() {
+                /*
+                int elapsedMillis = audioPlayer.elapsed();
+                String message = track.getTitle() + " - " + Formatter.formatTimeFromMillis(elapsedMillis);
+                timeLine.setMax(track.getDuration());
+                timeLine.setProgress(elapsedMillis);
+                PlayQueueActivity.this.elapsed.setText(message);
+                */
+            }
+        });
+    }
+    
+    private void updatePlayPauseButtonState() {
+        if(mAudioPlayer.isPlaying() ) {
+            mPlayButton.setImageResource(R.drawable.ic_action_playback_pause);
+        } else {
+            mPlayButton.setImageResource(R.drawable.ic_action_playback_play);
+        }
+    }
+    
+    /**
+     * Interface implementations
+     */
+    
+    public void playContent(Content content) {
+        mAudioPlayer.addTrack(content);
+    }
+    
+    /**
+     * Inner classes
+     */
+    
+    private class UpdateCurrentTrackTask extends AsyncTask<Void, Content, Void> {
+
+        public boolean stopped = false;
+        public boolean paused = false;
+        
+        @Override
+        protected Void doInBackground(Void... params) {
+            while( ! stopped ) {
+                if( ! paused) {
+                    Content currentTrack = mAudioPlayer.getCurrentTrack();
+                    if( currentTrack != null ) {
+                        publishProgress(currentTrack);
+                    }
+                }
+                
+                try {
+                    Thread.sleep(250);
+                }
+                catch (InterruptedException e) {
+                    // Do nothing, we just need to sleep...
+                }
+                
+            }
+            
+            Log.d(TAG,"AsyncTask stopped");
+            
+            return null;
+        }
+        
+        @Override
+        protected void onProgressUpdate(Content... track) {
+            if( stopped || paused ) {
+                return; //to avoid glitches
+            }
+            
+            updatePlayPanel(track[0]);
+        }
+
+        public void stop() {
+            stopped = true;
+        }
+        
+        public void pause() {
+            this.paused = true;
+        }
+
+        public void unPause() {
+            this.paused = false;
+        }
+    }
+    
+    private class AudioPlayerBroadCastReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d(TAG,"AudioPlayerBroadCastReceiver.onReceive action=" + intent.getAction());
+            
+            if( AudioPlayer.UPDATE_PLAYLIST.equals( intent.getAction())) {
+                updatePlayQueue();
+            }
+        }
+    }
+    
+    private class DownloadBroadcastReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d(TAG,"DownloadBroadcastReceiver.onReceive action = " + intent.getAction());
+            
+            if(intent.getAction().equals(DownloaderService.CONTENT_UPDATED)) {
+                // update playlist
+            }
+        }
+    }
+    
+    private final class AudioPlayerServiceConnection implements ServiceConnection {
+        
+        @SuppressWarnings("unchecked")
+        public void onServiceConnected(ComponentName className, IBinder baBinder) {
+            Log.d(TAG,"AudioPlayerServiceConnection: Service connected");
+            
+            mAudioPlayer = ((LocalBinder<AudioPlayer>) baBinder).getService();
+            startService(mAudioPlayerIntent);
+        }
+
+        public void onServiceDisconnected(ComponentName className) {
+            Log.d(TAG,"AudioPlayerServiceConnection: Service disconnected");
+            
+            mAudioPlayer = null;
+        }
     }
 }

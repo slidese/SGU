@@ -29,7 +29,7 @@
     <dimen name="card_header_button_margin_left">10dp</dimen>
     
     <!-- Sliding layer -->
-    <dimen name="layer_width">240dp</dimen>
+    <dimen name="layer_width">260dp</dimen>
     
     
 </resources>

@@ -21,11 +21,14 @@ public class ContentAdapter extends ArrayAdapter<Content> {
     
     private final String TAG = "ContentAdapter";
     
-    LayoutInflater mInflater;
+    private LayoutInflater mInflater;
+    private ContentListener mListener;
     
     public ContentAdapter(Context context, int textViewResourceId, List<Content> objects) {
         super(context, textViewResourceId, objects);
+        
         mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+        mListener = (ContentListener) context;
     }
 
     @Override
@@ -64,6 +67,14 @@ public class ContentAdapter extends ArrayAdapter<Content> {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            }
+        });
+        
+        holder.play.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                mListener.playContent(content);
             }
         });
         

@@ -195,6 +195,15 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         
         return tracks.get(0);
     }
+    
+    public boolean hasTracks() {
+        if (tracks.isEmpty() || tracks.size() < 1) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
 
     public int elapsed() {
         if (mediaPlayer == null) {
