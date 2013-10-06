@@ -263,7 +263,7 @@ public class StartActivity extends Activity implements ContentListener {
         
         getActionBar().setTitle("");
         
-        
+        mSeeker.setOnSeekBarChangeListener(new TimeLineChangeListener());
     }
     
     private void handleIntent() {
@@ -423,6 +423,49 @@ public class StartActivity extends Activity implements ContentListener {
         public void unPause() {
             this.paused = false;
         }
+    }
+    
+    private class TimeLineChangeListener implements SeekBar.OnSeekBarChangeListener {
+        private Timer delayedSeekTimer;
+        
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            if( fromUser ) {
+                Log.d(TAG,"TimeLineChangeListener progress received from user: "+progress);
+                
+                scheduleSeek(progress);
+                
+                return;
+            }
+        }
+
+        
+        private void scheduleSeek(final int  progress) {
+            if( delayedSeekTimer != null) {
+                delayedSeekTimer.cancel();
+            }
+            delayedSeekTimer = new Timer();
+            delayedSeekTimer.schedule(new TimerTask() {
+                
+                @Override
+                public void run() {
+                    Log.d(TAG,"Delayed Seek Timer run");
+                    
+                    mAudioPlayer.seek(progress);
+                    //updatePlayPanel(audioPlayer.getCurrentTrack());
+                }
+            }, 170);
+        }
+
+        public void onStartTrackingTouch(SeekBar seekBar) {
+            Log.d(TAG,"TimeLineChangeListener started tracking touch");
+            mUpdateCurrentTrackTask.pause();
+        }
+
+        public void onStopTrackingTouch(SeekBar seekBar) {
+            Log.d(TAG,"TimeLineChangeListener stopped tracking touch");
+            mUpdateCurrentTrackTask.unPause();
+        }
+        
     }
     
     private class AudioPlayerBroadCastReceiver extends BroadcastReceiver {

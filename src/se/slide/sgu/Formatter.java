@@ -1,7 +1,6 @@
 package se.slide.sgu;
 
 import android.content.Context;
-import android.text.TextUtils;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
