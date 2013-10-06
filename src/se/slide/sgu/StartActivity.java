@@ -24,6 +24,7 @@ import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.analytics.tracking.android.EasyTracker;
 import com.slidinglayer.SlidingLayer;
@@ -105,6 +106,7 @@ public class StartActivity extends Activity implements ContentListener {
         IntentFilter audioPlayerFilter = new IntentFilter(AudioPlayer.UPDATE_PLAYLIST);
         registerReceiver(mAudioPlayerBroadcastReceiver, audioPlayerFilter);
         
+        handleIntent();
         refreshScreen();
     }
 
@@ -119,8 +121,11 @@ public class StartActivity extends Activity implements ContentListener {
         
         mAudioPlayerBroadcastReceiver = null;
         
-        mUpdateCurrentTrackTask.stop();
-        mUpdateCurrentTrackTask = null;
+        if (mUpdateCurrentTrackTask != null) {
+            mUpdateCurrentTrackTask.stop();
+            mUpdateCurrentTrackTask = null;    
+        }
+        
     }
     
     /**
@@ -140,13 +145,6 @@ public class StartActivity extends Activity implements ContentListener {
         if (item.getItemId() == R.id.action_reload) {
             
             startService(new Intent(this, DownloaderService.class));
-            
-            /*
-            String username = PreferenceManager.getDefaultSharedPreferences(this).getString("username", "");
-            String password = PreferenceManager.getDefaultSharedPreferences(this).getString("password", "");
-            
-            new ReloadTask(username, password).execute();
-            */
             
             return true;
         }
@@ -260,6 +258,10 @@ public class StartActivity extends Activity implements ContentListener {
         
     }
     
+    private void handleIntent() {
+        
+    }
+    
     private void refreshScreen() {
         if(mAudioPlayer == null) {
             updateScreenAsync();
@@ -273,6 +275,7 @@ public class StartActivity extends Activity implements ContentListener {
             
             public void run() {
                 Log.d(TAG,"updateScreenAsync running timmer");
+                
                 if(mAudioPlayer != null) {
                     mWaitForAudioPlayertimer.cancel();
                     mHandler.post( new Runnable() {
@@ -284,6 +287,29 @@ public class StartActivity extends Activity implements ContentListener {
             }
             }, 10, UPDATE_INTERVAL);
     }
+
+    /*
+    private void actionScreenAsync(final int action) {
+        mWaitForAudioPlayertimer.scheduleAtFixedRate( new TimerTask() {
+            
+            public void run() {
+                Log.d(TAG,"actionScreenAsync running timmer, action = " + action);
+                
+                if(mAudioPlayer != null) {
+                    mWaitForAudioPlayertimer.cancel();
+                    mHandler.post( new Runnable() {
+                        public void run() {
+                            if (action == 0)
+                                updatePlayQueue();
+                            else if (action == 1)
+                                mAudioPlayer.pause();
+                        }
+                    });
+                }
+            }
+            }, 10, UPDATE_INTERVAL);
+    }
+    */
     
     public void updatePlayQueue() {
                 
@@ -324,7 +350,10 @@ public class StartActivity extends Activity implements ContentListener {
         if(mAudioPlayer.isPlaying() ) {
             mPlayButton.setImageResource(R.drawable.ic_action_playback_pause);
         } else {
-            mPlayButton.setImageResource(R.drawable.ic_action_playback_play);
+            if (mAudioPlayer.getCurrentTrack() == null)
+                mPlayButton.setImageResource(R.drawable.ic_action_playback_stop);
+            else
+                mPlayButton.setImageResource(R.drawable.ic_action_playback_play);
         }
     }
     
@@ -397,7 +426,10 @@ public class StartActivity extends Activity implements ContentListener {
         public void onReceive(Context context, Intent intent) {
             Log.d(TAG,"AudioPlayerBroadCastReceiver.onReceive action=" + intent.getAction());
             
-            if( AudioPlayer.UPDATE_PLAYLIST.equals( intent.getAction())) {
+            if(AudioPlayer.UPDATE_PLAYLIST.equals( intent.getAction())) {
+                updatePlayQueue();
+            }
+            else if (AudioPlayer.EVENT_PAUSED.equals(intent.getAction())) {
                 updatePlayQueue();
             }
         }

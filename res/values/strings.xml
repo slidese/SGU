@@ -8,6 +8,8 @@
     <string name="ok">Main</string>
     <string name="download">Download</string>
     <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="stop">Stop</string>
     <string name="image_card_thumbnail">Card thumbnail</string>
     <string name="title_section3">Section 3</string>
     <string name="see_more">See more</string>
