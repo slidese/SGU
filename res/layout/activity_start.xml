@@ -37,68 +37,113 @@
         android:layout_height="match_parent"
         >
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:background="@color/player_dark_gray">
             
-            <TextView
-                android:id="@+id/playerTitle"
+            <LinearLayout
+                android:id="@+id/title_linearlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="8dp"
-                android:layout_alignParentTop="true"
-                android:fontFamily="sans-serif-light"
-                android:textSize="@dimen/card_title"
-                android:textColor="@android:color/primary_text_dark"
-                />
+                android:layout_margin="0dp"
+                android:paddingTop="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp"
+                android:background="@drawable/ab_background_textured_example"
+                android:orientation="vertical" 
+                >
+                
+                <TextView
+	                android:id="@+id/playerTitle"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_margin="0dp"
+	                android:fontFamily="sans-serif-light"
+	                android:textSize="@dimen/card_title"
+	                android:textColor="@android:color/primary_text_dark"
+	                />
+                
+                <TextView
+	                android:id="@+id/playerDate"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_margin="0dp"
+	                android:fontFamily="sans-serif-light"
+	                android:textSize="12sp"
+	                android:textColor="@android:color/holo_orange_light"
+	                />
+                
+            </LinearLayout>
             
-            <TextView
-                android:id="@+id/playerDescription"
+            <ScrollView
+                android:id="@+id/scroller"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:layout_below="@id/playerTitle"
-                android:fontFamily="sans-serif-light"
-                android:textSize="@dimen/card_content"
-                android:textColor="@android:color/primary_text_dark"
-                />
-            
-            <!-- TextView 
-                android:id="@+id/swipeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:fontFamily="sans-serif-medium"
-                android:drawablePadding="15dip"
-                android:paddingBottom="80dp"
-                android:textSize="17sp"
-                android:textColor="#074035"/>
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                >
 
-            <Button
-                android:id="@+id/buttonClose"
-                android:layout_width="wrap_content"
+                <TextView
+	                android:id="@+id/playerDescription"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_marginTop="8dp"
+	                android:layout_marginLeft="16dp"
+	                android:layout_marginRight="16dp"
+	                android:layout_marginBottom="16dp"
+	                android:fontFamily="sans-serif-light"
+	                android:textSize="@dimen/card_content"
+	                android:textColor="@android:color/primary_text_dark"
+	                />
+                
+            </ScrollView>
+            
+            <LinearLayout
+                android:id="@+id/player_linearlayout_indicators"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="60dp"
-                android:text="@string/app_name" /-->
+                android:orientation="horizontal"
+                android:gravity="right"
+                >
+                
+                <TextView
+	                android:id="@+id/playerDurationNow"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginTop="8dp"
+	                android:layout_marginLeft="8dp"
+	                android:layout_marginRight="0dp"
+	                android:layout_marginBottom="8dp"
+	                android:gravity="right"
+	                android:fontFamily="sans-serif-light"
+	                android:textSize="12sp"
+	                android:textColor="@android:color/holo_orange_light"
+	                />
+                
+                <TextView
+	                android:id="@+id/playerDurationTotal"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginTop="8dp"
+	                android:layout_marginLeft="0dp"
+	                android:layout_marginRight="8dp"
+	                android:layout_marginBottom="8dp"
+	                android:gravity="right"
+	                android:fontFamily="sans-serif-light"
+	                android:textSize="12sp"
+	                android:textColor="@android:color/primary_text_dark"
+	                />
+                
+            </LinearLayout>
             
             <LinearLayout
 		        android:id="@+id/player_linearlayout"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
-		        android:layout_alignParentBottom="true"
 		        android:background="@color/player_dark_gray"
 		        android:clickable="true"
-		        android:gravity="bottom"
 		        android:orientation="horizontal" >
 		
 		    	<!-- ImageButton
@@ -114,7 +159,7 @@
 		            android:layout_height="wrap_content"
 		            android:layout_gravity="center_horizontal|center_vertical"
 		            android:layout_weight="1"
-		            android:layout_marginLeft="16dp"
+		            android:layout_marginLeft="8dp"
 		            android:layout_marginRight="8dp"
 		            android:maxHeight="11dip"
 		            android:minHeight="11dip" />
@@ -129,8 +174,12 @@
 		            android:src="@drawable/ic_action_playback_play" />
 		
 			</LinearLayout>
+			
+            
+            
+            
 
-        </RelativeLayout>
+        </LinearLayout>
 
     </com.slidinglayer.SlidingLayer>
 	

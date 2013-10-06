@@ -45,6 +45,9 @@ public class StartActivity extends Activity implements ContentListener {
     private ImageButton                     mPlayButton;
     private TextView                        mPlayerTitle;
     private TextView                        mPlayerDescription;
+    private TextView                        mPlayerDurationNow;
+    private TextView                        mPlayerDurationTotal;
+    private TextView                        mPlayerDate;
     private BroadcastReceiver               mDownloadBroadcastReceiver = new DownloadBroadcastReceiver();
     private ServiceConnection               mServiceConnection = new AudioPlayerServiceConnection();
     private AudioPlayer                     mAudioPlayer;
@@ -173,6 +176,9 @@ public class StartActivity extends Activity implements ContentListener {
         mSeeker = (SeekBar) findViewById(R.id.seeker);
         mPlayerTitle = (TextView) findViewById(R.id.playerTitle);
         mPlayerDescription = (TextView) findViewById(R.id.playerDescription);
+        mPlayerDurationNow = (TextView) findViewById(R.id.playerDurationNow);
+        mPlayerDurationTotal = (TextView) findViewById(R.id.playerDurationTotal);
+        mPlayerDate = (TextView) findViewById(R.id.playerDate);
     }
     
     /**
@@ -334,14 +340,19 @@ public class StartActivity extends Activity implements ContentListener {
             
             public void run() {
                 int elapsedMillis = mAudioPlayer.elapsed();
-                //String message = track.getTitle() + " - " + Formatter.formatTimeFromMillis(elapsedMillis);
+                
+                String elapsedMessage = Formatter.formatTimeFromMillis(elapsedMillis);
+                String totalMessage = Formatter.formatTimeFromMillis(track.duration);
+                
                 mSeeker.setMax(track.duration);
                 mSeeker.setProgress(elapsedMillis);
                 //PlayQueueActivity.this.elapsed.setText(message);
                 
-                
                 mPlayerTitle.setText(track.title);
                 mPlayerDescription.setText(track.description);
+                mPlayerDurationNow.setText(elapsedMessage);
+                mPlayerDurationTotal.setText(" / " + totalMessage);
+                mPlayerDate.setText(Formatter.formatDate(getApplicationContext(), track.published));
             }
         });
     }
