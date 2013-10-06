@@ -2,7 +2,7 @@ package se.slide.sgu;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -79,9 +79,18 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         });
         
         String filename = Utils.formatFilename(content.title);
-        File file = Utils.getFilepath(filename);
+        final File file = Utils.getFilepath(filename);
         
-        holder.play.setEnabled(file.exists()); // This should be offloaded somehow since it is being calle each time the view becomes visible
+        /*
+        Handler handler = new Handler();
+        handler.post( new Runnable() {
+            public void run() {
+                holder.play.setEnabled(file.exists());
+            }
+        });
+        */
+        
+         // This should be offloaded somehow since it is being calle each time the view becomes visible
         
         return convertView;
     }

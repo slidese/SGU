@@ -19,6 +19,9 @@
     <!-- Image descriptions -->
     <string name="desc_play_button">Play button</string>
     
-    
+    <!-- Section dummy string -->
+    <string name="section_number">42</string>
+    <string name="section_title">Section dummy title</string>
+    <string name="section_start">1:23</string>
 
 </resources>

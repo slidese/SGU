@@ -14,12 +14,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.SeekBar;
@@ -126,9 +128,9 @@ public class StartActivity extends Activity implements ContentListener {
         
         if (mUpdateCurrentTrackTask != null) {
             mUpdateCurrentTrackTask.stop();
-            mUpdateCurrentTrackTask = null;    
         }
         
+        mUpdateCurrentTrackTask = null;
     }
     
     /**
@@ -294,28 +296,19 @@ public class StartActivity extends Activity implements ContentListener {
             }, 10, UPDATE_INTERVAL);
     }
 
-    /*
-    private void actionScreenAsync(final int action) {
-        mWaitForAudioPlayertimer.scheduleAtFixedRate( new TimerTask() {
-            
-            public void run() {
-                Log.d(TAG,"actionScreenAsync running timmer, action = " + action);
-                
-                if(mAudioPlayer != null) {
-                    mWaitForAudioPlayertimer.cancel();
-                    mHandler.post( new Runnable() {
-                        public void run() {
-                            if (action == 0)
-                                updatePlayQueue();
-                            else if (action == 1)
-                                mAudioPlayer.pause();
-                        }
-                    });
-                }
-            }
-            }, 10, UPDATE_INTERVAL);
+    private void loadSections(Content track) {
+        /*
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+        View section1 = inflater.inflate(R.layout.section_layout_item, null);
+        View section2 = inflater.inflate(R.layout.section_layout_item, null);
+        View section3 = inflater.inflate(R.layout.section_layout_item, null);
+        
+        LinearLayout sectionLinearLayout = (LinearLayout) findViewById(R.id.section_linearlayout);
+        sectionLinearLayout.addView(section1);
+        sectionLinearLayout.addView(section2);
+        sectionLinearLayout.addView(section3);
+        */
     }
-    */
     
     public void updatePlayQueue() {
                 
@@ -374,6 +367,7 @@ public class StartActivity extends Activity implements ContentListener {
     
     public void playContent(Content content) {
         mAudioPlayer.play(content);
+        loadSections(content);
     }
     
     /**
@@ -440,7 +434,7 @@ public class StartActivity extends Activity implements ContentListener {
             if(AudioPlayer.UPDATE_PLAYLIST.equals( intent.getAction())) {
                 updatePlayQueue();
             }
-            else if (AudioPlayer.EVENT_PAUSED.equals(intent.getAction())) {
+            else if (AudioPlayer.EVENT_PLAY_PAUSE.equals(intent.getAction())) {
                 updatePlayQueue();
             }
         }

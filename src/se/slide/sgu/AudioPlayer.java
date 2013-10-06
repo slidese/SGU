@@ -37,7 +37,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     public static final String QUEUE_ALBUM = INTENT_BASE_NAME + ".QUEUE_ALBUM";
     public static final String PLAY_ALBUM = INTENT_BASE_NAME + ".PLAY_ALBUM";
     
-    public static final String EVENT_PAUSED = "EVENT_PAUSED";
+    public static final String EVENT_PLAY_PAUSE = "EVENT_PLAY_PAUSE";
     
     private final String TAG = "AudioPlayer";
     
@@ -234,7 +234,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     }
     
     private void playPauseUpdated() {
-        Intent playPauselistIntent = new Intent(EVENT_PAUSED);
+        Intent playPauselistIntent = new Intent(EVENT_PLAY_PAUSE);
         this.sendBroadcast(playPauselistIntent);
     }
 

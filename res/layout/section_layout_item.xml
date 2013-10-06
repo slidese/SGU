@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="16dp"
+    android:paddingTop="0dp" >
+
+    <TextView
+        android:id="@+id/sectionNumber"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/ab_background_textured_example"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:text="@string/section_number"
+        android:textColor="@android:color/primary_text_dark" />
+
+    <TextView
+        android:id="@+id/sectionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/sectionNumber"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/section_title"
+        android:textColor="@android:color/primary_text_dark" />
+
+    <TextView
+        android:id="@+id/sectionStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sectionTitle"
+        android:layout_toRightOf="@id/sectionNumber"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/section_start"
+        android:textColor="@android:color/holo_orange_light" />
+
+</RelativeLayout>
