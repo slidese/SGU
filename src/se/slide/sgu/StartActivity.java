@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.res.Resources.NotFoundException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -32,10 +33,14 @@ import com.google.analytics.tracking.android.EasyTracker;
 import com.slidinglayer.SlidingLayer;
 
 import org.codechimp.apprater.AppRater;
+import org.xmlpull.v1.XmlPullParserException;
 
 import se.slide.sgu.db.DatabaseManager;
 import se.slide.sgu.model.Content;
+import se.slide.sgu.model.Section;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -158,6 +163,24 @@ public class StartActivity extends Activity implements ContentListener {
                 mSlidingLayer.closeLayer(true);
             else
                 mSlidingLayer.openLayer(true);
+            
+            SectionParser parser = new SectionParser();
+            List<Section> sections = null;
+            try {
+                sections = parser.parse(getResources().openRawResource(R.raw.sample_sections));
+            } catch (NotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (XmlPullParserException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            
+            System.out.println(sections.size());
+            
         }
         else if (item.getItemId() == R.id.action_settings) {
             
@@ -434,10 +457,12 @@ public class StartActivity extends Activity implements ContentListener {
                 
                 scheduleSeek(progress);
                 
+                String elapsedMessage = Formatter.formatTimeFromMillis(progress);
+                mPlayerDurationNow.setText(elapsedMessage);
+                
                 return;
             }
         }
-
         
         private void scheduleSeek(final int  progress) {
             if( delayedSeekTimer != null) {
@@ -450,7 +475,10 @@ public class StartActivity extends Activity implements ContentListener {
                 public void run() {
                     Log.d(TAG,"Delayed Seek Timer run");
                     
+                    
+                    
                     mAudioPlayer.seek(progress);
+                    
                     //updatePlayPanel(audioPlayer.getCurrentTrack());
                 }
             }, 170);

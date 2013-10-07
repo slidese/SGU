@@ -13,6 +13,7 @@ import com.j256.ormlite.table.TableUtils;
 
 import se.slide.sgu.Utils;
 import se.slide.sgu.model.Content;
+import se.slide.sgu.model.Section;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     public void onCreate(SQLiteDatabase arg0, ConnectionSource arg1) {
         try {
             TableUtils.createTable(connectionSource, Content.class);
+            TableUtils.createTable(connectionSource, Section.class);
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
             throw new RuntimeException(e);

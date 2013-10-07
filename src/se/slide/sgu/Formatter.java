@@ -38,4 +38,15 @@ public final class Formatter {
         DateFormat dateFormat = android.text.format.DateFormat.getLongDateFormat(context);
         return dateFormat.format(date);
     }
+    
+    public static int convertStartToSeconds(String start) {
+        int colonIndex = start.indexOf(":");
+        String minutes = start.substring(0, colonIndex);
+        String seconds = start.substring(colonIndex + 1);
+        
+        int secA = Integer.valueOf(minutes) * 60;
+        int secB = Integer.valueOf(seconds);
+        
+        return secA + secB;
+    }
 }
