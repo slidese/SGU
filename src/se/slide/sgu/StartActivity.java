@@ -114,7 +114,9 @@ public class StartActivity extends Activity implements ContentListener {
         registerReceiver(mDownloadBroadcastReceiver, downloadFilter);
         
         mAudioPlayerBroadcastReceiver = new AudioPlayerBroadCastReceiver();
-        IntentFilter audioPlayerFilter = new IntentFilter(AudioPlayer.UPDATE_PLAYLIST);
+        IntentFilter audioPlayerFilter = new IntentFilter();
+        audioPlayerFilter.addAction(AudioPlayer.UPDATE_PLAYLIST);
+        audioPlayerFilter.addAction(AudioPlayer.EVENT_PLAY_PAUSE);
         registerReceiver(mAudioPlayerBroadcastReceiver, audioPlayerFilter);
         
         handleIntent();
@@ -335,7 +337,7 @@ public class StartActivity extends Activity implements ContentListener {
                 
                 @Override
                 public void onClick(View v) {
-                    mAudioPlayer.seek(seek);
+                    mAudioPlayer.seekAndPlay(seek); // This need to be improved
                 }
             });
             
@@ -396,6 +398,8 @@ public class StartActivity extends Activity implements ContentListener {
     }
     
     private void updatePlayPauseButtonState() {
+        Log.d(TAG, "Updating player state");
+        
         if (mAudioPlayer.isPlaying() ) {
             mPlayButton.setImageResource(R.drawable.ic_action_playback_pause);
         } else {
@@ -558,6 +562,7 @@ public class StartActivity extends Activity implements ContentListener {
             mAudioPlayer = ((LocalBinder<AudioPlayer>) baBinder).getService();
             startService(mAudioPlayerIntent);
             loadSections(mAudioPlayer.getCurrentTrack());
+            updatePlayQueue();
         }
 
         public void onServiceDisconnected(ComponentName className) {

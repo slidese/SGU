@@ -29,15 +29,18 @@ import com.augusto.mymediaplayer.repositories.MusicRepository;
 */
 
 public class AudioPlayer extends Service implements OnCompletionListener {
-    public static final String INTENT_BASE_NAME = "com.augusto.mymediaplayer.AudioPlayer";
-    public static final String UPDATE_PLAYLIST = INTENT_BASE_NAME + ".PLAYLIST_UPDATED";
-    public static final String QUEUE_TRACK = INTENT_BASE_NAME + ".QUEUE_TRACK";
-    public static final String PAUSE_TRACK = INTENT_BASE_NAME + ".PAUSE_TRACK";
-    public static final String PLAY_TRACK = INTENT_BASE_NAME + ".PLAY_TRACK";
-    public static final String QUEUE_ALBUM = INTENT_BASE_NAME + ".QUEUE_ALBUM";
-    public static final String PLAY_ALBUM = INTENT_BASE_NAME + ".PLAY_ALBUM";
     
-    public static final String EVENT_PLAY_PAUSE = "EVENT_PLAY_PAUSE";
+    public static final String INTENT_BASE_NAME = "se.slide.sgu.AudioPlayer";
+    
+    public static final String UPDATE_PLAYLIST =    INTENT_BASE_NAME + ".PLAYLIST_UPDATED";
+    public static final String QUEUE_TRACK =        INTENT_BASE_NAME + ".QUEUE_TRACK";
+    public static final String PAUSE_TRACK =        INTENT_BASE_NAME + ".PAUSE_TRACK";
+    public static final String PLAY_TRACK =         INTENT_BASE_NAME + ".PLAY_TRACK";
+    public static final String QUEUE_ALBUM =        INTENT_BASE_NAME + ".QUEUE_ALBUM";
+    public static final String PLAY_ALBUM =         INTENT_BASE_NAME + ".PLAY_ALBUM";
+    public static final String PLAY_PAUSE_TRACK =   INTENT_BASE_NAME + ".PLAY_PAUSE_TRACK";
+    
+    public static final String EVENT_PLAY_PAUSE =   INTENT_BASE_NAME + ".EVENT_PLAY_PAUSE";
     
     private final String TAG = "AudioPlayer";
     
@@ -76,6 +79,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         intentFilter.addAction(PLAY_ALBUM);
         intentFilter.addAction(QUEUE_ALBUM);
         intentFilter.addAction(PAUSE_TRACK);
+        intentFilter.addAction(PLAY_PAUSE_TRACK);
         registerReceiver(broadcastReceiver, intentFilter);
     }
 
@@ -123,7 +127,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pi = PendingIntent.getActivity(this, 0, i, 0);
         
-        Intent pauseIntent = new Intent(PAUSE_TRACK);
+        Intent pauseIntent = new Intent(PLAY_PAUSE_TRACK);
         PendingIntent pendingPauseIntent = PendingIntent.getBroadcast(this, 0, pauseIntent, 0);
         
         Builder builder = new Notification.Builder(this);
@@ -201,12 +205,12 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         }
         
         Content track = tracks.get(0);
-        
-        startAsForeground();
 
         if( mediaPlayer != null && paused) {
             mediaPlayer.start();
             paused = false;
+            updateNotification();
+            playPauseUpdated();
             return;
         } else if( mediaPlayer != null ) {
             release();
@@ -220,7 +224,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
             mediaPlayer.setOnCompletionListener(this);
             
             track.duration = mediaPlayer.getDuration();
-            updateNotification();
+            startAsForeground();
             playPauseUpdated();
         } catch (IOException ioe) {
             Log.e(TAG,"error trying to play " + track , ioe);
@@ -299,6 +303,13 @@ public class AudioPlayer extends Service implements OnCompletionListener {
             mediaPlayer.seekTo(timeInMillis);
         }
     }
+    
+    public void seekAndPlay(int timeInMillis) {
+        if(mediaPlayer != null) {
+            play();
+            mediaPlayer.seekTo(timeInMillis);
+        }
+    }
 
     /*
     private void playTrack(long trackId) {
@@ -329,8 +340,11 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     }
     */
     
-    private void pauseTrack() {
-        pause();
+    private void playPauseTrack() {
+        if (paused)
+            play();
+        else
+            pause();
     }
     
     private class AudioPlayerBroadcastReceiver extends BroadcastReceiver {
@@ -349,8 +363,8 @@ public class AudioPlayer extends Service implements OnCompletionListener {
                 //playTrack(id);
             } else if(QUEUE_TRACK.equals(action)) {
                 //queueTrack(id);
-            } else if(PAUSE_TRACK.equals(action)) {
-                pauseTrack();
+            } else if(PLAY_PAUSE_TRACK.equals(action)) {
+                playPauseTrack();
             } else {
                 Log.d(TAG, "Action not recognized: " + action);
             }
