@@ -4,6 +4,7 @@ package se.slide.sgu.db;
 import android.content.Context;
 
 import se.slide.sgu.model.Content;
+import se.slide.sgu.model.Section;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -14,7 +15,7 @@ public class DatabaseManager {
 
     static public void init(Context ctx) {
         if (instance == null) {
-            instance = new DatabaseManager(ctx);
+            instance = new DatabaseManager(ctx.getApplicationContext());
         }
     }
 
@@ -72,6 +73,30 @@ public class DatabaseManager {
         try {
             for (Content content : listOfContent) {
                 getHelper().getContentDao().createOrUpdate(content);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * Section
+     */
+    
+    public List<Section> getSection(String mp3) {
+        List<Section> listOfSection = null;
+        try {
+            listOfSection = getHelper().getSectionDao().query(getHelper().getSectionDao().queryBuilder().where().like("mp3", mp3).prepare());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listOfSection;
+    }
+    
+    public void addSection(List<Section> listOfSection) {
+        try {
+            for (Section section : listOfSection) {
+                getHelper().getSectionDao().createOrUpdate(section);
             }
         } catch (SQLException e) {
             e.printStackTrace();

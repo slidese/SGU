@@ -2,11 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/section_item_selector"
     android:paddingBottom="0dp"
     android:paddingLeft="0dp"
     android:paddingRight="16dp"
     android:paddingTop="0dp" >
-
+    
     <TextView
         android:id="@+id/sectionNumber"
         android:layout_width="40dp"
@@ -26,6 +27,8 @@
         android:layout_toRightOf="@id/sectionNumber"
         android:fontFamily="sans-serif-light"
         android:text="@string/section_title"
+        android:singleLine="true"
+        android:ellipsize="end"
         android:textColor="@android:color/primary_text_dark" />
 
     <TextView

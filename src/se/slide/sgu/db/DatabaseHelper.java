@@ -27,6 +27,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final int DATABASE_VERSION = 2;
 
     private Dao<Content, Integer> contentDao = null;
+    private Dao<Section, Integer> sectionDao = null;
     private Context context = null;
 
     public DatabaseHelper(Context context) {
@@ -81,5 +82,16 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             }
         }
         return contentDao;
+    }
+    
+    public Dao<Section, Integer> getSectionDao() {
+        if (sectionDao == null) {
+            try {
+                sectionDao = getDao(Section.class);
+            } catch (java.sql.SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return sectionDao;
     }
 }

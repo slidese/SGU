@@ -1,0 +1,87 @@
+<sgu>
+    <episode>
+        <title>SGU Episode 426</title>
+        <description></description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-09-14adfree9erkgjs6ed.mp3</mp3>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            <guest>
+             	<name>Richard Saunders</name>
+             	<website>http://en.wikipedia.org/wiki/Richard_Saunders_(skeptic)</website>
+             	<photo>http://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Saunders_wiki.jpg/220px-Saunders_wiki.jpg</photo>   
+            </guest>
+        </guests>
+        <quote>
+            <text>"When he found that his long cherished beliefs did not agree with the most precise observations, he accepted the uncomfortable facts. He preferred the hard truth to his dearest delusions, that is the heart of science."</text>
+            <by>Carl Sagan</by>
+        </quote>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism</title>
+                <start>0:49</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Motivated Numeracy</title>
+                <start>8:13</start>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Arctic ice</title>
+                <start>20:15</start>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Robot Traders</title>
+                <start>26:57</start>
+            </section>
+            <section>
+                <number>6</number>
+                <title>Teenage Exorcists</title>
+                <start>34:13</start>
+            </section>
+            <section>
+                <number>7</number>
+                <title>Homeopathic Vaccines</title>
+                <start>40:00</start>
+            </section>
+            <section>
+                <number>8</number>
+                <title>A Quickie With Bob: Mission to Mars</title>
+                <start>45:11</start>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Who's That Noisy</title>
+                <start>49:18</start>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Question #1: Bdellovibrio</title>
+                <start>54:34</start>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Science or Fiction</title>
+                <start>63:58</start>
+            </section>
+            <section>
+                <number>12</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>79:58</start>
+            </section>
+        </sections>
+    </episode>
+</sgu>

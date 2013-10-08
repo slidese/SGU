@@ -165,23 +165,6 @@ public class StartActivity extends Activity implements ContentListener {
             else
                 mSlidingLayer.openLayer(true);
             
-            SectionParser parser = new SectionParser();
-            List<Section> sections = null;
-            try {
-                sections = parser.parse(getResources().openRawResource(R.raw.sample_sections));
-            } catch (NotFoundException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (XmlPullParserException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            
-            System.out.println(sections.size());
-            
         }
         else if (item.getItemId() == R.id.action_settings) {
             
@@ -321,6 +304,41 @@ public class StartActivity extends Activity implements ContentListener {
     }
 
     private void loadSections(Content track) {
+        List<Section> listOfSection = DatabaseManager.getInstance().getSection(track.mp3);
+        
+        if (listOfSection == null)
+            return;
+        
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+        LinearLayout sectionLinearLayout = (LinearLayout) findViewById(R.id.section_linearlayout);
+        
+        for (Section section : listOfSection) {
+            View sectionView = inflater.inflate(R.layout.section_layout_item, null);
+            
+            TextView number = (TextView) sectionView.findViewById(R.id.sectionNumber);
+            TextView title = (TextView) sectionView.findViewById(R.id.sectionTitle);
+            TextView start = (TextView) sectionView.findViewById(R.id.sectionStart);
+            
+            final int seek = section.start * 1000;
+            
+            String txtNumber = String.valueOf(section.number);
+            String txtStart = Formatter.formatTimeFromMillis(seek);
+            
+            number.setText(txtNumber);
+            title.setText(section.title);
+            start.setText(txtStart);
+            
+            sectionView.setOnClickListener(new OnClickListener() {
+                
+                @Override
+                public void onClick(View v) {
+                    mAudioPlayer.seek(seek);
+                }
+            });
+            
+            sectionLinearLayout.addView(sectionView);
+        }
+        
         /*
         LayoutInflater inflater = (LayoutInflater) getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         View section1 = inflater.inflate(R.layout.section_layout_item, null);

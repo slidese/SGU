@@ -6,10 +6,13 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable
 public class Section {
 
-    @DatabaseField(id = true)
+    @DatabaseField(generatedId = true)
+    private int id;
+    
+    @DatabaseField
     public String mp3;
     
-    @DatabaseField 
+    @DatabaseField
     public String title;
     
     @DatabaseField

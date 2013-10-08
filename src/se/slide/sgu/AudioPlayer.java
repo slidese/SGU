@@ -93,6 +93,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     @Override
     public void onDestroy() {
         Log.i(TAG, "AudioPlayer: onDestroy() called");
+        unregisterReceiver(broadcastReceiver);
         release();
     }
     

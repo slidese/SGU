@@ -3,6 +3,7 @@ package se.slide.sgu;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.res.Resources.NotFoundException;
 import android.os.AsyncTask;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
@@ -22,11 +23,14 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.xmlpull.v1.XmlPullParserException;
 
 import se.slide.sgu.db.DatabaseManager;
 import se.slide.sgu.model.Content;
+import se.slide.sgu.model.Section;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -45,17 +49,83 @@ public class DownloaderService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        DatabaseManager.init(this);
         GlobalContext.INSTANCE.init(this);
 
         String username = PreferenceManager.getDefaultSharedPreferences(this).getString("username", null);
         String password = PreferenceManager.getDefaultSharedPreferences(this).getString("password", null);
-
+        
         if (username == null || password == null)
             stopSelf();
 
+        // Start metadata download
+        new MetadataAsyncTask().execute();
+        
+        // Start RSS download
         new DownloadAsyncTask(username, password).execute();
 
         return super.onStartCommand(intent, flags, startId);
+    }
+    
+    private class MetadataAsyncTask extends AsyncTask<Void, Void, Boolean> {
+        
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            boolean returnValue = true;
+            
+            StringBuilder builder = new StringBuilder();
+            
+            HttpUriRequest request = new HttpGet("http://www.x12.se/sgu_metadata.xml");
+            HttpClient httpclient = new DefaultHttpClient();
+            
+            try {
+                HttpResponse response = httpclient.execute(request);
+                
+                String inputLine;
+                BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+                try {
+                    while ((inputLine = in.readLine()) != null) {
+                        builder.append(inputLine);
+                    }
+                    in.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    returnValue = false;
+                    GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
+                }
+            } catch (ClientProtocolException e) {
+                e.printStackTrace();
+                returnValue = false;
+                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
+            } catch (IOException e) {
+                e.printStackTrace();
+                returnValue = false;
+                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
+            }
+            
+            SectionParser parser = new SectionParser();
+            List<Section> listOfSection = null;
+            try {
+                //listOfSection = parser.parse(getResources().openRawResource(R.raw.sample_sections));
+                listOfSection = parser.parse(new ByteArrayInputStream(builder.toString().getBytes("UTF-8")));
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+                returnValue = false;
+                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
+            } catch (XmlPullParserException e) {
+                e.printStackTrace();
+                returnValue = false;
+                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
+            } catch (IOException e) {
+                e.printStackTrace();
+                returnValue = false;
+                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
+            }
+            
+            DatabaseManager.getInstance().addSection(listOfSection);
+            
+            return returnValue;
+        }
     }
 
     private class DownloadAsyncTask extends AsyncTask<Void, Void, Boolean> {
