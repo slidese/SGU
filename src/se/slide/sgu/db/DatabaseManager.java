@@ -2,6 +2,9 @@
 package se.slide.sgu.db;
 
 import android.content.Context;
+import android.util.Log;
+
+import com.j256.ormlite.table.TableUtils;
 
 import se.slide.sgu.model.Content;
 import se.slide.sgu.model.Section;
@@ -10,6 +13,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class DatabaseManager {
+    
+    private final String TAG = "DatabaseManager";
+    
     static private DatabaseManager instance;
     private DatabaseHelper helper;
 
@@ -98,6 +104,21 @@ public class DatabaseManager {
             for (Section section : listOfSection) {
                 getHelper().getSectionDao().createOrUpdate(section);
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void removeSections(List<Section> listOfSection) {
+        Log.d(TAG, "Remove sections");
+        
+        try {
+            /*
+            for (Section section : listOfSection) {
+                getHelper().getSectionDao().deleteBuilder().where().like("mp3", section.mp3);                
+            }
+            */
+            TableUtils.clearTable(helper.getConnectionSource(), Section.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }

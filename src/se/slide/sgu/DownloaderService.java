@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.util.Base64;
+import android.util.Log;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -40,6 +41,8 @@ import java.util.List;
 
 public class DownloaderService extends Service {
     
+    private final String TAG = "DownloaderService";
+    
     public static final String CONTENT_UPDATED = "se.slide.sgu.CONTENT_UPDATED";
 
     @Override
@@ -49,6 +52,8 @@ public class DownloaderService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.d(TAG, "Started DownloaderService");
+        
         DatabaseManager.init(this);
         GlobalContext.INSTANCE.init(this);
 
@@ -71,6 +76,8 @@ public class DownloaderService extends Service {
         
         @Override
         protected Boolean doInBackground(Void... params) {
+            Log.d(TAG, "Doing in background: MetadataAsyncTask");
+            
             boolean returnValue = true;
             
             StringBuilder builder = new StringBuilder();
@@ -122,6 +129,7 @@ public class DownloaderService extends Service {
                 GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
             }
             
+            DatabaseManager.getInstance().removeSections(listOfSection);
             DatabaseManager.getInstance().addSection(listOfSection);
             
             return returnValue;
@@ -140,6 +148,8 @@ public class DownloaderService extends Service {
 
         @Override
         protected Boolean doInBackground(Void... params) {
+            Log.d(TAG, "Doing in background: DownloadAsyncTask");
+            
             boolean returnValue = true;
 
             StringBuilder builder = new StringBuilder();
