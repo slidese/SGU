@@ -387,7 +387,7 @@ public class StartActivity extends Activity implements ContentListener {
         
         if(mUpdateCurrentTrackTask == null) {
             mUpdateCurrentTrackTask = new UpdateCurrentTrackTask();
-            mUpdateCurrentTrackTask.execute();
+            mUpdateCurrentTrackTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         } else {
             /*
             if (mAudioPlayer.isPlaying()) {

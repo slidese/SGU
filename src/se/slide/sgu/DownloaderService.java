@@ -64,10 +64,10 @@ public class DownloaderService extends Service {
             stopSelf();
 
         // Start metadata download
-        new MetadataAsyncTask().execute();
+        new MetadataAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         
         // Start RSS download
-        new DownloadAsyncTask(username, password).execute();
+        new DownloadAsyncTask(username, password).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
         return super.onStartCommand(intent, flags, startId);
     }
