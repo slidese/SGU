@@ -25,9 +25,5 @@ public class Utils {
         return Environment.getExternalStoragePublicDirectory(DIR_SGU + filename);
     }
     
-    public static void sendExceptionToGoogleAnalytics(Context ctx, String threadName, Throwable t, boolean fatal) {
-        // https://developers.google.com/analytics/devguides/collection/android/v3/exceptions
-        EasyTracker easyTracker = EasyTracker.getInstance(ctx);
-        easyTracker.send(MapBuilder.createException(new StandardExceptionParser(ctx, null).getDescription(threadName, t), fatal).build());
-    }
+    
 }

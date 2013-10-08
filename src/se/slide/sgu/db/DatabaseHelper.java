@@ -11,6 +11,7 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+import se.slide.sgu.GlobalContext;
 import se.slide.sgu.Utils;
 import se.slide.sgu.model.Content;
 import se.slide.sgu.model.Section;
@@ -66,7 +67,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
         } catch (SQLException e) {
             Log.e(TAG, "Exception during onUpgrade", e);
-            Utils.sendExceptionToGoogleAnalytics(context, Thread.currentThread().getName(), e, false);
+            GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
             throw new RuntimeException(e);
         }
     }

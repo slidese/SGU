@@ -45,6 +45,7 @@ public class DownloaderService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        GlobalContext.INSTANCE.init(this);
 
         String username = PreferenceManager.getDefaultSharedPreferences(this).getString("username", null);
         String password = PreferenceManager.getDefaultSharedPreferences(this).getString("password", null);
@@ -116,17 +117,17 @@ public class DownloaderService extends Service {
                 } catch (IOException e) {
                     e.printStackTrace();
                     returnValue = false;
-                    Utils.sendExceptionToGoogleAnalytics(getApplicationContext(), Thread.currentThread().getName(), e, false);
+                    GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
                 }
 
             } catch (ClientProtocolException e) {
                 e.printStackTrace();
                 returnValue = false;
-                Utils.sendExceptionToGoogleAnalytics(getApplicationContext(), Thread.currentThread().getName(), e, false);
+                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
             } catch (IOException e) {
                 e.printStackTrace();
                 returnValue = false;
-                Utils.sendExceptionToGoogleAnalytics(getApplicationContext(), Thread.currentThread().getName(), e, false);
+                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
             }
 
             // Try to parse the content
@@ -135,7 +136,7 @@ public class DownloaderService extends Service {
             } catch (Exception e) {
                 e.printStackTrace();
                 returnValue = false;
-                Utils.sendExceptionToGoogleAnalytics(getApplicationContext(), Thread.currentThread().getName(), e, false);
+                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
             }
 
             return returnValue;

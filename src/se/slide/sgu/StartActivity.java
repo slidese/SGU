@@ -84,6 +84,7 @@ public class StartActivity extends Activity implements ContentListener {
         bindViews();
         initState();
         
+        GlobalContext.INSTANCE.init(this);
         DatabaseManager.init(this);
         ContentDownloadManager.INSTANCE.init(getApplicationContext()); // Use application context since the download manager should live during the app's entire life
         AppRater.app_launched(this);
