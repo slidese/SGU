@@ -97,6 +97,10 @@ public class ContentFragment extends Fragment {
         updateAdapter();
     }
 
+    public void refresh() {
+        updateAdapter();
+    }
+    
     public void setMode(int mode) {
         this.mode = mode;
         updateAdapter();

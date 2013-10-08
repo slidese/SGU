@@ -303,7 +303,10 @@ public class StartActivity extends Activity implements ContentListener {
             }, 10, UPDATE_INTERVAL);
     }
 
-    private void loadSections(Content track) {
+    private void loadSections(final Content track) {
+        if (track == null)
+            return;
+        
         List<Section> listOfSection = DatabaseManager.getInstance().getSection(track.mp3);
         
         if (listOfSection == null)
@@ -393,7 +396,7 @@ public class StartActivity extends Activity implements ContentListener {
     }
     
     private void updatePlayPauseButtonState() {
-        if(mAudioPlayer.isPlaying() ) {
+        if (mAudioPlayer.isPlaying() ) {
             mPlayButton.setImageResource(R.drawable.ic_action_playback_pause);
         } else {
             if (mAudioPlayer.getCurrentTrack() == null)
@@ -537,7 +540,11 @@ public class StartActivity extends Activity implements ContentListener {
             Log.d(TAG,"DownloadBroadcastReceiver.onReceive action = " + intent.getAction());
             
             if(intent.getAction().equals(DownloaderService.CONTENT_UPDATED)) {
-                // update playlist
+                ContentFragment fragment = (ContentFragment) getFragmentManager().findFragmentById(R.id.adfree_content_list_container);
+                
+                if (fragment != null) {
+                    fragment.refresh();
+                }
             }
         }
     }
@@ -550,6 +557,7 @@ public class StartActivity extends Activity implements ContentListener {
             
             mAudioPlayer = ((LocalBinder<AudioPlayer>) baBinder).getService();
             startService(mAudioPlayerIntent);
+            loadSections(mAudioPlayer.getCurrentTrack());
         }
 
         public void onServiceDisconnected(ComponentName className) {
