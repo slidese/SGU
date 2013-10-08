@@ -206,6 +206,18 @@
                 android:gravity="right"
                 >
                 
+                <SeekBar
+		            android:id="@+id/seeker"
+		            android:layout_width="0dp"
+		            android:layout_height="wrap_content"
+		            android:layout_gravity="center_horizontal|center_vertical"
+		            android:thumb="@android:color/transparent"
+		            android:layout_weight="1"
+		            android:layout_marginLeft="4dp"
+		            android:layout_marginRight="4dp"
+		            android:maxHeight="11dip"
+		            android:minHeight="11dip" />
+                
                 <TextView
 	                android:id="@+id/playerDurationNow"
 	                android:layout_width="wrap_content"
@@ -251,22 +263,31 @@
 		            android:layout_height="60dp"
 		            android:src="@drawable/ic_action_expand" /-->
 		    
-		        <SeekBar
-		            android:id="@+id/seeker"
+		    	<ImageButton
+		            android:id="@+id/skipBackButton"
+		            style="@android:style/Holo.Light.ButtonBar"
+		            android:contentDescription="@string/desc_play_button"
+		            android:background="@drawable/skip_button_selector"
 		            android:layout_width="0dp"
-		            android:layout_height="wrap_content"
-		            android:layout_gravity="center_horizontal|center_vertical"
+		            android:layout_height="60dp"
 		            android:layout_weight="1"
-		            android:layout_marginLeft="8dp"
-		            android:layout_marginRight="8dp"
-		            android:maxHeight="11dip"
-		            android:minHeight="11dip" />
+		            android:src="@drawable/ic_action_playback_rew" />
+		    
+		        <ImageButton
+		            android:id="@+id/skipForwardButton"
+		            style="@android:style/Holo.Light.ButtonBar"
+		            android:contentDescription="@string/desc_play_button"
+		            android:background="@drawable/skip_button_selector"
+		            android:layout_width="0dp"
+		            android:layout_height="60dp"
+		            android:layout_weight="1"
+		            android:src="@drawable/ic_action_playback_forw" />
 		
 		        <ImageButton
 		            android:id="@+id/playButton"
 		            style="@android:style/Holo.Light.ButtonBar"
 		            android:contentDescription="@string/desc_play_button"
-		            android:background="@android:color/holo_blue_light"
+		            android:background="@drawable/playpause_button_selector"
 		            android:layout_width="60dp"
 		            android:layout_height="60dp"
 		            android:src="@drawable/ic_action_playback_play" />

@@ -50,6 +50,8 @@ public class StartActivity extends Activity implements ContentListener {
     
     private SlidingLayer                    mSlidingLayer;
     private ImageButton                     mPlayButton;
+    private ImageButton                     mSkipRewButton;
+    private ImageButton                     mSkipForButton;
     private TextView                        mPlayerTitle;
     private TextView                        mPlayerDescription;
     private TextView                        mPlayerDurationNow;
@@ -184,6 +186,8 @@ public class StartActivity extends Activity implements ContentListener {
     private void bindViews() {
         mSlidingLayer = (SlidingLayer) findViewById(R.id.slidingLayer1);
         mPlayButton = (ImageButton) findViewById(R.id.playButton);
+        mSkipRewButton = (ImageButton) findViewById(R.id.skipBackButton);
+        mSkipForButton = (ImageButton) findViewById(R.id.skipForwardButton);
         mSeeker = (SeekBar) findViewById(R.id.seeker);
         mPlayerTitle = (TextView) findViewById(R.id.playerTitle);
         mPlayerDescription = (TextView) findViewById(R.id.playerDescription);
@@ -219,6 +223,26 @@ public class StartActivity extends Activity implements ContentListener {
                 }
                 
                 refreshScreen();
+            }
+        });
+        
+        mSkipForButton.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                if (mAudioPlayer.isPlaying()) {
+                    mAudioPlayer.seek(mAudioPlayer.elapsed() + 30000);
+                }
+            }
+        });
+        
+        mSkipRewButton.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                if (mAudioPlayer.isPlaying()) {
+                    mAudioPlayer.seek(mAudioPlayer.elapsed() - 10000);
+                }
             }
         });
         
