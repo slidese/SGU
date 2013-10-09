@@ -40,6 +40,6 @@
         android:fontFamily="sans-serif-light"
         android:text="@string/section_start"
         android:textSize="12sp"
-        android:textColor="@android:color/holo_orange_light" />
+        android:textColor="@color/holo_blue_bright" />
 
 </RelativeLayout>
