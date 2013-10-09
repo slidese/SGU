@@ -105,95 +105,6 @@
 		                android:textColor="@android:color/primary_text_dark"
 		                />
                     
-                    <!-- RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" 
-                        android:paddingTop="4dp"
-		                android:paddingLeft="0dp"
-		                android:paddingRight="16dp"
-		                android:paddingBottom="4dp"
-		                
-                        >
-                        
-                        <TextView
-                            android:id="@+id/sectionNumber"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_alignParentLeft="true"
-                            android:layout_marginRight="8dp"
-                            android:gravity="center"
-                            android:fontFamily="sans-serif-light"
-                            android:textColor="@android:color/holo_orange_light"
-                            android:background="@drawable/ab_background_textured_example"
-                            android:text="1"
-                            />
-                            
-                        <TextView
-                            android:id="@+id/sectionTitle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/sectionNumber"
-                            android:fontFamily="sans-serif-light"
-                            android:textColor="@android:color/primary_text_dark"
-                            android:text="This Day in Skepticism" 
-                            />
-                        
-                        <TextView
-                            android:id="@+id/sectionStart"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/sectionNumber"
-                            android:layout_below="@id/sectionTitle"
-                            android:fontFamily="sans-serif-light"
-                            android:textColor="@android:color/primary_text_dark"
-                            android:text="2:15" 
-                            />
-                        
-                    </RelativeLayout>
-                    
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" 
-                        android:paddingTop="4dp"
-		                android:paddingLeft="0dp"
-		                android:paddingRight="16dp"
-		                android:paddingBottom="4dp"
-                        >
-                        
-                        <TextView
-                            android:id="@+id/sectionNumber"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_alignParentLeft="true"
-                            android:gravity="center"
-                            android:fontFamily="sans-serif-light"
-                            android:textColor="@android:color/holo_orange_light"
-                            android:text="2"
-                            />
-                            
-                        <TextView
-                            android:id="@+id/sectionTitle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/sectionNumber"
-                            android:fontFamily="sans-serif-light"
-                            android:textColor="@android:color/primary_text_dark"
-                            android:text="World Teacher Day" 
-                            />
-                        
-                        <TextView
-                            android:id="@+id/sectionStart"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/sectionNumber"
-                            android:layout_below="@id/sectionTitle"
-                            android:fontFamily="sans-serif-light"
-                            android:textColor="@android:color/primary_text_dark"
-                            android:text="6:22" 
-                            />
-                        
-                    </RelativeLayout-->
-                    
                 </LinearLayout>
                 
             </ScrollView>
@@ -255,13 +166,6 @@
 		        android:background="@color/player_dark_gray"
 		        android:clickable="true"
 		        android:orientation="horizontal" >
-		
-		    	<!-- ImageButton
-		            android:id="@+id/showContentButton"
-		            style="@android:style/Holo.Light.ButtonBar"
-		            android:layout_width="60dp"
-		            android:layout_height="60dp"
-		            android:src="@drawable/ic_action_expand" /-->
 		    
 		    	<ImageButton
 		            android:id="@+id/skipBackButton"
@@ -294,10 +198,6 @@
 		
 			</LinearLayout>
 			
-            
-            
-            
-
         </LinearLayout>
 
     </com.slidinglayer.SlidingLayer>
