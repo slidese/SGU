@@ -2,6 +2,7 @@ package se.slide.sgu;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import se.slide.sgu.model.Content;
 
 import java.io.File;
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class ContentAdapter extends ArrayAdapter<Content> {
@@ -81,6 +83,9 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         String filename = Utils.formatFilename(content.title);
         final File file = Utils.getFilepath(filename);
         
+        FileExistsAsyncTask fileAsyncTask = new FileExistsAsyncTask(holder);
+        fileAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, file);
+        
         /*
         Handler handler = new Handler();
         handler.post( new Runnable() {
@@ -101,6 +106,31 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         TextView content;
         Button download;
         Button play;
+        
+    }
+    
+    private class FileExistsAsyncTask extends AsyncTask<File, Void, Boolean> {
+        
+        private WeakReference<ViewHolder> weakHolder;
+        
+        public FileExistsAsyncTask(ViewHolder holder) {
+            weakHolder = new WeakReference<ViewHolder>(holder);
+        }
+        
+        @Override
+        protected Boolean doInBackground(File... files) {
+            return files[0].exists();
+        }
+
+        @Override
+        protected void onPostExecute(Boolean result) {
+            super.onPostExecute(result);
+            
+            ViewHolder holder = weakHolder.get();
+            if (holder != null)
+                holder.play.setEnabled(result);
+        }
+        
         
     }
 }

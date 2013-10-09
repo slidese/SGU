@@ -8,6 +8,16 @@
     
     <color name="player_dark_gray">#333</color>
     
+    <color name="card_listview_background">#eee</color>
+    
+    <!-- Text colors -->
+    <color name="text_white_full">#fff</color>
+    <color name="text_white_bright">#eee</color>
+    <color name="text_white_light">#ddd</color>
+    <color name="text_white_medium">#aaa</color>
+    <color name="text_white_heavy">#777</color>
+    <color name="text_white_dark">#333</color>
+    
     <!-- A light Holo shade of blue -->
     <color name="holo_blue_light">#ff33b5e5</color>
     <!-- A light Holo shade of green -->

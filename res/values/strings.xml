@@ -23,5 +23,8 @@
     <string name="section_number">42</string>
     <string name="section_title">Section dummy title</string>
     <string name="section_start">1:23</string>
+    
+    <!-- Nothing to play, no content -->
+    <string name="no_content_playinfo">Nothing is currently playing. Please select something from the list.</string>
 
 </resources>

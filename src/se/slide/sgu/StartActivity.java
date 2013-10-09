@@ -9,11 +9,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
-import android.content.res.Resources.NotFoundException;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -23,23 +24,21 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.analytics.tracking.android.EasyTracker;
 import com.slidinglayer.SlidingLayer;
 
 import org.codechimp.apprater.AppRater;
-import org.xmlpull.v1.XmlPullParserException;
 
 import se.slide.sgu.db.DatabaseManager;
 import se.slide.sgu.model.Content;
 import se.slide.sgu.model.Section;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -57,6 +56,8 @@ public class StartActivity extends Activity implements ContentListener {
     private TextView                        mPlayerDurationNow;
     private TextView                        mPlayerDurationTotal;
     private TextView                        mPlayerDate;
+    private LinearLayout                    mLinearLayoutPlayer;
+    private RelativeLayout                  mRelativeLayoutNothingPlaying;
     private BroadcastReceiver               mDownloadBroadcastReceiver = new DownloadBroadcastReceiver();
     private ServiceConnection               mServiceConnection = new AudioPlayerServiceConnection();
     private AudioPlayer                     mAudioPlayer;
@@ -194,6 +195,8 @@ public class StartActivity extends Activity implements ContentListener {
         mPlayerDurationNow = (TextView) findViewById(R.id.playerDurationNow);
         mPlayerDurationTotal = (TextView) findViewById(R.id.playerDurationTotal);
         mPlayerDate = (TextView) findViewById(R.id.playerDate);
+        mLinearLayoutPlayer = (LinearLayout) findViewById(R.id.linearlayout_player);
+        mRelativeLayoutNothingPlaying = (RelativeLayout) findViewById(R.id.nothingPlayingView);
     }
     
     /**
@@ -399,6 +402,17 @@ public class StartActivity extends Activity implements ContentListener {
         }
     }
     
+    private void initPlayerView() {
+        if (mAudioPlayer == null || !mAudioPlayer.isPlaying()) {
+            mLinearLayoutPlayer.setVisibility(View.GONE);
+            mRelativeLayoutNothingPlaying.setVisibility(View.VISIBLE);
+        }
+        else {
+            mLinearLayoutPlayer.setVisibility(View.VISIBLE);
+            mRelativeLayoutNothingPlaying.setVisibility(View.GONE);
+        }
+    }
+    
     private void updatePlayPanel(final Content track) {
         runOnUiThread(new Runnable() {
             
@@ -441,6 +455,7 @@ public class StartActivity extends Activity implements ContentListener {
     public void playContent(Content content) {
         mAudioPlayer.play(content);
         loadSections(content);
+        initPlayerView();
     }
     
     /**
@@ -587,6 +602,7 @@ public class StartActivity extends Activity implements ContentListener {
             startService(mAudioPlayerIntent);
             loadSections(mAudioPlayer.getCurrentTrack());
             updatePlayQueue();
+            initPlayerView();
         }
 
         public void onServiceDisconnected(ComponentName className) {

@@ -3,7 +3,9 @@ package se.slide.sgu;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -33,6 +36,7 @@ public class ContentFragment extends Fragment {
     ListView mListview;
     Button mPlayButton;
     ContentAdapter mAdapter;
+    LinearLayout mNoContent;
 
     public ContentFragment() {
 
@@ -44,6 +48,7 @@ public class ContentFragment extends Fragment {
 
         try {
             mListener = (ContentListener) activity;
+            
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement ContentListener");
         }
@@ -68,6 +73,8 @@ public class ContentFragment extends Fragment {
                 Toast.makeText(view.getContext(), "Click!", Toast.LENGTH_SHORT).show();
             }
         });
+        
+        mNoContent = (LinearLayout) view.findViewById(R.id.linearlayout_no_content);
 
         /*
          * View footerView = inflater.inflate(R.layout.footer, null, false);
@@ -95,6 +102,32 @@ public class ContentFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         updateAdapter();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String username = sharedPreferences.getString("username", null);
+
+        if (mListview.getCount() < 1) {
+            mListview.setVisibility(View.GONE);
+            mNoContent.setVisibility(View.VISIBLE);
+        }
+        else if (username == null) {
+            mListview.setVisibility(View.GONE);
+            mNoContent.setVisibility(View.VISIBLE);
+        }
+        else {
+            mListview.setVisibility(View.VISIBLE);
+            mNoContent.setVisibility(View.GONE);
+        }
     }
 
     public void refresh() {

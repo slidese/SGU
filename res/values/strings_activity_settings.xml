@@ -21,6 +21,6 @@
         <item>1</item>
     </string-array>
     
-    <string name="pref_title_auto_download">Download automatically</string>
+    <string name="pref_title_auto_download">Auto download episodes</string>
     
 </resources>

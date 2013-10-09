@@ -36,8 +36,40 @@
         android:layout_width="@dimen/layer_width"
         android:layout_height="match_parent"
         >
+        
+	    <RelativeLayout
+	        android:id="@+id/nothingPlayingView"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:background="@color/player_dark_gray"
+	        android:gravity="center_horizontal|center_vertical"
+	        >
+	        
+            <!-- ImageView
+	            android:id="@+id/musicIcon"
+	            android:layout_height="wrap_content"
+	            android:layout_width="wrap_content"
+	            android:background="@drawable/ic_action_music_1"
+	            android:contentDescription="@string/app_name" 
+	            /-->
+	        
+	        <TextView 
+	            android:layout_height="wrap_content"
+	            android:layout_width="wrap_content"
+	            android:layout_margin="24dp"
+	            android:text="@string/no_content_playinfo"
+	            android:textColor="@color/text_white_medium"
+	            android:fontFamily="sans-serif-light"
+	            android:textSize="@dimen/card_title"
+	            android:textAlignment="center"
+	            android:gravity="center"
+	            />
+	        
+	    </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/linearlayout_player"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
