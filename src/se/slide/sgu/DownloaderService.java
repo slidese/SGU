@@ -1,6 +1,9 @@
 
 package se.slide.sgu;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.Notification.Builder;
 import android.app.Service;
 import android.content.Intent;
 import android.content.res.Resources.NotFoundException;
@@ -35,6 +38,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 // Get context in a service? http://stackoverflow.com/questions/987072/using-application-context-everywhere
@@ -56,6 +60,16 @@ public class DownloaderService extends Service {
         
         DatabaseManager.init(this);
         GlobalContext.INSTANCE.init(this);
+        
+        
+        // Dummy code to visualize the scheduling for testing purposes only
+        Builder builder = new Notification.Builder(this);
+        builder.setContentTitle("Started SGU download at " + GlobalContext.INSTANCE.formatDate(new Date()));
+        Notification note = builder.build();
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(999, note);
+        // End of test dummy code
+        
 
         String username = PreferenceManager.getDefaultSharedPreferences(this).getString("username", null);
         String password = PreferenceManager.getDefaultSharedPreferences(this).getString("password", null);

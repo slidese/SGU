@@ -12,12 +12,15 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_action_planet"
         android:label="@string/app_name"
         android:theme="@style/Theme.Sgu" >
+        
+        <!-- Activities -->
         <activity
             android:name="se.slide.sgu.StartActivity"
             android:label="@string/app_name" >
@@ -35,9 +38,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="se.slide.sgu.StartActivity" />
         </activity>
+        
+        <!-- Services -->
         <service android:name="se.slide.sgu.PlayService" />
         <service android:name="se.slide.sgu.DownloaderService" />
         <service android:name="se.slide.sgu.AudioPlayer" />
+
+        <!-- Receivers -->
+        <receiver android:name="se.slide.sgu.BootReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED"/>
+			</intent-filter>
+		</receiver>
+        <receiver android:name="se.slide.sgu.StartDownloadReceiver"></receiver>
     </application>
 
 </manifest>

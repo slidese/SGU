@@ -416,7 +416,7 @@ public class StartActivity extends Activity implements ContentListener {
                 mPlayerDescription.setText(track.description);
                 mPlayerDurationNow.setText(elapsedMessage);
                 mPlayerDurationTotal.setText(" / " + totalMessage);
-                mPlayerDate.setText(Formatter.formatDate(getApplicationContext(), track.published));
+                mPlayerDate.setText(GlobalContext.INSTANCE.formatDate(track.published));
             }
         });
     }
