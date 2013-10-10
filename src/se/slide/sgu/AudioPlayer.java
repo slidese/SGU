@@ -29,6 +29,8 @@ import com.augusto.mymediaplayer.model.Track;
 import com.augusto.mymediaplayer.repositories.MusicRepository;
 */
 
+// https://github.com/augusto/android-sandbox/blob/master/src/com/augusto/mymediaplayer/services/AudioPlayer.java
+
 public class AudioPlayer extends Service implements OnCompletionListener {
     
     public static final String INTENT_BASE_NAME = "se.slide.sgu.AudioPlayer";
