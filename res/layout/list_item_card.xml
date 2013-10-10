@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--suppress AndroidLintUselessParent -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" style="@style/card_outer">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:sgu="http://schemas.android.com/apk/res/se.slide.sgu" style="@style/card_outer">
 
     <RelativeLayout android:id="@+id/inner_frame" style="@style/card_inner">
 
@@ -9,14 +9,27 @@
 
         <RelativeLayout android:id="@+id/titleFrame" style="@style/card_title_frame">
 
-            <TextView android:id="@+id/title" style="@style/card_title"/>
+            <se.slide.sgu.TypefacedTextView android:id="@+id/title" sgu:typeface="Roboto-Light.ttf" style="@style/card_title"/>
 
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_below="@id/title"
+                android:orientation="horizontal" 
+                >
+            
+                <se.slide.sgu.TypefacedTextView android:id="@+id/length" sgu:typeface="Roboto-Light.ttf" style="@style/card_length" />
+            	<se.slide.sgu.TypefacedTextView android:id="@+id/mb" sgu:typeface="Roboto-Light.ttf" style="@style/card_mb" />
+                
+            </LinearLayout>
+            
+            
             <!--suppress AndroidLintContentDescription >
             <ImageButton android:id="@+id/button1" style="@style/card_popup_anchor" /-->
 
         </RelativeLayout>
 
-        <TextView android:id="@+id/content" style="@style/card_content"/>
+        <se.slide.sgu.TypefacedTextView android:id="@+id/content" sgu:typeface="Roboto-Light.ttf" style="@style/card_content"/>
 
         <View
             android:id="@+id/divider"
@@ -34,20 +47,22 @@
 	        android:layout_below="@id/divider"
 	        >
 	
-	        <Button
+	        <se.slide.sgu.TypefacedButton
 	            android:id="@+id/btnDownload"
 	            style="@style/card_button"
 	            android:layout_width="wrap_content"
 	            android:layout_height="fill_parent"
 	            android:layout_weight="1"
+	            sgu:typeface="Roboto-Light.ttf"
 	            android:text="@string/download" />
 		    
-		    <Button
+		    <se.slide.sgu.TypefacedButton
 		        android:id="@+id/btnPlay"
 		        style="@style/card_button"
 		        android:layout_width="wrap_content"
 		        android:layout_height="fill_parent"
 		        android:layout_weight="1"
+		        sgu:typeface="Roboto-Light.ttf"
 		        android:text="@string/play" />
         
 	    </LinearLayout>

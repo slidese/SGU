@@ -46,6 +46,7 @@ public class ContentAdapter extends ArrayAdapter<Content> {
             
             holder.icon = (ImageView) convertView.findViewById(R.id.icon);
             holder.title = (TextView) convertView.findViewById(R.id.title);
+            holder.length = (TextView) convertView.findViewById(R.id.length);
             holder.content = (TextView) convertView.findViewById(R.id.content);
             holder.download = (Button) convertView.findViewById(R.id.btnDownload);
             holder.play = (Button) convertView.findViewById(R.id.btnPlay);
@@ -57,6 +58,7 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         }
         
         holder.title.setText(content.title);
+        holder.length.setText(Formatter.convertBytesToMegabytes(content.length));
         holder.content.setText(content.description);
         
         holder.download.setOnClickListener(new OnClickListener() {
@@ -103,6 +105,7 @@ public class ContentAdapter extends ArrayAdapter<Content> {
     private class ViewHolder {
         ImageView icon;
         TextView title;
+        TextView length;
         TextView content;
         Button download;
         Button play;

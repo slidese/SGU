@@ -33,4 +33,8 @@ public final class Formatter {
         
         return secA + secB;
     }
+    
+    public static String convertBytesToMegabytes(int bytes) {
+        return Integer.toString(bytes / 1024 / 1024);
+    }
 }

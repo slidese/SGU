@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:sgu="http://schemas.android.com/apk/res/se.slide.sgu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
@@ -53,16 +54,16 @@
 	            android:contentDescription="@string/app_name" 
 	            /-->
 	        
-	        <TextView 
+	        <se.slide.sgu.TypefacedTextView 
 	            android:layout_height="wrap_content"
 	            android:layout_width="wrap_content"
 	            android:layout_margin="24dp"
 	            android:text="@string/no_content_playinfo"
 	            android:textColor="@color/text_white_medium"
-	            android:fontFamily="sans-serif-light"
 	            android:textSize="@dimen/card_title"
 	            android:textAlignment="center"
 	            android:gravity="center"
+	            sgu:typeface="Roboto-Light.ttf"
 	            />
 	        
 	    </RelativeLayout>
@@ -88,24 +89,24 @@
                 android:orientation="vertical" 
                 >
                 
-                <TextView
+                <se.slide.sgu.TypefacedTextView
 	                android:id="@+id/playerTitle"
 	                android:layout_width="match_parent"
 	                android:layout_height="wrap_content"
 	                android:layout_margin="0dp"
-	                android:fontFamily="sans-serif-light"
 	                android:textSize="@dimen/card_title"
 	                android:textColor="@android:color/primary_text_dark"
+	                sgu:typeface="Roboto-Light.ttf"
 	                />
                 
-                <TextView
+                <se.slide.sgu.TypefacedTextView
 	                android:id="@+id/playerDate"
 	                android:layout_width="match_parent"
 	                android:layout_height="wrap_content"
 	                android:layout_margin="0dp"
-	                android:fontFamily="sans-serif-light"
 	                android:textSize="12sp"
 	                android:textColor="@color/holo_blue_bright"
+	                sgu:typeface="Roboto-Light.ttf"
 	                />
                 
             </LinearLayout>
@@ -123,7 +124,7 @@
                     android:orientation="vertical" 
                     >
                     
-                    <TextView
+                    <se.slide.sgu.TypefacedTextView
 		                android:id="@+id/playerDescription"
 		                android:layout_width="match_parent"
 		                android:layout_height="wrap_content"
@@ -131,9 +132,9 @@
 		                android:layout_marginLeft="16dp"
 		                android:layout_marginRight="16dp"
 		                android:layout_marginBottom="16dp"
-		                android:fontFamily="sans-serif-light"
 		                android:textSize="@dimen/card_content"
 		                android:textColor="@android:color/primary_text_dark"
+		                sgu:typeface="Roboto-Light.ttf"
 		                />
                     
                     <LinearLayout
@@ -169,7 +170,7 @@
 		            android:maxHeight="11dip"
 		            android:minHeight="11dip" />
                 
-                <TextView
+                <se.slide.sgu.TypefacedTextView
 	                android:id="@+id/playerDurationNow"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
@@ -178,12 +179,12 @@
 	                android:layout_marginRight="0dp"
 	                android:layout_marginBottom="8dp"
 	                android:gravity="right"
-	                android:fontFamily="sans-serif-light"
 	                android:textSize="12sp"
 	                android:textColor="@color/holo_blue_bright"
+	                sgu:typeface="Roboto-Light.ttf"
 	                />
                 
-                <TextView
+                <se.slide.sgu.TypefacedTextView
 	                android:id="@+id/playerDurationTotal"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
@@ -192,9 +193,9 @@
 	                android:layout_marginRight="8dp"
 	                android:layout_marginBottom="8dp"
 	                android:gravity="right"
-	                android:fontFamily="sans-serif-light"
 	                android:textSize="12sp"
 	                android:textColor="@android:color/primary_text_dark"
+	                sgu:typeface="Roboto-Light.ttf"
 	                />
                 
             </LinearLayout>
