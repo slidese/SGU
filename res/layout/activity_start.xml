@@ -118,7 +118,6 @@
                 >
 
                 <LinearLayout
-                    android:id="@+id/section_linearlayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical" 
@@ -136,6 +135,15 @@
 		                android:textSize="@dimen/card_content"
 		                android:textColor="@android:color/primary_text_dark"
 		                />
+                    
+                    <LinearLayout
+	                    android:id="@+id/section_linearlayout"
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:orientation="vertical" 
+	                    >
+                    
+                    </LinearLayout>
                     
                 </LinearLayout>
                 

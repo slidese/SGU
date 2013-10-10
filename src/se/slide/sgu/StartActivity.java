@@ -336,13 +336,15 @@ public class StartActivity extends Activity implements ContentListener {
         if (track == null)
             return;
         
+        LinearLayout sectionLinearLayout = (LinearLayout) findViewById(R.id.section_linearlayout);
+        sectionLinearLayout.removeAllViews();
+        
         List<Section> listOfSection = DatabaseManager.getInstance().getSection(track.mp3);
         
         if (listOfSection == null)
             return;
         
         LayoutInflater inflater = (LayoutInflater) getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-        LinearLayout sectionLinearLayout = (LinearLayout) findViewById(R.id.section_linearlayout);
         
         for (Section section : listOfSection) {
             View sectionView = inflater.inflate(R.layout.section_layout_item, null);
