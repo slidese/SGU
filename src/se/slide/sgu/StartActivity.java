@@ -373,17 +373,6 @@ public class StartActivity extends Activity implements ContentListener {
             sectionLinearLayout.addView(sectionView);
         }
         
-        /*
-        LayoutInflater inflater = (LayoutInflater) getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-        View section1 = inflater.inflate(R.layout.section_layout_item, null);
-        View section2 = inflater.inflate(R.layout.section_layout_item, null);
-        View section3 = inflater.inflate(R.layout.section_layout_item, null);
-        
-        LinearLayout sectionLinearLayout = (LinearLayout) findViewById(R.id.section_linearlayout);
-        sectionLinearLayout.addView(section1);
-        sectionLinearLayout.addView(section2);
-        sectionLinearLayout.addView(section3);
-        */
     }
     
     public void updatePlayQueue() {
@@ -405,7 +394,7 @@ public class StartActivity extends Activity implements ContentListener {
     }
     
     private void initPlayerView() {
-        if (mAudioPlayer == null || !mAudioPlayer.isPlaying()) {
+        if (mAudioPlayer == null || (!mAudioPlayer.isPlaying() && !mAudioPlayer.isPaused())) {
             mLinearLayoutPlayer.setVisibility(View.GONE);
             mRelativeLayoutNothingPlaying.setVisibility(View.VISIBLE);
         }

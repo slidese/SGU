@@ -1,26 +1,27 @@
 package se.slide.sgu;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
+import android.annotation.SuppressLint;
 import android.app.Notification;
+import android.app.Notification.Builder;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.app.Notification.Builder;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
-import android.os.Binder;
+import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
 import se.slide.sgu.model.Content;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
 import com.augusto.mymediaplayer.R;
@@ -115,6 +116,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         nextTrack();
     }
     
+    @SuppressLint("NewApi")
     private Notification buildNotification() {
         Content track = getCurrentTrack();
         
@@ -137,6 +139,8 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         builder.setContentText(track.description);
         builder.setWhen(System.currentTimeMillis());
         builder.setContentIntent(pi);
+
+        if (android.os.Build.VERSION.SDK_INT >= 16)
         if (isPlaying())
             builder.addAction(R.drawable.ic_action_playback_pause, getString(R.string.pause), pendingPauseIntent);
         else
@@ -271,6 +275,15 @@ public class AudioPlayer extends Service implements OnCompletionListener {
             paused = true;
             updateNotification();
             playPauseUpdated();
+        }
+    }
+    
+    public boolean isPaused() {
+        if (mediaPlayer != null) {
+            return paused;
+        }
+        else {
+            return false;
         }
     }
 
