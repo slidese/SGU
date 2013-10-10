@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.preference.PreferenceManager;
 
 import com.google.analytics.tracking.android.EasyTracker;
 import com.google.analytics.tracking.android.MapBuilder;
@@ -50,5 +51,17 @@ public enum GlobalContext {
 
         // 1 * 24 * 60 * 60 * 1000 = repeat this every day
         mgr.setRepeating(AlarmManager.RTC, cal.getTimeInMillis(), 1 * 24 * 60 * 60 * 1000, pi);
+    }
+    
+    public void savePreference(String key, boolean value) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit().putBoolean(key, value);
+    }
+    
+    public void savePreference(String key, int value) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit().putInt(key, value);
+    }
+    
+    public void savePreference(String key, long value) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit().putLong(key, value);
     }
 }

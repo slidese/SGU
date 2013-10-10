@@ -11,7 +11,7 @@ public enum ContentDownloadManager {
     
     public void init(Context context) {
         if (manager == null)
-            manager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+            manager = (DownloadManager) context.getApplicationContext().getSystemService(Context.DOWNLOAD_SERVICE);
     }
     
     public long addToDownloadQueue(String url, String title, String description, String filename) throws Exception {

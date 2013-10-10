@@ -1,6 +1,7 @@
 
 package se.slide.sgu;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.Notification.Builder;
@@ -54,13 +55,15 @@ public class DownloaderService extends Service {
         return null;
     }
 
+    @SuppressLint("NewApi") // Remove this
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "Started DownloaderService");
         
         DatabaseManager.init(this);
         GlobalContext.INSTANCE.init(this);
-        
+        ContentDownloadManager.INSTANCE.init(this);
+
         
         // Dummy code to visualize the scheduling for testing purposes only
         Builder builder = new Notification.Builder(this);
@@ -74,14 +77,18 @@ public class DownloaderService extends Service {
         String username = PreferenceManager.getDefaultSharedPreferences(this).getString("username", null);
         String password = PreferenceManager.getDefaultSharedPreferences(this).getString("password", null);
         
+        
         if (username == null || password == null)
             stopSelf();
 
+        int lastEpisodeInMs = PreferenceManager.getDefaultSharedPreferences(this).getInt("last_episode_in_ms", 0);
+        boolean autoDownload = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("auto_download", false);
+        
         // Start metadata download
         new MetadataAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         
         // Start RSS download
-        new DownloadAsyncTask(username, password).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        new DownloadAsyncTask(username, password, lastEpisodeInMs, autoDownload).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
         return super.onStartCommand(intent, flags, startId);
     }
@@ -154,10 +161,16 @@ public class DownloaderService extends Service {
 
         private String username;
         private String password;
+        private int lastEpisodeInMs;
+        private long latestEpisodeFound = 0L;
+        private boolean autoDownload;
+        
 
-        public DownloadAsyncTask(String username, String password) {
+        public DownloadAsyncTask(String username, String password, int lastEpisodeInMs, boolean autoDownload) {
             this.username = username;
             this.password = password;
+            this.lastEpisodeInMs = lastEpisodeInMs;
+            this.autoDownload = autoDownload;
         }
 
         @Override
@@ -255,6 +268,21 @@ public class DownloaderService extends Service {
                 listOfContent.add(content);
             }
             
+            if (autoDownload) {
+                for (Content content : listOfContent) {
+                    Date published = content.published;
+                    
+                    // Keep track of the latest episode date
+                    long t = published.getTime();
+                    if (t > latestEpisodeFound)
+                        latestEpisodeFound = t;
+                    
+                    if (published != null && t > lastEpisodeInMs) {
+                        ContentDownloadManager.INSTANCE.addToDownloadQueue(content.mp3, content.title, content.description, Utils.formatFilename(content.title));
+                    }
+                }
+            }
+            
             DatabaseManager.getInstance().addContent(listOfContent);
         }
         
@@ -315,7 +343,10 @@ public class DownloaderService extends Service {
             if (result) {
                 Intent intent = new Intent();
                 intent.setAction(CONTENT_UPDATED);
-                sendBroadcast(intent);    
+                sendBroadcast(intent);
+                
+                GlobalContext.INSTANCE.savePreference("last_episode_in_ms", latestEpisodeFound);
+                
             }
             else {
                 // Show notification?
