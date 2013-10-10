@@ -45,7 +45,12 @@ public class SettingsActivity extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        GlobalContext.INSTANCE.init(this);
+        
         setupActionBar();
+        GlobalContext.INSTANCE.setScheduling();
+        
     }
 
     /**

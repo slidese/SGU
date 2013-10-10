@@ -119,7 +119,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     }
     
     @SuppressLint("NewApi")
-    private Notification buildNotification() {
+    private Notification buildNotification(boolean showTicker) {
         Content track = getCurrentTrack();
         
         if (track == null) {
@@ -136,17 +136,21 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         
         Builder builder = new Notification.Builder(this);
         builder.setSmallIcon(R.drawable.ic_action_planet);
-        builder.setTicker(track.title);
+        
+        if (showTicker)
+            builder.setTicker(track.title);
+        
         builder.setContentTitle(track.title);
         builder.setContentText(track.description);
         builder.setWhen(System.currentTimeMillis());
         builder.setContentIntent(pi);
 
-        if (android.os.Build.VERSION.SDK_INT >= 16)
-        if (isPlaying())
-            builder.addAction(R.drawable.ic_action_playback_pause, getString(R.string.pause), pendingPauseIntent);
-        else
-            builder.addAction(R.drawable.ic_action_playback_play, getString(R.string.play), pendingPauseIntent);
+        if (android.os.Build.VERSION.SDK_INT >= 16) {
+            if (isPlaying())
+                builder.addAction(R.drawable.ic_action_playback_pause, getString(R.string.pause), pendingPauseIntent);
+            else
+                builder.addAction(R.drawable.ic_action_playback_play, getString(R.string.play), pendingPauseIntent);
+        }
         
         Notification note = builder.build();
         note.flags |= Notification.FLAG_NO_CLEAR;
@@ -156,7 +160,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     
     private void startAsForeground() {
         
-        Notification note = buildNotification();
+        Notification note = buildNotification(true);
         
         if (note == null)
             return;
@@ -165,7 +169,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     }
     
     private void updateNotification() {
-        Notification note = buildNotification();
+        Notification note = buildNotification(false);
         
         if (note == null)
             return;
