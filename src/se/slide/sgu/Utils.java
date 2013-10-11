@@ -1,11 +1,7 @@
 package se.slide.sgu;
 
-import android.content.Context;
 import android.os.Environment;
-
-import com.google.analytics.tracking.android.EasyTracker;
-import com.google.analytics.tracking.android.MapBuilder;
-import com.google.analytics.tracking.android.StandardExceptionParser;
+import android.os.StrictMode;
 
 import java.io.File;
 
@@ -25,5 +21,18 @@ public class Utils {
         return Environment.getExternalStoragePublicDirectory(DIR_SGU + filename);
     }
     
-    
+    public static void setStrictMode() {
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                .detectDiskReads()
+                .detectDiskWrites()
+                .detectAll()
+                .penaltyLog()
+                .build());
+        StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
+                .detectLeakedSqlLiteObjects()
+                .detectLeakedClosableObjects()
+                .penaltyLog()
+                .penaltyDeath()
+                .build());
+    }
 }

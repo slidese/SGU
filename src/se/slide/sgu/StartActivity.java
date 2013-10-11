@@ -79,6 +79,8 @@ public class StartActivity extends Activity implements ContentListener {
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Utils.setStrictMode();
+        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         

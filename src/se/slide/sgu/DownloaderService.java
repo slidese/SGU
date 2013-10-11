@@ -81,7 +81,7 @@ public class DownloaderService extends Service {
         if (username == null || password == null)
             stopSelf();
 
-        int lastEpisodeInMs = PreferenceManager.getDefaultSharedPreferences(this).getInt("last_episode_in_ms", 0);
+        long lastEpisodeInMs = PreferenceManager.getDefaultSharedPreferences(this).getLong("last_episode_in_ms", 0L);
         boolean autoDownload = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("auto_download", false);
         
         // Start metadata download
@@ -161,12 +161,12 @@ public class DownloaderService extends Service {
 
         private String username;
         private String password;
-        private int lastEpisodeInMs;
+        private long lastEpisodeInMs;
         private long latestEpisodeFound = 0L;
         private boolean autoDownload;
         
 
-        public DownloadAsyncTask(String username, String password, int lastEpisodeInMs, boolean autoDownload) {
+        public DownloadAsyncTask(String username, String password, long lastEpisodeInMs, boolean autoDownload) {
             this.username = username;
             this.password = password;
             this.lastEpisodeInMs = lastEpisodeInMs;
