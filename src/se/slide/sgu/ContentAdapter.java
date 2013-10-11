@@ -1,9 +1,10 @@
 package se.slide.sgu;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.os.Handler;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -33,6 +34,7 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         mListener = (ContentListener) context;
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
@@ -81,6 +83,30 @@ public class ContentAdapter extends ArrayAdapter<Content> {
                 mListener.playContent(content);
             }
         });
+        
+        if (content.played) {
+            holder.play.setText(R.string.play);
+            holder.play.setTextColor(convertView.getResources().getColor(R.color.text_white_dark));
+            
+            if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                holder.play.setBackgroundDrawable(convertView.getResources().getDrawable(R.drawable.white_button_selector));
+            } else {
+                holder.play.setBackground(convertView.getResources().getDrawable(R.drawable.white_button_selector));
+            }
+        }
+        else {
+            holder.play.setBackgroundResource(R.color.holo_blue_light);
+            holder.play.setText(R.string.play_new);
+            holder.play.setTextColor(convertView.getResources().getColor(R.color.text_white_full));
+            
+            if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                holder.play.setBackgroundDrawable(convertView.getResources().getDrawable(R.drawable.blue_button_selector));
+            } else {
+                holder.play.setBackground(convertView.getResources().getDrawable(R.drawable.blue_button_selector));
+            }
+            
+            
+        }
         
         String filename = Utils.formatFilename(content.title);
         final File file = Utils.getFilepath(filename);

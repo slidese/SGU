@@ -53,6 +53,7 @@
 	            android:layout_width="wrap_content"
 	            android:layout_height="fill_parent"
 	            android:layout_weight="1"
+	            android:background="@drawable/white_button_selector"
 	            sgu:typeface="Roboto-Light.ttf"
 	            android:text="@string/download" />
 		    
