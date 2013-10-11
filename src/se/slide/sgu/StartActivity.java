@@ -472,6 +472,10 @@ public class StartActivity extends Activity implements ContentListener {
         mAudioPlayer.play(content);
         loadSections(content);
         initPlayerView();
+        
+        // Update played state
+        content.played = true;
+        DatabaseManager.getInstance().createOrUpdateContent(content);
     }
     
     public int getMode() {

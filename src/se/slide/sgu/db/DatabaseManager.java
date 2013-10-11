@@ -67,7 +67,7 @@ public class DatabaseManager {
         return listOfContent;
     }
 
-    public void addContent(Content content) {
+    public void createOrUpdateContent(Content content) {
         try {
             getHelper().getContentDao().createOrUpdate(content);
         } catch (SQLException e) {
