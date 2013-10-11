@@ -70,7 +70,8 @@ public class ContentFragment extends Fragment {
 
             @Override
             public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
-                Toast.makeText(view.getContext(), "Click!", Toast.LENGTH_SHORT).show();
+                // This will be implemented in version 2
+                //Toast.makeText(view.getContext(), "Click!", Toast.LENGTH_SHORT).show();
             }
         });
         
