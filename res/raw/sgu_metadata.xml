@@ -1,5 +1,80 @@
 <sgu>
     <episode>
+        <title>SGU Episode 429</title>
+        <description></description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-10-05adfree16yjr395m.mp3</mp3>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"In an argument, you may silence your opponent by pressing an advantage of strength, or of wealth, or of education. But you do not really convince him. Though he is no longer saying anything, in his heart he still keeps to his opinion. The only way to make him change that opinion is to speak quietly and reasonably. When he understands that you are not trying to defeat him, but only to find the truth, he will listen to you and perhaps accept what you tell him."</text>
+            <by>Jigoro Kano, inventor of Judo</by>
+        </quote>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism</title>
+                <start>0:48</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>New IPCC report</title>
+                <start>1:42</start>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Photographing the Soul</title>
+                <start>9:01</start>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Chiropractor Breaks Baby's Neck</title>
+                <start>16:18</start>
+            </section>
+            <section>
+                <number>6</number>
+                <title>Black Hole Explosions and Hair</title>
+                <start>25:26</start>
+            </section>
+            <section>
+                <number>7</number>
+                <title>Who's That Noicy</title>
+                <start>31:43</start>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Monsanto</title>
+                <start>35:42</start>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Overpowered Studies</title>
+                <start>55:51</start>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Science or Fiction</title>
+                <start>60:03</start>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>68:03</start>
+            </section>
+        </sections>
+    </episode>
+    <episode>
         <title>SGU Episode 426</title>
         <description></description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-09-14adfree9erkgjs6ed.mp3</mp3>

@@ -58,10 +58,10 @@ public enum GlobalContext {
     }
     
     public void savePreference(String key, int value) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit().putInt(key, value);
+        PreferenceManager.getDefaultSharedPreferences(context).edit().putInt(key, value).commit();
     }
     
     public void savePreference(String key, long value) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit().putLong(key, value);
+        PreferenceManager.getDefaultSharedPreferences(context).edit().putLong(key, value).commit();
     }
 }
