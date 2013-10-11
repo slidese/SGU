@@ -1,6 +1,7 @@
 package se.slide.sgu;
 
 import android.app.ActionBar;
+import android.app.Fragment;
 import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -67,6 +68,7 @@ public class StartActivity extends Activity implements ContentListener {
     private Timer                           mWaitForAudioPlayertimer = new Timer();
     private Handler                         mHandler = new Handler();
     private SeekBar                         mSeeker;
+    private int                             mMode;
     
     final String[] actions = new String[] {
             "Ad Free",
@@ -84,6 +86,7 @@ public class StartActivity extends Activity implements ContentListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         
+        handleSavedInstanceState(savedInstanceState);
         bindViews();
         initState();
         
@@ -144,6 +147,13 @@ public class StartActivity extends Activity implements ContentListener {
         mUpdateCurrentTrackTask = null;
     }
     
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        
+        outState.putInt("mode", mMode);
+    }
+
     /**
      * Menu methods
      */
@@ -253,16 +263,24 @@ public class StartActivity extends Activity implements ContentListener {
         
         getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
         getActionBar().setListNavigationCallbacks(adapter, new OnNavigationListener() {
+            private boolean synthetic = true;
             
             @Override
             public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+                if (synthetic) {
+                    synthetic = false;
+                    return true;
+                }
+                
                 ContentFragment fragment = (ContentFragment) getFragmentManager().findFragmentById(R.id.adfree_content_list_container);
                 
                 if (fragment == null)
                     return false;
                 
                 if (itemPosition == 0) {
-                   fragment.setMode(ContentFragment.MODE_ADFREE);
+                    mMode = ContentFragment.MODE_ADFREE;
+                   //fragment.setMode(ContentFragment.MODE_ADFREE);
+                    //fragment.refresh();
                     
                     
                     /*
@@ -278,7 +296,8 @@ public class StartActivity extends Activity implements ContentListener {
                     */
                 }
                 else {
-                    fragment.setMode(ContentFragment.MODE_PREMIUM);
+                    mMode = ContentFragment.MODE_PREMIUM;
+                    //fragment.setMode(ContentFragment.MODE_PREMIUM);
                     
                     /*
                     Bundle args = new Bundle();
@@ -293,10 +312,13 @@ public class StartActivity extends Activity implements ContentListener {
                     */
                 }
                 
+                fragment.refresh();
+                
                 return false;
             }
         });
         
+        getActionBar().setSelectedNavigationItem(mMode);
         getActionBar().setTitle("");
         
         mSeeker.setOnSeekBarChangeListener(new TimeLineChangeListener());
@@ -304,6 +326,13 @@ public class StartActivity extends Activity implements ContentListener {
     
     private void handleIntent() {
         
+    }
+    
+    private void handleSavedInstanceState(Bundle savedInstanceState) {
+        if (savedInstanceState == null)
+            return;
+        
+        mMode = savedInstanceState.getInt("mode"); // default is 0
     }
     
     private void refreshScreen() {
@@ -318,7 +347,7 @@ public class StartActivity extends Activity implements ContentListener {
         mWaitForAudioPlayertimer.scheduleAtFixedRate( new TimerTask() {
             
             public void run() {
-                Log.d(TAG,"updateScreenAsync running timmer");
+                Log.d(TAG,"updateScreenAsync running timer");
                 
                 if(mAudioPlayer != null) {
                     mWaitForAudioPlayertimer.cancel();
@@ -447,6 +476,10 @@ public class StartActivity extends Activity implements ContentListener {
         mAudioPlayer.play(content);
         loadSections(content);
         initPlayerView();
+    }
+    
+    public int getMode() {
+        return mMode;
     }
     
     /**

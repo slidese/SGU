@@ -6,9 +6,9 @@ import android.app.Fragment;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -25,13 +25,13 @@ import se.slide.sgu.model.Content;
 import java.util.List;
 
 public class ContentFragment extends Fragment {
+    
+    private final String TAG = "ContentFragment";
 
     public static final int MODE_ADFREE = 0;
     public static final int MODE_PREMIUM = 1;
 
     private ContentListener mListener;
-
-    private int mode = 0;
 
     ListView mListview;
     Button mPlayButton;
@@ -133,15 +133,11 @@ public class ContentFragment extends Fragment {
     public void refresh() {
         updateAdapter();
     }
-    
-    public void setMode(int mode) {
-        this.mode = mode;
-        updateAdapter();
-    }
 
     private void updateAdapter() {
+        
         List<Content> listOfContent = null;
-        if (mode == MODE_ADFREE)
+        if (mListener.getMode() == MODE_ADFREE)
             listOfContent = DatabaseManager.getInstance().getAdFreeContents();
         else
             listOfContent = DatabaseManager.getInstance().getPremiumContents();
