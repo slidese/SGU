@@ -75,10 +75,10 @@ public class DatabaseManager {
         }
     }
     
-    public void addContent(List<Content> listOfContent) {
+    public void createIfNotExistsContent(List<Content> listOfContent) {
         try {
             for (Content content : listOfContent) {
-                getHelper().getContentDao().createOrUpdate(content);
+                getHelper().getContentDao().createIfNotExists(content);
             }
         } catch (SQLException e) {
             e.printStackTrace();

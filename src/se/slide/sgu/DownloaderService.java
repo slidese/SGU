@@ -283,7 +283,7 @@ public class DownloaderService extends Service {
                 }
             }
             
-            DatabaseManager.getInstance().addContent(listOfContent);
+            DatabaseManager.getInstance().createIfNotExistsContent(listOfContent);
         }
         
         /**
@@ -332,7 +332,7 @@ public class DownloaderService extends Service {
 
             }
 
-            DatabaseManager.getInstance().addContent(listOfContent);
+            DatabaseManager.getInstance().createIfNotExistsContent(listOfContent);
 
         }
 
