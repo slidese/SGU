@@ -280,7 +280,7 @@ public class DownloaderService extends Service {
                 listOfContent.add(content);
             }
             
-            if (autoDownload) {
+            if (autoDownload && lastEpisodeInMs > 0) {
                 for (Content content : listOfContent) {
                     Date published = content.published;
                     
