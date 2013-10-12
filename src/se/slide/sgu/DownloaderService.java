@@ -3,8 +3,9 @@ package se.slide.sgu;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.Notification.Builder;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.content.res.Resources.NotFoundException;
@@ -66,20 +67,31 @@ public class DownloaderService extends Service {
 
         
         // Dummy code to visualize the scheduling for testing purposes only
+        Intent notificationIntent = new Intent(this, StartActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
         Builder builder = new Notification.Builder(this);
+        builder.setContentIntent(contentIntent);
+        builder.setWhen(System.currentTimeMillis());
+        builder.setSmallIcon(R.drawable.ic_action_planet);
         builder.setContentTitle("Started SGU download at " + GlobalContext.INSTANCE.formatDate(new Date()));
+        builder.setContentText("This is test code");
         Notification note = builder.build();
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.notify(999, note);
         // End of test dummy code
         
+        if (note != null)
+            return super.onStartCommand(intent, flags, startId);
 
         String username = PreferenceManager.getDefaultSharedPreferences(this).getString("username", null);
         String password = PreferenceManager.getDefaultSharedPreferences(this).getString("password", null);
         
         
-        if (username == null || password == null)
+        if (username == null || password == null) {
             stopSelf();
+            return super.onStartCommand(intent, flags, startId);
+        }
+            
 
         long lastEpisodeInMs = PreferenceManager.getDefaultSharedPreferences(this).getLong("last_episode_in_ms", 0L);
         boolean autoDownload = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("auto_download", false);
