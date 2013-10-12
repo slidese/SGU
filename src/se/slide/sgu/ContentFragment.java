@@ -3,21 +3,18 @@ package se.slide.sgu;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.util.Log;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import com.haarman.listviewanimations.swinginadapters.prepared.SwingBottomInAnimationAdapter;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import se.slide.sgu.db.DatabaseManager;
 import se.slide.sgu.model.Content;
@@ -36,7 +33,8 @@ public class ContentFragment extends Fragment {
     ListView mListview;
     Button mPlayButton;
     ContentAdapter mAdapter;
-    LinearLayout mNoContent;
+    RelativeLayout mNoContent;
+    TextView mNoContentMessage;
 
     public ContentFragment() {
 
@@ -75,7 +73,8 @@ public class ContentFragment extends Fragment {
             }
         });
         
-        mNoContent = (LinearLayout) view.findViewById(R.id.linearlayout_no_content);
+        mNoContent = (RelativeLayout) view.findViewById(R.id.holder_no_content);
+        mNoContentMessage = (TextView) view.findViewById(R.id.message_no_content);
 
         /*
          * View footerView = inflater.inflate(R.layout.footer, null, false);
@@ -114,21 +113,6 @@ public class ContentFragment extends Fragment {
     public void onResume() {
         super.onResume();
         
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String username = sharedPreferences.getString("username", null);
-
-        if (mListview.getCount() < 1) {
-            mListview.setVisibility(View.GONE);
-            mNoContent.setVisibility(View.VISIBLE);
-        }
-        else if (username == null) {
-            mListview.setVisibility(View.GONE);
-            mNoContent.setVisibility(View.VISIBLE);
-        }
-        else {
-            mListview.setVisibility(View.VISIBLE);
-            mNoContent.setVisibility(View.GONE);
-        }
     }
 
     public void refresh() {
@@ -137,15 +121,57 @@ public class ContentFragment extends Fragment {
 
     private void updateAdapter() {
         
-        List<Content> listOfContent = null;
-        if (mListener.getMode() == MODE_ADFREE)
-            listOfContent = DatabaseManager.getInstance().getAdFreeContents();
-        else
-            listOfContent = DatabaseManager.getInstance().getPremiumContents();
-
+        new FetchContentAsyncTask(mListener.getMode()).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        
+    }
+    
+    private void setAdapter(List<Content> listOfContent) {
         mAdapter = new ContentAdapter(getActivity(), R.layout.list_item_card, listOfContent);
-        SwingBottomInAnimationAdapter animationAdapter = new SwingBottomInAnimationAdapter(mAdapter);
-        animationAdapter.setAbsListView(mListview);
-        mListview.setAdapter(animationAdapter);
+        mListview.setAdapter(mAdapter);
+        
+        String username = GlobalContext.INSTANCE.getPreferenceString("username", null);
+
+        if (mListview.getCount() < 1) {
+            mListview.setVisibility(View.GONE);
+            mNoContent.setVisibility(View.VISIBLE);
+            mNoContentMessage.setText(Html.fromHtml(getString(R.string.no_content_no_episodes)));
+        }
+        else if (username == null) {
+            mListview.setVisibility(View.GONE);
+            mNoContent.setVisibility(View.VISIBLE);
+            mNoContentMessage.setText(Html.fromHtml(getString(R.string.no_content_getting_started)));
+        }
+        else {
+            mListview.setVisibility(View.VISIBLE);
+            mNoContent.setVisibility(View.GONE);
+        }
+        
+    }
+    
+    private class FetchContentAsyncTask extends AsyncTask<Void, Void, List<Content>> {
+        
+        private int mode = MODE_ADFREE;
+        
+        public FetchContentAsyncTask(int mode) {
+            this.mode = mode;
+        }
+        
+        @Override
+        protected List<Content> doInBackground(Void... params) {
+            List<Content> listOfContent = null;
+            if (mode == MODE_ADFREE)
+                listOfContent = DatabaseManager.getInstance().getAdFreeContents();
+            else
+                listOfContent = DatabaseManager.getInstance().getPremiumContents();
+            
+            return listOfContent;
+        }
+
+        @Override
+        protected void onPostExecute(List<Content> listOfContent) {
+            super.onPostExecute(listOfContent);
+            
+            setAdapter(listOfContent);
+        }
     }
 }

@@ -72,4 +72,8 @@ public enum GlobalContext {
     public int getPreferenceInt(String key, int defValue) {
         return PreferenceManager.getDefaultSharedPreferences(context).getInt(key, defValue);
     }
+    
+    public String getPreferenceString(String key, String defValue) {
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(key, defValue);
+    }
 }
