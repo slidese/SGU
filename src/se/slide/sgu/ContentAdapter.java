@@ -3,6 +3,8 @@ package se.slide.sgu;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.view.LayoutInflater;
@@ -26,12 +28,15 @@ public class ContentAdapter extends ArrayAdapter<Content> {
     
     private LayoutInflater mInflater;
     private ContentListener mListener;
+    private Resources mResource;
     
     public ContentAdapter(Context context, int textViewResourceId, List<Content> objects) {
         super(context, textViewResourceId, objects);
         
         mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         mListener = (ContentListener) context;
+        mResource = context.getResources();
+        
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -80,24 +85,29 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         });
         
         if (content.played) {
+            int textColorPlayed = mResource.getColor(R.color.text_white_dark);
+            Drawable whiteButtonSelector = mResource.getDrawable(R.drawable.white_button_selector);
+            
             holder.play.setText(R.string.play);
-            holder.play.setTextColor(convertView.getResources().getColor(R.color.text_white_dark));
+            holder.play.setTextColor(textColorPlayed);
             
             if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                holder.play.setBackgroundDrawable(convertView.getResources().getDrawable(R.drawable.white_button_selector));
+                holder.play.setBackgroundDrawable(whiteButtonSelector);
             } else {
-                holder.play.setBackground(convertView.getResources().getDrawable(R.drawable.white_button_selector));
+                holder.play.setBackground(whiteButtonSelector);
             }
         }
         else {
-            holder.play.setBackgroundResource(R.color.holo_blue_light);
+            int textColorNotPlayed = mResource.getColor(R.color.text_white_full);
+            Drawable blueButtonSelector = mResource.getDrawable(R.drawable.blue_button_selector);
+            
             holder.play.setText(R.string.play_new);
-            holder.play.setTextColor(convertView.getResources().getColor(R.color.text_white_full));
+            holder.play.setTextColor(textColorNotPlayed);
             
             if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                holder.play.setBackgroundDrawable(convertView.getResources().getDrawable(R.drawable.blue_button_selector));
+                holder.play.setBackgroundDrawable(blueButtonSelector);
             } else {
-                holder.play.setBackground(convertView.getResources().getDrawable(R.drawable.blue_button_selector));
+                holder.play.setBackground(blueButtonSelector);
             }
             
             
