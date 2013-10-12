@@ -40,9 +40,9 @@
     </style>
 
     <style name="ActionBar.Solid.Sgu" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@drawable/ab_solid_sgu</item>
+        <item name="android:background">@drawable/ab_background_textured_sgu</item>
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_sgu</item>
-        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_sgu</item>
+        <item name="android:backgroundSplit">@drawable/ab_background_textured_sgu</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Sgu</item>
     </style>
 
