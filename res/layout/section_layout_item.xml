@@ -14,7 +14,7 @@
         android:layout_height="40dp"
         android:layout_alignParentLeft="true"
         android:layout_marginRight="8dp"
-        android:background="@drawable/ab_background_textured_example"
+        android:background="@drawable/ab_background_textured_dark"
         android:fontFamily="sans-serif-light"
         android:gravity="center"
         android:text="@string/section_number"
