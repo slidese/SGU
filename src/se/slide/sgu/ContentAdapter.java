@@ -67,12 +67,7 @@ public class ContentAdapter extends ArrayAdapter<Content> {
             
             @Override
             public void onClick(View v) {
-                long id = -1L;
-                try {
-                    id = ContentDownloadManager.INSTANCE.addToDownloadQueue(content.mp3, content.title, content.description, Utils.formatFilename(content.title));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                new DeleteOrDownloadAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, content);
             }
         });
         
@@ -138,6 +133,37 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         
     }
     
+    private class DeleteOrDownloadAsyncTask extends AsyncTask<Content, Void, Boolean> {
+        
+        @Override
+        protected Boolean doInBackground(Content... contents) {
+            if (contents == null)
+                return false;
+            
+            Content content = contents[0];
+            
+            String filename = Utils.formatFilename(content.title);
+            File file = Utils.getFilepath(filename);
+            
+            // Delete or download; that's the.......
+            boolean exists = file.exists();
+            
+            if (exists) {
+                file.delete();
+            }
+            else {
+                long id = -1L;
+                try {
+                    id = ContentDownloadManager.INSTANCE.addToDownloadQueue(content.mp3, content.title, content.description, Utils.formatFilename(content.title));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            
+            return exists;
+        }
+    }
+    
     private class FileExistsAsyncTask extends AsyncTask<File, Void, Boolean> {
         
         private WeakReference<ViewHolder> weakHolder;
@@ -156,8 +182,18 @@ public class ContentAdapter extends ArrayAdapter<Content> {
             super.onPostExecute(result);
             
             ViewHolder holder = weakHolder.get();
-            if (holder != null)
-                holder.play.setEnabled(result);
+            if (holder != null) {
+                //holder.play.setEnabled(result);
+                if (result) {
+                    holder.play.setVisibility(View.VISIBLE);
+                    holder.download.setText(R.string.delete);
+                }
+                else {
+                    holder.play.setVisibility(View.GONE);
+                    holder.download.setText(R.string.download);
+                }
+            }
+            
         }
         
         

@@ -7,8 +7,9 @@
     <string name="action_show_player">Show player</string>
     <string name="ok">Main</string>
     <string name="download">Download</string>
+    <string name="delete">Delete</string>
     <string name="mb">Mb</string>
-    <string name="play">Play</string>
+    <string name="play">Play again</string>
     <string name="play_new">Play new!</string>
     <string name="pause">Pause</string>
     <string name="stop">Stop</string>
