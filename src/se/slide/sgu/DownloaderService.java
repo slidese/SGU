@@ -289,7 +289,7 @@ public class DownloaderService extends Service {
                     if (t > latestEpisodeFound)
                         latestEpisodeFound = t;
                     
-                    if (published != null && t > lastEpisodeInMs) {
+                    if (t > lastEpisodeInMs) {
                         ContentDownloadManager.INSTANCE.addToDownloadQueue(content.mp3, content.title, content.description, Utils.formatFilename(content.title));
                     }
                 }
