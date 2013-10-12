@@ -64,4 +64,12 @@ public enum GlobalContext {
     public void savePreference(String key, long value) {
         PreferenceManager.getDefaultSharedPreferences(context).edit().putLong(key, value).commit();
     }
+    
+    public boolean getPreferenceBoolean(String key, boolean defValue) {
+        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(key, defValue);
+    }
+    
+    public int getPreferenceInt(String key, int defValue) {
+        return PreferenceManager.getDefaultSharedPreferences(context).getInt(key, defValue);
+    }
 }
