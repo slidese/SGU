@@ -119,17 +119,6 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         FileExistsAsyncTask fileAsyncTask = new FileExistsAsyncTask(holder);
         fileAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, file);
         
-        /*
-        Handler handler = new Handler();
-        handler.post( new Runnable() {
-            public void run() {
-                holder.play.setEnabled(file.exists());
-            }
-        });
-        */
-        
-         // This should be offloaded somehow since it is being calle each time the view becomes visible
-        
         return convertView;
     }
 
