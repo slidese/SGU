@@ -5,7 +5,17 @@
     android:layout_height="match_parent"
     >
     
-	<fragment
+    <FrameLayout
+        android:id="@+id/frame_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="0dp"
+	    android:layout_marginLeft="0dp"
+	    android:layout_marginRight="0dp"
+	    android:layout_marginTop="0dp"
+    />
+    
+	<!-- fragment
 	    android:id="@+id/adfree_content_list_container"
 	    android:name="se.slide.sgu.ContentFragment"
 	    android:layout_width="match_parent"
@@ -16,7 +26,7 @@
 	    android:layout_marginTop="0dp"
 	    
 	    tools:context=".StartActivity"
-	    tools:layout="@layout/fragment_content" />
+	    tools:layout="@layout/fragment_content" /-->
 	    
 	<!-- fragment
 	    android:id="@+id/player_container"

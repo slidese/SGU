@@ -1,7 +1,6 @@
 package se.slide.sgu;
 
 import android.app.ActionBar;
-import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -13,13 +12,14 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -40,7 +40,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class StartActivity extends Activity implements ContentListener {
+public class StartActivity extends FragmentActivity implements ContentListener, ActionBar.OnNavigationListener {
     
     private final String TAG = "StartActivity";
     
@@ -65,11 +65,7 @@ public class StartActivity extends Activity implements ContentListener {
     private Handler                         mHandler = new Handler();
     private SeekBar                         mSeeker;
     private int                             mMode;
-    
-    final String[] actions = new String[] {
-            "Ad Free",
-            "Premium"
-    };
+    private boolean                         mShowingBack = false;
     
     static final int UPDATE_INTERVAL = 250;
 
@@ -79,7 +75,7 @@ public class StartActivity extends Activity implements ContentListener {
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Utils.setStrictMode();
+        //Utils.setStrictMode();
         
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
@@ -257,9 +253,11 @@ public class StartActivity extends Activity implements ContentListener {
             }
         });
         
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, actions);
         
-        getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+        
+        
+        /*
+        
         getActionBar().setListNavigationCallbacks(adapter, new OnNavigationListener() {
             private boolean synthetic = true;
             
@@ -270,44 +268,16 @@ public class StartActivity extends Activity implements ContentListener {
                     return true;
                 }
                 
-                ContentFragment fragment = (ContentFragment) getFragmentManager().findFragmentById(R.id.adfree_content_list_container);
+                ContentFragment fragment = (ContentFragment) getFragmentManager().findFragmentById(R.id.frame_1);
                 
                 if (fragment == null)
                     return false;
                 
                 if (itemPosition == 0) {
                     mMode = ContentFragment.MODE_ADFREE;
-                   //fragment.setMode(ContentFragment.MODE_ADFREE);
-                    //fragment.refresh();
-                    
-                    
-                    /*
-                    Bundle args = new Bundle();
-                    args.putInt(ContentFragment.CONTENT_KEY, ContentFragment.CONTENT_TYPE_ADFREE);
-                    
-                    ContentFragment fragment = new ContentFragment();
-                    fragment.setArguments(args);
-                    
-                    getFragmentManager().beginTransaction()
-                        .replace(R.id.adfree_content_list_container, fragment)
-                        .commit();
-                    */
                 }
                 else {
                     mMode = ContentFragment.MODE_PREMIUM;
-                    //fragment.setMode(ContentFragment.MODE_PREMIUM);
-                    
-                    /*
-                    Bundle args = new Bundle();
-                    args.putInt(ContentFragment.CONTENT_KEY, ContentFragment.CONTENT_TYPE_PREMIUM);
-                    
-                    ContentFragment fragment = new ContentFragment();
-                    fragment.setArguments(args);
-                    
-                    getFragmentManager().beginTransaction()
-                        .replace(R.id.adfree_content_list_container, fragment)
-                        .commit();
-                    */
                 }
                 
                 fragment.refresh();
@@ -315,11 +285,22 @@ public class StartActivity extends Activity implements ContentListener {
                 return false;
             }
         });
+        */
         
-        getActionBar().setSelectedNavigationItem(mMode);
+        //getActionBar().setSelectedNavigationItem(mMode);
         getActionBar().setTitle("");
         
         mSeeker.setOnSeekBarChangeListener(new TimeLineChangeListener());
+        
+        Fragment fragment = new MainPodcastFragment();
+        //fragment.setRetainInstance(true);
+        
+        getSupportFragmentManager()
+            .beginTransaction()
+            .replace(R.id.frame_1, fragment)
+            .commit();
+        
+        
     }
     
     private void handleIntent() {
@@ -484,6 +465,53 @@ public class StartActivity extends Activity implements ContentListener {
         return mMode;
     }
     
+    public void showContentDetails(Content content) {
+        /*
+        if (mShowingBack) {
+            getFragmentManager().popBackStack();
+            return;
+        }
+
+        // Flip to the back.
+        mShowingBack = true;
+        
+        .setCustomAnimations(
+                    R.animator.card_flip_right_in, R.animator.card_flip_right_out,
+                    R.animator.card_flip_left_in, R.animator.card_flip_left_out)
+        
+        */
+        
+        Bundle args = new Bundle();
+        //args.putInt(ContentFragment.CONTENT_KEY, ContentFragment.CONTENT_TYPE_ADFREE);
+        
+        MainDetailsFragment fragment = new MainDetailsFragment();
+        fragment.setArguments(args);
+        
+        getSupportFragmentManager().beginTransaction()
+            .replace(R.id.frame_1, fragment)
+            .addToBackStack(null)
+            .commit();
+    }
+    
+    @Override
+    public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+        ContentFragment fragment = (ContentFragment) getSupportFragmentManager().findFragmentById(R.id.frame_1);
+        
+        if (fragment == null)
+            return false;
+        
+        if (itemPosition == 0) {
+            mMode = ContentFragment.MODE_ADFREE;
+        }
+        else {
+            mMode = ContentFragment.MODE_PREMIUM;
+        }
+        
+        fragment.refresh();
+        
+        return false;
+    }
+    
     /**
      * Inner classes
      */
@@ -609,7 +637,8 @@ public class StartActivity extends Activity implements ContentListener {
             Log.d(TAG,"DownloadBroadcastReceiver.onReceive action = " + intent.getAction());
             
             if(intent.getAction().equals(DownloaderService.CONTENT_UPDATED)) {
-                ContentFragment fragment = (ContentFragment) getFragmentManager().findFragmentById(R.id.adfree_content_list_container);
+                //ContentFragment fragment = (ContentFragment) getFragmentManager().findFragmentById(R.id.adfree_content_list_container);
+                ContentFragment fragment = null;
                 
                 if (fragment != null) {
                     fragment.refresh();
@@ -637,4 +666,6 @@ public class StartActivity extends Activity implements ContentListener {
             mAudioPlayer = null;
         }
     }
+
+    
 }

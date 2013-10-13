@@ -2,10 +2,10 @@
 package se.slide.sgu;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.Html;
+import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,16 +25,19 @@ public class ContentFragment extends Fragment {
     
     private final String TAG = "ContentFragment";
 
+    public static final String CONTENT_MODE = "content_mode";
+    
     public static final int MODE_ADFREE = 0;
     public static final int MODE_PREMIUM = 1;
 
-    private ContentListener mListener;
+    private StartActivity mListener;
 
     ListView mListview;
     Button mPlayButton;
     ContentAdapter mAdapter;
     RelativeLayout mNoContent;
     TextView mNoContentMessage;
+    int mMode;
 
     public ContentFragment() {
 
@@ -45,10 +48,10 @@ public class ContentFragment extends Fragment {
         super.onAttach(activity);
 
         try {
-            mListener = (ContentListener) activity;
+            mListener = (StartActivity) activity;
             
         } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implement ContentListener");
+            throw new ClassCastException(activity.toString() + " must be the StartActivity");
         }
     }
 
@@ -70,29 +73,15 @@ public class ContentFragment extends Fragment {
             public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
                 // This will be implemented in version 2
                 //Toast.makeText(view.getContext(), "Click!", Toast.LENGTH_SHORT).show();
+                Content content = mAdapter.getItem(position);
+                mListener.showContentDetails(content);
             }
         });
         
         mNoContent = (RelativeLayout) view.findViewById(R.id.holder_no_content);
         mNoContentMessage = (TextView) view.findViewById(R.id.message_no_content);
-
-        /*
-         * View footerView = inflater.inflate(R.layout.footer, null, false);
-         * mListview.addFooterView(footerView);
-         */
-
-        // LinearLayout playerLinearLayout = (LinearLayout)
-        // view.findViewById(R.id.player_linearlayout);
-        // playerLinearLayout.setBackground(new
-        // ColorDrawable(Color.parseColor("#aa000000")));
-
-        /*
-         * mPlayButton = (ImageButton) view.findViewById(R.id.playButton);
-         * mPlayButton.setOnClickListener(new OnClickListener() {
-         * @Override public void onClick(View view) {
-         * Toast.makeText(view.getContext(), "Click!",
-         * Toast.LENGTH_SHORT).show(); } });
-         */
+        
+        mMode = getArguments().getInt(CONTENT_MODE);
 
         return view;
     }
@@ -120,9 +109,17 @@ public class ContentFragment extends Fragment {
     }
 
     private void updateAdapter() {
+        Log.d(TAG, "updateAdapter");
         
-        new FetchContentAsyncTask(mListener.getMode()).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        //new FetchContentAsyncTask(mMode).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         
+        List<Content> listOfContent;
+        if (mMode == MODE_ADFREE)
+            listOfContent = DatabaseManager.getInstance().getAdFreeContents();
+        else
+            listOfContent = DatabaseManager.getInstance().getPremiumContents();
+        
+        setAdapter(listOfContent);
     }
     
     private void setAdapter(List<Content> listOfContent) {
@@ -131,6 +128,7 @@ public class ContentFragment extends Fragment {
         
         String username = GlobalContext.INSTANCE.getPreferenceString("username", null);
 
+        /*
         if (mListview.getCount() < 1) {
             mListview.setVisibility(View.GONE);
             mNoContent.setVisibility(View.VISIBLE);
@@ -145,6 +143,8 @@ public class ContentFragment extends Fragment {
             mListview.setVisibility(View.VISIBLE);
             mNoContent.setVisibility(View.GONE);
         }
+        */
+        
         
     }
     

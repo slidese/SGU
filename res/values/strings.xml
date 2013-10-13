@@ -31,5 +31,13 @@
     <string name="no_content_playinfo">Nothing is currently playing. Please select something from the list.</string>
     <string name="no_content_getting_started">&lt;h1&gt;Hello!&lt;/h1&gt; 1. Setup username and password in settings&lt;br /&gt;2. Click the refresh button&lt;br /&gt;3. Done!&lt;br /&gt;&lt;br /&gt;Happy listening!</string>
     <string name="no_content_no_episodes">&lt;h1&gt;It\'s empty...&lt;/h1&gt; If you have setup your username and password and clicked refresh the app will download the list of episodes. This may take a couple of minutes depending on your data connection.&lt;br /&gt;&lt;br /&gt;If you\'re still getting this message go back and make sure your username and password is correct.</string>
+    
+    <!-- Tabs -->
+    <string name="tab_adfree">Ad Free</string>
+    <string name="tab_premium">Premium</string>
+    
+    <string name="tab_details">Details</string>
+    <string name="tab_transcript">Transcript</string>
+    <string name="tab_links">Links</string>
 
 </resources>

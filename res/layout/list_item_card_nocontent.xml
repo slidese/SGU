@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--suppress AndroidLintUselessParent -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" style="@style/card_outer">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:sgu="http://schemas.android.com/apk/res/se.slide.sgu" style="@style/card_outer">
 
     <RelativeLayout android:id="@+id/inner_frame" style="@style/card_inner">
 
@@ -11,13 +11,15 @@
                         android:paddingBottom="@dimen/card_inner_padding_vertical"
                         android:layout_centerVertical="true">
 
-            <TextView android:id="@android:id/title" style="@style/card_title"
+            <TextView android:id="@android:id/title" style="@style/card_title" android:text="This is the title"
                       android:layout_centerVertical="true"/>
 
             <!--suppress AndroidLintContentDescription -->
-            <ImageButton android:id="@android:id/button1" style="@style/card_popup_anchor"/>
+            <!-- ImageButton android:id="@android:id/button1" style="@style/card_popup_anchor"/-->
 
         </RelativeLayout>
+        
+        <se.slide.sgu.TypefacedTextView android:id="@+id/content" sgu:typeface="Roboto-Light.ttf" style="@style/card_content" android:text="This is the content"/>
 
     </RelativeLayout>
 
