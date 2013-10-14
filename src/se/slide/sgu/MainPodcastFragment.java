@@ -49,6 +49,7 @@ public class MainPodcastFragment extends Fragment implements ActionBar.OnNavigat
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, actions);
         
         actionBar.setTitle("");
+        actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
         actionBar.setListNavigationCallbacks(adapter, this);
         
