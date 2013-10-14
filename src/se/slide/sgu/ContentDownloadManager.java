@@ -25,8 +25,8 @@ public enum ContentDownloadManager {
         DownloadManager.Request req = new DownloadManager.Request(uri);
 
         int flags = DownloadManager.Request.NETWORK_WIFI;
-        int downloadOver = GlobalContext.INSTANCE.getPreferenceInt("download", -1);
-        if (downloadOver == 0)
+        String downloadOver = GlobalContext.INSTANCE.getPreferenceString("download", "1");
+        if (downloadOver.equals("0"))
             flags = DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE;
         
         req.setAllowedNetworkTypes(flags)
