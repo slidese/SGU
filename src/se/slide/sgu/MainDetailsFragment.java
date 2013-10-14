@@ -42,6 +42,8 @@ public class MainDetailsFragment extends Fragment implements ActionBar.OnNavigat
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -75,7 +77,6 @@ public class MainDetailsFragment extends Fragment implements ActionBar.OnNavigat
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, actions);
         
         actionBar.setTitle("");
-        //actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setListNavigationCallbacks(adapter, this);
         
@@ -108,7 +109,7 @@ public class MainDetailsFragment extends Fragment implements ActionBar.OnNavigat
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                //getActivity().onBackPressed();
+                getFragmentManager().popBackStack();
                 return true;
         }
         return super.onOptionsItemSelected(item);
