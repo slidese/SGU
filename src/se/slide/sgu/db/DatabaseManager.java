@@ -40,7 +40,7 @@ public class DatabaseManager {
     public List<Content> getPremiumContents() {
         List<Content> listOfContent = null;
         try {
-            listOfContent = getHelper().getContentDao().query(getHelper().getContentDao().queryBuilder().where().like("title", "%SGU Premium%").prepare());
+            listOfContent = getHelper().getContentDao().query(getHelper().getContentDao().queryBuilder().orderBy("published", false).where().like("title", "%SGU Premium%").prepare());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -50,7 +50,7 @@ public class DatabaseManager {
     public List<Content> getAdFreeContents() {
         List<Content> listOfContent = null;
         try {
-            listOfContent = getHelper().getContentDao().query(getHelper().getContentDao().queryBuilder().where().like("title", "%The Skeptics Guide%").prepare());
+            listOfContent = getHelper().getContentDao().query(getHelper().getContentDao().queryBuilder().orderBy("published", false).where().like("title", "%The Skeptics Guide%").prepare());
         } catch (SQLException e) {
             e.printStackTrace();
         }
