@@ -73,15 +73,12 @@ public class DownloaderService extends Service {
         builder.setContentIntent(contentIntent);
         builder.setWhen(System.currentTimeMillis());
         builder.setSmallIcon(R.drawable.ic_action_planet);
-        builder.setContentTitle("Started SGU download at " + GlobalContext.INSTANCE.formatDate(new Date()));
-        builder.setContentText("This is test code");
+        builder.setContentTitle("Started SGU download");
+        builder.setContentText("Fired at " + GlobalContext.INSTANCE.formatDate(new Date()));
         Notification note = builder.build();
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.notify(999, note);
         // End of test dummy code
-        
-        if (note != null)
-            return super.onStartCommand(intent, flags, startId);
 
         String username = PreferenceManager.getDefaultSharedPreferences(this).getString("username", null);
         String password = PreferenceManager.getDefaultSharedPreferences(this).getString("password", null);
