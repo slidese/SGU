@@ -36,6 +36,16 @@ public class DatabaseManager {
     private DatabaseHelper getHelper() {
         return helper;
     }
+    
+    public List<Content> getContent(String mp3) {
+        List<Content> listOfContent = null;
+        try {
+            listOfContent = getHelper().getContentDao().query(getHelper().getContentDao().queryBuilder().where().like("mp3", mp3).prepare());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listOfContent;
+    }
 
     public List<Content> getPremiumContents() {
         List<Content> listOfContent = null;

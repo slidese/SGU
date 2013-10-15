@@ -16,12 +16,15 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import se.slide.sgu.animations.ScaleFadePageTransformer;
+import se.slide.sgu.animations.ZoomOutPageTransformer;
 
 import java.util.Locale;
 
 public class MainDetailsFragment extends Fragment implements ActionBar.OnNavigationListener {
     
     private final String TAG = "ContentDetailsFragment";
+    
+    public static final String CONTENT_MP3 = "content_mp3";
     
     private SectionsPagerAdapter                mSectionsPagerAdapter;
     private ViewPager                           mViewPager;
@@ -66,11 +69,13 @@ public class MainDetailsFragment extends Fragment implements ActionBar.OnNavigat
         
         View view = inflater.inflate(R.layout.fragment_viewpager, null);
         
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getChildFragmentManager());
+        String mp3 = getArguments().getString(CONTENT_MP3);
+        
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getChildFragmentManager(), mp3);
 
         mViewPager = (ViewPager) view.findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        mViewPager.setPageTransformer(true, new ScaleFadePageTransformer(getActivity()));
+        mViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         
         final ActionBar actionBar = getActivity().getActionBar();
         
@@ -120,9 +125,12 @@ public class MainDetailsFragment extends Fragment implements ActionBar.OnNavigat
      * one of the sections/tabs/pages.
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
+        
+        private String mp3;
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+        public SectionsPagerAdapter(FragmentManager fm, String mp3) {
             super(fm);
+            this.mp3 = mp3;
         }
 
         @Override
@@ -130,10 +138,20 @@ public class MainDetailsFragment extends Fragment implements ActionBar.OnNavigat
             // getItem is called to instantiate the fragment for the given page.
             // Return a DummySectionFragment (defined as a static inner class
             // below) with the page number as its lone argument.
+            
+            /*
             Fragment fragment = new DummySectionFragment();
             Bundle args = new Bundle();
             args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
             fragment.setArguments(args);
+            */
+            
+            Fragment fragment = new ContentDetailsFragment();
+            
+            Bundle args = new Bundle();
+            args.putString(ContentDetailsFragment.CONTENT_MP3, mp3);
+            fragment.setArguments(args);
+            
             return fragment;
         }
 

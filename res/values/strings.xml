@@ -14,6 +14,7 @@
     <string name="pause">Pause</string>
     <string name="stop">Stop</string>
     <string name="image_card_thumbnail">Card thumbnail</string>
+    <string name="image_card_shadow">Card shadow</string>
     <string name="title_section3">Section 3</string>
     <string name="see_more">See more</string>
     <string name="closing_low_memory">Low memory, closing player</string>

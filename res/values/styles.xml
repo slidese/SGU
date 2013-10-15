@@ -63,6 +63,18 @@
         <item name="android:paddingRight">@dimen/card_outer_padding_horizontal</item>
         <item name="android:descendantFocusability">blocksDescendants</item>
     </style>
+    
+    <style name="card_outer_details">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingTop">@dimen/card_outer_padding_top_details</item>
+        <item name="android:paddingBottom">@dimen/card_outer_padding_bottom_details</item>
+        <item name="android:paddingLeft">@dimen/card_outer_padding_horizontal_details</item>
+        <item name="android:paddingRight">@dimen/card_outer_padding_horizontal_details</item>
+        <item name="android:descendantFocusability">blocksDescendants</item>
+        <item name="android:background">@color/card_listview_background</item>
+    </style>
 
     <style name="card_inner">
         <item name="android:layout_width">match_parent</item>
@@ -71,6 +83,17 @@
         <item name="android:paddingRight">@dimen/card_inner_padding_right</item>
         <item name="android:paddingTop">@dimen/card_inner_padding_vertical</item>
         <item name="android:paddingBottom">@dimen/card_inner_padding_vertical</item-->
+        <item name="android:background">@drawable/card_selector</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
+    
+    <style name="card_inner_details">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingLeft">@dimen/card_inner_padding_left</item>
+        <item name="android:paddingRight">@dimen/card_inner_padding_right</item>
+        <item name="android:paddingTop">@dimen/card_inner_padding_vertical</item>
+        <item name="android:paddingBottom">@dimen/card_inner_padding_vertical</item>
         <item name="android:background">@drawable/card_selector</item>
         <item name="android:duplicateParentState">true</item>
     </style>

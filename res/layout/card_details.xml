@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    xmlns:sgu="http://schemas.android.com/apk/res/se.slide.sgu" 
+    style="@style/card_outer_details">
+
+    <RelativeLayout android:id="@+id/inner_frame" style="@style/card_inner_details">
+
+        <ImageView android:id="@+id/icon" style="@style/card_thumbnail" android:contentDescription="@string/image_card_thumbnail" />
+
+        <RelativeLayout android:id="@+id/titleFrame" style="@style/card_title_frame">
+
+            <se.slide.sgu.TypefacedTextView android:id="@+id/title" sgu:typeface="Roboto-Light.ttf" style="@style/card_title"/>
+            
+        </RelativeLayout>
+
+        <se.slide.sgu.TypefacedTextView android:id="@+id/content" sgu:typeface="Roboto-Light.ttf" style="@style/card_content"/>
+
+        <View
+            android:id="@+id/divider"
+    		android:layout_width="match_parent"
+    		android:layout_height="1dip"
+    		android:layout_marginLeft="16dp"
+    		android:layout_marginRight="16dp"
+    		android:layout_below="@id/content"
+    		android:background="?android:attr/dividerHorizontal" />
+        
+        <LinearLayout
+            android:id="@+id/images"
+            android:layout_below="@id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:orientation="horizontal"
+            >
+            
+        </LinearLayout>
+        
+    </RelativeLayout>
+    
+    <ImageView style="@style/card_shadow" android:contentDescription="@string/image_card_shadow" />
+
+</LinearLayout>

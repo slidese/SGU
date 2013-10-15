@@ -482,10 +482,17 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         */
         
         Bundle args = new Bundle();
+        args.putString(MainDetailsFragment.CONTENT_MP3, content.mp3);
         //args.putInt(ContentFragment.CONTENT_KEY, ContentFragment.CONTENT_TYPE_ADFREE);
         
         MainDetailsFragment fragment = new MainDetailsFragment();
         fragment.setArguments(args);
+        
+        /*
+        .setCustomAnimations(
+            R.animator.card_flip_right_in, R.animator.card_flip_right_out,
+            R.animator.card_flip_left_in, R.animator.card_flip_left_out)
+        */
         
         getSupportFragmentManager().beginTransaction()
             .replace(R.id.frame_1, fragment)

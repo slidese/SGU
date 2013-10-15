@@ -29,6 +29,35 @@
     <dimen name="card_header_button_padding_top">5dp</dimen>
     <dimen name="card_header_button_margin_left">10dp</dimen>
     
+    <!-- Card details -->
+    <dimen name="activity_horizontal_margin_details">16dp</dimen>
+    <dimen name="activity_vertical_margin_details">16dp</dimen>
+
+    <dimen name="card_outer_padding_firstlast_details">8dp</dimen>
+    <dimen name="card_outer_padding_top_details">16dp</dimen>
+    <dimen name="card_outer_padding_bottom_details">16dp</dimen>
+    <dimen name="card_outer_padding_horizontal_details">8dp</dimen>
+    <dimen name="card_inner_padding_vertical_details">8dp</dimen>
+    <dimen name="card_inner_padding_left_details">10dp</dimen>
+    <dimen name="card_inner_padding_right_details">5dp</dimen>
+
+    <dimen name="card_thumbnail_details">56dp</dimen>
+    <dimen name="card_thumbnail_margin_details">5dp</dimen>
+    <dimen name="card_title_margin_left_details">5dp</dimen>
+    <dimen name="card_title_details">18sp</dimen>
+    <dimen name="card_length_details">14sp</dimen>
+    <dimen name="card_content_details">14sp</dimen>
+    <dimen name="card_shadow_details">3dp</dimen>
+
+    <dimen name="card_header_details">21sp</dimen>
+    <dimen name="card_subheader_details">15sp</dimen>
+    <dimen name="card_header_padding_top_details">20dp</dimen>
+    <dimen name="card_header_padding_horizontal_details">20dp</dimen>
+    <dimen name="card_header_button_text_details">13sp</dimen>
+    <dimen name="card_header_button_padding_side_details">8dp</dimen>
+    <dimen name="card_header_button_padding_top_details">5dp</dimen>
+    <dimen name="card_header_button_margin_left_details">10dp</dimen>
+    
     <!-- Sliding layer -->
     <dimen name="layer_width">260dp</dimen>
     
