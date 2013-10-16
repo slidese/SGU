@@ -1,11 +1,13 @@
 package se.slide.sgu;
 
-import android.os.DropBoxManager.Entry;
 import android.util.Xml;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import se.slide.sgu.model.Episode;
+import se.slide.sgu.model.Item;
+import se.slide.sgu.model.Quote;
 import se.slide.sgu.model.Section;
 
 import java.io.IOException;
@@ -18,7 +20,7 @@ public class SectionParser {
     // We don't use namespaces
     private static final String ns = null;
    
-    public List<Section> parse(InputStream in) throws XmlPullParserException, IOException {
+    public List<Episode> parse(InputStream in) throws XmlPullParserException, IOException {
         try {
             XmlPullParser parser = Xml.newPullParser();
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
@@ -30,9 +32,9 @@ public class SectionParser {
         }
     }
     
-    private List<Section> readXml(XmlPullParser parser) throws XmlPullParserException, IOException {
-        List<Section> sections = new ArrayList<Section>();
-
+    private List<Episode> readXml(XmlPullParser parser) throws XmlPullParserException, IOException {
+        List<Episode> listOfEpisodes = new ArrayList<Episode>();
+        
         parser.require(XmlPullParser.START_TAG, ns, "sgu");
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
@@ -41,22 +43,21 @@ public class SectionParser {
             String name = parser.getName();
             
             if (name.equals("episode")) {
-                sections.addAll(readEpisode(parser));
+                listOfEpisodes.add(readEpisode(parser));
             } else {
                 skip(parser);
             }
         }
         
-        return sections;
+        return listOfEpisodes;
     }
     
      // Parses the contents of an entry. If it encounters a title, summary, or link tag, hands them off
      // to their respective "read" methods for processing. Otherwise, skips the tag.
-     private List<Section> readEpisode(XmlPullParser parser) throws XmlPullParserException, IOException {
+     private Episode readEpisode(XmlPullParser parser) throws XmlPullParserException, IOException {
          parser.require(XmlPullParser.START_TAG, ns, "episode");
          
-         String mp3 = null;
-         List<Section> sections = new ArrayList<Section>();
+         Episode episode = new Episode();
          
          while (parser.next() != XmlPullParser.END_TAG) {
              if (parser.getEventType() != XmlPullParser.START_TAG) {
@@ -65,10 +66,25 @@ public class SectionParser {
              String name = parser.getName();
              
              if (name.equals("mp3")) {
-                 mp3 = getText(parser, "mp3");
+                 episode.mp3 = getText(parser, "mp3");
+             }
+             else if (name.equals("title")) {
+                 episode.title = getText(parser, "title");
+             }
+             else if (name.equals("description")) {
+                 episode.description = getText(parser, "description");
              }
              else if (name.equals("sections")) {
-                 sections.addAll(readSections(parser));
+                 episode.listOfSection = readSections(parser); 
+             }
+             else if (name.equals("hosts")) {
+                 episode.hosts = readHosts(parser);
+             }
+             else if (name.equals("quote")) {
+                 episode.quote = readQuote(parser);
+             }
+             else if (name.equals("scienceorfiction")) {
+                 episode.listOfItem = readScienceorfiction(parser);
              }
              else {
                  skip(parser);
@@ -76,11 +92,153 @@ public class SectionParser {
          }
          
          // Set the unique mp3 for each section
-         for (Section section : sections) {
-             section.mp3 = mp3;
+         for (Section section : episode.listOfSection) {
+             section.mp3 = episode.mp3;
          }
          
-         return sections;
+         for (Item item : episode.listOfItem) {
+             item.mp3 = episode.mp3;
+         }
+         
+         episode.quote.mp3 = episode.mp3;
+         
+         return episode;
+     }
+     
+     private List<Item> readScienceorfiction(XmlPullParser parser) throws XmlPullParserException, IOException {
+         parser.require(XmlPullParser.START_TAG, ns, "scienceorfiction");
+         
+         List<Item> listOfItem = new ArrayList<Item>();
+         
+         while (parser.next() != XmlPullParser.END_TAG) {
+             if (parser.getEventType() != XmlPullParser.START_TAG) {
+                 continue;
+             }
+             String name = parser.getName();
+             
+             if (name.equals("item")) {
+                 listOfItem.add(readItem(parser));
+             }
+             else {
+                 skip(parser);
+             }
+             
+         }
+         return listOfItem;
+     }
+     
+     private Item readItem(XmlPullParser parser) throws XmlPullParserException, IOException, NumberFormatException {
+         parser.require(XmlPullParser.START_TAG, ns, "item");
+         
+         Item item = new Item();
+         
+         boolean science = true; //default to science? ;)
+         
+         String sci = parser.getAttributeValue(null, "science");
+         if (sci != null && sci.equalsIgnoreCase("false"))
+             science = false;
+         
+         item.science = science;
+         
+         while (parser.next() != XmlPullParser.END_TAG) {
+             if (parser.getEventType() != XmlPullParser.START_TAG) {
+                 continue;
+             }
+             String name = parser.getName();
+             
+             if (name.equals("title")) {
+                 item.title = getText(parser, "title");
+             }
+             else if (name.equals("description")) {
+                 item.description = getText(parser, "description");
+             }
+             else if (name.equals("link")) {
+                 item.link = getText(parser, "link");
+             }
+             else {
+                 skip(parser);
+             }
+         }
+         
+         
+         return item;
+     }
+     
+     private Quote readQuote(XmlPullParser parser) throws XmlPullParserException, IOException {
+         parser.require(XmlPullParser.START_TAG, ns, "quote");
+         
+         Quote quote = new Quote();
+         
+         while (parser.next() != XmlPullParser.END_TAG) {
+             if (parser.getEventType() != XmlPullParser.START_TAG) {
+                 continue;
+             }
+             String name = parser.getName();
+             
+             if (name.equals("text")) {
+                 quote.text = getText(parser, "text");
+             }
+             else if (name.equals("by")) {
+                 quote.by = getText(parser, "by");
+             } 
+             else {
+                 skip(parser);
+             }
+             
+         }
+         return quote;
+     }
+     
+     private String readHosts(XmlPullParser parser) throws XmlPullParserException, IOException {
+         parser.require(XmlPullParser.START_TAG, ns, "hosts");
+         
+         List<String> hosts = new ArrayList<String>();
+         
+         while (parser.next() != XmlPullParser.END_TAG) {
+             if (parser.getEventType() != XmlPullParser.START_TAG) {
+                 continue;
+             }
+             String name = parser.getName();
+             
+             if (name.equals("host")) {
+                 hosts.add(readHost(parser));
+             }
+             else {
+                 skip(parser);
+             }
+             
+         }
+         
+         // Convert to SQLite friendly String
+         StringBuilder builder = new StringBuilder();
+         for (int i = 0; i < hosts.size(); i++) {
+             String id = hosts.get(i);
+             
+             if (id == null)
+                 continue;
+             
+             builder.append(hosts.get(i));
+             
+             if (i < hosts.size() - 1)
+                 builder.append(";");
+         }
+         
+         return builder.toString();
+     }
+     
+     private String readHost(XmlPullParser parser) throws XmlPullParserException, IOException, NumberFormatException {
+         parser.require(XmlPullParser.START_TAG, ns, "host");
+         
+         String id = parser.getAttributeValue(null, "id");
+         
+         while (parser.next() != XmlPullParser.END_TAG) {
+             if (parser.getEventType() != XmlPullParser.START_TAG) {
+                 continue;
+             }
+             skip(parser);
+         }
+                  
+         return id;
      }
      
      // Parses the contents of an entry. If it encounters a title, summary, or link tag, hands them off

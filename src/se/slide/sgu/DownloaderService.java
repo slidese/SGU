@@ -33,7 +33,7 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import se.slide.sgu.db.DatabaseManager;
 import se.slide.sgu.model.Content;
-import se.slide.sgu.model.Section;
+import se.slide.sgu.model.Episode;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -97,7 +97,7 @@ public class DownloaderService extends Service {
         new MetadataAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         
         // Start RSS download
-        new DownloadAsyncTask(username, password, lastEpisodeInMs, autoDownload).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        //new DownloadAsyncTask(username, password, lastEpisodeInMs, autoDownload).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
         return super.onStartCommand(intent, flags, startId);
     }
@@ -141,10 +141,11 @@ public class DownloaderService extends Service {
             }
             
             SectionParser parser = new SectionParser();
-            List<Section> listOfSection = null;
+            //List<Section> listOfSection = null;
+            List<Episode> listOfEpisodes = null;
             try {
                 //listOfSection = parser.parse(getResources().openRawResource(R.raw.sample_sections));
-                listOfSection = parser.parse(new ByteArrayInputStream(builder.toString().getBytes("UTF-8")));
+                listOfEpisodes = parser.parse(new ByteArrayInputStream(builder.toString().getBytes("UTF-8")));
             } catch (NotFoundException e) {
                 e.printStackTrace();
                 returnValue = false;
@@ -159,8 +160,23 @@ public class DownloaderService extends Service {
                 GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
             }
             
-            DatabaseManager.getInstance().removeSections(listOfSection);
-            DatabaseManager.getInstance().addSection(listOfSection);
+            if (listOfEpisodes != null) {
+                // Clear old items
+                DatabaseManager.getInstance().removeSections();
+                DatabaseManager.getInstance().removeEpisode();
+                DatabaseManager.getInstance().removeItems();
+                DatabaseManager.getInstance().removeQuotes();
+                DatabaseManager.getInstance().removeGuests();
+                
+                for (Episode episode : listOfEpisodes) {
+                    DatabaseManager.getInstance().addSections(episode.listOfSection);
+                    DatabaseManager.getInstance().addGuests(episode.listOfGuests);
+                    DatabaseManager.getInstance().addQuote(episode.quote);
+                    DatabaseManager.getInstance().addItems(episode.listOfItem);
+                }
+                
+                DatabaseManager.getInstance().addEpisodes(listOfEpisodes);
+            }
             
             return returnValue;
         }
@@ -292,7 +308,7 @@ public class DownloaderService extends Service {
                 }
             }
             
-            DatabaseManager.getInstance().createIfNotExistsContent(listOfContent);
+            DatabaseManager.getInstance().createIfNotExistsContents(listOfContent);
         }
         
         /**
@@ -341,7 +357,7 @@ public class DownloaderService extends Service {
 
             }
 
-            DatabaseManager.getInstance().createIfNotExistsContent(listOfContent);
+            DatabaseManager.getInstance().createIfNotExistsContents(listOfContent);
 
         }
 

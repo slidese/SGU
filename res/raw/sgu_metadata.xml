@@ -16,6 +16,23 @@
             <text>"In an argument, you may silence your opponent by pressing an advantage of strength, or of wealth, or of education. But you do not really convince him. Though he is no longer saying anything, in his heart he still keeps to his opinion. The only way to make him change that opinion is to speak quietly and reasonably. When he understands that you are not trying to defeat him, but only to find the truth, he will listen to you and perhaps accept what you tell him."</text>
             <by>Jigoro Kano, inventor of Judo</by>
         </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>The most robust study to date finds that depression does not increase risk for developing cancer.</description>
+                <link>http://presse-inserm.fr/en/depression-does-not-expose-someone-to-a-greater-risk-of-cancer/9675/</link>
+            </item>
+            <item science="true">
+                <title>Item #2</title>
+                <description>A new study finds that bystander CPR for out-of-hospital cardiac arrest more than doubles short and long term survival.</description>
+                <link>http://www.eurekalert.org/pub_releases/2013-10/tjnj-sfi092613.php</link>
+            </item>
+            <item science="false">
+                <title>Item #3</title>
+                <description>Scientists have discovered the gene variants that in most people determine left or right-handedness.</description>
+                <link>http://www.nottingham.ac.uk/news/pressreleases/2013/october/what-makes-us-left-or-right-handed-new-study-rules-out-strong-genetic-factors.aspx</link>
+            </item>
+        </scienceorfiction>
         <sections>
             <section>
                 <number>1</number>
@@ -88,8 +105,7 @@
         <guests>
             <guest>
              	<name>Richard Saunders</name>
-             	<website>http://en.wikipedia.org/wiki/Richard_Saunders_(skeptic)</website>
-             	<photo>http://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Saunders_wiki.jpg/220px-Saunders_wiki.jpg</photo>   
+             	<url>http://en.wikipedia.org/wiki/Richard_Saunders_(skeptic)</url>
             </guest>
         </guests>
         <quote>

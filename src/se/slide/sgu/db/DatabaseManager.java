@@ -7,6 +7,10 @@ import android.util.Log;
 import com.j256.ormlite.table.TableUtils;
 
 import se.slide.sgu.model.Content;
+import se.slide.sgu.model.Episode;
+import se.slide.sgu.model.Guest;
+import se.slide.sgu.model.Item;
+import se.slide.sgu.model.Quote;
 import se.slide.sgu.model.Section;
 
 import java.sql.SQLException;
@@ -85,7 +89,7 @@ public class DatabaseManager {
         }
     }
     
-    public void createIfNotExistsContent(List<Content> listOfContent) {
+    public void createIfNotExistsContents(List<Content> listOfContent) {
         try {
             for (Content content : listOfContent) {
                 getHelper().getContentDao().createIfNotExists(content);
@@ -109,7 +113,7 @@ public class DatabaseManager {
         return listOfSection;
     }
     
-    public void addSection(List<Section> listOfSection) {
+    public void addSections(List<Section> listOfSection) {
         try {
             for (Section section : listOfSection) {
                 getHelper().getSectionDao().createOrUpdate(section);
@@ -119,16 +123,155 @@ public class DatabaseManager {
         }
     }
     
-    public void removeSections(List<Section> listOfSection) {
+    public void removeSections() {
         Log.d(TAG, "Remove sections");
         
         try {
-            /*
-            for (Section section : listOfSection) {
-                getHelper().getSectionDao().deleteBuilder().where().like("mp3", section.mp3);                
-            }
-            */
             TableUtils.clearTable(helper.getConnectionSource(), Section.class);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * Guest
+     */
+    
+    public List<Guest> getGuest(String mp3) {
+        List<Guest> listOfGuest = null;
+        try {
+            listOfGuest = getHelper().getGuestDao().query(getHelper().getGuestDao().queryBuilder().where().like("mp3", mp3).prepare());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listOfGuest;
+    }
+    
+    public void addGuests(List<Guest> listOfGuest) {
+        try {
+            for (Guest guest : listOfGuest) {
+                getHelper().getGuestDao().createOrUpdate(guest);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void removeGuests() {
+        Log.d(TAG, "Remove guests");
+        
+        try {
+            TableUtils.clearTable(helper.getConnectionSource(), Guest.class);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * Item
+     */
+    
+    public List<Item> getItem(String mp3) {
+        List<Item> listOfItem = null;
+        try {
+            listOfItem = getHelper().getItemDao().query(getHelper().getItemDao().queryBuilder().where().like("mp3", mp3).prepare());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listOfItem;
+    }
+    
+    public void addItems(List<Item> listOfItem) {
+        try {
+            for (Item item : listOfItem) {
+                getHelper().getItemDao().createOrUpdate(item);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void removeItems() {
+        Log.d(TAG, "Remove items");
+        
+        try {
+            TableUtils.clearTable(helper.getConnectionSource(), Item.class);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * Quote
+     */
+    
+    public List<Quote> getQuote(String mp3) {
+        List<Quote> listOfQuote = null;
+        try {
+            listOfQuote = getHelper().getQuoteDao().query(getHelper().getQuoteDao().queryBuilder().where().like("mp3", mp3).prepare());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listOfQuote;
+    }
+    
+    public void addQuotes(List<Quote> listOfQuote) {
+        try {
+            for (Quote quote : listOfQuote) {
+                getHelper().getQuoteDao().createOrUpdate(quote);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void addQuote(Quote quote) {
+        try {
+            getHelper().getQuoteDao().createOrUpdate(quote);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void removeQuotes() {
+        Log.d(TAG, "Remove quotes");
+        
+        try {
+            TableUtils.clearTable(helper.getConnectionSource(), Quote.class);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * Episode
+     */
+    
+    public List<Episode> getEpisode(String mp3) {
+        List<Episode> listOfEpisode = null;
+        try {
+            listOfEpisode = getHelper().getEpisodeDao().query(getHelper().getEpisodeDao().queryBuilder().where().like("mp3", mp3).prepare());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listOfEpisode;
+    }
+    
+    public void addEpisodes(List<Episode> listOfEpisode) {
+        try {
+            for (Episode episode : listOfEpisode) {
+                getHelper().getEpisodeDao().createOrUpdate(episode);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void removeEpisode() {
+        Log.d(TAG, "Remove episodes");
+        
+        try {
+            TableUtils.clearTable(helper.getConnectionSource(), Episode.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }
