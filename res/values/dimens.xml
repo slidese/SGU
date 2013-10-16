@@ -39,7 +39,7 @@
     <dimen name="card_outer_padding_horizontal_details">8dp</dimen>
     <dimen name="card_inner_padding_vertical_details">8dp</dimen>
     <dimen name="card_inner_padding_left_details">10dp</dimen>
-    <dimen name="card_inner_padding_right_details">5dp</dimen>
+    <dimen name="card_inner_padding_right_details">16dp</dimen>
 
     <dimen name="card_thumbnail_details">56dp</dimen>
     <dimen name="card_thumbnail_margin_details">5dp</dimen>
@@ -60,6 +60,9 @@
     
     <!-- Sliding layer -->
     <dimen name="layer_width">260dp</dimen>
+    
+    <!-- Image size -->
+    <dimen name="image_size">96dp</dimen>
     
     
 </resources>

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import se.slide.sgu.animations.ScaleFadePageTransformer;
+import se.slide.sgu.animations.ZoomOutPageTransformer;
 
 import java.util.Locale;
 
@@ -42,7 +43,7 @@ public class MainPodcastFragment extends Fragment implements ActionBar.OnNavigat
 
         mViewPager = (ViewPager) view.findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        mViewPager.setPageTransformer(true, new ScaleFadePageTransformer(getActivity()));
+        mViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         
         final ActionBar actionBar = getActivity().getActionBar();
         

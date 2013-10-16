@@ -41,4 +41,10 @@
     <string name="tab_transcript">Transcript</string>
     <string name="tab_links">Links</string>
 
+    <!-- Section headers -->
+    <string name="section_header_hosts">Hosts</string>
+    <string name="section_header_quote">Skeptical Quote of the Week</string>
+    <string name="section_header_science_or_fiction">Science or Fiction</string>
+    <string name="section_header_noisy">Who\'s That Noisy</string>
+    
 </resources>

@@ -3,6 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android" 
     xmlns:sgu="http://schemas.android.com/apk/res/se.slide.sgu" 
     style="@style/card_outer_details">
+    
+    <ScrollView
+	    android:id="@+id/scrollerCardDetails"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	>
 
     <RelativeLayout android:id="@+id/inner_frame" style="@style/card_inner_details">
 
@@ -10,32 +16,85 @@
 
         <RelativeLayout android:id="@+id/titleFrame" style="@style/card_title_frame">
 
-            <se.slide.sgu.TypefacedTextView android:id="@+id/title" sgu:typeface="Roboto-Light.ttf" style="@style/card_title"/>
+            <se.slide.sgu.TypefacedTextView android:id="@+id/title" sgu:typeface="Roboto-Light.ttf" style="@style/card_title_details"/>
             
         </RelativeLayout>
 
-        <se.slide.sgu.TypefacedTextView android:id="@+id/content" sgu:typeface="Roboto-Light.ttf" style="@style/card_content"/>
+        <se.slide.sgu.TypefacedTextView android:id="@+id/content" sgu:typeface="Roboto-Light.ttf" style="@style/card_content_details"/>
 
-        <View
+        <!-- View
             android:id="@+id/divider"
     		android:layout_width="match_parent"
     		android:layout_height="1dip"
     		android:layout_marginLeft="16dp"
     		android:layout_marginRight="16dp"
     		android:layout_below="@id/content"
-    		android:background="?android:attr/dividerHorizontal" />
-        
-        <LinearLayout
-            android:id="@+id/images"
-            android:layout_below="@id/divider"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" 
-            android:orientation="horizontal"
-            >
+    		android:background="?android:attr/dividerHorizontal" /-->
+    		
+    	<TextView
+    	    android:id="@+id/sectionHosts"
+    	    android:layout_below="@id/content"
+    	    android:layout_width="match_parent"
+    	    android:layout_height="wrap_content"
+    	    android:layout_marginTop="8dp"
+    	    android:layout_marginBottom="8dp"
+    	    android:layout_marginLeft="16dp"
+    	    android:layout_marginRight="16dp"
+    	    android:text="@string/section_header_hosts"
+    	    style="@style/sectionHeader"
+		/>
             
-        </LinearLayout>
+        <se.slide.sgu.ExpandableHeightGridView 
+		    android:id="@+id/gridview"
+		    android:layout_below="@id/sectionHosts"
+		    android:layout_width="fill_parent" 
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="8dp"
+    	    android:layout_marginBottom="8dp"
+    	    android:layout_marginLeft="16dp"
+    	    android:layout_marginRight="16dp"
+		    android:columnWidth="80dp"
+		    android:numColumns="auto_fit"
+		    android:verticalSpacing="8dp"
+		    android:horizontalSpacing="8dp"
+		    android:stretchMode="columnWidth"
+		    android:gravity="center"
+		/>
         
+        <TextView
+    	    android:id="@+id/sectionScience"
+    	    android:layout_below="@id/gridview"
+    	    android:layout_width="match_parent"
+    	    android:layout_height="wrap_content"
+    	    android:layout_marginTop="8dp"
+    	    android:layout_marginBottom="8dp"
+    	    android:layout_marginLeft="16dp"
+    	    android:layout_marginRight="16dp"
+    	    android:text="@string/section_header_science_or_fiction"
+    	    style="@style/sectionHeader"
+		/>
+        
+        <se.slide.sgu.TypefacedTextView android:id="@+id/content2" android:layout_below="@id/sectionScience" sgu:typeface="Roboto-Light.ttf" style="@style/card_content_details"/>
+        
+        <TextView
+    	    android:id="@+id/sectionQuote"
+    	    android:layout_below="@id/content2"
+    	    android:layout_width="match_parent"
+    	    android:layout_height="wrap_content"
+    	    android:layout_marginTop="8dp"
+    	    android:layout_marginBottom="8dp"
+    	    android:layout_marginLeft="16dp"
+    	    android:layout_marginRight="16dp"
+    	    android:text="@string/section_header_quote"
+    	    style="@style/sectionHeader"
+		/>
+        
+        <se.slide.sgu.TypefacedTextView android:id="@+id/content3" android:layout_below="@id/sectionQuote" sgu:typeface="Roboto-Light.ttf" style="@style/card_content_details"/>
+         
+            
     </RelativeLayout>
+    
+    </ScrollView>
     
     <ImageView style="@style/card_shadow" android:contentDescription="@string/image_card_shadow" />
 
