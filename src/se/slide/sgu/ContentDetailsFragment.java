@@ -11,13 +11,14 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import se.slide.sgu.db.DatabaseManager;
 import se.slide.sgu.model.Content;
 import se.slide.sgu.model.Episode;
+import se.slide.sgu.model.Item;
+import se.slide.sgu.model.Quote;
 
 import java.util.List;
 
@@ -25,13 +26,17 @@ public class ContentDetailsFragment extends Fragment {
     
     public static final String CONTENT_MP3 = "content_mp3";
     
-    private ImageView           mIcon;
-    private TextView            mTitle;
-    private TextView            mLenght;
-    private TextView            mContent;
+    private ImageView                   mIcon;
+    private TextView                    mTitle;
+    private TextView                    mLenght;
+    private TextView                    mDescription;
+    private ExpandableHeightGridView    mGridViewProfiles;
     
     private TextView            mContent2;
     private TextView            mContent3;
+    
+    private Content             mContent;
+    private Episode             mEpisode;
 
     public ContentDetailsFragment() {
         
@@ -45,12 +50,13 @@ public class ContentDetailsFragment extends Fragment {
         mIcon = (ImageView) view.findViewById(R.id.icon);
         mTitle = (TextView) view.findViewById(R.id.title);
         mLenght = (TextView) view.findViewById(R.id.length);
-        mContent = (TextView) view.findViewById(R.id.content);
+        mDescription = (TextView) view.findViewById(R.id.content);
+        mGridViewProfiles = (ExpandableHeightGridView) view.findViewById(R.id.gridviewProfiles);
         
         mContent2 = (TextView) view.findViewById(R.id.content2);
         mContent3 = (TextView) view.findViewById(R.id.content3);
         
-        ExpandableHeightGridView gridview = (ExpandableHeightGridView) view.findViewById(R.id.gridview);
+        /*
         gridview.setExpanded(true);
         gridview.setAdapter(new ImageAdapter(getActivity()));
 
@@ -59,31 +65,25 @@ public class ContentDetailsFragment extends Fragment {
                 Toast.makeText(getActivity(), "" + position, Toast.LENGTH_SHORT).show();
             }
         });
-        
-        /*
-        LinearLayout l = (LinearLayout) view.findViewById(R.id.images);
-        
-        for (int i = 0; i < 5; i++) {
-            ImageView image = new ImageView(getActivity());
-            image.setImageDrawable(getResources().getDrawable(R.drawable.profile_bob_novella));
-            l.addView(image);
-        }
         */
         
         String mp3 = getArguments().getString(CONTENT_MP3);
         
-        Content content = getContent(mp3);
-        List<Episode> listOfEpisode = getEpisodes(mp3);
-        
-        mTitle.setText(content.title);
-        mContent.setText(content.description);
-        
-        mContent2.setText(content.description);
-        mContent3.setText(content.description);
+        mContent = getContent(mp3);
+        mEpisode = getEpisode(mp3);
         
         return view;
     }
     
+    
+    
+    @Override
+    public void onResume() {
+        super.onResume();
+        
+        
+    }
+
     private Content getContent(String mp3) {
         List<Content> listOfContent = DatabaseManager.getInstance().getContent(mp3);
         
@@ -93,23 +93,35 @@ public class ContentDetailsFragment extends Fragment {
             return null;
     }
     
-    private List<Episode> getEpisodes(String mp3) {
-        /*
-        List<Content> listOfContent = DatabaseManager.getInstance().getContent(mp3);
+    private Episode getEpisode(String mp3) {
+        List<Episode> listOfEpisodes = DatabaseManager.getInstance().getEpisode(mp3);
         
-        if (listOfContent != null && listOfContent.size() > 0)
-            return listOfContent.get(0);
+        if (listOfEpisodes != null && listOfEpisodes.size() > 0)
+            return listOfEpisodes.get(0);
         else
             return null;
-            */
-        return null;
     }
     
-    public class ImageAdapter extends BaseAdapter {
+    private Quote getQuote(String mp3) {
+        List<Quote> listOfQuotes = DatabaseManager.getInstance().getQuote(mp3);
+        
+        if (listOfQuotes != null && listOfQuotes.size() > 0)
+            return listOfQuotes.get(0);
+        else
+            return null;
+    }
+    
+    private List<Item> getItems(String mp3) {
+        return DatabaseManager.getInstance().getItem(mp3);
+    }
+    
+    private class ImageAdapter extends BaseAdapter {
         private Context mContext;
+        private int[] hosts;
 
-        public ImageAdapter(Context c) {
+        public ImageAdapter(Context c, int[] hosts) {
             mContext = c;
+            this.hosts = hosts;
         }
 
         public int getCount() {

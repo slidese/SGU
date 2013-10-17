@@ -35,4 +35,17 @@ public class Utils {
                 .penaltyDeath()
                 .build());
     }
+    
+    public static int[] convertToIntArray(String delimitedString) {
+        if (delimitedString == null)
+            return null;
+        
+        String[] strArray = delimitedString.split(";");
+        int[] intArray = new int[strArray.length];
+        for (int i = 0; i < strArray.length; i++) {
+            intArray[i] = Integer.valueOf(strArray[i]);
+        }
+        
+        return intArray;
+    }
 }
