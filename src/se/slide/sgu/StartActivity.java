@@ -80,9 +80,8 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         
-        handleSavedInstanceState(savedInstanceState);
         bindViews();
-        initState();
+        initState(savedInstanceState);
         
         GlobalContext.INSTANCE.init(this);
         DatabaseManager.init(this);
@@ -206,7 +205,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
     /**
      * Initializes the origin state of the layer
      */
-    private void initState() {
+    private void initState(Bundle savedInstanceState) {
         LayoutParams rlp = (LayoutParams) mSlidingLayer.getLayoutParams();
         rlp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         
@@ -292,26 +291,26 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         
         mSeeker.setOnSeekBarChangeListener(new TimeLineChangeListener());
         
-        Fragment fragment = new MainPodcastFragment();
-        //fragment.setRetainInstance(true);
+        if (savedInstanceState != null) {
+            mMode = savedInstanceState.getInt("mode"); // default is 0
+        }
+        else {
+            Fragment fragment = new MainPodcastFragment();
+            //fragment.set1RetainInstance(true);
+            
+            getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frame_1, fragment)
+                .commit();    
+        }
         
-        getSupportFragmentManager()
-            .beginTransaction()
-            .replace(R.id.frame_1, fragment)
-            .commit();
+        
         
         
     }
     
     private void handleIntent() {
         
-    }
-    
-    private void handleSavedInstanceState(Bundle savedInstanceState) {
-        if (savedInstanceState == null)
-            return;
-        
-        mMode = savedInstanceState.getInt("mode"); // default is 0
     }
     
     private void refreshScreen() {
@@ -497,7 +496,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         getSupportFragmentManager().beginTransaction()
             .replace(R.id.frame_1, fragment)
             .addToBackStack(null)
-            .commit();
+            .commitAllowingStateLoss();
     }
     
     @Override

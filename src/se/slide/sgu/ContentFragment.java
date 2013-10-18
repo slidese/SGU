@@ -49,6 +49,7 @@ public class ContentFragment extends Fragment {
 
         try {
             mListener = (StartActivity) activity;
+            Log.d(TAG, "Attached podcast list fragment");
             
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must be the StartActivity");

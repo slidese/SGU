@@ -32,7 +32,7 @@ public class MainPodcastFragment extends Fragment implements ActionBar.OnNavigat
     public MainPodcastFragment() {
         
     }
-    
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");

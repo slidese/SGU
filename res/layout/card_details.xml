@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android" 
-    xmlns:sgu="http://schemas.android.com/apk/res/se.slide.sgu" 
+    xmlns:sgu="http://schemas.android.com/apk/res/se.slide.sgu"
+	android:id="@+id/scrollerCardDetails"
+	>
+<LinearLayout
+    android:layout_width="match_parent"
+	android:layout_height="wrap_content"
     style="@style/card_outer_details">
     
-    <ScrollView
-	    android:id="@+id/scrollerCardDetails"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	>
+    
 
     <RelativeLayout android:id="@+id/inner_frame" style="@style/card_inner_details">
 
@@ -74,11 +75,24 @@
     	    style="@style/sectionHeader"
 		/>
         
-        <se.slide.sgu.TypefacedTextView android:id="@+id/content2" android:layout_below="@id/sectionScience" sgu:typeface="Roboto-Light.ttf" style="@style/card_content_details"/>
+        
+        <LinearLayout
+            android:id="@+id/scienceHolder"
+    	    android:layout_below="@id/sectionScience"
+    	    android:layout_width="match_parent"
+    	    android:layout_height="wrap_content"
+    	    android:layout_marginRight="16dp"
+    	    android:layout_marginBottom="16dp"
+    	    android:orientation="vertical"
+            >
+            
+        </LinearLayout>
+        
+        <!-- se.slide.sgu.TypefacedTextView android:id="@+id/content2" android:layout_below="@id/sectionScience" sgu:typeface="Roboto-Light.ttf" style="@style/card_content_details"/-->
         
         <TextView
     	    android:id="@+id/sectionQuote"
-    	    android:layout_below="@id/content2"
+    	    android:layout_below="@id/scienceHolder"
     	    android:layout_width="match_parent"
     	    android:layout_height="wrap_content"
     	    android:layout_marginTop="8dp"
@@ -96,8 +110,9 @@
             
     </RelativeLayout>
     
-    </ScrollView>
+    
     
     <ImageView style="@style/card_shadow" android:contentDescription="@string/image_card_shadow" />
 
 </LinearLayout>
+</ScrollView>

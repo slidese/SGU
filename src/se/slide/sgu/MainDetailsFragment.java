@@ -22,12 +22,13 @@ import java.util.Locale;
 
 public class MainDetailsFragment extends Fragment implements ActionBar.OnNavigationListener {
     
-    private final String TAG = "ContentDetailsFragment";
+    private final String TAG = "MainDetailsFragment";
     
     public static final String CONTENT_MP3 = "content_mp3";
     
     private SectionsPagerAdapter                mSectionsPagerAdapter;
     private ViewPager                           mViewPager;
+    ArrayAdapter<String>                        mAdapter;
 
     final String[] actions = new String[] {
             "Details",
@@ -47,6 +48,12 @@ public class MainDetailsFragment extends Fragment implements ActionBar.OnNavigat
         super.onCreate(savedInstanceState);
         
         setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        
     }
 
     @Override
@@ -77,13 +84,13 @@ public class MainDetailsFragment extends Fragment implements ActionBar.OnNavigat
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         
+        mAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, actions);
+        
         final ActionBar actionBar = getActivity().getActionBar();
-        
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, actions);
-        
         actionBar.setTitle("");
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setListNavigationCallbacks(adapter, this);
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+        actionBar.setListNavigationCallbacks(mAdapter, this);
         
         mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override

@@ -3,14 +3,13 @@ package se.slide.sgu;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import se.slide.sgu.db.DatabaseManager;
@@ -35,10 +34,12 @@ public class ContentDetailsFragment extends Fragment {
     private ExpandableHeightGridView    mGridViewProfiles;
     private TextView                    mQuoteText;
     private TextView                    mQuoteBy;
+    private LinearLayout                mScienceHolder;
     
     private Content             mContent;
     private Episode             mEpisode;
     private Quote               mQuote;
+    private List<Item>          mList;
 
     public ContentDetailsFragment() {
         
@@ -58,6 +59,7 @@ public class ContentDetailsFragment extends Fragment {
         mGridViewProfiles = (ExpandableHeightGridView) view.findViewById(R.id.gridviewProfiles);
         mQuoteText = (TextView) view.findViewById(R.id.quoteText);
         mQuoteBy = (TextView) view.findViewById(R.id.quoteBy);
+        mScienceHolder = (LinearLayout) view.findViewById(R.id.scienceHolder);
         
         // Setup data
         
@@ -66,6 +68,7 @@ public class ContentDetailsFragment extends Fragment {
         mContent = getContent(mp3);
         mEpisode = getEpisode(mp3);
         mQuote = getQuote(mp3);
+        mList = getItems(mp3);
         
         if (mEpisode != null) {
             int[] hosts = Utils.convertToIntArray(mEpisode.hosts);
@@ -73,6 +76,19 @@ public class ContentDetailsFragment extends Fragment {
             mGridViewProfiles.setAdapter(new ProfileAdapter(getActivity(), -1, getDrawablesFromHosts(hosts))); // We can use -1 since we don't really have a layout for the rows, we just use the ImageView
             mQuoteText.setText(mQuote.text);
             mQuoteBy.setText("Ñ " + mQuote.by);
+            mTitle.setText(mEpisode.title);
+            mDescription.setText(mEpisode.description);
+            for (Item item : mList) {
+                View child = inflater.inflate(R.layout.scienceorfiction_item, null);
+                TextView title = (TextView) child.findViewById(R.id.itemTitle);
+                TextView description = (TextView) child.findViewById(R.id.itemDescription);
+                
+                title.setText(item.title);
+                description.setText(item.description);
+                
+                mScienceHolder.addView(child);
+            }
+            
         }
         
         return view;
