@@ -3,16 +3,15 @@ package se.slide.sgu;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import se.slide.sgu.db.DatabaseManager;
 import se.slide.sgu.model.Content;
@@ -20,9 +19,12 @@ import se.slide.sgu.model.Episode;
 import se.slide.sgu.model.Item;
 import se.slide.sgu.model.Quote;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContentDetailsFragment extends Fragment {
+    
+    private final String TAG = "ContentDetailsFragment";
     
     public static final String CONTENT_MP3 = "content_mp3";
     
@@ -63,7 +65,7 @@ public class ContentDetailsFragment extends Fragment {
         gridview.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 Toast.makeText(getActivity(), "" + position, Toast.LENGTH_SHORT).show();
-            }
+            }   
         });
         */
         
@@ -71,6 +73,13 @@ public class ContentDetailsFragment extends Fragment {
         
         mContent = getContent(mp3);
         mEpisode = getEpisode(mp3);
+        
+        if (mEpisode != null) {
+            int[] hosts = Utils.convertToIntArray(mEpisode.hosts);
+            mGridViewProfiles.setExpanded(true);
+            mGridViewProfiles.setAdapter(new ProfileAdapter(getActivity(), -1, getDrawablesFromHosts(hosts))); // We can use -1 since we don't really have a layout for the rows, we just use the ImageView
+            
+        }
         
         return view;
     }
@@ -82,6 +91,31 @@ public class ContentDetailsFragment extends Fragment {
         super.onResume();
         
         
+    }
+    
+    /**
+     * Convert our database-friendly hosts array to a List<Integer> object we can supply our adapter with.
+     * 
+     * @param hosts
+     * @return
+     */
+    private List<Integer> getDrawablesFromHosts(int[] hosts) {
+        List<Integer> drawables = new ArrayList<Integer>();
+        
+        for (int i : hosts) {
+            if (i == 1)
+                drawables.add(R.drawable.profile_steven_novella);
+            else if (i == 2)
+                drawables.add(R.drawable.profile_bob_novella);
+            else if (i == 3)
+                drawables.add(R.drawable.profile_jay_novella);
+            else if (i == 4)
+                drawables.add(R.drawable.profile_rebecca_watson);
+            else if (i == 5)
+                drawables.add(R.drawable.profile_evan_bernstein);
+        }
+        
+        return drawables;
     }
 
     private Content getContent(String mp3) {
@@ -115,28 +149,15 @@ public class ContentDetailsFragment extends Fragment {
         return DatabaseManager.getInstance().getItem(mp3);
     }
     
-    private class ImageAdapter extends BaseAdapter {
+    private class ProfileAdapter extends ArrayAdapter<Integer> {
         private Context mContext;
-        private int[] hosts;
 
-        public ImageAdapter(Context c, int[] hosts) {
-            mContext = c;
-            this.hosts = hosts;
+        public ProfileAdapter(Context context, int resource, List<Integer> drawables) {
+            super(context, resource, drawables);
+            mContext = context;
         }
 
-        public int getCount() {
-            return mThumbIds.length;
-        }
-
-        public Object getItem(int position) {
-            return null;
-        }
-
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        // create a new ImageView for each item referenced by the Adapter
+        @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             ImageView imageView;
             if (convertView == null) {  // if it's not recycled, initialize some attribute
@@ -149,18 +170,13 @@ public class ContentDetailsFragment extends Fragment {
             } else {
                 imageView = (ImageView) convertView;
             }
-
-            imageView.setImageResource(mThumbIds[position]);
+            
+            Integer drawable = getItem(position);
+            imageView.setImageResource(drawable);
+            
             return imageView;
         }
-
-        // references to our images
-        private Integer[] mThumbIds = {
-                R.drawable.profile_steven_novella,
-                R.drawable.profile_bob_novella,
-                R.drawable.profile_rebecca_watson,
-                R.drawable.profile_jay_novella,
-                R.drawable.profile_evan_bernstein
-        };
+        
     }
+    
 }
