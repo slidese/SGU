@@ -89,7 +89,9 @@
     	    style="@style/sectionHeader"
 		/>
         
-        <se.slide.sgu.TypefacedTextView android:id="@+id/content3" android:layout_below="@id/sectionQuote" sgu:typeface="Roboto-Light.ttf" style="@style/card_content_details"/>
+        <se.slide.sgu.TypefacedTextView android:id="@+id/quoteText" android:layout_below="@id/sectionQuote" sgu:typeface="Roboto-LightItalic.ttf" style="@style/card_quote_text"/>
+        
+        <se.slide.sgu.TypefacedTextView android:id="@+id/quoteBy" android:layout_below="@id/quoteText" sgu:typeface="Roboto-Bold.ttf" style="@style/card_quote_by"/>
          
             
     </RelativeLayout>

@@ -33,12 +33,12 @@ public class ContentDetailsFragment extends Fragment {
     private TextView                    mLenght;
     private TextView                    mDescription;
     private ExpandableHeightGridView    mGridViewProfiles;
-    
-    private TextView            mContent2;
-    private TextView            mContent3;
+    private TextView                    mQuoteText;
+    private TextView                    mQuoteBy;
     
     private Content             mContent;
     private Episode             mEpisode;
+    private Quote               mQuote;
 
     public ContentDetailsFragment() {
         
@@ -49,36 +49,30 @@ public class ContentDetailsFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.card_details, null);
 
+        // Init views
+        
         mIcon = (ImageView) view.findViewById(R.id.icon);
         mTitle = (TextView) view.findViewById(R.id.title);
         mLenght = (TextView) view.findViewById(R.id.length);
         mDescription = (TextView) view.findViewById(R.id.content);
         mGridViewProfiles = (ExpandableHeightGridView) view.findViewById(R.id.gridviewProfiles);
+        mQuoteText = (TextView) view.findViewById(R.id.quoteText);
+        mQuoteBy = (TextView) view.findViewById(R.id.quoteBy);
         
-        mContent2 = (TextView) view.findViewById(R.id.content2);
-        mContent3 = (TextView) view.findViewById(R.id.content3);
-        
-        /*
-        gridview.setExpanded(true);
-        gridview.setAdapter(new ImageAdapter(getActivity()));
-
-        gridview.setOnItemClickListener(new OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                Toast.makeText(getActivity(), "" + position, Toast.LENGTH_SHORT).show();
-            }   
-        });
-        */
+        // Setup data
         
         String mp3 = getArguments().getString(CONTENT_MP3);
         
         mContent = getContent(mp3);
         mEpisode = getEpisode(mp3);
+        mQuote = getQuote(mp3);
         
         if (mEpisode != null) {
             int[] hosts = Utils.convertToIntArray(mEpisode.hosts);
             mGridViewProfiles.setExpanded(true);
             mGridViewProfiles.setAdapter(new ProfileAdapter(getActivity(), -1, getDrawablesFromHosts(hosts))); // We can use -1 since we don't really have a layout for the rows, we just use the ImageView
-            
+            mQuoteText.setText(mQuote.text);
+            mQuoteBy.setText("Ñ " + mQuote.by);
         }
         
         return view;

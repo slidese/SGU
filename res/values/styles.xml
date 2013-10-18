@@ -187,6 +187,18 @@
         <item name="android:paddingTop">@dimen/card_inner_padding_vertical_details</item>
         <item name="android:paddingBottom">8dp</item>
     </style>
+    
+    <style name="card_quote_text" parent="@style/card_content_details">
+        <item name="android:textStyle">italic</item>
+    </style>
+    
+    <style name="card_quote_by" parent="@style/card_content_details">
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">right</item>
+        <item name="android:textSize">@dimen/card_quote_by</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginRight">@dimen/card_quote_by_padding_right</item>
+    </style>
 
     <style name="card_header_outer">
         <item name="android:layout_width">match_parent</item>
