@@ -71,6 +71,9 @@ public class SectionParser {
              else if (name.equals("title")) {
                  episode.title = getText(parser, "title");
              }
+             else if (name.equals("transcript")) {
+                 episode.transcript = getText(parser, "transcript");
+             }
              else if (name.equals("description")) {
                  episode.description = getText(parser, "description");
              }

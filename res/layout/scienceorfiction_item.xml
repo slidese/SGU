@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TwoLineListItem 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sgu="http://schemas.android.com/apk/res/se.slide.sgu" 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:mode="twoLine"
+>
+    
+	<se.slide.sgu.TypefacedTextView
+	    android:id="@+id/itemTitle"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+    	android:layout_marginStart="16dp"
+    	android:layout_marginTop="8dp"
+    	android:layout_marginBottom="8dp"
+    	sgu:typeface="Roboto-Light.ttf"
+		android:textSize="14sp"
+	/>
+		
+	<se.slide.sgu.TypefacedTextView
+	    android:id="@+id/itemDescription"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/itemTitle"
+    	android:layout_alignStart="@id/itemTitle"
+    	sgu:typeface="Roboto-Light.ttf"
+    	android:textSize="14sp"
+	/>
+
+</TwoLineListItem>

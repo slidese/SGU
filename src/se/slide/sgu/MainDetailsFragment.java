@@ -153,11 +153,36 @@ public class MainDetailsFragment extends Fragment implements ActionBar.OnNavigat
             fragment.setArguments(args);
             */
             
-            Fragment fragment = new ContentDetailsFragment();
+            Fragment fragment;
             
-            Bundle args = new Bundle();
-            args.putString(ContentDetailsFragment.CONTENT_MP3, mp3);
-            fragment.setArguments(args);
+            if (position == 0) {
+                fragment = new ContentDetailsFragment();
+                
+                Bundle args = new Bundle();
+                args.putString(ContentDetailsFragment.CONTENT_MP3, mp3);
+                fragment.setArguments(args);
+            }
+            else if (position == 1) {
+                fragment = new ContentTranscriptFragment();
+                
+                Bundle args = new Bundle();
+                args.putString(ContentTranscriptFragment.CONTENT_MP3, mp3);
+                fragment.setArguments(args);
+            }
+            else if (position == 2) {
+                fragment = new ContentDetailsFragment();
+                
+                Bundle args = new Bundle();
+                args.putString(ContentDetailsFragment.CONTENT_MP3, mp3);
+                fragment.setArguments(args);
+            }
+            else {
+                fragment = new ContentDetailsFragment();
+                
+                Bundle args = new Bundle();
+                args.putString(ContentDetailsFragment.CONTENT_MP3, mp3);
+                fragment.setArguments(args);
+            }
             
             return fragment;
         }

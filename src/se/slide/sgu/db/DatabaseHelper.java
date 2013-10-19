@@ -27,7 +27,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private final String TAG = "DatabaseHelper";
 
     private static final String DATABASE_NAME = "SGU.sqlite";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     private Dao<Content, Integer> contentDao = null;
     private Dao<Section, Integer> sectionDao = null;
@@ -76,6 +76,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                 TableUtils.createTable(connectionSource, Item.class);
                 TableUtils.createTable(connectionSource, Quote.class);
                 TableUtils.createTable(connectionSource, Episode.class);
+            }
+            else if (oldVersion == 3) {
+                allSql.add("alter table Episode add column `transcript` TEXT");
             }
 
             // Execute all changes

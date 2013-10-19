@@ -19,6 +19,9 @@ public class Episode {
     public String description;
     
     @DatabaseField 
+    public String transcript;
+    
+    @DatabaseField 
     public String hosts;    // Semi-colon separated list of host numbers
         
     /**
