@@ -6,6 +6,7 @@
     <string name="action_reload">Reload</string>
     <string name="action_show_player">Show player</string>
     <string name="ok">Main</string>
+    <string name="not_available">N/A</string>
     <string name="download">Download</string>
     <string name="delete">Delete</string>
     <string name="mb">Mb</string>

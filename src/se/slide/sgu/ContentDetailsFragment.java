@@ -71,13 +71,18 @@ public class ContentDetailsFragment extends Fragment {
         mList = getItems(mp3);
         
         if (mEpisode != null) {
+            mTitle.setText(mEpisode.title);
+            mDescription.setText(mEpisode.description);
+            
             int[] hosts = Utils.convertToIntArray(mEpisode.hosts);
             mGridViewProfiles.setExpanded(true);
             mGridViewProfiles.setAdapter(new ProfileAdapter(getActivity(), -1, getDrawablesFromHosts(hosts))); // We can use -1 since we don't really have a layout for the rows, we just use the ImageView
-            mQuoteText.setText(mQuote.text);
-            mQuoteBy.setText("Ñ " + mQuote.by);
-            mTitle.setText(mEpisode.title);
-            mDescription.setText(mEpisode.description);
+            
+            if (mQuote != null) {
+                mQuoteText.setText(mQuote.text);
+                mQuoteBy.setText("Ñ " + mQuote.by);    
+            }
+            
             for (Item item : mList) {
                 View child = inflater.inflate(R.layout.scienceorfiction_item, null);
                 TextView title = (TextView) child.findViewById(R.id.itemTitle);
@@ -90,16 +95,17 @@ public class ContentDetailsFragment extends Fragment {
             }
             
         }
+        else if (mContent != null) {
+            mTitle.setText(mContent.title);
+            mDescription.setText(mContent.description);
+        }
         
         return view;
     }
     
-    
-    
     @Override
     public void onResume() {
         super.onResume();
-        
         
     }
     
