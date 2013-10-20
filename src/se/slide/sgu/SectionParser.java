@@ -98,10 +98,18 @@ public class SectionParser {
          // Set the unique mp3 for each section
          for (Section section : episode.listOfSection) {
              section.mp3 = episode.mp3;
+             
+             for (Link link : section.listOfLinks) {
+                 link.mp3 = episode.mp3;
+             }
          }
          
          for (Item item : episode.listOfItem) {
              item.mp3 = episode.mp3;
+             
+             for (Link link : item.listOfLinks) {
+                 link.mp3 = episode.mp3;
+             }
          }
          
          episode.quote.mp3 = episode.mp3;
@@ -173,6 +181,8 @@ public class SectionParser {
              link.belongsToSection = Link.BELONG_TO_SCIENCE_OR_FICTION;
              link.title = item.title;
          }
+         
+         item.listOfLinks = listOfLinks;
          
          return item;
      }
@@ -326,6 +336,7 @@ public class SectionParser {
          section.title = title;
          section.number = num;
          section.start = sta;
+         section.listOfLinks = listOfLinks;
          
          return section;
      }

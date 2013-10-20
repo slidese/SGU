@@ -169,7 +169,7 @@ public class DownloaderService extends Service {
                 DatabaseManager.getInstance().removeItems();
                 DatabaseManager.getInstance().removeQuotes();
                 DatabaseManager.getInstance().removeGuests();
-                DatabaseManager.getInstance().removeLink();
+                DatabaseManager.getInstance().removeLinks();
                 
                 for (Episode episode : listOfEpisodes) {
                     DatabaseManager.getInstance().addSections(episode.listOfSection);

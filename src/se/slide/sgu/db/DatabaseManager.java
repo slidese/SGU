@@ -282,7 +282,7 @@ public class DatabaseManager {
      * Link
      */
     
-    public List<Link> getLink(String mp3) {
+    public List<Link> getLinks(String mp3) {
         List<Link> listOfLinks = null;
         try {
             listOfLinks = getHelper().getLinkDao().query(getHelper().getLinkDao().queryBuilder().where().like("mp3", mp3).prepare());
@@ -302,7 +302,7 @@ public class DatabaseManager {
         }
     }
     
-    public void removeLink() {
+    public void removeLinks() {
         Log.d(TAG, "Remove links");
         
         try {

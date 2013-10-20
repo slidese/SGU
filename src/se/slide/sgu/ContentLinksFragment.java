@@ -10,6 +10,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Spinner;
 
+import se.slide.sgu.db.DatabaseManager;
+import se.slide.sgu.model.Content;
 import se.slide.sgu.model.Link;
 
 import java.util.ArrayList;
@@ -17,11 +19,10 @@ import java.util.List;
 
 public class ContentLinksFragment extends Fragment {
 
-    private final String TAG = "ContentTranscriptFragment";
+    private final String TAG = "ContentLinksFragment";
     
     public static final String CONTENT_MP3 = "content_mp3";
     
-    private WebView mWeb;
     private Spinner mUrls;
 
     public ContentLinksFragment() {
@@ -35,26 +36,19 @@ public class ContentLinksFragment extends Fragment {
         
         View view = inflater.inflate(R.layout.webview_holder, null);
         
-        //mWeb = (WebView) view.findViewById(R.id.web);
         final WebView web = (WebView) view.findViewById(R.id.web);
+        web.getSettings().setJavaScriptEnabled(true);
+        web.getSettings().setSupportZoom(true);
+        web.getSettings().setBuiltInZoomControls(true);
+        web.getSettings().setUseWideViewPort(true);
+        web.getSettings().setLoadWithOverviewMode(true);
+        
         mUrls = (Spinner) view.findViewById(R.id.urls);
-        
-        List<Link> listOfLinks = new ArrayList<Link>();
-        
-        Link l1 = new Link();
-        l1.title = "Moviets";
-        l1.url ="http://www.dn.se";
-        
-        Link l2 = new Link();
-        l2.title = "The Skeptical Intryou";
-        l2.url ="http://www.google.se";
-        
-        listOfLinks.add(l1);
-        listOfLinks.add(l2);
+
+        List<Link> listOfLinks = DatabaseManager.getInstance().getLinks(mp3);
         
         final LinkAdapter adapter = new LinkAdapter(getActivity(), R.layout.spinner_item, listOfLinks);
         mUrls.setAdapter(adapter);
-        
         mUrls.setOnItemSelectedListener(new OnItemSelectedListener() {
 
             @Override
@@ -72,6 +66,5 @@ public class ContentLinksFragment extends Fragment {
         
         return view;
     }
-    
     
 }
