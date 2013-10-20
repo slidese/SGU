@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sgu="http://schemas.android.com/apk/res/se.slide.sgu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <TextView
+    <se.slide.sgu.TypefacedTextView
         android:id="@+id/spinnerItemTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
+        android:layout_height="wrap_content"
+        sgu:typeface="Roboto-Light.ttf"
+        android:textSize="16sp"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="2dp"
         />
     
-    <TextView
+    <se.slide.sgu.TypefacedTextView
         android:id="@+id/spinnerItemUrl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
+        android:layout_height="wrap_content"
+        sgu:typeface="Roboto-Light.ttf"
+        android:textSize="14sp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="4dp"
+        android:textColor="@color/holo_blue_light"
         />
 
 </LinearLayout>

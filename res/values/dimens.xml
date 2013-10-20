@@ -42,6 +42,8 @@
     <dimen name="card_inner_padding_left_details">10dp</dimen>
     <dimen name="card_inner_padding_right_details">16dp</dimen>
     
+    <dimen name="card_outer_padding_top_details_links">8dp</dimen>
+    
     <dimen name="card_quote_by_padding_right">8dp</dimen>
 
     <dimen name="card_thumbnail_details">56dp</dimen>

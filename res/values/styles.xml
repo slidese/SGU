@@ -75,6 +75,10 @@
         <item name="android:descendantFocusability">blocksDescendants</item>
         <item name="android:background">@color/card_listview_background</item>
     </style>
+    
+    <style name="card_outer_details_links" parent="card_outer_details">
+        <item name="android:paddingTop">@dimen/card_outer_padding_top_details_links</item>
+    </style>
 
     <style name="card_inner">
         <item name="android:layout_width">match_parent</item>
