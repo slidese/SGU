@@ -251,6 +251,11 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+    
+    <!-- For normal spinners, i.e. not ActionBar dropdown menues -->
+    <style name="spinner">
+    	<item name="android:textColor">@color/text_white_dark</item>
+	</style>
 
 	<!-- FadingActionBar -->
     <style name="Widget" />

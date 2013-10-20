@@ -170,10 +170,10 @@ public class MainDetailsFragment extends Fragment implements ActionBar.OnNavigat
                 fragment.setArguments(args);
             }
             else if (position == 2) {
-                fragment = new ContentDetailsFragment();
+                fragment = new ContentLinksFragment();
                 
                 Bundle args = new Bundle();
-                args.putString(ContentDetailsFragment.CONTENT_MP3, mp3);
+                args.putString(ContentLinksFragment.CONTENT_MP3, mp3);
                 fragment.setArguments(args);
             }
             else {

@@ -2,23 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/card_outer_details"
     android:orientation="vertical" >
     
-    <Spinner
-        android:id="@+id/urls"
+    <TextView
+        android:id="@+id/spinnerItemTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
-        style="@style/spinner"
+        android:layout_height="wrap_content" 
         />
     
-    <WebView
-        android:id="@+id/web"
+    <TextView
+        android:id="@+id/spinnerItemUrl"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" 
+        android:layout_height="wrap_content" 
         />
 
 </LinearLayout>

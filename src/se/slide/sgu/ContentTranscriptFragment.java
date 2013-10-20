@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import de.l3s.boilerpipe.extractors.ArticleExtractor;
@@ -49,6 +50,10 @@ public class ContentTranscriptFragment extends Fragment {
         View view = inflater.inflate(R.layout.webview_holder, null);
         
         mWeb = (WebView) view.findViewById(R.id.web);
+        Spinner spinner = (Spinner) view.findViewById(R.id.urls);
+        
+        // Hide the spinner in this view
+        spinner.setVisibility(View.GONE);
         
         mWeb.getSettings().setJavaScriptEnabled(true);
         mWeb.getSettings().setSupportZoom(true);
