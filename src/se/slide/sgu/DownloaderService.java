@@ -34,6 +34,8 @@ import org.xmlpull.v1.XmlPullParserException;
 import se.slide.sgu.db.DatabaseManager;
 import se.slide.sgu.model.Content;
 import se.slide.sgu.model.Episode;
+import se.slide.sgu.model.Item;
+import se.slide.sgu.model.Section;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -167,12 +169,21 @@ public class DownloaderService extends Service {
                 DatabaseManager.getInstance().removeItems();
                 DatabaseManager.getInstance().removeQuotes();
                 DatabaseManager.getInstance().removeGuests();
+                DatabaseManager.getInstance().removeLink();
                 
                 for (Episode episode : listOfEpisodes) {
                     DatabaseManager.getInstance().addSections(episode.listOfSection);
                     DatabaseManager.getInstance().addGuests(episode.listOfGuests);
                     DatabaseManager.getInstance().addQuote(episode.quote);
                     DatabaseManager.getInstance().addItems(episode.listOfItem);
+                    
+                    for (Item item : episode.listOfItem) {
+                        DatabaseManager.getInstance().addLinks(item.listOfLinks);
+                    }
+                    
+                    for (Section section : episode.listOfSection) {
+                        DatabaseManager.getInstance().addLinks(section.listOfLinks);
+                    }
                 }
                 
                 DatabaseManager.getInstance().addEpisodes(listOfEpisodes);

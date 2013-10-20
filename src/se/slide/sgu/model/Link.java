@@ -3,11 +3,11 @@ package se.slide.sgu.model;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @DatabaseTable
-public class Section {
+public class Link {
+    
+    public static final String BELONG_TO_SCIENCE_OR_FICTION       = "scienceorfiction";
+    public static final String BELONG_TO_SECTION                  = "sections";
 
     @DatabaseField(generatedId = true)
     private int id;
@@ -19,18 +19,14 @@ public class Section {
     public String title;
     
     @DatabaseField
-    public int start;
+    public String description;
+    
+    @DatabaseField
+    public String url;
+    
+    @DatabaseField
+    public String belongsToSection;
     
     @DatabaseField
     public int number;
-    
-    /**
-     * We're saving these separately
-     */
-    
-    public List<Link>       listOfLinks      =   new ArrayList<Link>();      // Links
-    
-    public Section() {
-        
-    }
 }

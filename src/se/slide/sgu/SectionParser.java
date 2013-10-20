@@ -7,6 +7,7 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import se.slide.sgu.model.Episode;
 import se.slide.sgu.model.Item;
+import se.slide.sgu.model.Link;
 import se.slide.sgu.model.Quote;
 import se.slide.sgu.model.Section;
 
@@ -134,6 +135,7 @@ public class SectionParser {
          parser.require(XmlPullParser.START_TAG, ns, "item");
          
          Item item = new Item();
+         List<Link> listOfLinks = new ArrayList<Link>();
          
          boolean science = true; //default to science? ;)
          
@@ -157,12 +159,20 @@ public class SectionParser {
              }
              else if (name.equals("link")) {
                  item.link = getText(parser, "link");
+                 
+                 Link link = new Link();
+                 link.url = item.link;
+                 listOfLinks.add(link);
              }
              else {
                  skip(parser);
              }
          }
          
+         for (Link link : listOfLinks) {
+             link.belongsToSection = Link.BELONG_TO_SCIENCE_OR_FICTION;
+             link.title = item.title;
+         }
          
          return item;
      }
@@ -274,6 +284,7 @@ public class SectionParser {
          String number = null;
          String title = null;
          String start = null;
+         List<Link> listOfLinks = new ArrayList<Link>();
          
          while (parser.next() != XmlPullParser.END_TAG) {
              if (parser.getEventType() != XmlPullParser.START_TAG) {
@@ -287,6 +298,12 @@ public class SectionParser {
              else if (name.equals("title")) {
                  title = getText(parser, "title");
              }
+             else if (name.equals("link")) {
+                 String url = getText(parser, "link");
+                 Link link = new Link();
+                 link.url = url;
+                 listOfLinks.add(link);
+             }
              else if (name.equals("start")) {
                  start = getText(parser, "start");
              }
@@ -298,6 +315,12 @@ public class SectionParser {
          // These might go wrong
          int num = Integer.valueOf(number);
          int sta = Formatter.convertStartToSeconds(start);
+         
+         for (Link link : listOfLinks) {
+             link.belongsToSection = Link.BELONG_TO_SECTION;
+             link.number = num;
+             link.title = title;
+         }
          
          Section section = new Section();
          section.title = title;

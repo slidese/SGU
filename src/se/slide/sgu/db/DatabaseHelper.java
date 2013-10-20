@@ -16,6 +16,7 @@ import se.slide.sgu.model.Content;
 import se.slide.sgu.model.Episode;
 import se.slide.sgu.model.Guest;
 import se.slide.sgu.model.Item;
+import se.slide.sgu.model.Link;
 import se.slide.sgu.model.Quote;
 import se.slide.sgu.model.Section;
 
@@ -27,7 +28,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private final String TAG = "DatabaseHelper";
 
     private static final String DATABASE_NAME = "SGU.sqlite";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
 
     private Dao<Content, Integer> contentDao = null;
     private Dao<Section, Integer> sectionDao = null;
@@ -35,6 +36,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private Dao<Item, Integer> itemDao = null;
     private Dao<Quote, Integer> quoteDao = null;
     private Dao<Episode, Integer> episodeDao = null;
+    private Dao<Link, Integer> linkDao = null;
     private Context context = null;
 
     public DatabaseHelper(Context context) {
@@ -52,6 +54,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, Item.class);
             TableUtils.createTable(connectionSource, Quote.class);
             TableUtils.createTable(connectionSource, Episode.class);
+            TableUtils.createTable(connectionSource, Link.class);
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
             throw new RuntimeException(e);
@@ -79,6 +82,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             }
             else if (oldVersion == 3) {
                 allSql.add("alter table Episode add column `transcript` TEXT");
+            }
+            else if (oldVersion == 4) {
+                TableUtils.createTable(connectionSource, Link.class);
             }
 
             // Execute all changes
@@ -161,5 +167,16 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             }
         }
         return episodeDao;
+    }
+    
+    public Dao<Link, Integer> getLinkDao() {
+        if (linkDao == null) {
+            try {
+                linkDao = getDao(Link.class);
+            } catch (java.sql.SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return linkDao;
     }
 }

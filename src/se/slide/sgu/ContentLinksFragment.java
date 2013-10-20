@@ -10,6 +10,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Spinner;
 
+import se.slide.sgu.model.Link;
+
 import java.util.ArrayList;
 import java.util.List;
 

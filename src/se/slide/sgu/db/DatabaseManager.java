@@ -10,6 +10,7 @@ import se.slide.sgu.model.Content;
 import se.slide.sgu.model.Episode;
 import se.slide.sgu.model.Guest;
 import se.slide.sgu.model.Item;
+import se.slide.sgu.model.Link;
 import se.slide.sgu.model.Quote;
 import se.slide.sgu.model.Section;
 
@@ -272,6 +273,40 @@ public class DatabaseManager {
         
         try {
             TableUtils.clearTable(helper.getConnectionSource(), Episode.class);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * Link
+     */
+    
+    public List<Link> getLink(String mp3) {
+        List<Link> listOfLinks = null;
+        try {
+            listOfLinks = getHelper().getLinkDao().query(getHelper().getLinkDao().queryBuilder().where().like("mp3", mp3).prepare());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listOfLinks;
+    }
+    
+    public void addLinks(List<Link> listOfLinks) {
+        try {
+            for (Link link : listOfLinks) {
+                getHelper().getLinkDao().createOrUpdate(link);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void removeLink() {
+        Log.d(TAG, "Remove links");
+        
+        try {
+            TableUtils.clearTable(helper.getConnectionSource(), Link.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }

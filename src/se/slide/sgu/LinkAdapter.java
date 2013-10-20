@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import se.slide.sgu.model.Link;
+
 import java.util.List;
 
 public class LinkAdapter extends ArrayAdapter<Link> {

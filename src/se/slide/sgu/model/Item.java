@@ -3,6 +3,9 @@ package se.slide.sgu.model;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @DatabaseTable
 public class Item {
 
@@ -23,6 +26,12 @@ public class Item {
     
     @DatabaseField
     public boolean science;
+    
+    /**
+     * We're saving these separately
+     */
+    
+    public List<Link>       listOfLinks      =   new ArrayList<Link>();      // Links
     
     public Item() {
         
