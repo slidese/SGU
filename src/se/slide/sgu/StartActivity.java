@@ -618,12 +618,15 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
             Log.d(TAG,"DownloadBroadcastReceiver.onReceive action = " + intent.getAction());
             
             if(intent.getAction().equals(DownloaderService.CONTENT_UPDATED)) {
-                //ContentFragment fragment = (ContentFragment) getFragmentManager().findFragmentById(R.id.adfree_content_list_container);
-                ContentFragment fragment = null;
                 
-                if (fragment != null) {
-                    fragment.refresh();
+                Fragment fragment = (Fragment) getSupportFragmentManager().findFragmentById(R.id.frame_1);
+                if (fragment instanceof MainPodcastFragment) {
+                    ((MainPodcastFragment) fragment).downloadCompleted();
                 }
+                else if (fragment instanceof MainDetailsFragment) {
+                    // Nothing to do here
+                }
+                
             }
         }
     }

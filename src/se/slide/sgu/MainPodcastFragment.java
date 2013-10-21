@@ -76,6 +76,19 @@ public class MainPodcastFragment extends Fragment implements ActionBar.OnNavigat
         return false;
     }
     
+    public void downloadCompleted() {
+        String fragmentAdfree = makeFragmentName(mViewPager.getId(), 0);
+        String fragmentPremium = makeFragmentName(mViewPager.getId(), 1);
+        
+        ContentFragment fragAdfree = (ContentFragment) getChildFragmentManager().findFragmentByTag(fragmentAdfree);
+        ContentFragment fragPremium = (ContentFragment) getChildFragmentManager().findFragmentByTag(fragmentPremium);
+        
+        if (fragAdfree != null)
+            fragAdfree.refresh();
+        if (fragPremium != null)
+            fragPremium.refresh();
+    }
+    
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
@@ -123,4 +136,7 @@ public class MainPodcastFragment extends Fragment implements ActionBar.OnNavigat
         }
     }
     
+    private static String makeFragmentName(int viewId, int index) {
+        return "android:switcher:" + viewId + ":" + index;
+    }
 }

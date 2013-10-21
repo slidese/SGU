@@ -99,7 +99,7 @@ public class DownloaderService extends Service {
         new MetadataAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         
         // Start RSS download
-        //new DownloadAsyncTask(username, password, lastEpisodeInMs, autoDownload).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        new DownloadAsyncTask(username, password, lastEpisodeInMs, autoDownload).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
         return super.onStartCommand(intent, flags, startId);
     }
