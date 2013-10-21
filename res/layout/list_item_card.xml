@@ -64,7 +64,7 @@
 		        android:layout_height="fill_parent"
 		        android:layout_weight="1"
 		        sgu:typeface="Roboto-Light.ttf"
-		        android:text="@string/play" />
+		        android:text="@string/play_again" />
         
 	    </LinearLayout>
     </RelativeLayout>
