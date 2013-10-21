@@ -252,40 +252,6 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
             }
         });
         
-        
-        
-        
-        /*
-        
-        getActionBar().setListNavigationCallbacks(adapter, new OnNavigationListener() {
-            private boolean synthetic = true;
-            
-            @Override
-            public boolean onNavigationItemSelected(int itemPosition, long itemId) {
-                if (synthetic) {
-                    synthetic = false;
-                    return true;
-                }
-                
-                ContentFragment fragment = (ContentFragment) getFragmentManager().findFragmentById(R.id.frame_1);
-                
-                if (fragment == null)
-                    return false;
-                
-                if (itemPosition == 0) {
-                    mMode = ContentFragment.MODE_ADFREE;
-                }
-                else {
-                    mMode = ContentFragment.MODE_PREMIUM;
-                }
-                
-                fragment.refresh();
-                
-                return false;
-            }
-        });
-        */
-        
         //getActionBar().setSelectedNavigationItem(mMode);
         getActionBar().setTitle("");
         
@@ -303,9 +269,6 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
                 .replace(R.id.frame_1, fragment)
                 .commit();    
         }
-        
-        
-        
         
     }
     
