@@ -39,6 +39,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="se.slide.sgu.StartActivity" />
         </activity>
+        <activity
+            android:name="se.slide.sgu.AboutActivity"
+            android:label="@string/action_about"
+            android:theme="@style/Theme.Sgu"
+            android:parentActivityName="se.slide.sgu.AboutActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="se.slide.sgu.StartActivity" />
+        </activity>
         
         <!-- Services -->
         <service android:name="se.slide.sgu.PlayService" />

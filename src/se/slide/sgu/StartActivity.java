@@ -192,6 +192,12 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
             startActivity(intent);
             return true;
         }
+        else if (item.getItemId() == R.id.action_about) {
+            
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
+            return true;
+        }
         
         return super.onMenuItemSelected(featureId, item);
     }
