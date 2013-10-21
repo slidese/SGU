@@ -12,8 +12,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
-import android.os.Build;
 import android.os.IBinder;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -53,6 +54,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     private MediaPlayer mediaPlayer;
     private boolean paused = false;
     private AudioPlayerBroadcastReceiver broadcastReceiver = new AudioPlayerBroadcastReceiver();
+    PhoneStateListener phoneStateListener;
     private final int NOTIFICATION_ID = 24; // Meaning of life, eh?
 
     /*
@@ -84,6 +86,28 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         intentFilter.addAction(PAUSE_TRACK);
         intentFilter.addAction(PLAY_PAUSE_TRACK);
         registerReceiver(broadcastReceiver, intentFilter);
+        
+        // Let's pay attention to incoming calls and pause the player during the call duration
+        phoneStateListener = new PhoneStateListener() {
+            @Override
+            public void onCallStateChanged(int state, String incomingNumber) {
+                if (state == TelephonyManager.CALL_STATE_RINGING) {
+                    pause();
+                }
+                else if(state == TelephonyManager.CALL_STATE_IDLE) {
+                   play();
+                }
+                else if(state == TelephonyManager.CALL_STATE_OFFHOOK) {
+                   pause();
+                }
+                super.onCallStateChanged(state, incomingNumber);
+            }
+        };
+        
+        TelephonyManager mgr = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+        if(mgr != null) {
+            mgr.listen(phoneStateListener, PhoneStateListener.LISTEN_CALL_STATE);
+        }
     }
 
     @Override
@@ -102,6 +126,11 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         Log.i(TAG, "AudioPlayer: onDestroy() called");
         unregisterReceiver(broadcastReceiver);
         release();
+        
+        TelephonyManager mgr = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+        if(mgr != null) {
+            mgr.listen(phoneStateListener, PhoneStateListener.LISTEN_NONE);
+        }
     }
     
     @Override
