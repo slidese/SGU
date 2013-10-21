@@ -155,6 +155,18 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        
+        Fragment fragment = (Fragment) getSupportFragmentManager().findFragmentById(R.id.frame_1);
+        if (fragment instanceof MainPodcastFragment) {
+            // should make sure
+            
+        }
+        else {
+            // MainDetailsFragment
+            MenuItem reload = menu.findItem(R.id.action_reload);
+            reload.setVisible(false);
+        }
+        
         return true;
     }
     
