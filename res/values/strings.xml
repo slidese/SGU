@@ -20,8 +20,18 @@
     <string name="image_card_shadow">Card shadow</string>
     <string name="title_section3">Section 3</string>
     <string name="see_more">See more</string>
-    <string name="closing_low_memory">Low memory, closing player</string>
+    
     <string name="backdrop">Backdrop</string>
+    
+    <!-- Low memory error -->
+    <string name="closing_low_memory_ticker">Low memory, closing player</string>
+    <string name="closing_low_memory_title">Low memory</string>
+    <string name="closing_low_memory_text">Phone is low on memory, closing player</string>
+    
+    <!-- Download error -->
+    <string name="download_error_ticker">Error getting podcast data</string>
+    <string name="download_error_title">Error</string>
+    <string name="download_error_text">Check user/pass. Try again later.</string>
     
     <!-- About -->
     <string name="sgu_description">The Skeptics\' Guide to the Universe is a weekly Podcast talkshow discussing the latest news and topics from the world of the paranormal, fringe science, and controversial claims from a scientific point of view. -The Skeptics\' Guide to the Universe: Your escape to reality -Produced by the New England Skeptical Society in association with the James Randi Educational Foundation(JREF)</string>

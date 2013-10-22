@@ -56,6 +56,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     private AudioPlayerBroadcastReceiver broadcastReceiver = new AudioPlayerBroadcastReceiver();
     PhoneStateListener phoneStateListener;
     private final int NOTIFICATION_ID = 24; // Meaning of life, eh?
+    private final int NOTIFICATION_ID_LOW_MEMORY = 11;
 
     /*
     public class AudioPlayerBinder extends Binder {
@@ -135,10 +136,9 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     
     @Override
     public void onLowMemory() {
-        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        String message = getString(R.string.closing_low_memory);
-        Notification notification = new Notification(android.R.drawable.ic_dialog_alert, message, System.currentTimeMillis());
-        notificationManager.notify(1, notification);
+        Notification notification = GlobalContext.INSTANCE.buildNotification(getString(R.string.closing_low_memory_ticker), getString(R.string.closing_low_memory_title), getString(R.string.closing_low_memory_text));
+        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        manager.notify(NOTIFICATION_ID_LOW_MEMORY, notification);
         stopSelf();
     }
 
@@ -181,10 +181,17 @@ public class AudioPlayer extends Service implements OnCompletionListener {
                 builder.addAction(R.drawable.ic_action_playback_play, getString(R.string.play), pendingPauseIntent);
         }
         
-        Notification note = builder.build();
-        note.flags |= Notification.FLAG_NO_CLEAR;
+        Notification notification = null; 
+        if (android.os.Build.VERSION.SDK_INT >= 16) {
+            notification = builder.build();
+        }
+        else {
+            notification = builder.getNotification();
+        }
         
-        return note;
+        notification.flags |= Notification.FLAG_NO_CLEAR;
+        
+        return notification;
     }
     
     private void startAsForeground() {

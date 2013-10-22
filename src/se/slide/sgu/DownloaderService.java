@@ -7,6 +7,7 @@ import android.app.Notification.Builder;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources.NotFoundException;
 import android.os.AsyncTask;
@@ -52,6 +53,8 @@ public class DownloaderService extends Service {
     private final String TAG = "DownloaderService";
     
     public static final String CONTENT_UPDATED = "se.slide.sgu.CONTENT_UPDATED";
+    
+    private final int NOTIFICATION_ID = 13;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -368,7 +371,9 @@ public class DownloaderService extends Service {
                 
             }
             else {
-                // Show notification?
+                Notification notification = GlobalContext.INSTANCE.buildNotification(getString(R.string.download_error_ticker), getString(R.string.download_error_title), getString(R.string.download_error_text));
+                NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                manager.notify(NOTIFICATION_ID, notification);
             }
             
         }
