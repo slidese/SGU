@@ -164,7 +164,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         PendingIntent pendingPauseIntent = PendingIntent.getBroadcast(this, 0, pauseIntent, 0);
         
         Builder builder = new Notification.Builder(this);
-        builder.setSmallIcon(R.drawable.ic_action_planet);
+        builder.setSmallIcon(R.drawable.ic_actionbar_logo);
         
         if (showTicker)
             builder.setTicker(track.title);

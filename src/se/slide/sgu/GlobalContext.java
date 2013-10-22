@@ -88,7 +88,7 @@ public enum GlobalContext {
         PendingIntent pi = PendingIntent.getActivity(context, 0, i, 0);
         
         Builder builder = new Notification.Builder(context);
-        builder.setSmallIcon(R.drawable.ic_action_planet);
+        builder.setSmallIcon(R.drawable.ic_actionbar_logo);
         
         builder.setTicker(ticker);
         builder.setContentTitle(title);
