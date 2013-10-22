@@ -43,7 +43,7 @@
             android:id="@+id/version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="36dp"
+            android:layout_marginBottom="24dp"
             android:text="@string/version" />
 
         <TextView

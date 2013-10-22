@@ -77,12 +77,12 @@
             </section>
             <section>
                 <number>8</number>
-                <title>Monsanto</title>
+                <title>Question #1: Monsanto</title>
                 <start>35:42</start>
             </section>
             <section>
                 <number>9</number>
-                <title>Overpowered Studies</title>
+                <title>Question #2: Overpowered Studies</title>
                 <start>55:51</start>
                 <link>http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0075424</link>
             </section>
@@ -94,13 +94,215 @@
             <section>
                 <number>11</number>
                 <title>Skeptical Quote of the Week</title>
-                <start>68:03</start>
+                <start>70:38</start>
+            </section>
+        </sections>
+    </episode>
+    <episode>
+        <title>SGU Episode 428</title>
+        <description>Interview with Jamie Williams; This Day in Skepticism: Thomas Crapper; News Items: GMO OK, Angry Internet, Warning Labels, When Black Holes Explode, Carbon Nanotube Computers; Who's That Noisy; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-09-28adfree30jsi1v.mp3</mp3>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_428</transcript>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"The grand aim of all science [is] to cover the greatest number of empirical facts by logical deduction from the smallest possible number of hypotheses or axioms."</text>
+            <by>Dr. Einstein</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>For the first time scientists have created “photonic molecules” – coaxing photons of light to interact with each other to form a new state of matter.</description>
+                <link>http://www.sciencedaily.com/releases/2013/09/130925132323.htm</link>
+            </item>
+            <item science="false">
+                <title>Item #2</title>
+                <description>A recently published study of deep brain stimulation finds it effective for increasing empathy in subjects who rate highly on the psychopath scale.</description>
+                <link>http://www.sciencedaily.com/releases/2013/09/130924174331.htm</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>Astronomers have discovered a new type of pulsar that regularly switches between radio and X-ray emissions.</description>
+                <link>http://www.nasa.gov/content/goddard/astronomers-uncover-a-transformer-pulsar/#.UkM_jMash8F</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism</title>
+                <start>0:30</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>GMO OK</title>
+                <start>5:06</start>
+                <link>http://www.psmag.com/health/scientific-debate-gm-foods-theyre-safe-66711/</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Angry Internet</title>
+                <start>15:20</start>
+                <link>http://www.usatoday.com/story/news/nation/2013/09/24/anger-internet-most-powerful-emotion/2863869/</link>
+                <link>http://www.popsci.com/science/article/2013-09/why-were-shutting-our-comments</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Warning Labels</title>
+                <start>27:30</start>
+                <link>http://www.psychologicalscience.org/index.php/news/releases/warning-of-potential-side-effects-of-a-product-can-increase-its-sales.html</link>
+            </section>
+            <section>
+                <number>6</number>
+                <title>When Black Holes Explode</title>
+                <start>29:30</start>
+                <link>http://www.sciencedaily.com/releases/2013/09/130924091317.htm</link>
+            </section>
+            <section>
+                <number>7</number>
+                <title>Carbon Nanotube Computers</title>
+                <start>32:15</start>
+                <link>http://www.sciencedaily.com/releases/2013/09/130925132314.htm</link>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Who's That Noisy</title>
+                <start>38:48</start>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Interview with Jamie Williams</title>
+                <start>44:10</start>
+                <link>http://badsciencewatch.com/</link>
+                <link>http://stopnosodes.org/</link>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Science or Fiction</title>
+                <start>59:53</start>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>75:24</start>
+            </section>
+        </sections>
+    </episode>
+    <episode>
+        <title>SGU Episode 427</title>
+        <description>This Day in Skepticism: David Vetter; News Items: IgNobel 2013, Top Quarks End Universe, Alien Life on Earth, The Physics of Homosexuality, Regeneration; Who's That Noisy; Questions and E-mails: Quantum Energy; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-09-21adfreen5ush20gh.mp3</mp3>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_427</transcript>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"No No. Be of good cheer. If science teaches us anything, it teaches us to accept our failures, as well as our successes, with quiet dignity and grace."</text>
+            <by>Dr. Frederick Frankenstein</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>A new study finds that beauty sleep is real – patients who were treated for poor sleep were rated as more attractive following treatment.</description>
+                <link>http://www.health.am/ab/more/sleep-better-look-better/</link>
+            </item>
+            <item science="false">
+                <title>Item #2</title>
+                <description>Researchers find that cats infected with the toxoplasma parasite are more affectionate and likely to lick other animals, including humans, increasing the spread of the parasite.</description>
+                <link>http://www.nature.com/news/parasite-makes-mice-lose-fear-of-cats-permanently-1.13777</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>Scientists have discovered a method for converting mature skin cells into stem cells with near perfect efficiency by removing a single protein.</description>
+                <link>http://www.nature.com/news/stem-cells-made-with-near-perfect-efficiency-1.13775</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism</title>
+                <start>0:29</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>IgNobels</title>
+                <start>6:07</start>
+                <link>http://www.improbable.com/ig/winners/#ig2013</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Top Quark Ends Universe</title>
+                <start>21:17</start>
+                <link>http://www.livescience.com/39604-doomsday-universe-fate-depends-on-mass-of-tiny-particle.html</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Alien Life on Earth</title>
+                <start>27:46</start>
+                <link>http://www.dailymail.co.uk/sciencetech/article-2416761/Scientists-claim-evidence-ALIEN-LIFE-Balloon-sent-edge-atmosphere-picks-organisms-come-space.html</link>
+            </section>
+            <section>
+                <number>6</number>
+                <title>The Physics of Homosexuality</title>
+                <start>33:44</start>
+                <link>http://theness.com/neurologicablog/index.php/science-proves-im-right/</link>
+            </section>
+            <section>
+                <number>7</number>
+                <title>Regeneration</title>
+                <start>42:20</start>
+                <link>http://miami.cbslocal.com/2013/09/16/s-fl-doctor-uses-new-technology-to-re-grow-mans-finger/</link>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Who's That Noicy</title>
+                <start>47:19</start>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Question #1: Quantum Energy</title>
+                <start>49:13</start>
+                <link>http://www.indiegogo.com/projects/home-quantum-energy-generator</link>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Science or Fiction</title>
+                <start>56:45</start>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>71:02</start>
             </section>
         </sections>
     </episode>
     <episode>
         <title>SGU Episode 426</title>
-        <description></description>
+        <description>This Day in Skepticism: 9/11; News items: Motivated Numeracy, Arctic Ice, Robot Traders, Teenage Exorcists, Homeopathic Vaccines, Mission to Mars; Who's That Noisy; Your Questions and E-mails: Bdellovibrio; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-09-14adfree9erkgjs6ed.mp3</mp3>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_426</transcript>
         <hosts>
@@ -120,6 +322,23 @@
             <text>"When he found that his long cherished beliefs did not agree with the most precise observations, he accepted the uncomfortable facts. He preferred the hard truth to his dearest delusions, that is the heart of science."</text>
             <by>Carl Sagan</by>
         </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>New research finds that hearing a salesperson flatter another customer causes a negative reaction to the salesperson but increases the desire to buy an expensive item.</description>
+                <link>http://www.sciencedaily.com/releases/2013/09/130910104834.htm</link>
+            </item>
+            <item science="false">
+                <title>Item #2</title>
+                <description>A new study finds that subjects were more likely to purchase a lottery ticket if they had just spent money on an expensive item.</description>
+                <link>http://phys.org/news/2013-09-lottery-affect-consumers-self-control.html</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>Researchers find that women are more likely to purchase expensive accessories when they feel threatened in their relationship, and that this strategy works because women are also less likely to pursue a man whose girlfriend has expensive accessories.</description>
+                <link>http://www.sciencecodex.com/why_does_a_fancy_purse_say_stay_away_from_my_man-119058</link>
+            </item>
+        </scienceorfiction>
         <sections>
             <section>
                 <number>1</number>
@@ -184,6 +403,99 @@
             </section>
             <section>
                 <number>12</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>77:52</start>
+            </section>
+        </sections>
+    </episode>
+    <episode>
+        <title>SGU Episode 425</title>
+        <description>This Day in Skepticism: Last Thylacine; News Items: NASA Spiders, Chicken Wings and Penis Size, TCM for Flu, New Element 115; Who's That Noisy; Your Questions and E-mails: Pox Parties, Aromatherapy; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-09-07adfreel8grt4.mp3</mp3>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_425</transcript>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"Science is the only thing that disproves science, and it does it all the time."</text>
+            <by>Matt Dillahunty</by>
+        </quote>
+        <scienceorfiction>
+            <item science="false">
+                <title>Item #1</title>
+                <description>A thorough review of published studies in Psychology found that only 5% of published replications confirm the prior results.</description>
+                <link>http://www.tip.duke.edu/node/1437</link>
+            </item>
+            <item science="true">
+                <title>Item #2</title>
+                <description>Studies have found that as many as 50% of published peer-reviewed research contains statistical errors, sometimes changing the conclusions of the study.</description>
+                <link>http://www.eurekalert.org/pub_releases/2004-05/bc-prc052604.php</link>
+                <link>http://phys.org/news/2011-09-statistical-error-large-neuroscience-papers.html</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>In surveys, 34% of researchers admitted to questionable research practices themselves, and up to 72% in their colleagues.</description>
+                <link>http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0005738</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism</title>
+                <start>0:31</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>NASA Spiders</title>
+                <start>7:55</start>
+                <link>http://www.dezeen.com/2013/08/30/nasa-develops-3d-printing-factory-in-space/</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Chicken Wings and Penis Size</title>
+                <start>19:53</start>
+                <link>http://philadelphia.cbslocal.com/2013/08/30/peta-eating-chicken-wings-during-pregnancy-could-affect-sons-penis-size/</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>TCM for Flu</title>
+                <start>26:34</start>
+                <link>http://theness.com/neurologicablog/index.php/tcm-for-flu/</link>
+            </section>
+            <section>
+                <number>6</number>
+                <title>Who's That Noisy</title>
+                <start>33:48</start>
+            </section>
+            <section>
+                <number>7</number>
+                <title>Question #1: Pox Parties</title>
+                <start>39:34</start>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Question #2: Aromatherapy</title>
+                <start>44:42</start>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Science or Fiction</title>
+                <start>57:09</start>
+            </section>
+            <section>
+                <number>10</number>
                 <title>Skeptical Quote of the Week</title>
                 <start>77:52</start>
             </section>
