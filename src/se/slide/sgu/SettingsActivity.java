@@ -42,7 +42,7 @@ public class SettingsActivity extends PreferenceActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Utils.setStrictMode();
+        //Utils.setStrictMode();
         
         super.onCreate(savedInstanceState);
         
