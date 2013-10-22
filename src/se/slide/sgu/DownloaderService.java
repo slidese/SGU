@@ -67,30 +67,13 @@ public class DownloaderService extends Service {
         GlobalContext.INSTANCE.init(this);
         ContentDownloadManager.INSTANCE.init(this);
 
-        
-        // Dummy code to visualize the scheduling for testing purposes only
-        Intent notificationIntent = new Intent(this, StartActivity.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-        Builder builder = new Notification.Builder(this);
-        builder.setContentIntent(contentIntent);
-        builder.setWhen(System.currentTimeMillis());
-        builder.setSmallIcon(R.drawable.ic_action_planet);
-        builder.setContentTitle("Started SGU download");
-        builder.setContentText("Fired at " + GlobalContext.INSTANCE.formatDate(new Date()));
-        Notification note = builder.build();
-        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        notificationManager.notify(999, note);
-        // End of test dummy code
-
         String username = PreferenceManager.getDefaultSharedPreferences(this).getString("username", null);
         String password = PreferenceManager.getDefaultSharedPreferences(this).getString("password", null);
-        
         
         if (username == null || password == null) {
             stopSelf();
             return super.onStartCommand(intent, flags, startId);
         }
-            
 
         long lastEpisodeInMs = PreferenceManager.getDefaultSharedPreferences(this).getLong("last_episode_in_ms", 0L);
         boolean autoDownload = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("auto_download", false);
