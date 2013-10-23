@@ -116,16 +116,16 @@ public class DownloaderService extends Service {
                 } catch (IOException e) {
                     e.printStackTrace();
                     returnValue = false;
-                    GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
+                    GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics("While reading inputstream for metadata", Thread.currentThread().getName(), e, false);
                 }
             } catch (ClientProtocolException e) {
                 e.printStackTrace();
                 returnValue = false;
-                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
+                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics("While executing HTTP request, client protocol exception", Thread.currentThread().getName(), e, false);
             } catch (IOException e) {
                 e.printStackTrace();
                 returnValue = false;
-                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
+                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics("While executing HTTP request, some IO problem", Thread.currentThread().getName(), e, false);
             }
             
             SectionParser parser = new SectionParser();
@@ -137,15 +137,15 @@ public class DownloaderService extends Service {
             } catch (NotFoundException e) {
                 e.printStackTrace();
                 returnValue = false;
-                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
+                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics("While parsing metadata, not found exception", Thread.currentThread().getName(), e, false);
             } catch (XmlPullParserException e) {
                 e.printStackTrace();
                 returnValue = false;
-                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
+                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics("While parsing metadata, xml pull parser exception", Thread.currentThread().getName(), e, false);
             } catch (IOException e) {
                 e.printStackTrace();
                 returnValue = false;
-                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
+                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics("While parsing metadata, IO exception", Thread.currentThread().getName(), e, false);
             }
             
             if (listOfEpisodes != null) {
@@ -246,17 +246,17 @@ public class DownloaderService extends Service {
                 } catch (IOException e) {
                     e.printStackTrace();
                     returnValue = false;
-                    GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
+                    GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics("While reading RSS inputstream, IO exception", Thread.currentThread().getName(), e, false);
                 }
 
             } catch (ClientProtocolException e) {
                 e.printStackTrace();
                 returnValue = false;
-                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
+                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics("While executing HTTP request, client protocol exception", Thread.currentThread().getName(), e, false);
             } catch (IOException e) {
                 e.printStackTrace();
                 returnValue = false;
-                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
+                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics("While executing HTTP request, IO exception", Thread.currentThread().getName(), e, false);
             }
 
             // Try to parse the content
@@ -265,7 +265,7 @@ public class DownloaderService extends Service {
             } catch (Exception e) {
                 e.printStackTrace();
                 returnValue = false;
-                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
+                GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics("While parsing RSS, exception", Thread.currentThread().getName(), e, false);
             }
 
             return returnValue;

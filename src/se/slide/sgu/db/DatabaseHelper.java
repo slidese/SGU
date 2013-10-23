@@ -94,11 +94,11 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
         } catch (SQLException e) {
             Log.e(TAG, "Exception during onUpgrade", e);
-            GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
+            GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics("While upgrading database, android SQLException", Thread.currentThread().getName(), e, false);
             throw new RuntimeException(e);
         } catch (java.sql.SQLException e) {
             Log.e(TAG, "Exception during onUpgrade", e);
-            GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics(Thread.currentThread().getName(), e, false);
+            GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics("While upgrading database, java sql SQLException", Thread.currentThread().getName(), e, false);
             throw new RuntimeException(e);
         }
     }

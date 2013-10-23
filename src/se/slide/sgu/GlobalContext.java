@@ -3,8 +3,8 @@ package se.slide.sgu;
 import android.annotation.TargetApi;
 import android.app.AlarmManager;
 import android.app.Notification;
-import android.app.PendingIntent;
 import android.app.Notification.Builder;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -13,6 +13,8 @@ import android.preference.PreferenceManager;
 import com.google.analytics.tracking.android.EasyTracker;
 import com.google.analytics.tracking.android.MapBuilder;
 import com.google.analytics.tracking.android.StandardExceptionParser;
+
+import org.apache.commons.lang3.exception.ExceptionUtils;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -27,10 +29,13 @@ public enum GlobalContext {
         this.context = context.getApplicationContext();
     }
 
-    public void sendExceptionToGoogleAnalytics(String threadName, Throwable t, boolean fatal) {
+    public void sendExceptionToGoogleAnalytics(String message, String threadName, Throwable t, boolean fatal) {
         // https://developers.google.com/analytics/devguides/collection/android/v3/exceptions
+        
+        String stacktrace = ExceptionUtils.getStackTrace(t);
+        
         EasyTracker easyTracker = EasyTracker.getInstance(context);
-        easyTracker.send(MapBuilder.createException(new StandardExceptionParser(context, null).getDescription(threadName, t), fatal).build());
+        easyTracker.send(MapBuilder.createException(message + ", " + new StandardExceptionParser(context, null).getDescription(threadName, t) + ", Exception: " + stacktrace, fatal).build());
     }
     
     public String formatDate(Date date) {
