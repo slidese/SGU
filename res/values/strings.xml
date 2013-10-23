@@ -34,6 +34,7 @@
     <string name="download_error_text">Check user/pass. Try again later.</string>
     
     <!-- About -->
+    <string name="sgu_title">SGU &#8211; An unofficial podcast player</string>
     <string name="sgu_description">The Skeptics\' Guide to the Universe is a weekly Podcast talkshow discussing the latest news and topics from the world of the paranormal, fringe science, and controversial claims from a scientific point of view. -The Skeptics\' Guide to the Universe: Your escape to reality -Produced by the New England Skeptical Society in association with the James Randi Educational Foundation(JREF)</string>
     <string name="version">Version %s</string>
     <string name="made_by">Made by Mike and Petrus</string>
