@@ -5,4 +5,4 @@
     android:layout_height="wrap_content"
     android:adjustViewBounds="true"
     android:scaleType="centerCrop"
-    android:src="@drawable/sgu_crew" android:contentDescription="@string/backdrop"/>
+    android:src="@drawable/sgu_crew_black" android:contentDescription="@string/backdrop"/>

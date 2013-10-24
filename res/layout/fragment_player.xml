@@ -34,7 +34,7 @@
             style="@android:style/Holo.Light.ButtonBar"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/ic_action_expand" />
+            android:src="@drawable/ic_action_headphones" />
     
         <SeekBar
             android:id="@+id/seekBar1"
