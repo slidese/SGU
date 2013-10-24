@@ -177,7 +177,10 @@ public class SettingsActivity extends PreferenceActivity {
                 // simple string representation.
                 
                 if (preference.getKey().equals("password"))
-                    preference.setSummary(PASSWORD_STARS);
+                    if (stringValue.length() > 0)
+                        preference.setSummary(PASSWORD_STARS);
+                    else
+                        preference.setSummary("");
                 else
                     preference.setSummary(stringValue);
             }
@@ -200,8 +203,12 @@ public class SettingsActivity extends PreferenceActivity {
 
         // Trigger the listener immediately with the preference's
         // current value.
-        if (preference.getKey().equals("password"))
-            sBindPreferenceSummaryToValueListener.onPreferenceChange(preference, PASSWORD_STARS);
+        if (preference.getKey().equals("password")) {
+            if (PreferenceManager.getDefaultSharedPreferences(preference.getContext()).getString(preference.getKey(), "").length() < 1)
+                sBindPreferenceSummaryToValueListener.onPreferenceChange(preference, "");
+            else
+                sBindPreferenceSummaryToValueListener.onPreferenceChange(preference, PASSWORD_STARS);
+        }
         else
             sBindPreferenceSummaryToValueListener.onPreferenceChange(preference, PreferenceManager.getDefaultSharedPreferences(preference.getContext()).getString(preference.getKey(), ""));
     }
