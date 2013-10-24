@@ -35,8 +35,6 @@ public class ContentFragment extends Fragment {
     ListView mListview;
     Button mPlayButton;
     ContentAdapter mAdapter;
-    RelativeLayout mNoContent;
-    TextView mNoContentMessage;
     int mMode;
 
     public ContentFragment() {
@@ -68,6 +66,7 @@ public class ContentFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_content, null);
 
         mListview = (ListView) view.findViewById(android.R.id.list);
+        mListview.setEmptyView(view.findViewById(R.id.empty_list_view));
         mListview.setOnItemClickListener(new OnItemClickListener() {
 
             @Override
@@ -78,9 +77,6 @@ public class ContentFragment extends Fragment {
                 mListener.showContentDetails(content);
             }
         });
-        
-        mNoContent = (RelativeLayout) view.findViewById(R.id.holder_no_content);
-        mNoContentMessage = (TextView) view.findViewById(R.id.message_no_content);
         
         mMode = getArguments().getInt(CONTENT_MODE);
 

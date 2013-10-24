@@ -25,12 +25,22 @@
         android:dividerHeight="10dp" >
     </ListView>
     
-    <RelativeLayout
-        android:id="@+id/holder_no_content"
+    <LinearLayout
+        android:id="@+id/empty_list_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical"
         android:visibility="gone"
-        >
+        android:padding="16dp" >
+    
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_sgu_black_logo"
+            />
         
         <se.slide.sgu.TypefacedTextView
             android:id="@+id/message_no_content"
@@ -38,12 +48,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="16sp"
-            android:layout_margin="32dp"
-            android:layout_centerInParent="true"
-            android:text="@string/no_content_getting_started"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="32dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/no_content_getting_started_no_html"
             sgu:typeface="Roboto-Light.ttf"
             />
         
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>
