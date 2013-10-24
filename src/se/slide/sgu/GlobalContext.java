@@ -110,8 +110,6 @@ public enum GlobalContext {
             notification = builder.getNotification();
         }
         
-        notification.flags |= Notification.FLAG_NO_CLEAR;
-        
         return notification;
     }
 }
