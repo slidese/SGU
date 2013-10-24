@@ -46,14 +46,19 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
     
     private SlidingLayer                    mSlidingLayer;
     private ImageButton                     mPlayButton;
+    private ImageButton                     mShowSections;
     private ImageButton                     mSkipRewButton;
     private ImageButton                     mSkipForButton;
+    private ImageButton                     mPlayNextSectionButton;
+    private ImageButton                     mPlayPreviousSectionButton;
     private TextView                        mPlayerTitle;
     private TextView                        mPlayerDescription;
     private TextView                        mPlayerDurationNow;
     private TextView                        mPlayerDurationTotal;
     private TextView                        mPlayerDate;
     private LinearLayout                    mLinearLayoutPlayer;
+    private LinearLayout                    mLinearLayout;
+    private LinearLayout                    mLinearLayoutIndicator;
     private RelativeLayout                  mRelativeLayoutNothingPlaying;
     private BroadcastReceiver               mDownloadBroadcastReceiver = new DownloadBroadcastReceiver();
     private ServiceConnection               mServiceConnection = new AudioPlayerServiceConnection();
@@ -66,6 +71,8 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
     private SeekBar                         mSeeker;
     private int                             mMode;
     private boolean                         mShowingBack = false;
+    private List<Section>                   mLatestLoadedSections;
+    private Content                         mLatestLoadedTrack;
     
     static final int UPDATE_INTERVAL = 250;
 
@@ -179,6 +186,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
             
             return true;
         }
+        /*
         else if (item.getItemId() == R.id.action_show_player) {
             if (mSlidingLayer.isOpened())
                 mSlidingLayer.closeLayer(true);
@@ -186,6 +194,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
                 mSlidingLayer.openLayer(true);
             
         }
+        */
         else if (item.getItemId() == R.id.action_settings) {
             
             Intent intent = new Intent(this, SettingsActivity.class);
@@ -208,8 +217,11 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
     private void bindViews() {
         mSlidingLayer = (SlidingLayer) findViewById(R.id.slidingLayer1);
         mPlayButton = (ImageButton) findViewById(R.id.playButton);
+        mShowSections = (ImageButton) findViewById(R.id.showSections);
         mSkipRewButton = (ImageButton) findViewById(R.id.skipBackButton);
         mSkipForButton = (ImageButton) findViewById(R.id.skipForwardButton);
+        mPlayNextSectionButton = (ImageButton) findViewById(R.id.playNextSectionButton);
+        mPlayPreviousSectionButton = (ImageButton) findViewById(R.id.playPrevSectionButton);
         mSeeker = (SeekBar) findViewById(R.id.seeker);
         mPlayerTitle = (TextView) findViewById(R.id.playerTitle);
         mPlayerDescription = (TextView) findViewById(R.id.playerDescription);
@@ -217,6 +229,8 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         mPlayerDurationTotal = (TextView) findViewById(R.id.playerDurationTotal);
         mPlayerDate = (TextView) findViewById(R.id.playerDate);
         mLinearLayoutPlayer = (LinearLayout) findViewById(R.id.linearlayout_player);
+        mLinearLayout = (LinearLayout) findViewById(R.id.player_linearlayout);
+        mLinearLayoutIndicator = (LinearLayout) findViewById(R.id.player_linearlayout_indicators);
         mRelativeLayoutNothingPlaying = (RelativeLayout) findViewById(R.id.nothingPlayingView);
     }
     
@@ -227,9 +241,22 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         LayoutParams rlp = (LayoutParams) mSlidingLayer.getLayoutParams();
         rlp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         
-        mSlidingLayer.setStickTo(SlidingLayer.STICK_TO_RIGHT);
+        mSlidingLayer.setStickTo(SlidingLayer.STICK_TO_BOTTOM);
         mSlidingLayer.setOffsetWidth(0);
         mSlidingLayer.setLayoutParams(rlp);
+        mSlidingLayer.setCloseOnTapEnabled(false);
+        mSlidingLayer.setSlidingEnabled(false);
+        
+        mShowSections.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                if (mSlidingLayer.isOpened())
+                    mSlidingLayer.closeLayer(true);
+                else
+                    mSlidingLayer.openLayer(true);
+            }
+        });
         
         mPlayButton.setOnClickListener(new OnClickListener() {
             
@@ -239,11 +266,15 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
                     mAudioPlayer.pause();
                     //mUpdateCurrentTrackTask.pause();
                 }
-                else {
+                else if (mAudioPlayer.isPaused()) {
                     if (mAudioPlayer.hasTracks()) {
                         mAudioPlayer.play();
                         //mUpdateCurrentTrackTask.pause();
                     }
+                }
+                else {
+                    if (mLatestLoadedTrack != null)
+                        mAudioPlayer.play(mLatestLoadedTrack);
                 }
                 
                 refreshScreen();
@@ -267,6 +298,22 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
                 if (mAudioPlayer.isPlaying()) {
                     mAudioPlayer.seek(mAudioPlayer.elapsed() - 10000);
                 }
+            }
+        });
+        
+        mPlayNextSectionButton.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                skipToNextSection();
+            }
+        });
+        
+        mPlayPreviousSectionButton.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                skipToPreviousSection();
             }
         });
         
@@ -327,14 +374,14 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         LinearLayout sectionLinearLayout = (LinearLayout) findViewById(R.id.section_linearlayout);
         sectionLinearLayout.removeAllViews();
         
-        List<Section> listOfSection = DatabaseManager.getInstance().getSection(track.mp3);
+        mLatestLoadedSections = DatabaseManager.getInstance().getSection(track.mp3);
         
-        if (listOfSection == null)
+        if (mLatestLoadedSections == null)
             return;
         
         LayoutInflater inflater = (LayoutInflater) getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         
-        for (Section section : listOfSection) {
+        for (Section section : mLatestLoadedSections) {
             View sectionView = inflater.inflate(R.layout.section_layout_item, null);
             
             TextView number = (TextView) sectionView.findViewById(R.id.sectionNumber);
@@ -363,6 +410,51 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         
     }
     
+    private void skipToNextSection() {
+        if (mLatestLoadedSections == null || mAudioPlayer == null)
+            return;
+        
+        int currentElapsed = mAudioPlayer.elapsed();
+        
+        for (Section section : mLatestLoadedSections) {
+            final int seek = section.start * 1000;
+            if (seek > currentElapsed) {
+                mAudioPlayer.seekAndPlay(seek);
+                return;
+            }
+        }
+        
+    }
+    
+    private void skipToPreviousSection() {
+        if (mLatestLoadedSections == null || mAudioPlayer == null)
+            return;
+        
+        int currentElapsed = mAudioPlayer.elapsed();
+        
+        Section prev = null;
+        Section skipToMe = null;
+        for (Section section : mLatestLoadedSections) {
+            final int seek = section.start * 1000;
+            if (currentElapsed < seek && prev != null && (prev.start*1000) < currentElapsed) {
+                if (skipToMe != null) {
+                    final int prevSeek = skipToMe.start * 1000; 
+                    mAudioPlayer.seekAndPlay(prevSeek);
+                    return;    
+                }
+            }
+            
+            skipToMe = prev;
+            prev = section;
+        }
+        
+        if (skipToMe != null) {
+            final int prevSeek = skipToMe.start * 1000; 
+            mAudioPlayer.seekAndPlay(prevSeek);
+            return;
+        }
+    }
+    
     public void updatePlayQueue() {
                 
         updatePlayPauseButtonState();
@@ -384,10 +476,14 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
     private void initPlayerView() {
         if (mAudioPlayer == null || (!mAudioPlayer.isPlaying() && !mAudioPlayer.isPaused())) {
             mLinearLayoutPlayer.setVisibility(View.GONE);
+            mLinearLayout.setVisibility(View.GONE);
+            mLinearLayoutIndicator.setVisibility(View.GONE);
             mRelativeLayoutNothingPlaying.setVisibility(View.VISIBLE);
         }
         else {
             mLinearLayoutPlayer.setVisibility(View.VISIBLE);
+            mLinearLayout.setVisibility(View.VISIBLE);
+            mLinearLayoutIndicator.setVisibility(View.VISIBLE);
             mRelativeLayoutNothingPlaying.setVisibility(View.GONE);
         }
     }
@@ -421,7 +517,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
             mPlayButton.setImageResource(R.drawable.ic_action_playback_pause);
         } else {
             if (mAudioPlayer.getCurrentTrack() == null)
-                mPlayButton.setImageResource(R.drawable.ic_action_playback_stop);
+                mPlayButton.setImageResource(R.drawable.ic_action_playback_repeat);
             else
                 mPlayButton.setImageResource(R.drawable.ic_action_playback_play);
         }
@@ -433,6 +529,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
     
     public void playContent(Content content) {
         mAudioPlayer.play(content);
+        mLatestLoadedTrack = content;
         loadSections(content);
         initPlayerView();
         

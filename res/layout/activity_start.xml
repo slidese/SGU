@@ -3,17 +3,10 @@
     xmlns:sgu="http://schemas.android.com/apk/res/se.slide.sgu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     >
     
-    <FrameLayout
-        android:id="@+id/frame_1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="0dp"
-	    android:layout_marginLeft="0dp"
-	    android:layout_marginRight="0dp"
-	    android:layout_marginTop="0dp"
-    />
+    
     
 	<!-- fragment
 	    android:id="@+id/adfree_content_list_container"
@@ -41,11 +34,150 @@
 	    tools:context=".StartActivity"
 	    tools:layout="@layout/fragment_player" /-->
 
+	
+	
+	<LinearLayout
+		        android:id="@+id/player_linearlayout"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentBottom="true"
+		        android:background="@color/player_dark_gray"
+		        android:clickable="true"
+		        android:visibility="gone"
+		        android:orientation="horizontal" >
+	    
+	    		<ImageButton
+		            android:id="@+id/showSections"
+		            style="@android:style/Holo.Light.ButtonBar"
+		            android:contentDescription="@string/desc_show_sections"
+		            android:background="@drawable/skip_button_selector"
+		            android:layout_width="0dp"
+		            android:layout_height="48dp"
+		            android:layout_weight="1"
+		            android:src="@drawable/ic_action_list_2" />
+	    
+	    		<ImageButton
+		            android:id="@+id/playPrevSectionButton"
+		            style="@android:style/Holo.Light.ButtonBar"
+		            android:contentDescription="@string/desc_play_button"
+		            android:background="@drawable/skip_button_selector"
+		            android:layout_width="0dp"
+		            android:layout_height="48dp"
+		            android:layout_weight="1"
+		            android:src="@drawable/ic_action_playback_prev" />
+	    		
+		    	<ImageButton
+		            android:id="@+id/skipBackButton"
+		            style="@android:style/Holo.Light.ButtonBar"
+		            android:contentDescription="@string/desc_play_button"
+		            android:background="@drawable/skip_button_selector"
+		            android:layout_width="0dp"
+		            android:layout_height="48dp"
+		            android:layout_weight="1"
+		            android:src="@drawable/ic_action_playback_rew" />
+		    
+		        <ImageButton
+		            android:id="@+id/skipForwardButton"
+		            style="@android:style/Holo.Light.ButtonBar"
+		            android:contentDescription="@string/desc_play_button"
+		            android:background="@drawable/skip_button_selector"
+		            android:layout_width="0dp"
+		            android:layout_height="48dp"
+		            android:layout_weight="1"
+		            android:src="@drawable/ic_action_playback_forw" />
+		        
+		        <ImageButton
+		            android:id="@+id/playNextSectionButton"
+		            style="@android:style/Holo.Light.ButtonBar"
+		            android:contentDescription="@string/desc_play_button"
+		            android:background="@drawable/skip_button_selector"
+		            android:layout_width="0dp"
+		            android:layout_height="48dp"
+		            android:layout_weight="1"
+		            android:src="@drawable/ic_action_playback_next" />
+		
+		        <ImageButton
+		            android:id="@+id/playButton"
+		            style="@android:style/Holo.Light.ButtonBar"
+		            android:contentDescription="@string/desc_play_button"
+		            android:background="@drawable/playpause_button_selector"
+		            android:layout_width="48dp"
+		            android:layout_height="48dp"
+		            android:src="@drawable/ic_action_playback_play" />
+		
+			</LinearLayout>
+			
+	<LinearLayout
+                android:id="@+id/player_linearlayout_indicators"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/player_linearlayout"
+                android:orientation="horizontal"
+                android:gravity="right"
+                android:visibility="gone"
+                android:background="@color/player_dark_gray"
+                >
+                
+                <SeekBar
+		            android:id="@+id/seeker"
+		            android:layout_width="0dp"
+		            android:layout_height="wrap_content"
+		            android:layout_gravity="center_horizontal|center_vertical"
+		            android:thumb="@android:color/transparent"
+		            android:layout_weight="1"
+		            android:layout_marginLeft="4dp"
+		            android:layout_marginRight="4dp"
+		            android:maxHeight="11dip"
+		            android:minHeight="11dip" />
+                
+                <se.slide.sgu.TypefacedTextView
+	                android:id="@+id/playerDurationNow"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginTop="8dp"
+	                android:layout_marginLeft="8dp"
+	                android:layout_marginRight="0dp"
+	                android:layout_marginBottom="8dp"
+	                android:gravity="right"
+	                android:textSize="12sp"
+	                android:textColor="@color/holo_blue_bright"
+	                sgu:typeface="Roboto-Light.ttf"
+	                />
+                
+                <se.slide.sgu.TypefacedTextView
+	                android:id="@+id/playerDurationTotal"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginTop="8dp"
+	                android:layout_marginLeft="0dp"
+	                android:layout_marginRight="8dp"
+	                android:layout_marginBottom="8dp"
+	                android:gravity="right"
+	                android:textSize="12sp"
+	                android:textColor="@android:color/primary_text_dark"
+	                sgu:typeface="Roboto-Light.ttf"
+	                />
+                
+	</LinearLayout>
+	
+	<FrameLayout
+        android:id="@+id/frame_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/player_linearlayout_indicators"
+        android:layout_marginBottom="0dp"
+	    android:layout_marginLeft="0dp"
+	    android:layout_marginRight="0dp"
+	    android:layout_marginTop="0dp"
+    />
+	
 	<com.slidinglayer.SlidingLayer
         xmlns:slidingLayer="http://schemas.android.com/apk/res/com.slidinglayer"
         android:id="@+id/slidingLayer1"
-        android:layout_width="@dimen/layer_width"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@id/player_linearlayout_indicators"
         >
         
 	    <RelativeLayout
@@ -159,99 +291,11 @@
                 </LinearLayout>
                 
             </ScrollView>
-            
-            <LinearLayout
-                android:id="@+id/player_linearlayout_indicators"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="right"
-                >
-                
-                <SeekBar
-		            android:id="@+id/seeker"
-		            android:layout_width="0dp"
-		            android:layout_height="wrap_content"
-		            android:layout_gravity="center_horizontal|center_vertical"
-		            android:thumb="@android:color/transparent"
-		            android:layout_weight="1"
-		            android:layout_marginLeft="4dp"
-		            android:layout_marginRight="4dp"
-		            android:maxHeight="11dip"
-		            android:minHeight="11dip" />
-                
-                <se.slide.sgu.TypefacedTextView
-	                android:id="@+id/playerDurationNow"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_marginTop="8dp"
-	                android:layout_marginLeft="8dp"
-	                android:layout_marginRight="0dp"
-	                android:layout_marginBottom="8dp"
-	                android:gravity="right"
-	                android:textSize="12sp"
-	                android:textColor="@color/holo_blue_bright"
-	                sgu:typeface="Roboto-Light.ttf"
-	                />
-                
-                <se.slide.sgu.TypefacedTextView
-	                android:id="@+id/playerDurationTotal"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_marginTop="8dp"
-	                android:layout_marginLeft="0dp"
-	                android:layout_marginRight="8dp"
-	                android:layout_marginBottom="8dp"
-	                android:gravity="right"
-	                android:textSize="12sp"
-	                android:textColor="@android:color/primary_text_dark"
-	                sgu:typeface="Roboto-Light.ttf"
-	                />
-                
-            </LinearLayout>
-            
-            <LinearLayout
-		        android:id="@+id/player_linearlayout"
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:background="@color/player_dark_gray"
-		        android:clickable="true"
-		        android:orientation="horizontal" >
-		    
-		    	<ImageButton
-		            android:id="@+id/skipBackButton"
-		            style="@android:style/Holo.Light.ButtonBar"
-		            android:contentDescription="@string/desc_play_button"
-		            android:background="@drawable/skip_button_selector"
-		            android:layout_width="0dp"
-		            android:layout_height="60dp"
-		            android:layout_weight="1"
-		            android:src="@drawable/ic_action_playback_rew" />
-		    
-		        <ImageButton
-		            android:id="@+id/skipForwardButton"
-		            style="@android:style/Holo.Light.ButtonBar"
-		            android:contentDescription="@string/desc_play_button"
-		            android:background="@drawable/skip_button_selector"
-		            android:layout_width="0dp"
-		            android:layout_height="60dp"
-		            android:layout_weight="1"
-		            android:src="@drawable/ic_action_playback_forw" />
-		
-		        <ImageButton
-		            android:id="@+id/playButton"
-		            style="@android:style/Holo.Light.ButtonBar"
-		            android:contentDescription="@string/desc_play_button"
-		            android:background="@drawable/playpause_button_selector"
-		            android:layout_width="60dp"
-		            android:layout_height="60dp"
-		            android:src="@drawable/ic_action_playback_play" />
-		
-			</LinearLayout>
 			
         </LinearLayout>
 
     </com.slidinglayer.SlidingLayer>
+    
 	
 	
 </RelativeLayout>

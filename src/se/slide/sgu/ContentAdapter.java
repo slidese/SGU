@@ -88,7 +88,7 @@ public class ContentAdapter extends ArrayAdapter<Content> {
             int textColorPlayed = mResource.getColor(R.color.text_white_dark);
             Drawable whiteButtonSelector = mResource.getDrawable(R.drawable.white_button_selector);
             
-            holder.play.setText(R.string.play_again);
+            holder.play.setText(R.string.play);
             holder.play.setTextColor(textColorPlayed);
             
             if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
@@ -101,7 +101,7 @@ public class ContentAdapter extends ArrayAdapter<Content> {
             int textColorNotPlayed = mResource.getColor(R.color.text_white_full);
             Drawable blueButtonSelector = mResource.getDrawable(R.drawable.blue_button_selector);
             
-            holder.play.setText(R.string.play_new);
+            holder.play.setText(R.string.play);
             holder.play.setTextColor(textColorNotPlayed);
             
             if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {

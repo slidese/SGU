@@ -43,6 +43,7 @@
     
     <!-- Image descriptions -->
     <string name="desc_play_button">Play button</string>
+    <string name="desc_show_sections">Show sections</string>
     
     <!-- Section dummy string -->
     <string name="section_number">42</string>
