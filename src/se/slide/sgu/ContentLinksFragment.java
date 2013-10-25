@@ -37,7 +37,7 @@ public class ContentLinksFragment extends Fragment {
         View view = inflater.inflate(R.layout.webview_holder, null);
         
         final WebView web = (WebView) view.findViewById(R.id.web);
-        web.getSettings().setJavaScriptEnabled(true);
+        //web.getSettings().setJavaScriptEnabled(true);
         web.getSettings().setSupportZoom(true);
         web.getSettings().setBuiltInZoomControls(true);
         web.getSettings().setUseWideViewPort(true);

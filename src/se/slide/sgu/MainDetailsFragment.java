@@ -81,7 +81,7 @@ public class MainDetailsFragment extends Fragment implements ActionBar.OnNavigat
         mSectionsPagerAdapter = new SectionsPagerAdapter(getChildFragmentManager(), mp3);
 
         mViewPager = (ViewPager) view.findViewById(R.id.pager);
-        mViewPager.setOffscreenPageLimit(3);
+        //mViewPager.setOffscreenPageLimit(3);
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         
