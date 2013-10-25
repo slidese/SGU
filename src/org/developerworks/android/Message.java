@@ -5,10 +5,11 @@ import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class Message implements Comparable<Message>{
 	static SimpleDateFormat FORMATTER = 
-		new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z");
+		new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z", Locale.US);
 	private String title;
 	private URL link;
 	private String description;
