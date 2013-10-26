@@ -45,7 +45,7 @@ Images and other content from the SGU website is *not* covered in this license.
 [2]: http://www.android.com/images/brand/get_it_on_play_logo_small.png
 [3]: https://play.google.com/store/apps/details?id=se.slide.sgu
 [4]: http://www.slide.se
-[5]: https://raw.github.com/slidese/SGU/master/2013-10-25-02.45.55.png
-[6]: https://raw.github.com/slidese/SGU/master/2013-10-25-02.46.35.png
+[5]: https://raw.github.com/slidese/SGU/master/2013-10-25 02.45.55.png
+[6]: https://raw.github.com/slidese/SGU/master/2013-10-25 02.46.35.png
 [7]: https://github.com/codechimp-org/AppRater
 [8]: https://github.com/6wunderkinder/android-sliding-layer-lib
