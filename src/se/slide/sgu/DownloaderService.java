@@ -290,18 +290,16 @@ public class DownloaderService extends Service {
                 listOfContent.add(content);
             }
             
-            if (autoDownload && lastEpisodeInMs > 0) {
-                for (Content content : listOfContent) {
-                    Date published = content.published;
-                    
-                    // Keep track of the latest episode date
-                    long t = published.getTime();
-                    if (t > latestEpisodeFound)
-                        latestEpisodeFound = t;
-                    
-                    if (t > lastEpisodeInMs) {
-                        ContentDownloadManager.INSTANCE.addToDownloadQueue(content.mp3, content.title, content.description, Utils.formatFilename(content.title));
-                    }
+            for (Content content : listOfContent) {
+                Date published = content.published;
+                
+                // Keep track of the latest episode date
+                long t = published.getTime();
+                if (t > latestEpisodeFound)
+                    latestEpisodeFound = t;
+                
+                if (autoDownload && lastEpisodeInMs != 0 && t > lastEpisodeInMs) {
+                    ContentDownloadManager.INSTANCE.addToDownloadQueue(content.mp3, content.title, content.description, Utils.formatFilename(content.title));
                 }
             }
             
