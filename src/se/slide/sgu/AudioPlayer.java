@@ -57,6 +57,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     PhoneStateListener phoneStateListener;
     private final int NOTIFICATION_ID = 24; // Meaning of life, eh?
     private final int NOTIFICATION_ID_LOW_MEMORY = 11;
+    private boolean wasPlaying = false;
 
     /*
     public class AudioPlayerBinder extends Binder {
@@ -93,12 +94,22 @@ public class AudioPlayer extends Service implements OnCompletionListener {
             @Override
             public void onCallStateChanged(int state, String incomingNumber) {
                 if (state == TelephonyManager.CALL_STATE_RINGING) {
+                    if (mediaPlayer != null && mediaPlayer.isPlaying())
+                        wasPlaying = true;
+                    else
+                        wasPlaying = false;
                     pause();
                 }
                 else if(state == TelephonyManager.CALL_STATE_IDLE) {
-                   play();
+                    if (wasPlaying)
+                        play();
                 }
                 else if(state == TelephonyManager.CALL_STATE_OFFHOOK) {
+                    if (mediaPlayer != null && mediaPlayer.isPlaying())
+                        wasPlaying = true;
+                    else
+                        wasPlaying = false;
+                    
                    pause();
                 }
                 super.onCallStateChanged(state, incomingNumber);
