@@ -52,9 +52,19 @@ public class ContentLinksFragment extends Fragment {
         mUrls.setOnItemSelectedListener(new OnItemSelectedListener() {
 
             @Override
-            public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                Link link = adapter.getItem(position);
-                web.loadUrl(link.url);
+            public void onItemSelected(AdapterView<?> arg0, View arg1, final int position, long arg3) {
+                
+                getActivity().runOnUiThread(new Runnable() {
+                    
+                    @Override
+                    public void run() {
+                        Link link = adapter.getItem(position);
+                        web.loadUrl(link.url);
+                        return;
+                    }
+                });
+                
+                
             }
 
             @Override
