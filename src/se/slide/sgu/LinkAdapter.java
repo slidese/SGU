@@ -14,7 +14,7 @@ import java.util.List;
 
 public class LinkAdapter extends ArrayAdapter<Link> {
     
-private final String TAG = "ContentAdapter";
+    private final String TAG = "LinkAdapter";
     
     private LayoutInflater mInflater;
 
