@@ -1,5 +1,311 @@
 <sgu>
     <episode>
+        <title>SGU Episode 432</title>
+        <description>Interview with Brian Malow; This Day in Skepticism: Baby Fae; News Items: 1000 Exoplanets, Scientific Literacy and the Tea Party, PPMOs, Wind turbine Syndrome; Who's that Noisy; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-10-26adfree0rogkj4u.mp3</mp3>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_432</transcript>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            <guest>
+                <name>Brian Malow</name>
+                <url>http://www.sciencecomedian.com/</url>
+            </guest>
+        </guests>
+        <quote>
+            <text>"The pursuit of balance can create imbalance because sometimes something is true."</text>
+            <by>Okrent’s Law</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>A computer engineer has developed an algorithm to restore a digital image from as little as 1% of the original information.</description>
+                <link>http://www.basqueresearch.com/berria_irakurri.asp?Berri_Kod=4771&amp;hizk=I#.UmmXulCsh8F</link>
+            </item>
+            <item science="false">
+                <title>Item #2</title>
+                <description>A new study finds that younger siblings may contain cells with the DNA of their older siblings.</description>
+                <link>http://munews.missouri.edu/news-releases/2013/1023-older-siblings%E2%80%99-cells-can-be-passed-from-female-dogs-to-their-puppies-in-the-womb-mu-researchers-find/</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>Researchers find that eucalyptus trees concentrate gold in their leaves, and in some areas represent a significant source of the mineral.</description>
+                <link>http://csironewsblog.com/2013/10/23/gum-leaves-rich-in-lil-gold-nuggets/</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism: Baby Fae has a baboon heart transplanted</title>
+                <start>0:51</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>PPMOs</title>
+                <start>8:17</start>
+                <link>http://oregonstate.edu/ua/ncs/archives/2013/oct/beyond-antibiotics-%E2%80%9Cppmos%E2%80%9D-offer-new-approach-bacterial-infection</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Scientific Literacy and the Tea Party</title>
+                <start>15:25</start>
+                <link> http://www.ijreview.com/2013/10/87474-yale-professors-surprising-discovery-tea-party-supporters-scientifically-literate/</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Wind Turbine Syndrome</title>
+                <start>24:44</start>
+                <link>http://abcnews.go.com/Health/wind-turbine-syndrome-blamed-mysterious-symptoms-cape-cod/story?id=20591168</link>
+            </section>
+            <section>
+                <number>6</number>
+                <title>Who's That Noicy</title>
+                <start>42:01</start>
+            </section>
+            <section>
+                <number>7</number>
+                <title>Interview: Brian Malow</title>
+                <start>56:02</start>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Science or Fiction</title>
+                <start>60:26</start>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>72:38</start>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Announcements: Pathogen Cards</title>
+                <start>73:39</start>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Announcements: Steve in Scottsdale, Arizona</title>
+                <start>75:46</start>
+            </section>
+            <section>
+                <number>12</number>
+                <title>Announcements: GoToMeeting Recording</title>
+                <start>76:36</start>
+            </section>
+        </sections>
+    </episode>
+    <episode>
+        <title>SGU Episode 431</title>
+        <description>This Day in Skepticism: Johnnetta Cole; News Items: Money Predicts Apocalypse, Herbal Supplements, Politics and Dogma, Singularity vs Bridge; Who's That Noisy; Your Questions and E-mails: Cooling Drinks; Name That Logical Fallacy; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-10-19adfreekd8yhfjyw.mp3</mp3>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_431</transcript>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+
+        </guests>
+        <quote>
+            <text>"...academic credentials are neither a necessary nor a sufficient condition for having your ideas taken seriously. If a famous professor repeatedly says stupid things, then tries to claim he never said them, there’s no rule against calling him a mendacious idiot — and no special qualifications required to make that pronouncement other than doing your own homework.Conversely, if someone without formal credentials consistently makes trenchant, insightful observations, he or she has earned the right to be taken seriously, regardless of background."</text>
+            <by>Paul Krugman</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>A single brown bat can consume 1,200 mosquito-size insects in one hour.</description>
+                <link>http://animal.discovery.com/mammals/13-incredible-bat-facts.htm</link>
+            </item>
+            <item science="false">
+                <title>Item #2</title>
+                <description>The sucker footed bat from Madagascar attaches to palm leaves by suction cups on its wings and ankles.</description>
+                <link>http://listverse.com/2011/03/04/top-10-bizarre-bats/</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>Bats are the most common source of human rabies in the Americas, but this is still rare, only causing 1-2 cases per year in the US.</description>
+                <link>http://www.cdc.gov/rabies/bats/education/</link>
+            </item>
+            <item science="true">
+                <title>Item #4</title>
+                <description>Draculin is an anticoagulant (blood-thinner) purified from the saliva of vampire bats.</description>
+                <link>http://www.ncbi.nlm.nih.gov/pubmed/10556567</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism: Johnnetta Cole</title>
+                <start>1:14</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Money Predicts Apocalypse</title>
+                <start>3:14</start>
+                <link>http://www.youtube.com/watch?v=UU7rrWQ1nPI</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Herbal Supplements</title>
+                <start>9:49</start>
+                <link>http://theness.com/neurologicablog/index.php/whats-in-your-herbal-supplement/</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Politics and Dogma</title>
+                <start>23:01</start>
+                <link>http://theness.com/neurologicablog/index.php/extreme-dogmatism/</link>
+            </section>
+            <section>
+                <number>6</number>
+                <title>Singularity vs Bridge</title>
+                <start>34:45</start>
+                <link> http://www.gizmag.com/quantum-black-holes-singularity/29242/</link>
+            </section>
+            <section>
+                <number>7</number>
+                <title>Who's That Noicy</title>
+                <start>41:33</start>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Question #1: Cooling Drinks</title>
+                <start>45:07</start>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Name That Logical Fallacy</title>
+                <start>51:50</start>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Science or Fiction</title>
+                <start>58:33</start>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>80:33</start>
+            </section>
+        </sections>
+    </episode>
+    <episode>
+        <title>SGU Episode 430</title>
+        <description>Interview with Marty Klein; This Day in Skepticism: Chicago Fire; News Items: 2013 Nobel Prizes, Kansas Citizens Oppose Science, Open Access Journals, Smart Metals; Who's That Noisy; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-10-12adfree8m3y65g.mp3</mp3>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_430</transcript>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            <guest>
+                <name>Marty Klein</name>
+                <url>http://www.martyklein.com/</url>
+            </guest>
+        </guests>
+        <quote>
+            <text>"The claim of alternative practitioners to not treat disease labels but the whole patient...allows alternative practitioners to live in a fool’s paradise of quackery where they believe themselves to be protected from any challenges and demands for evidence."</text>
+            <by>Edzard Ernst</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>Scientists have discovered the first evidence of a comet striking the earth – part of a comet nucleus.</description>
+                <link>http://www.wits.ac.za/newsroom/newsitems/201310/21649/news_item_21649.html</link>
+            </item>
+            <item science="true">
+                <title>Item #2</title>
+                <description>Researchers have discovered a method for inhibiting the propagation of prion proteins, potentially leading to a cure for mad cow and related diseases.</description>
+                <link>http://casemed.case.edu/newscenter/news-release/newsrelease.cfm?news_id=177</link>
+            </item>
+            <item science="false">
+                <title>Item #3</title>
+                <description>Physicists have created stable exotic calcium nuclei (with 20 protons and 34 neutrons), suggesting the existence of a previously unknown force operating at nuclear scales.</description>
+                <link>http://www.nature.com/news/exotic-nuclei-held-together-by-another-kind-of-magic-1.13918</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism: Chicago Fire</title>
+                <start>0:50</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>2013 Nobel Prizes</title>
+                <start>4:49</start>
+                <link>http://www.bbc.co.uk/news/science-environment-24436781</link>
+                <link>http://www.nobelprize.org/nobel_prizes/medicine/laureates/2013/press.html</link>
+                <link>http://www.nature.com/news/computer-modellers-secure-chemistry-nobels-1.13903</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Kansas Citizens Oppose Science</title>
+                <start>15:31</start>
+                <link>http://theness.com/neurologicablog/index.php/kansas-citizens-sue-to-reject-science/</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Science Sting on Open Access Journals</title>
+                <start>21:23</start>
+                <link>http://theness.com/neurologicablog/index.php/a-problem-with-open-access-journals/</link>
+            </section>
+            <section>
+                <number>6</number>
+                <title>Smart Metals</title>
+                <start>33:10</start>
+                <link>http://www.bbc.co.uk/news/science-environment-24400101</link>
+            </section>
+            <section>
+                <number>7</number>
+                <title>Who's That Noicy</title>
+                <start>37:04</start>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Interview with Marty Klein</title>
+                <start>41:11</start>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Science or Fiction</title>
+                <start>61:54</start>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>72:19</start>
+            </section>
+        </sections>
+    </episode>
+    <episode>
         <title>SGU Episode 429</title>
         <description>This Day in Skepticism: World Teacher Day; News Items: New IPCC Report, Photographic the Soul, Chiropractor Breaks Baby's Neck, Black Hole Explosions and Hair; Who's That Noisy; Your Questions and E-mails: Monsanto, Overpowered Studies; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-10-05adfree16yjr395m.mp3</mp3>
