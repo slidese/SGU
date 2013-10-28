@@ -229,9 +229,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         if (note == null)
             return;
 
-        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        
-        mNotificationManager.notify(NOTIFICATION_ID, note);
+        startForeground(NOTIFICATION_ID, note);
     }
     
     private void hideNotification() {
