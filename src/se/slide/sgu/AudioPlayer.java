@@ -43,6 +43,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     public static final String QUEUE_ALBUM =        INTENT_BASE_NAME + ".QUEUE_ALBUM";
     public static final String PLAY_ALBUM =         INTENT_BASE_NAME + ".PLAY_ALBUM";
     public static final String PLAY_PAUSE_TRACK =   INTENT_BASE_NAME + ".PLAY_PAUSE_TRACK";
+    public static final String HIDE_PLAYER =        INTENT_BASE_NAME + ".HIDE_PLAYER";
     
     public static final String EVENT_PLAY_PAUSE =   INTENT_BASE_NAME + ".EVENT_PLAY_PAUSE";
     
@@ -87,6 +88,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         intentFilter.addAction(QUEUE_ALBUM);
         intentFilter.addAction(PAUSE_TRACK);
         intentFilter.addAction(PLAY_PAUSE_TRACK);
+        intentFilter.addAction(HIDE_PLAYER);
         registerReceiver(broadcastReceiver, intentFilter);
         
         // Let's pay attention to incoming calls and pause the player during the call duration
@@ -171,8 +173,12 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pi = PendingIntent.getActivity(this, 0, i, 0);
         
+        // Create intent for our rich actions
         Intent pauseIntent = new Intent(PLAY_PAUSE_TRACK);
         PendingIntent pendingPauseIntent = PendingIntent.getBroadcast(this, 0, pauseIntent, 0);
+        
+        Intent hideIntent = new Intent(HIDE_PLAYER);
+        PendingIntent pendingHideIntent = PendingIntent.getBroadcast(this, 0, hideIntent, 0);
         
         Builder builder = new Notification.Builder(this);
         builder.setSmallIcon(R.drawable.ic_actionbar_logo);
@@ -188,8 +194,10 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         if (android.os.Build.VERSION.SDK_INT >= 16) {
             if (isPlaying())
                 builder.addAction(R.drawable.ic_action_playback_pause, getString(R.string.pause), pendingPauseIntent);
-            else
+            else {
                 builder.addAction(R.drawable.ic_action_playback_play, getString(R.string.play), pendingPauseIntent);
+                builder.addAction(R.drawable.ic_action_halt, getString(R.string.hide), pendingHideIntent);
+            }
         }
         
         Notification notification = null; 
@@ -224,6 +232,11 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         
         mNotificationManager.notify(NOTIFICATION_ID, note);
+    }
+    
+    private void hideNotification() {
+        Log.d(TAG, "Hiding notification");
+        stopForeground(true);
     }
     
     private void release() {
@@ -431,7 +444,10 @@ public class AudioPlayer extends Service implements OnCompletionListener {
                 //queueTrack(id);
             } else if(PLAY_PAUSE_TRACK.equals(action)) {
                 playPauseTrack();
-            } else {
+            } else if(HIDE_PLAYER.equals(action)) {
+                hideNotification();
+            } 
+            else {
                 Log.d(TAG, "Action not recognized: " + action);
             }
         }

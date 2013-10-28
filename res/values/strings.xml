@@ -15,6 +15,7 @@
     <string name="play">Play</string>
     <string name="play_new">Play new!</string>
     <string name="pause">Pause</string>
+    <string name="hide">Hide</string>
     <string name="stop">Stop</string>
     <string name="image_card_thumbnail">Card thumbnail</string>
     <string name="image_card_shadow">Card shadow</string>
