@@ -12,6 +12,10 @@
 	<!-- Download settings -->
 	<string name="pref_header_download">Download</string>
 	
+	<!-- Storage settings -->
+	<string name="pref_header_storage">Storage</string>
+	<string name="pref_title_storage_clean">Remove all downloaded content</string>
+	
 	<string-array name="pref_download_over_titles">
         <item>Over Wi-Fi or mobile network</item>
         <item>Over Wi-Fi- only</item>

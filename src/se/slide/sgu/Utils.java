@@ -17,8 +17,19 @@ public class Utils {
         return name + ".mp3";
     }
     
+    public static File getBaseStorageDirectory() {
+        return Environment.getExternalStoragePublicDirectory(DIR_SGU);
+    }
+    
     public static File getFilepath(String filename) {
         return Environment.getExternalStoragePublicDirectory(DIR_SGU + filename);
+    }
+    
+    public static void cleanDownloadDirectory() {
+        File downloadDir = getBaseStorageDirectory();
+        
+        for (File file: downloadDir.listFiles())
+            file.delete();
     }
     
     public static void setStrictMode() {

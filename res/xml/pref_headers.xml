@@ -6,7 +6,10 @@
         android:fragment="se.slide.sgu.SettingsActivity$GeneralPreferenceFragment"
         android:title="@string/pref_header_account" />
     <header
-        android:fragment="se.slide.sgu.SettingsActivity$NotificationPreferenceFragment"
+        android:fragment="se.slide.sgu.SettingsActivity$DownloadPreferenceFragment"
         android:title="@string/pref_header_download" />
+    <header
+        android:fragment="se.slide.sgu.SettingsActivity$StoragePreferenceFragment"
+        android:title="@string/pref_header_storage" />
 
 </preference-headers>

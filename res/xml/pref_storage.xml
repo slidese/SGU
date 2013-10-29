@@ -1,0 +1,7 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+   
+    <Preference
+        android:key="storage_clean"
+        android:title="@string/pref_title_storage_clean" />
+
+</PreferenceScreen>
