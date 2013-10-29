@@ -2,6 +2,7 @@
 package se.slide.sgu;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,15 +14,14 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import se.slide.sgu.db.DatabaseManager;
 import se.slide.sgu.model.Content;
+import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshAttacher;
 
 import java.util.List;
 
-public class ContentFragment extends Fragment {
+public class ContentFragment extends Fragment implements PullToRefreshAttacher.OnRefreshListener {
     
     private final String TAG = "ContentFragment";
 
@@ -31,6 +31,7 @@ public class ContentFragment extends Fragment {
     public static final int MODE_PREMIUM = 1;
 
     private StartActivity mListener;
+    private PullToRefreshAttacher mPullToRefreshAttacher;
 
     ListView mListview;
     Button mPlayButton;
@@ -78,6 +79,9 @@ public class ContentFragment extends Fragment {
             }
         });
         
+        mPullToRefreshAttacher = ((StartActivity) getActivity()).getPullToRefreshAttacher();
+        mPullToRefreshAttacher.addRefreshableView(mListview, this);
+        
         mMode = getArguments().getInt(CONTENT_MODE);
 
         return view;
@@ -88,6 +92,8 @@ public class ContentFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         updateAdapter();
+        
+        
     }
 
     @Override
@@ -143,6 +149,11 @@ public class ContentFragment extends Fragment {
         */
         
         
+    }
+    
+    @Override
+    public void onRefreshStarted(View view) {
+        getActivity().startService(new Intent(getActivity(), DownloaderService.class));
     }
     
     private class FetchContentAsyncTask extends AsyncTask<Void, Void, List<Content>> {

@@ -35,6 +35,7 @@ import org.codechimp.apprater.AppRater;
 import se.slide.sgu.db.DatabaseManager;
 import se.slide.sgu.model.Content;
 import se.slide.sgu.model.Section;
+import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshAttacher;
 
 import java.util.List;
 import java.util.Timer;
@@ -73,6 +74,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
     private boolean                         mShowingBack = false;
     private List<Section>                   mLatestLoadedSections;
     private Content                         mLatestLoadedTrack;
+    private PullToRefreshAttacher           mPullToRefreshAttacher;
     
     static final int UPDATE_INTERVAL = 250;
 
@@ -116,7 +118,9 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         mAudioPlayerIntent = new Intent(this, AudioPlayer.class);
         bindService(mAudioPlayerIntent, mServiceConnection, Context.BIND_AUTO_CREATE);
         
-        IntentFilter downloadFilter = new IntentFilter(DownloaderService.CONTENT_UPDATED);
+        IntentFilter downloadFilter = new IntentFilter();
+        downloadFilter.addAction(DownloaderService.DOWNLOAD_FINISHED);
+        downloadFilter.addAction(DownloaderService.DOWNLOAD_STARTED);
         registerReceiver(mDownloadBroadcastReceiver, downloadFilter);
         
         mAudioPlayerBroadcastReceiver = new AudioPlayerBroadCastReceiver();
@@ -320,6 +324,12 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         //getActionBar().setSelectedNavigationItem(mMode);
         getActionBar().setTitle("");
         
+        
+        
+
+        // Create a PullToRefreshAttacher instance
+        mPullToRefreshAttacher = PullToRefreshAttacher.get(this);
+
         mSeeker.setOnSeekBarChangeListener(new TimeLineChangeListener());
         
         if (savedInstanceState != null) {
@@ -577,6 +587,10 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
             .commitAllowingStateLoss();
     }
     
+    PullToRefreshAttacher getPullToRefreshAttacher() {
+        return mPullToRefreshAttacher;
+    }
+    
     @Override
     public boolean onNavigationItemSelected(int itemPosition, long itemId) {
         ContentFragment fragment = (ContentFragment) getSupportFragmentManager().findFragmentById(R.id.frame_1);
@@ -720,7 +734,9 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         public void onReceive(Context context, Intent intent) {
             Log.d(TAG,"DownloadBroadcastReceiver.onReceive action = " + intent.getAction());
             
-            if(intent.getAction().equals(DownloaderService.CONTENT_UPDATED)) {
+            if(intent.getAction().equals(DownloaderService.DOWNLOAD_FINISHED)) {
+                
+                mPullToRefreshAttacher.setRefreshComplete();
                 
                 Fragment fragment = (Fragment) getSupportFragmentManager().findFragmentById(R.id.frame_1);
                 if (fragment instanceof MainPodcastFragment) {
@@ -730,6 +746,9 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
                     // Nothing to do here
                 }
                 
+            }
+            else if (intent.getAction().equals(DownloaderService.DOWNLOAD_STARTED)) {
+                mPullToRefreshAttacher.setRefreshing(true);
             }
         }
     }

@@ -52,7 +52,8 @@ public class DownloaderService extends Service {
     
     private final String TAG = "DownloaderService";
     
-    public static final String CONTENT_UPDATED = "se.slide.sgu.CONTENT_UPDATED";
+    public static final String DOWNLOAD_STARTED     = "se.slide.sgu.DOWNLOAD_STARTED";
+    public static final String DOWNLOAD_FINISHED    = "se.slide.sgu.DOWNLOAD_FINISHED";
     
     private final int NOTIFICATION_ID = 13;
 
@@ -61,7 +62,6 @@ public class DownloaderService extends Service {
         return null;
     }
 
-    @SuppressLint("NewApi") // Remove this
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "Started DownloaderService");
@@ -77,6 +77,11 @@ public class DownloaderService extends Service {
             stopSelf();
             return super.onStartCommand(intent, flags, startId);
         }
+        
+        // Let our activity know we have started
+        Intent i = new Intent();
+        i.setAction(DOWNLOAD_STARTED);
+        sendBroadcast(i);
 
         long lastEpisodeInMs = PreferenceManager.getDefaultSharedPreferences(this).getLong("last_episode_in_ms", 0L);
         boolean autoDownload = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("auto_download", false);
@@ -362,7 +367,7 @@ public class DownloaderService extends Service {
             
             if (result) {
                 Intent intent = new Intent();
-                intent.setAction(CONTENT_UPDATED);
+                intent.setAction(DOWNLOAD_FINISHED);
                 sendBroadcast(intent);
                 
                 GlobalContext.INSTANCE.savePreference("last_episode_in_ms", latestEpisodeFound);
