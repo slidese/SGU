@@ -815,4 +815,109 @@
             </section>
         </sections>
     </episode>
+    <episode>
+        <title>SGU Episode 419</title>
+        <description>This Day in Skepticism: Insulin; News Items:  Giant Virus, Gluten, Death Wave, The Pitch Drops, Revenge of the Conspiracy Theorists, Cassini Picture of Earth; Who's That Noisy; Name That Logical Fallacy; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-07-27adfree.mp3</mp3>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_419</transcript>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"He is a barbarian, who thinks the customs of his tribe are the laws of nature."</text>
+            <by>Caesar, from Caesar and Cleopatra, Act II, by George Bernard Shaw</by>
+        </quote>
+        <scienceorfiction>
+            <item science="false">
+                <title>Item #1</title>
+                <description>A recent study finds that occasional marijuana use increases alertness, probably through improved sleep quality.</description>
+                <link>http://medicalxpress.com/news/2013-07-marijuana-adolescence-permanent-brain-abnormalities.html</link>
+            </item>
+            <item science="true">
+                <title>Item #2</title>
+                <description>Scientists have discovered that the herpes simplex virus (HSV-1) is packed under pressure 8 times higher than a car tire, and uses that pressure to blast its DNA into the nucleus of cells.</description>
+                <link>http://www.infectioncontroltoday.com/news/2013/07/pressurized-virus-blasts-its-infectious-dna-into-human-cells.aspx</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>A new analysis finds that 2000 year old techniques for gold and silver plating produced results that cannot be achieved even with modern technology.</description>
+                <link>http://phys.org/news/2013-07-ancient-technology-metal-coatings-years.html</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism</title>
+                <start>0:49</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Giant Virus</title>
+                <start>3:09</start>
+                <link>http://bigthink.com/ideafeed/giant-viruses-may-be-a-new-domain-of-life</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Gluten</title>
+                <start>11:39</start>
+                <link>http://www.vancouversun.com/health/diet-fitness/Gluten+free+diets+healthy+choice/8368326/story.htmlhttp://www.sciencebasedmedicine.org/is-gluten-the-new-candida/</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Death Wave</title>
+                <start>21:11</start>
+                <link>http://news.discovery.com/human/health/death-happens-slower-than-thought-cell-by-cell-130713.htm#mkcpgn=rssnws1</link>
+            </section>
+            <section>
+                <number>6</number>
+                <title>The Pitch Drops</title>
+                <start>28:16</start>
+                <link>http://www.independent.co.uk/news/science/the-pitch-drops-science-experiment-going-for-69-years-caught-on-film-for-first-time-8720320.html</link>
+            </section>
+            <section>
+                <number>7</number>
+                <title>Revenge of the Conspiracy Theorists</title>
+                <start>34:44</start>
+                <link>http://theness.com/neurologicablog/index.php/revenge-of-the-conspiracy-theorists/</link>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Quickie with Bob - Cassini Picture of Earth</title>
+                <start>45:05</start>
+                <link>http://saturn.jpl.nasa.gov/news/newsreleases/newsrelease20130722/</link> 
+            </section>
+            <section>
+                <number>9</number>
+                <title>Who's That Noisy</title>
+                <start>46:46</start>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Name That Logical Fallacy</title>
+                <start>51:31</start>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Science or Fiction</title>
+                <start>58:51</start>
+            </section>
+            <section>
+                <number>12</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>71:17</start>
+            </section>
+        </sections>
+    </episode>
 </sgu>
