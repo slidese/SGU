@@ -816,6 +816,111 @@
         </sections>
     </episode>
     <episode>
+        <title>SGU Episode 422</title>
+        <description>This Day in Skepticism: Hazel Bishop; News Items: NDE Explained, TV Watching, Labor and Autism, Magenta Planet, Spontaneous Baby Combustion; Special Report: Onionated; Who's That Noisy; Name That Logical Fallacy; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-08-17adfree.mp3</mp3>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_422</transcript>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"It’s funny when people accuse science of being narrow merely because it asks for proof. Science expanded the number of elements from four to over 100. It expanded treatment options from bloodletting, herbs and purgatives to the untold riches we have today. It expanded the universe from a series of armillary spheres to the current, nigh-endless void. It expanded the number of worlds from two to billions upon billions. It expanded the age of the universe from 7,000 to 13.5 billion. Science expanded our senses from a tiny range of sound and light to an endless modulation of wavelengths revealing whole worlds we knew nothing about. It extended our senses from millimeters to angstroms, from kilometers to light years. Science discovered volcanoes under the oceans, terrible lizards who ruled our murine predecessors, asteroids that shattered the world, glaciers that circled the globe, the origins of man in ape rather than god. Science exposed the lie of vitalism, extended lives, cured cancer, discovered vitamins, discovered radiation (then found it was bad for us). And in the last group of discoveries, quacks were poised to kill the discoveries and loot their corpses."</text>
+            <by>William Lawrence Utridge</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>A recent study finds that listening to an emotional sermon can induce an out-of-body experience in susceptible people.</description>
+                <link>http://uncnews.unc.edu/content/view/6165/71/</link>
+            </item>
+            <item science="false">
+                <title>Item #2</title>
+                <description>A recent study finds that listening to an emotional sermon can induce an out-of-body experience in susceptible people.</description>
+                <link>http://www.psychologicalscience.org/index.php/news/releases/visualized-heartbeat-can-trigger-out-of-body-experience.html</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>A new paper warns against “chemophobia,” the irrational fear of the ubiquitous and non-toxic chemicals found in our food and environment.</description>
+                <link>http://medicalxpress.com/news/2013-08-chemophobia-shouldnt-menu.html</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism</title>
+                <start>1:11</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>NDE Explained</title>
+                <start>4:57</start>
+                <link>http://www.bbc.co.uk/news/science-environment-23672150</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>TV Watching</title>
+                <start>14:47</start>
+                <link>http://atlanta.cbslocal.com/2013/08/10/study-childrens-poor-motor-social-skills-linked-to-too-much-television-watching/</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Labor and Autism</title>
+                <start>25:49</start>
+                <link>http://www.bbc.co.uk/news/health-23666840</link>
+            </section>
+            <section>
+                <number>6</number>
+                <title>Magenta Planet</title>
+                <start>32:10</start>
+                <link>http://www.sciencespacerobots.com/astonomers-image-magenta-planet-gj-504b-81220131</link>
+            </section>
+            <section>
+                <number>7</number>
+                <title>Spontaneous Baby Combustion</title>
+                <start>35:10</start>
+                <link>http://www.express.co.uk/news/world/421580/Spontaneous-Human-Combustion-Three-month-old-baby-bursts-into-flames-when-he-sweats</link>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Special Report: Onionated</title>
+                <start>41:27</start>
+                <link>http://thoughtcatalog.com/2013/the-35-best-times-someone-on-facebook-thought-the-onion-was-real/</link> 
+            </section>
+            <section>
+                <number>9</number>
+                <title>Who's That Noisy</title>
+                <start>46:51</start>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Name That Logical Fallacy</title>
+                <start>49:41</start>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Science or Fiction</title>
+                <start>57:01</start>
+            </section>
+            <section>
+                <number>12</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>68:35</start>
+            </section>
+        </sections>
+    </episode>
+    <episode>
         <title>SGU Episode 419</title>
         <description>This Day in Skepticism: Insulin; News Items:  Giant Virus, Gluten, Death Wave, The Pitch Drops, Revenge of the Conspiracy Theorists, Cassini Picture of Earth; Who's That Noisy; Name That Logical Fallacy; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-07-27adfree.mp3</mp3>
