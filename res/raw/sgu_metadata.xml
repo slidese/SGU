@@ -1,6 +1,106 @@
 <sgu>
     <episode>
-        <title>SGU Episode 432</title>
+        <title>Episode 433</title>
+        <description>This Day in Skepticism: Charles Van Doren; News Items: Ghost Story, Lorenzo’s Oil, Space Ports, Li Fi, Gender; Who's That Noisy; Live Questions: Getting Involved in Skepticism; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-11-02adfree7yhrfj8.mp3</mp3>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_433</transcript>
+        <image>Spaceport2.jpg</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"Seeking what it true is not seeking what is desirable."</text>
+            <by>Albert Camus</by>
+        </quote>
+        <scienceorfiction>
+            <item science="false">
+                <title>Item #1</title>
+                <description>In the past week astronomers have recorded the largest solar flare every directly observed.</description>
+                <link>http://www.nasa.gov/content/goddard/sun-emits-fourth-x-class-flare-in-a-week/#.UnFUuvmsh8F</link>
+            </item>
+            <item science="true">
+                <title>Item #2</title>
+                <description>A new study finds that playing immersive video-games increases a player’s tolerance for pain and reduces their empathy for the pain of others.</description>
+                <link>http://www.springer.com/about+springer/media/springer+select?SGWID=0-11001-6-1442542-0</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>Neuroscientists have discovered a new type of information processing in the brain that significantly increases the brain’s computing power.</description>
+                <link>http://news.unchealthcare.org/news/2013/october/unc-neuroscientists-discover-new-2018mini-neural-computer2019-in-the-brain</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism</title>
+                <start>0:52</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Ghost Story</title>
+                <start>7:01</start>
+                <link>http://www.nydailynews.com/news/national/montana-government-employee-hires-ghostbusters-catch-office-ghost-article-1.1487904</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Lorenzo's Oil</title>
+                <start>16:52</start>
+                <link>http://www.sciencebasedmedicine.org/lorenzos-oil/</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Space Ports</title>
+                <start>27:02</start>
+                <link>http://www.dailymail.co.uk/news/article-2412201/Houston-unveils-plans-America-s-largest-space-port-bid-retain-title-Space-City-USA.html</link>
+            </section>
+			<section>
+                <number>6</number>
+                <title>Li Fi</title>
+                <start>35:58</start>
+                <link>http://www.bbc.co.uk/news/technology-24711935</link>
+            </section>
+            <section>
+                <number>7</number>
+                <title>Gender</title>
+                <start>40:08</start>
+                <link>http://theness.com/neurologicablog/index.php/gender-its-complicated/</link>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Who's That Noisy</title>
+                <start>51:33</start>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Questions and Emails</title>
+                <start>54:36</start>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Science or Fiction</title>
+                <start>58:07</start>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>75:14</start>
+            </section>
+        </sections>
+    </episode>
+    <episode>
+        <title>Episode 432</title>
         <description>Interview with Brian Malow; This Day in Skepticism: Baby Fae; News Items: 1000 Exoplanets, Scientific Literacy and the Tea Party, PPMOs, Wind turbine Syndrome; Who's that Noisy; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-10-26adfree0rogkj4u.mp3</mp3>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_432</transcript>
@@ -106,7 +206,7 @@
         </sections>
     </episode>
     <episode>
-        <title>SGU Episode 431</title>
+        <title>Episode 431</title>
         <description>This Day in Skepticism: Johnnetta Cole; News Items: Money Predicts Apocalypse, Herbal Supplements, Politics and Dogma, Singularity vs Bridge; Who's That Noisy; Your Questions and E-mails: Cooling Drinks; Name That Logical Fallacy; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-10-19adfreekd8yhfjyw.mp3</mp3>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_431</transcript>
@@ -210,7 +310,7 @@
         </sections>
     </episode>
     <episode>
-        <title>SGU Episode 430</title>
+        <title>Episode 430</title>
         <description>Interview with Marty Klein; This Day in Skepticism: Chicago Fire; News Items: 2013 Nobel Prizes, Kansas Citizens Oppose Science, Open Access Journals, Smart Metals; Who's That Noisy; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-10-12adfree8m3y65g.mp3</mp3>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_430</transcript>
@@ -309,7 +409,7 @@
         </sections>
     </episode>
     <episode>
-        <title>SGU Episode 429</title>
+        <title>Episode 429</title>
         <description>This Day in Skepticism: World Teacher Day; News Items: New IPCC Report, Photographic the Soul, Chiropractor Breaks Baby's Neck, Black Hole Explosions and Hair; Who's That Noisy; Your Questions and E-mails: Monsanto, Overpowered Studies; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-10-05adfree16yjr395m.mp3</mp3>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_429</transcript>
@@ -409,7 +509,7 @@
         </sections>
     </episode>
     <episode>
-        <title>SGU Episode 428</title>
+        <title>Episode 428</title>
         <description>Interview with Jamie Williams; This Day in Skepticism: Thomas Crapper; News Items: GMO OK, Angry Internet, Warning Labels, When Black Holes Explode, Carbon Nanotube Computers; Who's That Noisy; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-09-28adfree30jsi1v.mp3</mp3>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_428</transcript>
@@ -512,7 +612,7 @@
         </sections>
     </episode>
     <episode>
-        <title>SGU Episode 427</title>
+        <title>Episode 427</title>
         <description>This Day in Skepticism: David Vetter; News Items: IgNobel 2013, Top Quarks End Universe, Alien Life on Earth, The Physics of Homosexuality, Regeneration; Who's That Noisy; Questions and E-mails: Quantum Energy; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-09-21adfreen5ush20gh.mp3</mp3>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_427</transcript>
@@ -613,7 +713,7 @@
         </sections>
     </episode>
     <episode>
-        <title>SGU Episode 426</title>
+        <title>Episode 426</title>
         <description>This Day in Skepticism: 9/11; News items: Motivated Numeracy, Arctic Ice, Robot Traders, Teenage Exorcists, Homeopathic Vaccines, Mission to Mars; Who's That Noisy; Your Questions and E-mails: Bdellovibrio; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-09-14adfree9erkgjs6ed.mp3</mp3>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_426</transcript>
@@ -722,7 +822,7 @@
         </sections>
     </episode>
     <episode>
-        <title>SGU Episode 425</title>
+        <title>Episode 425</title>
         <description>This Day in Skepticism: Last Thylacine; News Items: NASA Spiders, Chicken Wings and Penis Size, TCM for Flu, New Element 115; Who's That Noisy; Your Questions and E-mails: Pox Parties, Aromatherapy; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-09-07adfreel8grt4.mp3</mp3>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_425</transcript>
@@ -816,7 +916,216 @@
         </sections>
     </episode>
     <episode>
-        <title>SGU Episode 422</title>
+        <title>Episode 424</title>
+        <description>Interview with Cara Santa Maria; This Day in Skepticism: Paul Ehrlich; News Items: Energized Water, Probiotics for Mental Health, Death by Iridology, Immortality; Who's That Noisy; Your Questions and E-mails: Authority; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-08-31adfree.mp3</mp3>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_424</transcript>
+        <image>iridology-chart.jpg</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"A faith that cannot survive collision with the truth is not worth many regrets."</text>
+            <by>Arthur C. Clarke, The Exploration of Space</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>Acids taste sour, while bases taste bitter.</description>
+                <link>http://www.elmhurst.edu/~chm/vchembook/180acidsbases.html</link>
+            </item>
+            <item science="false">
+                <title>Item #2</title>
+                <description>The pH of spinal fluid averages from 4.5-5.5, mainly from the presence of carbonic acid.</description>
+                <link>http://jnnp.bmj.com/content/s1-15/57/46.full.pdf</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>In a study of 20 soft drinks, RC cola was found to be the most acidic at a pH of 2.4.</description>
+                <link>http://www.livescience.com/7198-acids-popular-sodas-erode-tooth-enamel.html</link>
+            </item>
+            <item science="true">
+                <title>Item #4</title>
+                <description>The world’s strongest acid, carborane, which is a million times more potent than sulphuric acid, is also one of the least corrosive.</description>
+                <link>http://www.nature.com/news/2004/041115/full/news041115-5.html</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism</title>
+                <start>4:00</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Energized Water</title>
+                <start>5:58</start>
+                <link>http://www.independent.ie/business/irish/wave-goodbye-to-global-warming-gm-and-pesticides-29525621.html</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Probiotics for Mental Health</title>
+                <start>14:23</start>
+                <link>http://theness.com/neurologicablog/index.php/probiotics-for-mental-health/</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Death by Iridology</title>
+                <start>21:19</start>
+                <link>http://theness.com/neurologicablog/index.php/death-by-iridology/</link>
+            </section>
+            <section>
+                <number>6</number>
+                <title>Immortality</title>
+                <start>27:49</start>
+                <link>http://www.dvice.com/2013-8-20/study-most-americans-not-interested-immortality</link>
+            </section>
+            <section>
+                <number>7</number>
+                <title>Who's That Noisy</title>
+                <start>34:15</start>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Question #1: Question Authority</title>
+                <start>37:39</start>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Interview with Cara Santa Maria</title>
+                <start>42:01</start>
+                <link>http://carasantamaria.com/</link>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Science or Fiction</title>
+                <start>61:27</start>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>72:04</start>
+            </section>
+        </sections>
+    </episode>
+    <episode>
+        <title>Episode 423</title>
+        <description>Interview with Sanal Edamaruku; This Day in Skepticism: Vesuvius; News Items: No Proof of Creation, Area 51, Hydrating Beer, Indian Rationalist Shot Dead, Free Roaming Planets; Who's That Noisy; Your Questions and E-mails: Sugar and Hyperactivity; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-08-24adfree.mp3</mp3>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_423</transcript>
+        <image>narendra-dabholkar-295.jpg</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"It is morally as bad not to care whether a thing is true or not, so long as it makes you feel good, as it is not to care how you got your money as long as you have got it."</text>
+            <by>Edmund Way Teale in ’Circle of the Seasons’, quoted by Carl Sagan in ’The Demon-haunted World’</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>Scientists have identified a blood test that can identify those at increased risk for suicide.</description>
+                <link>http://www.sciencenews.org/view/generic/id/352601/description/Blood_marker_may_predict_suicide</link>
+            </item>
+            <item science="true">
+                <title>Item #2</title>
+                <description>A recent study finds that heavy rains in Australia over 2010-2011 actually caused global sea levels to drop measurably.</description>
+                <link>http://www2.ucar.edu/atmosnews/news/10090/global-sea-level-rise-dampened-australia-floods</link>
+            </item>
+            <item science="false">
+                <title>Item #3</title>
+                <description>Breeders have produced a variety of chicken that lays cholesterol-free eggs.</description>
+                <link>http://www.nottingham.ac.uk/news/pressreleases/2013/august/unscrambling-the-genetics-of-the-chickens-blue-egg.aspx</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism</title>
+                <start>0:46</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>No Proof of Creation</title>
+                <start>5:21</start>
+                <link>http://guardianlv.com/2013/08/lead-creationist-says-no-scientific-proof-of-intelligent-design/</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Area 51</title>
+                <start>11:56</start>
+                <link>http://theness.com/neurologicablog/index.php/area-51-revealed/</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Hydrating Beer</title>
+                <start>18:00</start>
+                <link>http://www.australiantimes.co.uk/news/news-in-australia/australian-scientists-brew-up-hydrating-beer.htm</link>
+            </section>
+            <section>
+                <number>6</number>
+                <title>Indian Rationalist Shot Dead</title>
+                <start>23:57</start>
+                <link>http://www.ndtv.com/article/india/anti-superstition-activist-narendra-dabholkar-shot-dead-in-pune-407920</link>
+            </section>
+            <section>
+                <number>7</number>
+                <title>Free Roaming Planets</title>
+                <start>28:52</start>
+                <link>http://phys.org/news/2013-08-free-floating-planets-born-free.html</link>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Who's That Noisy</title>
+                <start>34:09</start>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Question #1: Sugar and Hyperactiivity</title>
+                <start>35:55</start>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Interview with Sanal Edamaruku</title>
+                <start>42:27</start>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Science or Fiction</title>
+                <start>64:15</start>
+            </section>
+            <section>
+                <number>12</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>77:50</start>
+            </section>
+        </sections>
+    </episode>
+    <episode>
+        <title>Episode 422</title>
         <description>This Day in Skepticism: Hazel Bishop; News Items: NDE Explained, TV Watching, Labor and Autism, Magenta Planet, Spontaneous Baby Combustion; Special Report: Onionated; Who's That Noisy; Name That Logical Fallacy; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-08-17adfree.mp3</mp3>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_422</transcript>
@@ -922,7 +1231,7 @@
         </sections>
     </episode>
     <episode>
-        <title>SGU Episode 419</title>
+        <title>Episode 419</title>
         <description>This Day in Skepticism: Insulin; News Items:  Giant Virus, Gluten, Death Wave, The Pitch Drops, Revenge of the Conspiracy Theorists, Cassini Picture of Earth; Who's That Noisy; Name That Logical Fallacy; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-07-27adfree.mp3</mp3>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_419</transcript>
