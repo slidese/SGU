@@ -37,6 +37,7 @@
         <item name="android:spinnerDropDownItemStyle">@style/sgu_DropDownItem</item>
     	<item name="android:spinnerItemStyle">@style/sgu_SpinnerItem</item>
 
+    	<item name="circularProgressBarStyle">@style/CircularProgressBar</item>
     </style>
 
     <style name="ActionBar.Solid.Sgu" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">

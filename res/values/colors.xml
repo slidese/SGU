@@ -10,6 +10,8 @@
     
     <color name="card_listview_background">#eee</color>
     
+    <color name="white">#ffffff</color>
+    
     <!-- For section header -->
     <color name="emphasis">#31b6e7</color>
     

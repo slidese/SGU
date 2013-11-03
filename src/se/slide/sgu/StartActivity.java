@@ -96,6 +96,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         DatabaseManager.init(this);
         ContentDownloadManager.INSTANCE.init(this);
         AppRater.app_launched(this);
+        VolleyHelper.init(this);
     }
     
     @Override

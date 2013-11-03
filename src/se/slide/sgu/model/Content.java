@@ -38,6 +38,16 @@ public class Content {
     @DatabaseField
     public boolean played;
     
+    /**
+     * These are not stored
+     */
+    public long downloadId = -1L;
+    public float downloadProgress = 0f;
+    public boolean exists = false;
+    public int downloadStatus = -1;
+    public String image;
+    public String friendlyTitle;
+    
     public Content() {
         
     }
@@ -52,5 +62,13 @@ public class Content {
         String filename = Utils.formatFilename(title);
         File file = Utils.getFilepath(filename);
         return Uri.parse(file.getAbsolutePath());
+    }
+    
+    public String getFilename() {
+        int dashIndex = title.indexOf(" -");
+        String name = title.substring(0, dashIndex);
+        name = name.replace("#", "");
+        
+        return name + ".mp3";
     }
 }

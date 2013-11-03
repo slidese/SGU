@@ -1,7 +1,9 @@
 package se.slide.sgu;
 
 import android.app.DownloadManager;
+import android.app.DownloadManager.Query;
 import android.content.Context;
+import android.database.Cursor;
 import android.net.Uri;
 
 public enum ContentDownloadManager {
@@ -12,6 +14,14 @@ public enum ContentDownloadManager {
     public void init(Context context) {
         if (manager == null)
             manager = (DownloadManager) context.getApplicationContext().getSystemService(Context.DOWNLOAD_SERVICE);
+    }
+    
+    public Cursor query(Query q) throws Exception {
+        if (manager == null) {
+            throw new Exception("ContentDownloadManager never initialized");
+        }
+        
+        return manager.query(q);
     }
     
     public long addToDownloadQueue(String url, String title, String description, String filename) throws Exception {

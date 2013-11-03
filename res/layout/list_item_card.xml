@@ -4,17 +4,69 @@
 
     <RelativeLayout android:id="@+id/inner_frame" style="@style/card_inner">
 
-        <!--suppress AndroidLintContentDescription -->
-        <ImageView android:id="@+id/icon" style="@style/card_thumbnail" android:contentDescription="@string/image_card_thumbnail" />
-
         <RelativeLayout android:id="@+id/titleFrame" style="@style/card_title_frame">
+            
+            <ImageView android:id="@+id/icon" style="@style/card_thumbnail" android:layout_margin="8dp" android:contentDescription="@string/image_card_thumbnail" />
+            
+            <RelativeLayout
+                android:id="@+id/progressAndButtonHolder"
+                android:layout_width="56dp"
+	            android:layout_height="match_parent"
+	            android:layout_alignParentRight="true"
+	            android:layout_alignParentTop="true"
+	            android:visibility="visible" 
+                >
+                
+                <ImageButton
+		            android:id="@+id/downloadOrPlayButton"
+		            style="@android:style/Holo.Light.ButtonBar"
+		            android:contentDescription="@string/desc_play_button"
+		            android:background="@drawable/playpause_button_selector"
+		            android:layout_width="match_parent"
+		            android:layout_height="match_parent"
+		            android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:visibility="visible"
+		            android:src="@drawable/ic_action_download" />
+            
+	            <de.passsy.holocircularprogressbar.HoloCircularProgressBar
+				    android:id="@+id/holoCircularProgressBar"
+				    android:layout_height="wrap_content"
+				    android:layout_width="48dp"
+				    android:layout_marginRight="4dp"
+				    android:layout_marginLeft="0dp"
+				    android:layout_marginTop="0dp"
+				    android:layout_marginBottom="0dp"
+				    android:padding="0dp"
+				    android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:visibility="invisible"
+				
+				    sgu:stroke_width="2dp"
+				    sgu:progress_color="@color/white"
+				    sgu:progress_background_color="@android:color/transparent"
+				    
+				    sgu:marker_visible="false"
+				    sgu:thumb_visible="false" />
+                
+            </RelativeLayout>
+            
+            <View
+	            android:id="@+id/dividerPlayerButton"
+	    		android:layout_width="1dp"
+	    		android:layout_height="match_parent"
+	    		android:layout_toLeftOf="@id/progressAndButtonHolder"
+	    		android:layout_marginLeft="4dp"
+	    		android:background="?android:attr/dividerVertical" />
 
             <se.slide.sgu.TypefacedTextView android:id="@+id/title" sgu:typeface="Roboto-Light.ttf" style="@style/card_title"/>
 
             <LinearLayout
+                android:id="@+id/secondLine"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_below="@id/title"
+                android:layout_toRightOf="@id/icon"
                 android:orientation="horizontal" 
                 >
             
@@ -23,13 +75,23 @@
                 
             </LinearLayout>
             
+            <ProgressBar
+                android:id="@+id/downloadProgress"
+                android:layout_below="@id/secondLine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" 
+                android:visibility="gone"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                />
             
             <!--suppress AndroidLintContentDescription >
             <ImageButton android:id="@+id/button1" style="@style/card_popup_anchor" /-->
+            
+            
 
         </RelativeLayout>
 
-        <se.slide.sgu.TypefacedTextView android:id="@+id/content" sgu:typeface="Roboto-Light.ttf" style="@style/card_content"/>
+        <se.slide.sgu.TypefacedTextView android:id="@+id/content" sgu:typeface="Roboto-Light.ttf" style="@style/card_content" android:visibility="gone" />
 
         <View
             android:id="@+id/divider"
@@ -38,6 +100,7 @@
     		android:layout_marginLeft="16dp"
     		android:layout_marginRight="16dp"
     		android:layout_below="@id/content"
+    		android:visibility="gone"
     		android:background="?android:attr/dividerHorizontal" />
         
         <LinearLayout
@@ -45,6 +108,7 @@
 	        android:layout_height="wrap_content"
 	        android:orientation="horizontal" 
 	        android:layout_below="@id/divider"
+	        android:visibility="gone"
 	        >
 	
 	        <se.slide.sgu.TypefacedButton

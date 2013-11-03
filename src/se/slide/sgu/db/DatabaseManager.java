@@ -278,6 +278,16 @@ public class DatabaseManager {
         }
     }
     
+    public List<Episode> getAllEpisodes() {
+        List<Episode> listOfEpisode = null;
+        try {
+            listOfEpisode = getHelper().getEpisodeDao().queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listOfEpisode;
+    }
+    
     /**
      * Link
      */

@@ -78,6 +78,9 @@ public class SectionParser {
              else if (name.equals("description")) {
                  episode.description = getText(parser, "description");
              }
+             else if (name.equals("image")) {
+                 episode.image = getText(parser, "image");
+             }
              else if (name.equals("sections")) {
                  episode.listOfSection = readSections(parser); 
              }

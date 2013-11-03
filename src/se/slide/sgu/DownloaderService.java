@@ -87,15 +87,26 @@ public class DownloaderService extends Service {
         boolean autoDownload = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("auto_download", false);
         
         // Start metadata download
-        new MetadataAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-        
-        // Start RSS download
-        new DownloadAsyncTask(username, password, lastEpisodeInMs, autoDownload).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        new MetadataAsyncTask(username, password, lastEpisodeInMs, autoDownload).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
         return super.onStartCommand(intent, flags, startId);
     }
     
     private class MetadataAsyncTask extends AsyncTask<Void, Void, Boolean> {
+        
+        private String username;
+        private String password;
+        private long lastEpisodeInMs;
+        private long latestEpisodeFound = 0L;
+        private boolean autoDownload;
+        
+
+        public MetadataAsyncTask(String username, String password, long lastEpisodeInMs, boolean autoDownload) {
+            this.username = username;
+            this.password = password;
+            this.lastEpisodeInMs = lastEpisodeInMs;
+            this.autoDownload = autoDownload;
+        }
         
         @Override
         protected Boolean doInBackground(Void... params) {
@@ -182,6 +193,20 @@ public class DownloaderService extends Service {
             
             return returnValue;
         }
+
+        @Override
+        protected void onPostExecute(Boolean result) {
+            super.onPostExecute(result);
+            
+            if (!result){
+                // Send analytics info since we could not get meatdata
+            }
+            
+            // Start RSS download
+            new DownloadAsyncTask(username, password, lastEpisodeInMs, autoDownload).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            
+        }
+        
     }
 
     private class DownloadAsyncTask extends AsyncTask<Void, Void, Boolean> {

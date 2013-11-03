@@ -23,6 +23,9 @@ public class Episode {
     
     @DatabaseField 
     public String hosts;    // Semi-colon separated list of host numbers
+    
+    @DatabaseField 
+    public String image;
         
     /**
      * We're saving these separately

@@ -1,21 +1,23 @@
 package se.slide.sgu;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.ImageLoader;
+
+import de.passsy.holocircularprogressbar.HoloCircularProgressBar;
 import se.slide.sgu.model.Content;
 
 import java.io.File;
@@ -39,12 +41,9 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
-        
-        final Content content = getItem(position);
         
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.list_item_card, null);
@@ -57,6 +56,9 @@ public class ContentAdapter extends ArrayAdapter<Content> {
             holder.content = (TextView) convertView.findViewById(R.id.content);
             holder.download = (Button) convertView.findViewById(R.id.btnDownload);
             holder.play = (Button) convertView.findViewById(R.id.btnPlay);
+            holder.downloadPlay = (ImageButton) convertView.findViewById(R.id.downloadOrPlayButton);
+            holder.progressAndButtonHolder = (RelativeLayout) convertView.findViewById(R.id.progressAndButtonHolder);
+            holder.downloadProgressBar = (HoloCircularProgressBar) convertView.findViewById(R.id.holoCircularProgressBar);
             
             convertView.setTag(holder);
         }
@@ -64,72 +66,68 @@ public class ContentAdapter extends ArrayAdapter<Content> {
             holder = (ViewHolder) convertView.getTag();
         }
         
-        holder.title.setText(content.title);
+        final Content content = getItem(position);
+        
+        // First: set the mp3
+        holder.mp3 = content.mp3;
+        
+        String podcastImage = "placeholderSGU.png";
+        if (content.image != null && !content.image.isEmpty())
+            podcastImage = content.image;
+        
+        ImageLoader imageLoader = VolleyHelper.getImageLoader();
+        imageLoader.get(Utils.HTTP_PODCAST_IMAGES + podcastImage, ImageLoader.getImageListener(holder.icon, R.drawable.placeholder_sgu, R.drawable.placeholder_sgu));
+        
+        String title = content.title;
+        if (content.friendlyTitle != null && !content.friendlyTitle.isEmpty())
+            title = content.friendlyTitle;
+        
+        holder.title.setText(title);
         holder.length.setText(Formatter.convertBytesToMegabytes(content.length));
         holder.content.setText(content.description);
         
-        holder.download.setOnClickListener(new OnClickListener() {
+        float progressValue = 0f;
+        
+        holder.downloadProgressBar.setProgress(progressValue);
+        
+        final File file = Utils.getFilepath(content.getFilename());
+        
+        holder.downloadPlay.setOnClickListener(new OnClickListener() {
             
             @Override
             public void onClick(View v) {
-                new DeleteOrDownloadAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, content);
+                if (file.exists())
+                    mListener.playContent(content);
+                else {
+                    //new DeleteOrDownloadAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, content);
+                    
+                    try {
+                        content.downloadId = ContentDownloadManager.INSTANCE.addToDownloadQueue(content.mp3, content.title, content.description, Utils.formatFilename(content.title));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    
+                }
             }
         });
         
-        holder.play.setOnClickListener(new OnClickListener() {
-            
-            @Override
-            public void onClick(View v) {
-                mListener.playContent(content);
-            }
-        });
-        
-        if (content.played) {
-            int textColorPlayed = mResource.getColor(R.color.text_white_dark);
-            Drawable whiteButtonSelector = mResource.getDrawable(R.drawable.white_button_selector);
-            
-            holder.play.setText(R.string.play);
-            holder.play.setTextColor(textColorPlayed);
-            
-            if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                holder.play.setBackgroundDrawable(whiteButtonSelector);
-            } else {
-                holder.play.setBackground(whiteButtonSelector);
-            }
-        }
-        else {
-            int textColorNotPlayed = mResource.getColor(R.color.text_white_full);
-            Drawable blueButtonSelector = mResource.getDrawable(R.drawable.blue_button_selector);
-            
-            holder.play.setText(R.string.play);
-            holder.play.setTextColor(textColorNotPlayed);
-            
-            if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                holder.play.setBackgroundDrawable(blueButtonSelector);
-            } else {
-                holder.play.setBackground(blueButtonSelector);
-            }
-            
-            
-        }
-        
-        String filename = Utils.formatFilename(content.title);
-        final File file = Utils.getFilepath(filename);
-        
-        FileExistsAsyncTask fileAsyncTask = new FileExistsAsyncTask(holder);
-        fileAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, file);
+        Utils.updateView(mResource, content, holder);
         
         return convertView;
     }
 
-    private class ViewHolder {
+    public class ViewHolder {
+        String mp3;
         ImageView icon;
         TextView title;
         TextView length;
         TextView content;
         Button download;
         Button play;
-        
+        ImageButton downloadPlay;
+        //ProgressBar downloadProgressBar;
+        RelativeLayout progressAndButtonHolder;
+        HoloCircularProgressBar downloadProgressBar;
     }
     
     private class DeleteOrDownloadAsyncTask extends AsyncTask<Content, Void, Boolean> {
@@ -151,9 +149,8 @@ public class ContentAdapter extends ArrayAdapter<Content> {
                 file.delete();
             }
             else {
-                long id = -1L;
                 try {
-                    id = ContentDownloadManager.INSTANCE.addToDownloadQueue(content.mp3, content.title, content.description, Utils.formatFilename(content.title));
+                    content.downloadId = ContentDownloadManager.INSTANCE.addToDownloadQueue(content.mp3, content.title, content.description, Utils.formatFilename(content.title));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
