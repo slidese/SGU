@@ -268,6 +268,17 @@
         <item name="android:textStyle">bold</item>
     </style>
     
+    <style name="sectionHeaderLightGray" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:drawableBottom">@drawable/section_header_light_gray</item>
+        <item name="android:drawablePadding">4dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/text_white_heavy</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
     <!-- For normal spinners, i.e. not ActionBar dropdown menues -->
     <style name="spinner">
     	<item name="android:textColor">@color/text_white_dark</item>

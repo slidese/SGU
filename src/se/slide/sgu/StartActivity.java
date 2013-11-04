@@ -416,7 +416,10 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
                 }
             });
             
+            View sectionDivider = inflater.inflate(R.layout.section_divider, sectionLinearLayout, false);
+            
             sectionLinearLayout.addView(sectionView);
+            sectionLinearLayout.addView(sectionDivider);
         }
         
     }
@@ -464,6 +467,22 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
             mAudioPlayer.seekAndPlay(prevSeek);
             return;
         }
+    }
+    
+    private Section getCurrentlyPlayingSection() {
+        if (mLatestLoadedSections == null || mAudioPlayer == null)
+            return null;
+        
+        int currentElapsed = mAudioPlayer.elapsed();
+        
+        for (Section section : mLatestLoadedSections) {
+            final int seek = section.start * 1000;
+            if (seek > currentElapsed) {
+                return section;
+            }
+        }
+        
+        return null;
     }
     
     public void updatePlayQueue() {
@@ -675,12 +694,12 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         }
         
         @Override
-        protected void onProgressUpdate(Content... track) {
+        protected void onProgressUpdate(Content... content) {
             if( stopped || paused ) {
                 return; //to avoid glitches
             }
             
-            updatePlayPanel(track[0]);
+            updatePlayPanel(content[0]);
         }
 
         public void stop() {

@@ -7,6 +7,7 @@
     <color name="gray_background">#fefefe</color>
     
     <color name="player_dark_gray">#333</color>
+    <color name="player_light_gray">#ccc</color>
     
     <color name="card_listview_background">#eee</color>
     

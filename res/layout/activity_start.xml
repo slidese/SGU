@@ -41,7 +41,7 @@
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:layout_alignParentBottom="true"
-		        android:background="@color/player_dark_gray"
+		        android:background="@color/player_light_gray"
 		        android:clickable="true"
 		        android:visibility="gone"
 		        android:orientation="horizontal" >
@@ -54,7 +54,7 @@
 		            android:layout_width="0dp"
 		            android:layout_height="48dp"
 		            android:layout_weight="1"
-		            android:src="@drawable/ic_action_list_2" />
+		            android:src="@drawable/ic_action_list_2_holo_light" />
 	    
 	    		<ImageButton
 		            android:id="@+id/playPrevSectionButton"
@@ -64,7 +64,7 @@
 		            android:layout_width="0dp"
 		            android:layout_height="48dp"
 		            android:layout_weight="1"
-		            android:src="@drawable/ic_action_playback_prev" />
+		            android:src="@drawable/ic_action_playback_prev_holo_light" />
 	    		
 		    	<ImageButton
 		            android:id="@+id/skipBackButton"
@@ -74,7 +74,7 @@
 		            android:layout_width="0dp"
 		            android:layout_height="48dp"
 		            android:layout_weight="1"
-		            android:src="@drawable/ic_action_playback_rew" />
+		            android:src="@drawable/ic_action_playback_rew_holo_light" />
 		    
 		        <ImageButton
 		            android:id="@+id/skipForwardButton"
@@ -84,7 +84,7 @@
 		            android:layout_width="0dp"
 		            android:layout_height="48dp"
 		            android:layout_weight="1"
-		            android:src="@drawable/ic_action_playback_forw" />
+		            android:src="@drawable/ic_action_playback_forw_holo_light" />
 		        
 		        <ImageButton
 		            android:id="@+id/playNextSectionButton"
@@ -94,7 +94,7 @@
 		            android:layout_width="0dp"
 		            android:layout_height="48dp"
 		            android:layout_weight="1"
-		            android:src="@drawable/ic_action_playback_next" />
+		            android:src="@drawable/ic_action_playback_next_holo_light" />
 		
 		        <ImageButton
 		            android:id="@+id/playButton"
@@ -115,7 +115,7 @@
                 android:orientation="horizontal"
                 android:gravity="right"
                 android:visibility="gone"
-                android:background="@color/player_dark_gray"
+                android:background="@color/player_light_gray"
                 >
                 
                 <SeekBar
@@ -140,7 +140,7 @@
 	                android:layout_marginBottom="8dp"
 	                android:gravity="right"
 	                android:textSize="12sp"
-	                android:textColor="@color/holo_blue_bright"
+	                android:textColor="@color/text_white_dark"
 	                sgu:typeface="Roboto-Light.ttf"
 	                />
                 
@@ -154,7 +154,7 @@
 	                android:layout_marginBottom="8dp"
 	                android:gravity="right"
 	                android:textSize="12sp"
-	                android:textColor="@android:color/primary_text_dark"
+	                android:textColor="@color/text_white_full"
 	                sgu:typeface="Roboto-Light.ttf"
 	                />
                 
@@ -184,7 +184,7 @@
 	        android:id="@+id/nothingPlayingView"
 	        android:layout_width="match_parent"
 	        android:layout_height="match_parent"
-	        android:background="@color/player_dark_gray"
+	        android:background="@color/white"
 	        android:gravity="center_horizontal|center_vertical"
 	        >
 	        
@@ -201,7 +201,7 @@
 	            android:layout_width="wrap_content"
 	            android:layout_margin="24dp"
 	            android:text="@string/no_content_playinfo"
-	            android:textColor="@color/text_white_medium"
+	            android:textColor="@color/text_white_heavy"
 	            android:textSize="16sp"
 	            android:textAlignment="center"
 	            android:gravity="center"
@@ -216,42 +216,61 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@color/player_dark_gray">
+            android:background="@color/white">
             
-            <LinearLayout
-                android:id="@+id/title_linearlayout"
+            <FrameLayout
+                android:layout_margin="0dp"
+                android:paddingTop="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:paddingBottom="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:paddingTop="16dp"
+                >
+                
+                <!-- ImageView
+					android:id="@+id/imageBackdrop"
+					android:layout_width="match_parent"
+					android:layout_height="140dp"
+					android:layout_gravity="top"
+					android:scaleType="centerCrop"
+					android:src="@drawable/sgu_crew_light_gray_cropped" /-->
+                
+            	<LinearLayout
+	                android:id="@+id/title_linearlayout"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:paddingTop="16dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:paddingBottom="16dp"
-                android:background="@drawable/ab_background_textured_dark"
-                android:orientation="vertical" 
-                >
+	                android:background="@color/text_white_bright"
+	                android:orientation="vertical" 
+	                >
+	                
+	                <se.slide.sgu.TypefacedTextView
+		                android:id="@+id/playerTitle"
+		                android:layout_width="match_parent"
+		                android:layout_height="wrap_content"
+		                android:layout_margin="0dp"
+		                android:textSize="@dimen/card_title"
+		                android:textColor="@color/text_white_dark"
+		                sgu:typeface="Roboto-Light.ttf"
+		                />
+	                
+	                <se.slide.sgu.TypefacedTextView
+		                android:id="@+id/playerDate"
+		                android:layout_width="match_parent"
+		                android:layout_height="wrap_content"
+		                android:layout_margin="0dp"
+		                android:textSize="12sp"
+		                android:textColor="@color/text_white_heavy"
+		                sgu:typeface="Roboto-Light.ttf"
+		                />
+	                
+	            </LinearLayout>    
                 
-                <se.slide.sgu.TypefacedTextView
-	                android:id="@+id/playerTitle"
-	                android:layout_width="match_parent"
-	                android:layout_height="wrap_content"
-	                android:layout_margin="0dp"
-	                android:textSize="@dimen/card_title"
-	                android:textColor="@android:color/primary_text_dark"
-	                sgu:typeface="Roboto-Light.ttf"
-	                />
-                
-                <se.slide.sgu.TypefacedTextView
-	                android:id="@+id/playerDate"
-	                android:layout_width="match_parent"
-	                android:layout_height="wrap_content"
-	                android:layout_margin="0dp"
-	                android:textSize="12sp"
-	                android:textColor="@color/holo_blue_bright"
-	                sgu:typeface="Roboto-Light.ttf"
-	                />
-                
-            </LinearLayout>
+            </FrameLayout>
             
             <ScrollView
                 android:id="@+id/scroller"
@@ -275,14 +294,29 @@
 		                android:layout_marginRight="16dp"
 		                android:layout_marginBottom="16dp"
 		                android:textSize="@dimen/card_content"
-		                android:textColor="@android:color/primary_text_dark"
+		                android:textColor="@color/text_white_heavy"
 		                sgu:typeface="Roboto-Light.ttf"
 		                />
+                    
+                    <TextView
+			    	    android:id="@+id/sectionSections"
+			    	    android:layout_width="match_parent"
+			    	    android:layout_height="wrap_content"
+			    	    android:layout_marginTop="8dp"
+			    	    android:layout_marginBottom="0dp"
+			    	    android:layout_marginLeft="16dp"
+			    	    android:layout_marginRight="16dp"
+			    	    android:text="@string/section_header_sections"
+			    	    style="@style/sectionHeaderLightGray"
+					/>
                     
                     <LinearLayout
 	                    android:id="@+id/section_linearlayout"
 	                    android:layout_width="match_parent"
 	                    android:layout_height="wrap_content"
+	                    android:layout_marginLeft="16dp"
+		                android:layout_marginRight="16dp"
+		                android:layout_marginBottom="16dp"
 	                    android:orientation="vertical" 
 	                    >
                     

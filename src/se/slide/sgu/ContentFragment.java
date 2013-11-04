@@ -286,170 +286,11 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
         
         mAdapter = new ContentAdapter(getActivity(), R.layout.list_item_card, listOfContent);
         mListview.setAdapter(mAdapter);
-        
-        //mAdapter.setUpdateMap(updates);
-        
-        //mListview.invalidateViews();
-        //mAdapter.notifyDataSetChanged();
-        
-        //String username = GlobalContext.INSTANCE.getPreferenceString("username", null);
-
-        /*
-        if (mListview.getCount() < 1) {
-            mListview.setVisibility(View.GONE);
-            mNoContent.setVisibility(View.VISIBLE);
-            mNoContentMessage.setText(Html.fromHtml(getString(R.string.no_content_no_episodes)));
-        }
-        else if (username == null) {
-            mListview.setVisibility(View.GONE);
-            mNoContent.setVisibility(View.VISIBLE);
-            mNoContentMessage.setText(Html.fromHtml(getString(R.string.no_content_getting_started)));
-        }
-        else {
-            mListview.setVisibility(View.VISIBLE);
-            mNoContent.setVisibility(View.GONE);
-        }
-        */
-        
-        
     }
     
     @Override
     public void onRefreshStarted(View view) {
         getActivity().startService(new Intent(getActivity(), DownloaderService.class));
-    }
-    
-    private class UpdateViewAsyncTask extends AsyncTask<Void, UpdateHolder, Void> {
-        boolean isRunning = true;
-
-        public void stop() {
-            isRunning = false;
-        }
-        
-        @Override
-        protected Void doInBackground(Void... params) {
-            /*
-            DownloadManager.Query q = new DownloadManager.Query();
-            try {
-                Cursor cursor = ContentDownloadManager.INSTANCE.query(q);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            */
-            
-            while (isRunning) {
-                try {
-                    Thread.sleep(250);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                
-                DownloadManager.Query q = new DownloadManager.Query();
-                q.setFilterByStatus(DownloadManager.STATUS_PENDING | DownloadManager.STATUS_RUNNING);
-                try {
-                    Cursor cursor = ContentDownloadManager.INSTANCE.query(q);
-                    
-                    while (cursor.moveToNext()) {
-                        //long id = cursor.getLong(cursor.getColumnIndex(DownloadManager.COLUMN_ID));
-                        String uri = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_URI));
-                        
-                        int bytes_downloaded = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
-                        int bytes_total = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
-                        
-                        //Log.d(TAG, "downloaded: " + bytes_downloaded);
-                        //Log.d(TAG, "totel: " + bytes_total);
-                        
-                        //int dl_progress = (int)Math.round(bytes_downloaded * 100.0/bytes_total);
-                        int dl_progress = (int)Math.round(bytes_downloaded/bytes_total);
-                        
-                        UpdateHolder holder = new UpdateHolder();
-                        holder.mp3 = uri;
-                        holder.progress = dl_progress;
-                        //holder.progressBarView = (ProgressBar) view.findViewById(R.id.downloadProgress);
-                        
-                        /*
-                        int count = mListview.getCount();
-                        
-                        Log.d(TAG, "count: " + count);
-                        
-                        mListview.getFirstVisiblePosition()
-                        
-                        for (int position = 0; position < count; position++) {
-                            Content content = (Content)mListview.getItemAtPosition(position);
-                            View view = mListview.getChildAt(position);
-                            
-                            if (content.mp3.equals(uri)) {
-                                Log.d(TAG, "mp3: " + content.mp3);
-                                Log.d(TAG, "uri: " + uri);
-                                
-                                publishProgress(holder);
-                            }
-                        }
-                        */
-                        
-                        //View view = mListview.getChildAt(i);
-                        
-                        /*
-                        int bytes_downloaded = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
-                        int bytes_total = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
-                        
-                        final int dl_progress = (bytes_downloaded / bytes_total) * 100;
-                        */
-                        
-                    }
-                    
-                    cursor.close();
-                    
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                
-                /*
-                
-                int first = mListview.getFirstVisiblePosition();
-                int last = mListview.getLastVisiblePosition();
-                
-                int delta = last - first;
-                
-                for (int i = 0; i <= delta; i++) {
-                    View view = mListview.getChildAt(i);
-                    Content content = mAdapter.getItem(i + first);
-                    
-                    mListview.getChildAt(index)
-                    
-                    */
-                    
-                    /*
-                    UpdateHolder holder = new UpdateHolder();
-                    holder.progress = 20;
-                    holder.progressBarView = (ProgressBar) view.findViewById(R.id.downloadProgress);
-                    
-                    progress.setProgress(holder);
-                    
-                    Content content = mAdapter.getItem(i + first);
-                    
-                    UpdateHolder[2] holders = 
-                    
-                    publishProgress(holder, holder);
-                    */
-                    
-                    //Log.d(TAG, "Content visible: " + content.title);
-                //}
-                //Log.d(TAG, "Updated is running");
-            }
-            
-            return null;
-        }
-
-        @Override
-        protected void onProgressUpdate(UpdateHolder... holders) {
-            super.onProgressUpdate(holders);
-            
-            UpdateHolder holder = holders[0];
-            //holder.progressBarView.setProgress(holder.progress);
-            
-            Log.d(TAG, "Published progress: " + holder.progress);
-        }
     }
     
     public class UpdateHolder {
@@ -546,10 +387,12 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
                 Content content = mAdapter.getItem(index);
                 
                 UpdateHolder update = values[0].get(content.mp3);
-                content.exists = update.exists;
-                content.downloadProgress = update.progress;
-                content.isPaused = update.isPaused;
-                content.isPlaying = update.isPlaying;
+                if (update != null) {
+                    content.exists = update.exists;
+                    content.downloadProgress = update.progress;
+                    content.isPaused = update.isPaused;
+                    content.isPlaying = update.isPlaying;
+                }
             }
             
             if (mScrollState == OnScrollListener.SCROLL_STATE_IDLE) {
@@ -606,6 +449,10 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
                 if (currentContent != null && content.mp3.equals(currentContent.mp3)) {
                     holder.isPlaying = isPlaying;
                     holder.isPaused = isPaused;
+                }
+                else {
+                    holder.isPlaying = false;
+                    holder.isPaused = false;
                 }
                 
                 holder.exists = file.exists();

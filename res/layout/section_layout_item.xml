@@ -3,43 +3,63 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/section_item_selector"
+    android:layout_marginTop="0dp"
+	android:layout_marginLeft="0dp"
+	android:layout_marginRight="0dp"
+	android:layout_marginBottom="0dp"
     android:paddingBottom="0dp"
     android:paddingLeft="0dp"
-    android:paddingRight="16dp"
+    android:paddingRight="0dp"
     android:paddingTop="0dp" >
     
     <TextView
         android:id="@+id/sectionNumber"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="48dp"
+        android:layout_height="56dp"
         android:layout_alignParentLeft="true"
         android:layout_marginRight="8dp"
-        android:background="@drawable/ab_background_textured_dark"
+        android:background="@drawable/ab_background_textured_light_gray"
         android:fontFamily="sans-serif-light"
         android:gravity="center"
         android:text="@string/section_number"
-        android:textColor="@android:color/primary_text_dark" />
+        android:textColor="@color/text_white_heavy" />
 
-    <TextView
-        android:id="@+id/sectionTitle"
+    <LinearLayout 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/sectionNumber"
-        android:fontFamily="sans-serif-light"
-        android:text="@string/section_title"
-        android:singleLine="true"
-        android:ellipsize="end"
-        android:textColor="@android:color/primary_text_dark" />
-
-    <TextView
-        android:id="@+id/sectionStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/sectionTitle"
-        android:layout_toRightOf="@id/sectionNumber"
-        android:fontFamily="sans-serif-light"
-        android:text="@string/section_start"
-        android:textSize="12sp"
-        android:textColor="@color/holo_blue_bright" />
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        >
+        <TextView
+	        android:id="@+id/sectionTitle"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:fontFamily="sans-serif-light"
+	        android:text="@string/section_title"
+	        android:singleLine="true"
+	        android:ellipsize="end"
+	        android:textColor="@color/text_white_dark" />
+	
+	    <TextView
+	        android:id="@+id/sectionStart"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:fontFamily="sans-serif-light"
+	        android:text="@string/section_start"
+	        android:textSize="12sp"
+	        android:textColor="@color/text_white_heavy" />
+	    
+	    <!-- View
+	        android:id="@+id/divider"
+	   		android:layout_width="match_parent"
+	   		android:layout_height="1dip"
+	   		android:layout_marginTop="0dp"
+	   		android:layout_marginLeft="0dp"
+	   		android:layout_marginRight="0dp"
+	   		android:visibility="visible"
+	   		android:background="?android:attr/dividerHorizontal" /-->
+        
+    </LinearLayout>
 
 </RelativeLayout>

@@ -70,5 +70,6 @@
     <string name="section_header_quote">Skeptical Quote of the Week</string>
     <string name="section_header_science_or_fiction">Science or Fiction</string>
     <string name="section_header_noisy">Who\'s That Noisy</string>
+    <string name="section_header_sections">Sections</string>
     
 </resources>

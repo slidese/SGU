@@ -201,7 +201,7 @@ public class Utils {
     }
     
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    private static void setBackgroundForView(View view, Drawable background) {
+    public static void setBackgroundForView(View view, Drawable background) {
         if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
             view.setBackgroundDrawable(background);
         } else {
