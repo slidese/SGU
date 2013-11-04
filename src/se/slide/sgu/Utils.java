@@ -19,6 +19,7 @@ public class Utils {
     
     private static final String TAG = "Utils";
 
+    public static final boolean DEBUG = true;
     public static final String DIR_SGU =                Environment.DIRECTORY_DOWNLOADS + "/sgu/";
     public static final String HTTP_PODCAST_IMAGES =    "http://www.theskepticsguide.org/images/podcast_images/";
     

@@ -11,6 +11,7 @@ import android.os.Build;
 import android.preference.PreferenceManager;
 
 import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.GoogleAnalytics;
 import com.google.analytics.tracking.android.MapBuilder;
 import com.google.analytics.tracking.android.StandardExceptionParser;
 
@@ -24,9 +25,17 @@ public enum GlobalContext {
     INSTANCE;
     
     private Context context;
+    private GoogleAnalytics googleAnalytics;
     
     public void init(Context context) {
         this.context = context.getApplicationContext();
+        
+        googleAnalytics = GoogleAnalytics.getInstance(this.context);
+        if (Utils.DEBUG)
+            googleAnalytics.setDryRun(true);
+        else
+            googleAnalytics.setDryRun(false);
+        
     }
 
     public void sendExceptionToGoogleAnalytics(String message, String threadName, Throwable t, boolean fatal) {
@@ -35,7 +44,15 @@ public enum GlobalContext {
         String stacktrace = ExceptionUtils.getStackTrace(t);
         
         EasyTracker easyTracker = EasyTracker.getInstance(context);
-        easyTracker.send(MapBuilder.createException(message + ", " + new StandardExceptionParser(context, null).getDescription(threadName, t) + ", Exception: " + stacktrace, fatal).build());
+        easyTracker.send(MapBuilder
+                .createException(message + ": " + new StandardExceptionParser(context, null)           // Context and optional collection of package names
+                                                                                      // to be used in reporting the exception.
+                                 .getDescription(Thread.currentThread().getName(),    // The name of the thread on which the exception occurred.
+                                                 t),                                  // The exception.
+                                 false)                                               // False indicates a fatal exception
+                .build()
+            );
+        //easyTracker.send(MapBuilder.createException(message + ", " + new StandardExceptionParser(context, null).getDescription(threadName, t) + ", Exception: " + stacktrace, fatal).build());
     }
     
     public String formatDate(Date date) {
