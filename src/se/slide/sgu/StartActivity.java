@@ -539,14 +539,21 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
      */
     
     public void playContent(Content content) {
-        mAudioPlayer.play(content);
-        mLatestLoadedTrack = content;
-        loadSections(content);
-        initPlayerView();
-        
-        // Update played state
-        content.played = true;
-        DatabaseManager.getInstance().createOrUpdateContent(content);
+        final Content currentContent = mAudioPlayer.getCurrentTrack();
+        if (currentContent != null && currentContent.mp3.equals(content.mp3) && mAudioPlayer.isPlaying())
+            mAudioPlayer.pause();
+        else if (currentContent != null && currentContent.mp3.equals(content.mp3) && mAudioPlayer.isPaused())
+            mAudioPlayer.play();
+        else {
+            mAudioPlayer.play(content);
+            mLatestLoadedTrack = content;
+            loadSections(content);
+            initPlayerView();
+            
+            // Update played state
+            content.played = true;
+            DatabaseManager.getInstance().createOrUpdateContent(content);
+        }
     }
     
     public int getMode() {
@@ -582,10 +589,33 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
             R.animator.card_flip_left_in, R.animator.card_flip_left_out)
         */
         
+        
+        
         getSupportFragmentManager().beginTransaction()
             .replace(R.id.frame_1, fragment)
             .addToBackStack(null)
             .commitAllowingStateLoss();
+    }
+    
+    public Content getCurrentTrack() {
+        if (mAudioPlayer == null)
+            return null;
+        
+        return mAudioPlayer.getCurrentTrack();
+    }
+    
+    public boolean isPlaying() {
+        if (mAudioPlayer != null)
+            return mAudioPlayer.isPlaying();
+        else
+            return false;
+    }
+    
+    public boolean isPaused() {
+        if (mAudioPlayer != null)
+            return mAudioPlayer.isPaused();
+        else
+            return false;
     }
     
     PullToRefreshAttacher getPullToRefreshAttacher() {

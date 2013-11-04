@@ -47,6 +47,8 @@ public class Content {
     public int downloadStatus = -1;
     public String image;
     public String friendlyTitle;
+    public boolean isPlaying = false;
+    public boolean isPaused = false;
     
     public Content() {
         

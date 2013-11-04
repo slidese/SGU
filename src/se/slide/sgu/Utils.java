@@ -100,8 +100,22 @@ public class Utils {
                     Utils.showProgress(holder, false);
                     
                     Drawable backgroundHolder = resources.getDrawable(R.color.white);
+                    Drawable background = resources.getDrawable(R.drawable.white_button_selector);
+                    Drawable action = resources.getDrawable(R.drawable.ic_action_playback_play_blue_light);
+                    
+                    holder.downloadPlay.setImageDrawable(action);
+                    Utils.setBackgroundForView(holder.downloadPlay, background);
+                    Utils.setBackgroundForView(holder.progressAndButtonHolder, backgroundHolder);
+                }
+                else if (update.isPlaying || update.isPaused) {
+                    Utils.showProgress(holder, false);
+                    
+                    Drawable backgroundHolder = resources.getDrawable(R.color.white);
                     Drawable background = resources.getDrawable(R.drawable.blue_button_selector);
-                    Drawable action = resources.getDrawable(R.drawable.ic_action_playback_play);
+                    
+                    Drawable action = resources.getDrawable(R.drawable.ic_action_playback_pause);
+                    if (update.isPaused)
+                        action = resources.getDrawable(R.drawable.ic_action_playback_play);
                     
                     holder.downloadPlay.setImageDrawable(action);
                     Utils.setBackgroundForView(holder.downloadPlay, background);
@@ -151,8 +165,22 @@ public class Utils {
                 Utils.showProgress(holder, false);
                 
                 Drawable backgroundHolder = resources.getDrawable(R.color.white);
+                Drawable background = resources.getDrawable(R.drawable.white_button_selector);
+                Drawable action = resources.getDrawable(R.drawable.ic_action_playback_play_blue_light);
+                
+                holder.downloadPlay.setImageDrawable(action);
+                Utils.setBackgroundForView(holder.downloadPlay, background);
+                Utils.setBackgroundForView(holder.progressAndButtonHolder, backgroundHolder);
+            }
+            else if (content.isPlaying || content.isPaused) {
+                Utils.showProgress(holder, false);
+                
+                Drawable backgroundHolder = resources.getDrawable(R.color.white);
                 Drawable background = resources.getDrawable(R.drawable.blue_button_selector);
-                Drawable action = resources.getDrawable(R.drawable.ic_action_playback_play);
+                
+                Drawable action = resources.getDrawable(R.drawable.ic_action_playback_pause);
+                if (content.isPaused)
+                    action = resources.getDrawable(R.drawable.ic_action_playback_play);
                 
                 holder.downloadPlay.setImageDrawable(action);
                 Utils.setBackgroundForView(holder.downloadPlay, background);

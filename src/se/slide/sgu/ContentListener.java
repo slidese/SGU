@@ -6,4 +6,7 @@ public interface ContentListener {
     public void playContent(Content content);
     public int getMode();
     public void showContentDetails(Content content);
+    public Content getCurrentTrack();
+    public boolean isPlaying();
+    public boolean isPaused();
 }

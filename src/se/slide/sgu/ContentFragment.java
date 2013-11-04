@@ -279,6 +279,8 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
                 content.exists = update.exists;
                 content.downloadProgress = update.progress;
                 content.downloadStatus = update.status;
+                content.isPaused = update.isPaused;
+                content.isPlaying = update.isPlaying;
             }
         }
         
@@ -456,6 +458,8 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
         public boolean played;
         public float progress;
         public boolean exists = false;
+        public boolean isPlaying = false;
+        public boolean isPaused = false;
     }
     
     private class UpdaterAsyncTask extends AsyncTask<Void, Map<String, UpdateHolder>, Void> {
@@ -544,6 +548,8 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
                 UpdateHolder update = values[0].get(content.mp3);
                 content.exists = update.exists;
                 content.downloadProgress = update.progress;
+                content.isPaused = update.isPaused;
+                content.isPlaying = update.isPlaying;
             }
             
             if (mScrollState == OnScrollListener.SCROLL_STATE_IDLE) {
@@ -553,7 +559,6 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
                     UpdateHolder update = values[0].get(holder.mp3);
                     Utils.updateView(mResources, update, holder);
                 }
-                
             }
         }
     }
@@ -585,6 +590,10 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
             
             cursor.close();
             
+            final Content currentContent = mListener.getCurrentTrack();
+            final boolean isPlaying = mListener.isPlaying();
+            final boolean isPaused = mListener.isPaused();
+            
             List<Content> listOfContent = DatabaseManager.getInstance().getAllContents();
             for (Content content : listOfContent) {
                 File file = Utils.getFilepath(content.getFilename());
@@ -592,6 +601,11 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
                 UpdateHolder holder = map.get(content.mp3);
                 if (holder == null) {
                     holder = new UpdateHolder();
+                }
+
+                if (currentContent != null && content.mp3.equals(currentContent.mp3)) {
+                    holder.isPlaying = isPlaying;
+                    holder.isPaused = isPaused;
                 }
                 
                 holder.exists = file.exists();
