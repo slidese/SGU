@@ -100,7 +100,7 @@ public class Utils {
                     Utils.showProgress(holder, false);
                     
                     Drawable backgroundHolder = resources.getDrawable(R.color.white);
-                    Drawable background = resources.getDrawable(R.drawable.white_button_selector);
+                    Drawable background = resources.getDrawable(R.drawable.light_textured_button_selector);
                     Drawable action = resources.getDrawable(R.drawable.ic_action_playback_play_blue_light);
                     
                     holder.downloadPlay.setImageDrawable(action);
@@ -165,7 +165,7 @@ public class Utils {
                 Utils.showProgress(holder, false);
                 
                 Drawable backgroundHolder = resources.getDrawable(R.color.white);
-                Drawable background = resources.getDrawable(R.drawable.white_button_selector);
+                Drawable background = resources.getDrawable(R.drawable.light_textured_button_selector);
                 Drawable action = resources.getDrawable(R.drawable.ic_action_playback_play_blue_light);
                 
                 holder.downloadPlay.setImageDrawable(action);
