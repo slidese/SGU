@@ -6,7 +6,7 @@
     <string name="action_about">About</string>
     <string name="action_reload">Reload</string>
     <string name="action_show_player">Show player</string>
-    <string name="ok">Main</string>
+    <string name="ok">Ok</string>
     <string name="not_available">N/A</string>
     <string name="download">Download</string>
     <string name="delete">Delete</string>
@@ -23,6 +23,10 @@
     <string name="see_more">See more</string>
     
     <string name="backdrop">Backdrop</string>
+    
+    <!-- No details -->
+    <string name="no_details_title">No details</string>
+    <string name="no_details_message">This episode does not have any details. Please note that Premium clips don\'t have any additional info.</string>
     
     <!-- Low memory error -->
     <string name="closing_low_memory_ticker">Low memory, closing player</string>

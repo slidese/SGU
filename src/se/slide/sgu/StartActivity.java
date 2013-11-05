@@ -12,8 +12,10 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -626,6 +628,25 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         Bundle args = new Bundle();
         args.putString(MainDetailsFragment.CONTENT_MP3, content.mp3);
         //args.putInt(ContentFragment.CONTENT_KEY, ContentFragment.CONTENT_TYPE_ADFREE);
+        
+        List<Episode> listOfEpisodes = DatabaseManager.getInstance().getEpisode(content.mp3);
+        if (listOfEpisodes == null || listOfEpisodes.isEmpty()) {
+            
+            // DialogFragment.show() will take care of adding the fragment
+            // in a transaction.  We also want to remove any currently showing
+            // dialog, so make our own transaction and take care of that here.
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            Fragment prev = getSupportFragmentManager().findFragmentByTag("dialog");
+            if (prev != null) {
+                ft.remove(prev);
+            }
+            ft.addToBackStack(null);
+
+            SimpleDialogFragment dialog = SimpleDialogFragment.newInstance(R.string.no_details_title, R.string.no_details_message);
+            dialog.show(ft, "dialog");
+            
+            return;
+        }
         
         MainDetailsFragment fragment = new MainDetailsFragment();
         fragment.setArguments(args);
