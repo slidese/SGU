@@ -134,6 +134,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         registerReceiver(mAudioPlayerBroadcastReceiver, audioPlayerFilter);
         
         handleIntent();
+        initPlayerView();
         refreshScreen();
     }
 
@@ -531,16 +532,20 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
     }
     
     private void initPlayerView() {
-        if (mAudioPlayer == null || (!mAudioPlayer.isPlaying() && !mAudioPlayer.isPaused())) {
+        if (mAudioPlayer == null || (mAudioPlayer.getCurrentTrack() == null) || (!mAudioPlayer.isPlaying() && !mAudioPlayer.isPaused())) {
             mLinearLayoutPlayer.setVisibility(View.GONE);
             mLinearLayout.setVisibility(View.GONE);
             mLinearLayoutIndicator.setVisibility(View.GONE);
+            mSlidingLayer.setVisibility(View.GONE);
             mRelativeLayoutNothingPlaying.setVisibility(View.VISIBLE);
+            
+            mSlidingLayer.closeLayer(false);
         }
         else {
             mLinearLayoutPlayer.setVisibility(View.VISIBLE);
             mLinearLayout.setVisibility(View.VISIBLE);
             mLinearLayoutIndicator.setVisibility(View.VISIBLE);
+            mSlidingLayer.setVisibility(View.VISIBLE);
             mRelativeLayoutNothingPlaying.setVisibility(View.GONE);
         }
     }
