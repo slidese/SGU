@@ -34,9 +34,11 @@ import org.codechimp.apprater.AppRater;
 
 import se.slide.sgu.db.DatabaseManager;
 import se.slide.sgu.model.Content;
+import se.slide.sgu.model.Episode;
 import se.slide.sgu.model.Section;
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshAttacher;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -74,6 +76,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
     private boolean                         mShowingBack = false;
     private List<Section>                   mLatestLoadedSections;
     private Content                         mLatestLoadedTrack;
+    private Episode                         mLatestLoadedEpisode;
     private PullToRefreshAttacher           mPullToRefreshAttacher;
     
     static final int UPDATE_INTERVAL = 250;
@@ -424,6 +427,30 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         
     }
     
+    private void initPlayerCard(final Content content) {
+        if (content == null)
+            return;
+        
+        // Before trying to load a new, reset the latest episode variable
+        mLatestLoadedEpisode = null;
+        List<Episode> listOfEpisode = DatabaseManager.getInstance().getEpisode(content.mp3);
+        if (listOfEpisode != null && listOfEpisode.size() > 0)
+            mLatestLoadedEpisode = listOfEpisode.get(0);
+        
+        String title = content.title;
+        String description = content.description;
+        Date date = content.published;
+        
+        if (mLatestLoadedEpisode != null) {
+            if (mLatestLoadedEpisode.title != null)
+                title = "The Skeptic's Guide: " + mLatestLoadedEpisode.title;
+        }
+        
+        mPlayerTitle.setText(title);
+        mPlayerDescription.setText(description);
+        mPlayerDate.setText(GlobalContext.INSTANCE.formatDate(date));
+    }
+    
     private void skipToNextSection() {
         if (mLatestLoadedSections == null || mAudioPlayer == null)
             return;
@@ -529,13 +556,8 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
                 
                 mSeeker.setMax(track.duration);
                 mSeeker.setProgress(elapsedMillis);
-                //PlayQueueActivity.this.elapsed.setText(message);
-                
-                mPlayerTitle.setText(track.title);
-                mPlayerDescription.setText(track.description);
                 mPlayerDurationNow.setText(elapsedMessage);
                 mPlayerDurationTotal.setText(" / " + totalMessage);
-                mPlayerDate.setText(GlobalContext.INSTANCE.formatDate(track.published));
             }
         });
     }
@@ -568,6 +590,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
             mLatestLoadedTrack = content;
             loadSections(content);
             initPlayerView();
+            initPlayerCard(content);
             
             // Update played state
             content.played = true;
