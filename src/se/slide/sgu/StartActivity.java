@@ -370,9 +370,10 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         mWaitForAudioPlayertimer.scheduleAtFixedRate( new TimerTask() {
             
             public void run() {
-                Log.d(TAG,"updateScreenAsync running timer");
+                Log.v(TAG, "Waiting for bind to service");
                 
                 if(mAudioPlayer != null) {
+                    Log.v(TAG, "Bind to service completed");
                     mWaitForAudioPlayertimer.cancel();
                     mHandler.post( new Runnable() {
                         public void run() {
@@ -528,8 +529,6 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
                 mUpdateCurrentTrackTask.unPause();
             }
             */
-            
-            Log.e(TAG, "updateCurrentTrackTask is not null" );
         }
     }
     
@@ -737,7 +736,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
                 
             }
             
-            Log.d(TAG,"AsyncTask stopped");
+            Log.d(TAG,"UpdateCurrentTrackTask AsyncTask stopped");
             
             return null;
         }

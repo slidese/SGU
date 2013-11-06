@@ -149,6 +149,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     
     @Override
     public void onLowMemory() {
+        Log.e(TAG, "AudioPLayer closes due to low memory");
         Notification notification = GlobalContext.INSTANCE.buildNotification(getString(R.string.closing_low_memory_ticker), getString(R.string.closing_low_memory_title), getString(R.string.closing_low_memory_text));
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         manager.notify(NOTIFICATION_ID_LOW_MEMORY, notification);
