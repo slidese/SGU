@@ -29,6 +29,7 @@ import android.widget.RelativeLayout.LayoutParams;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.analytics.tracking.android.EasyTracker;
 import com.slidinglayer.SlidingLayer;
 
@@ -92,6 +93,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         //Utils.setStrictMode();
         
         super.onCreate(savedInstanceState);
+        Crashlytics.start(this);
         setContentView(R.layout.activity_start);
         
         bindViews();
