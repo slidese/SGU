@@ -21,10 +21,10 @@ public class PlayerFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_player, null);
         
         final LinearLayout playerLinearLayout = (LinearLayout) view.findViewById(R.id.player_linearlayout);
-        playerLinearLayout.setBackground(new ColorDrawable(Color.parseColor("#88000000")));
+        //playerLinearLayout.setBackground(new ColorDrawable(Color.parseColor("#88000000")));
         
         final LinearLayout playerMainInfoLinearLayout = (LinearLayout) view.findViewById(R.id.player_maininfo_linearlayout);
-        playerMainInfoLinearLayout.setBackground(new ColorDrawable(Color.parseColor("#dd000000")));
+        //playerMainInfoLinearLayout.setBackground(new ColorDrawable(Color.parseColor("#dd000000")));
         
         ImageButton showContentButton = (ImageButton) view.findViewById(R.id.showContentButton);
         showContentButton.setOnClickListener(new OnClickListener() {

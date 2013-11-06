@@ -51,7 +51,6 @@
         </activity>
         
         <!-- Services -->
-        <service android:name="se.slide.sgu.PlayService" />
         <service android:name="se.slide.sgu.DownloaderService" />
         <service android:name="se.slide.sgu.AudioPlayer" />
 

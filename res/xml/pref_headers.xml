@@ -3,7 +3,7 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="se.slide.sgu.SettingsActivity$GeneralPreferenceFragment"
+        android:fragment="se.slide.sgu.SettingsActivity$AccountPreferenceFragment"
         android:title="@string/pref_header_account" />
     <header
         android:fragment="se.slide.sgu.SettingsActivity$DownloadPreferenceFragment"

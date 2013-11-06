@@ -50,7 +50,6 @@
     <dimen name="card_thumbnail_details">56dp</dimen>
     <dimen name="card_thumbnail_margin_details">5dp</dimen>
     <dimen name="card_title_margin_left_details">5dp</dimen>
-    <dimen name="card_title_details">18sp</dimen>
     <dimen name="card_length_details">14sp</dimen>
     <dimen name="card_content_details">14sp</dimen>
     <dimen name="card_shadow_details">3dp</dimen>
