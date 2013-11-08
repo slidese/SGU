@@ -862,6 +862,8 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
             mAudioPlayer = ((LocalBinder<AudioPlayer>) baBinder).getService();
             startService(mAudioPlayerIntent);
             loadSections(mAudioPlayer.getCurrentTrack());
+            initPlayerCard(mAudioPlayer.getCurrentTrack());
+            
             updatePlayQueue();
             initPlayerView();
         }
