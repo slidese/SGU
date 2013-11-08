@@ -292,6 +292,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
             mediaPlayer.start();
             mediaPlayer.setOnCompletionListener(this);
             
+            paused = false;
             track.duration = mediaPlayer.getDuration();
             startAsForeground();
             playPauseUpdated();
