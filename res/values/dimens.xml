@@ -17,7 +17,7 @@
     <dimen name="card_title_margin_left">5dp</dimen>
     <dimen name="card_title">17sp</dimen>
     <dimen name="card_title_details">19sp</dimen>
-    <dimen name="card_length">14sp</dimen>
+    <dimen name="card_length">12sp</dimen>
     <dimen name="card_content">14sp</dimen>
     <dimen name="card_shadow">3dp</dimen>
     <dimen name="card_quote_by">14sp</dimen>

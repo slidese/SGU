@@ -56,7 +56,7 @@
 	    		android:layout_width="1dp"
 	    		android:layout_height="match_parent"
 	    		android:layout_toLeftOf="@id/progressAndButtonHolder"
-	    		android:layout_marginLeft="4dp"
+	    		android:layout_marginLeft="8dp"
 	    		android:background="?android:attr/dividerVertical" />
 
             <se.slide.sgu.TypefacedTextView android:id="@+id/title" sgu:typeface="Roboto-Light.ttf" style="@style/card_title"/>
@@ -75,14 +75,30 @@
                 
             </LinearLayout>
             
-            <ProgressBar
-                android:id="@+id/downloadProgress"
-                android:layout_below="@id/secondLine"
+            <!--LinearLayout
+                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" 
-                android:visibility="gone"
-                style="@android:style/Widget.ProgressBar.Horizontal"
-                />
+                android:layout_below="@id/secondLine"
+                android:layout_toRightOf="@id/icon"
+                android:layout_toLeftOf="@id/dividerPlayerButton"
+                android:orientation="horizontal"
+                >
+                
+                <ProgressBar
+	                android:id="@+id/elapsedProgressBar"
+	                android:layout_width="0dp"
+	                android:layout_weight="1"
+	                android:layout_height="8dp" 
+	                android:layout_gravity="center_vertical"
+	                android:layout_marginRight="8dp"
+	                style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+	            />
+                
+                <se.slide.sgu.TypefacedTextView android:id="@+id/elapsedTotal" sgu:typeface="Roboto-Light.ttf" style="@style/card_small_text_gray" />
+                
+            </LinearLayout-->
+            
+            
             
             <!--suppress AndroidLintContentDescription >
             <ImageButton android:id="@+id/button1" style="@style/card_popup_anchor" /-->

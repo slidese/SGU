@@ -35,6 +35,7 @@ import com.slidinglayer.SlidingLayer;
 
 import org.codechimp.apprater.AppRater;
 
+import se.slide.sgu.db.DatabaseHelper;
 import se.slide.sgu.db.DatabaseManager;
 import se.slide.sgu.model.Content;
 import se.slide.sgu.model.Episode;
@@ -93,7 +94,10 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         //Utils.setStrictMode();
         
         super.onCreate(savedInstanceState);
-        Crashlytics.start(this);
+        
+        if (!Utils.DEBUG)
+            Crashlytics.start(this);
+        
         setContentView(R.layout.activity_start);
         
         bindViews();
@@ -566,6 +570,21 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
                 mSeeker.setProgress(elapsedMillis);
                 mPlayerDurationNow.setText(elapsedMessage);
                 mPlayerDurationTotal.setText(" / " + totalMessage);
+                
+                /*
+                track.elapsed = elapsedMillis;
+                
+                new AsyncTask<Content, Void, Void>() {
+
+                    @Override
+                    protected Void doInBackground(Content... params) {
+                        DatabaseManager.getInstance().createOrUpdateContent(params[0]);
+                        return null;
+                    }
+                    
+                }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, track);
+                */
+                
             }
         });
     }
@@ -725,6 +744,10 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
                 if( ! paused) {
                     Content currentTrack = mAudioPlayer.getCurrentTrack();
                     if( currentTrack != null ) {
+                        //currentTrack.elapsed = mAudioPlayer.elapsed();
+                        //DatabaseManager.getInstance().createOrUpdateContent(currentTrack);
+                        
+                        
                         publishProgress(currentTrack);
                     }
                 }

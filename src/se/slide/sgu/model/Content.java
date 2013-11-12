@@ -38,6 +38,9 @@ public class Content {
     @DatabaseField
     public boolean played;
     
+    @DatabaseField
+    public int elapsed;
+    
     /**
      * These are not stored
      */

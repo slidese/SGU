@@ -28,7 +28,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private final String TAG = "DatabaseHelper";
 
     private static final String DATABASE_NAME = "SGU.sqlite";
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 7;
 
     private Dao<Content, Integer> contentDao = null;
     private Dao<Section, Integer> sectionDao = null;
@@ -88,6 +88,10 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             }
             else if (oldVersion == 5) {
                 allSql.add("alter table Episode add column `image` TEXT");
+            }
+            
+            if (oldVersion < 7) {
+                allSql.add("alter table Content add column `elapsed` INTEGER");
             }
 
             // Execute all changes

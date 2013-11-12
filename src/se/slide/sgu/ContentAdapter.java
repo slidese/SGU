@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -38,7 +39,6 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         mListener = (ContentListener) context;
         mResource = context.getResources();
-        
     }
 
     @Override
@@ -59,6 +59,8 @@ public class ContentAdapter extends ArrayAdapter<Content> {
             holder.downloadPlay = (ImageButton) convertView.findViewById(R.id.downloadOrPlayButton);
             holder.progressAndButtonHolder = (RelativeLayout) convertView.findViewById(R.id.progressAndButtonHolder);
             holder.downloadProgressBar = (HoloCircularProgressBar) convertView.findViewById(R.id.holoCircularProgressBar);
+            //holder.elapsedProgressBar = (ProgressBar) convertView.findViewById(R.id.elapsedProgressBar);
+            //holder.elapsedTotal = (TextView) convertView.findViewById(R.id.elapsedTotal);
             
             convertView.setTag(holder);
         }
@@ -85,6 +87,8 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         holder.title.setText(title);
         holder.length.setText(Formatter.convertBytesToMegabytes(content.length));
         holder.content.setText(content.description);
+        //holder.elapsedProgressBar.setMax(100);
+        //holder.elapsedProgressBar.setProgress(0);
         
         float progressValue = 0f;
         
@@ -125,7 +129,8 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         Button download;
         Button play;
         ImageButton downloadPlay;
-        //ProgressBar downloadProgressBar;
+        //ProgressBar elapsedProgressBar;
+        //TextView elapsedTotal;
         RelativeLayout progressAndButtonHolder;
         HoloCircularProgressBar downloadProgressBar;
     }

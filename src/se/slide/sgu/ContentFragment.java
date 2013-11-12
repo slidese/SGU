@@ -301,6 +301,8 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
         public boolean exists = false;
         public boolean isPlaying = false;
         public boolean isPaused = false;
+        //public int elapsed;
+        //public int duration;
     }
     
     private class UpdaterAsyncTask extends AsyncTask<Void, Map<String, UpdateHolder>, Void> {
@@ -395,6 +397,7 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
                 }
             }
             
+            
             if (mScrollState == OnScrollListener.SCROLL_STATE_IDLE) {
                 final int count = mListview.getChildCount();
                 for (int i = 0; i < count; i++) {
@@ -457,6 +460,8 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
                 
                 holder.exists = file.exists();
                 holder.played = content.played;
+                //holder.elapsed = content.elapsed;
+                //holder.duration = content.duration;
                 map.put(content.mp3, holder);
             }
             

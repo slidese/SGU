@@ -19,7 +19,7 @@ public class Utils {
     
     private static final String TAG = "Utils";
 
-    public static final boolean DEBUG = true;
+    public static final boolean DEBUG = false;
     public static final String DIR_SGU =                Environment.DIRECTORY_DOWNLOADS + "/sgu/";
     public static final String HTTP_PODCAST_IMAGES =    "http://www.theskepticsguide.org/images/podcast_images/";
     
@@ -74,6 +74,20 @@ public class Utils {
         return intArray;
     }
     
+    /*
+    public static int calculatePercent(int total, int part) {
+        if (total < 1 || part < 1)
+            return 0;
+        
+        if (total == part)
+            return 100;
+        
+        double d = (double)part / (double)total * 100;
+        long percent = Math.round(d);
+        
+        return (int)percent;
+    }
+    */
     
     public static void updateView(Resources resources, UpdateHolder update, ContentAdapter.ViewHolder holder) {
         if (update != null) {
@@ -133,6 +147,15 @@ public class Utils {
                     Utils.setBackgroundForView(holder.progressAndButtonHolder, backgroundHolder);
                 }
             }
+            
+            /*
+            holder.elapsedTotal.setText(Utils.calculatePercent(update.duration, update.elapsed) + "%");
+            
+            if (update.duration > 0)
+                holder.elapsedProgressBar.setMax(update.duration);
+            if (update.elapsed > 0)
+                holder.elapsedProgressBar.setProgress(update.elapsed);
+                */
             
         }
         else {
@@ -198,6 +221,15 @@ public class Utils {
                 Utils.setBackgroundForView(holder.progressAndButtonHolder, backgroundHolder);
             }
         }
+        
+        /*
+        holder.elapsedTotal.setText(Utils.calculatePercent(content.duration, content.elapsed) + "%");
+        
+        if (content.duration > 0)
+            holder.elapsedProgressBar.setMax(content.duration);
+        if (content.elapsed > 0)
+            holder.elapsedProgressBar.setProgress(content.elapsed);
+            */
     }
     
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
