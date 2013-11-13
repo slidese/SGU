@@ -32,6 +32,7 @@ public class ContentAdapter extends ArrayAdapter<Content> {
     private LayoutInflater mInflater;
     private ContentListener mListener;
     private Resources mResource;
+    private List<Content> mObjects;
     
     public ContentAdapter(Context context, int textViewResourceId, List<Content> objects) {
         super(context, textViewResourceId, objects);
@@ -39,6 +40,21 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         mListener = (ContentListener) context;
         mResource = context.getResources();
+        mObjects = objects;
+    }
+
+    public List<Content> getObjects() {
+        return mObjects;
+    }
+    
+    @Override
+    public int getCount() {
+        return mObjects.size();
+    }
+
+    @Override
+    public Content getItem(int position) {
+        return mObjects.get(position);
     }
 
     @Override
@@ -59,8 +75,8 @@ public class ContentAdapter extends ArrayAdapter<Content> {
             holder.downloadPlay = (ImageButton) convertView.findViewById(R.id.downloadOrPlayButton);
             holder.progressAndButtonHolder = (RelativeLayout) convertView.findViewById(R.id.progressAndButtonHolder);
             holder.downloadProgressBar = (HoloCircularProgressBar) convertView.findViewById(R.id.holoCircularProgressBar);
-            //holder.elapsedProgressBar = (ProgressBar) convertView.findViewById(R.id.elapsedProgressBar);
-            //holder.elapsedTotal = (TextView) convertView.findViewById(R.id.elapsedTotal);
+            holder.elapsedProgressBar = (ProgressBar) convertView.findViewById(R.id.elapsedProgressBar);
+            holder.elapsedTotal = (TextView) convertView.findViewById(R.id.elapsedTotal);
             
             convertView.setTag(holder);
         }
@@ -87,8 +103,8 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         holder.title.setText(title);
         holder.length.setText(Formatter.convertBytesToMegabytes(content.length));
         holder.content.setText(content.description);
-        //holder.elapsedProgressBar.setMax(100);
-        //holder.elapsedProgressBar.setProgress(0);
+        holder.elapsedProgressBar.setMax(100);
+        holder.elapsedProgressBar.setProgress(0);
         
         float progressValue = 0f;
         
@@ -117,6 +133,8 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         
         Utils.updateView(mResource, content, holder);
         
+        content.dirty = false;
+        
         return convertView;
     }
 
@@ -129,8 +147,8 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         Button download;
         Button play;
         ImageButton downloadPlay;
-        //ProgressBar elapsedProgressBar;
-        //TextView elapsedTotal;
+        ProgressBar elapsedProgressBar;
+        TextView elapsedTotal;
         RelativeLayout progressAndButtonHolder;
         HoloCircularProgressBar downloadProgressBar;
     }

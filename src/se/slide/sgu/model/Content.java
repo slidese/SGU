@@ -52,6 +52,7 @@ public class Content {
     public String friendlyTitle;
     public boolean isPlaying = false;
     public boolean isPaused = false;
+    public boolean dirty = false;
     
     public Content() {
         

@@ -90,6 +90,16 @@ public class DatabaseManager {
         }
     }
     
+    public void createOrUpdateContents(List<Content> listOfContent) {
+        try {
+            for (Content content : listOfContent) {
+                getHelper().getContentDao().createOrUpdate(content);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
     public void createIfNotExistsContents(List<Content> listOfContent) {
         try {
             for (Content content : listOfContent) {

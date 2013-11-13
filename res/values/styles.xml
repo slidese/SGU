@@ -177,7 +177,7 @@
         <item name="android:textColor">@color/holo_blue_dark</item>
     </style>
     
-    <!--style name="card_small_text_gray">
+    <style name="card_small_text_gray">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingLeft">4dp</item>
@@ -187,7 +187,7 @@
         <item name="android:singleLine">true</item>
         <item name="android:text">@string/mb</item>
         <item name="android:textColor">@color/text_white_medium</item>
-    </style-->
+    </style>
 
     <style name="card_content">
         <item name="android:layout_width">wrap_content</item>

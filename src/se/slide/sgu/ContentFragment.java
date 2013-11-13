@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -23,7 +24,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 
-import se.slide.sgu.ContentAdapter.ViewHolder;
 import se.slide.sgu.db.DatabaseManager;
 import se.slide.sgu.model.Content;
 import se.slide.sgu.model.Episode;
@@ -56,11 +56,6 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
     int mMode;
     Map<String, UpdateHolder> mUpdates = new HashMap<String, UpdateHolder>();
     
-    private Drawable                    mDrawableWhiteButtonSelector;
-    private Drawable                    mDrawableBlueButtonSelector;
-    private Drawable                    mDrawableActionDownload;
-    private Drawable                    mDrawableActionPlay;
-
     public ContentFragment() {
 
     }
@@ -91,21 +86,12 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
 
         mResources = getResources();
         
-        /*
-        mDrawableWhiteButtonSelector = getResources().getDrawable(R.drawable.white_button_selector);
-        mDrawableBlueButtonSelector = getResources().getDrawable(R.drawable.blue_button_selector);
-        mDrawableActionDownload = getResources().getDrawable(R.drawable.ic_action_download);
-        mDrawableActionPlay = getResources().getDrawable(R.drawable.ic_action_playback_play_holo_light);
-        */
-        
         mListview = (ListView) view.findViewById(android.R.id.list);
         mListview.setEmptyView(view.findViewById(R.id.empty_list_view));
         mListview.setOnItemClickListener(new OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
-                // This will be implemented in version 2
-                //Toast.makeText(view.getContext(), "Click!", Toast.LENGTH_SHORT).show();
                 Content content = mAdapter.getItem(position);
                 mListener.showContentDetails(content);
             }
@@ -117,94 +103,14 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
             public void onScrollStateChanged(AbsListView view, int scrollState) {
                 mScrollState = scrollState;
                 
-                /*
-                if (scrollState == SCROLL_STATE_IDLE) {
-                    mAdapter.setUpdateMap(mUpdates);
-                }
-                */
-                
-                /*
-                if (scrollState == SCROLL_STATE_IDLE) {
-                    
-                    final int count = view.getChildCount();
-                    for (int i = 0; i < count; i++) {
-                        View v = view.getChildAt(i);
-                        final ViewHolder holder = (ContentAdapter.ViewHolder)view.getChildAt(i).getTag();
-                        
-                        UpdateHolder update = mMap.get(holder.mp3);
-                        //updateView(update, holder);
-                    }
-                }
-                */
             }
             
             @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                /*
-                if (mScrollState == OnScrollListener.SCROLL_STATE_FLING || visibleItemCount < 1)
-                    return;
                 
-                final int count = view.getChildCount();
-                if (count == 0)
-                    return;
-                
-                for (int i = 0; i < count; i++) {
-                    final ViewHolder holder = (ContentAdapter.ViewHolder)view.getChildAt(i).getTag();
-                    
-                    UpdateHolder update = mMap.get(holder.mp3);
-                    //updateView(update, holder);
-                }
-                */
             }
-            /*
-            @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-            private void updateView2(UpdateHolder update, ContentAdapter.ViewHolder holder) {
-                if (update != null) {
-                    if (!update.exists) {
-                        holder.downloadPlay.setImageDrawable(mDrawableActionDownload);
-                        if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                            holder.downloadPlay.setBackgroundDrawable(mDrawableWhiteButtonSelector);
-                        } else {
-                            holder.downloadPlay.setBackground(mDrawableWhiteButtonSelector);
-                        }
-                    }
-                    else {
-                        // Check if pending download!
-                        if (update.progress > 0) {
-                            holder.downloadPlay.setImageDrawable(mDrawableActionDownload);
-                            if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                                holder.downloadPlay.setBackgroundDrawable(mDrawableBlueButtonSelector);
-                            } else {
-                                holder.downloadPlay.setBackground(mDrawableBlueButtonSelector);
-                            }
-                            
-                            holder.downloadProgressBar.setProgress(update.progress);
-                        }
-                        else if (!update.played) {
-                            holder.downloadPlay.setImageDrawable(mDrawableActionPlay);
-                            if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                                holder.downloadPlay.setBackgroundDrawable(mDrawableBlueButtonSelector);
-                            } else {
-                                holder.downloadPlay.setBackground(mDrawableBlueButtonSelector);
-                            }
-                        }
-                        else {
-                            holder.downloadPlay.setImageDrawable(mDrawableActionPlay);
-                            if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                                holder.downloadPlay.setBackgroundDrawable(mDrawableWhiteButtonSelector);
-                            } else {
-                                holder.downloadPlay.setBackground(mDrawableWhiteButtonSelector);
-                            }
-                        }
-                    }
-                    
-                    
-                    Log.d(TAG, "Progress update: onScroll, scrollstate = " + mScrollState + ", update.progress = " + update.progress);
-                    Log.d(TAG, "holder.title = " + holder.title.getText() + ", holder.progress = " + holder.downloadProgressBar.getProgress() + ", holder.mp3 = " + holder.mp3);
-                }
-            }
-            */
+            
         });
         
         mPullToRefreshAttacher = ((StartActivity) getActivity()).getPullToRefreshAttacher();
@@ -305,7 +211,7 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
         //public int duration;
     }
     
-    private class UpdaterAsyncTask extends AsyncTask<Void, Map<String, UpdateHolder>, Void> {
+    private class UpdaterAsyncTask extends AsyncTask<Void, Void, Void> {
         
         boolean isRunning = true;
 
@@ -317,58 +223,14 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
         protected Void doInBackground(Void... params) {
             
             while (isRunning) {
-                
+
                 /*
-                Map<String, UpdateHolder> map = new HashMap<String, UpdateHolder>();
-                
-                DownloadManager.Query q = new DownloadManager.Query();
-                q.setFilterByStatus(DownloadManager.STATUS_PENDING | DownloadManager.STATUS_RUNNING);
-                try {
-                    Cursor cursor = ContentDownloadManager.INSTANCE.query(q);
-                    
-                    while (cursor.moveToNext()) {
-                        //long id = cursor.getLong(cursor.getColumnIndex(DownloadManager.COLUMN_ID));
-                        String uri = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_URI));
-                        int status = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS));
-                        int downloaded = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
-                        int total = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
-                        
-                        float progress = (float)downloaded/(float)total;
-                        
-                        UpdateHolder holder = new UpdateHolder();
-                        holder.progress = progress;
-                        holder.status = status;
-                        
-                        map.put(uri, holder);
-                    }
-                    
-                    cursor.close();
-                    
-                    List<Content> listOfContent = DatabaseManager.getInstance().getAllContents();
-                    for (Content content : listOfContent) {
-                        File file = Utils.getFilepath(content.getFilename());
-                        
-                        UpdateHolder holder = map.get(content.mp3);
-                        if (holder == null) {
-                            holder = new UpdateHolder();
-                        }
-                        
-                        holder.exists = file.exists();
-                        holder.played = content.played;
-                        map.put(content.mp3, holder);
-                        
-                        Log.d(TAG, "map.put = " + content.mp3);
-                    }
-                    
-                    publishProgress(map);
-                    
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                 */
-                
                 Map<String, UpdateHolder> map = gatherMetadata();
                 publishProgress(map);
+                */
+                
+                updateCurrentAdapterContent();
+                publishProgress();
                 
                 try {
                     Thread.sleep(200);
@@ -381,9 +243,31 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
         }
         
         @Override
-        protected void onProgressUpdate(Map<String, UpdateHolder>... values) {
-            super.onProgressUpdate(values);
+        protected void onProgressUpdate(Void... params) {
+            super.onProgressUpdate();
             
+            if (mScrollState == OnScrollListener.SCROLL_STATE_IDLE) {
+                //mAdapter.notifyDataSetChanged();
+                
+                // http://stackoverflow.com/questions/2123083/android-listview-refresh-single-row
+                int start = mListview.getFirstVisiblePosition();
+                for(int i = start, j = mListview.getLastVisiblePosition(); i<=j; i++) {
+                    /*
+                    if(target==list.getItemAtPosition(i)){
+                        break;
+                    }
+                    */
+                    
+                    View view = mListview.getChildAt(i-start);
+                    if (((Content)mListview.getItemAtPosition(i)).dirty) {
+                        Log.v(TAG, "Content is dirty");
+                        mListview.getAdapter().getView(i, view, mListview);
+                    }
+                        
+                }
+            }
+            
+            /*
             final int c = mAdapter.getCount();
             for (int index = 0; index < c; index++) {
                 Content content = mAdapter.getItem(index);
@@ -406,7 +290,106 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
                     Utils.updateView(mResources, update, holder);
                 }
             }
+            */
         }
+    }
+    
+    private void updateCurrentAdapterContent() {
+        
+        List<Content> listOfContent = mAdapter.getObjects();
+        Map<String, UpdateHolder> map = new HashMap<String, UpdateHolder>();
+        
+        DownloadManager.Query q = new DownloadManager.Query();
+        q.setFilterByStatus(DownloadManager.STATUS_PENDING | DownloadManager.STATUS_RUNNING);
+        try {
+            Cursor cursor = ContentDownloadManager.INSTANCE.query(q);
+            
+            while (cursor.moveToNext()) {
+                //long id = cursor.getLong(cursor.getColumnIndex(DownloadManager.COLUMN_ID));
+                String uri = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_URI));
+                int status = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS));
+                int downloaded = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
+                int total = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
+                
+                float progress = (float)downloaded/(float)total;
+                
+                UpdateHolder holder = new UpdateHolder();
+                holder.progress = progress;
+                holder.status = status;
+                
+                map.put(uri, holder);
+            }
+            
+            cursor.close();
+            
+            final Content currentContent = mListener.getCurrentTrack();
+            final boolean isPlaying = mListener.isPlaying();
+            final boolean isPaused = mListener.isPaused();
+            
+            for (Content content : listOfContent) {
+                // First update any download progress we might have for this specific content item
+                UpdateHolder holder = map.get(content.mp3);
+                if (holder != null) {
+                    if (content.downloadProgress != holder.progress) {
+                        content.downloadProgress = holder.progress;
+                        content.dirty = true;
+                    }
+                    if (content.downloadStatus != holder.status) {
+                        content.downloadStatus = holder.status;
+                        content.dirty = true;
+                    }
+                }
+                else {
+                    if (content.downloadProgress != 0f) {
+                        content.downloadProgress = 0f;
+                        content.dirty = true;
+                    }
+                    if (content.downloadStatus != -1) {
+                        content.downloadStatus = -1;
+                        content.dirty = true;
+                    }
+                }
+                
+                // Update with elapsed (to be done)
+                
+                // File exists?
+                File file = Utils.getFilepath(content.getFilename());
+                if (content.exists != file.exists()) {
+                    content.exists = file.exists();
+                    content.dirty = true;
+                }
+
+                // Is this the currently playing content
+                if (currentContent != null && content.mp3.equals(currentContent.mp3)) {
+                    if (content.isPlaying != isPlaying) {
+                        content.isPlaying = isPlaying;
+                        content.dirty = true;
+                    }
+                    if (content.isPaused != isPaused) {
+                        content.isPaused = isPaused;
+                        content.dirty = true;
+                    }
+                }
+                else {
+                    if (content.isPlaying != false) {
+                        content.isPlaying = false;
+                        content.dirty = true;
+                    }
+                    if (content.isPaused != false) {
+                        content.isPaused = false;
+                        content.dirty = true;
+                    }
+                }
+              
+                if (content.dirty) {
+                    DatabaseManager.getInstance().createOrUpdateContent(content);
+                }
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }
     
     private Map<String, UpdateHolder> gatherMetadata() {

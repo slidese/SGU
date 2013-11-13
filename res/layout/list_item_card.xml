@@ -75,7 +75,7 @@
                 
             </LinearLayout>
             
-            <!--LinearLayout
+            <LinearLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:layout_below="@id/secondLine"
@@ -96,7 +96,7 @@
                 
                 <se.slide.sgu.TypefacedTextView android:id="@+id/elapsedTotal" sgu:typeface="Roboto-Light.ttf" style="@style/card_small_text_gray" />
                 
-            </LinearLayout-->
+            </LinearLayout>
             
             
             

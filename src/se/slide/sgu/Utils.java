@@ -74,8 +74,8 @@ public class Utils {
         return intArray;
     }
     
-    /*
     public static int calculatePercent(int total, int part) {
+        /*
         if (total < 1 || part < 1)
             return 0;
         
@@ -86,8 +86,10 @@ public class Utils {
         long percent = Math.round(d);
         
         return (int)percent;
+        */
+        
+        return (int)(part * 100.0 / total + 0.5);
     }
-    */
     
     public static void updateView(Resources resources, UpdateHolder update, ContentAdapter.ViewHolder holder) {
         if (update != null) {
@@ -222,14 +224,15 @@ public class Utils {
             }
         }
         
-        /*
-        holder.elapsedTotal.setText(Utils.calculatePercent(content.duration, content.elapsed) + "%");
+        int percent = Utils.calculatePercent(content.duration, content.elapsed);
+        holder.elapsedTotal.setText(percent + "%");
         
+        /*
         if (content.duration > 0)
             holder.elapsedProgressBar.setMax(content.duration);
-        if (content.elapsed > 0)
-            holder.elapsedProgressBar.setProgress(content.elapsed);
             */
+        if (content.elapsed > 0)
+            holder.elapsedProgressBar.setProgress(percent);
     }
     
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
