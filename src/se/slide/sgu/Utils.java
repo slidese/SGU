@@ -1,5 +1,10 @@
 package se.slide.sgu;
 
+import android.animation.Animator;
+import android.animation.Animator.AnimatorListener;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.annotation.TargetApi;
 import android.app.DownloadManager;
 import android.content.res.Resources;
@@ -10,6 +15,7 @@ import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 
+import de.passsy.holocircularprogressbar.HoloCircularProgressBar;
 import se.slide.sgu.ContentFragment.UpdateHolder;
 import se.slide.sgu.model.Content;
 
@@ -184,7 +190,9 @@ public class Utils {
                 Drawable backgroundHolder = resources.getDrawable(R.color.holo_blue_light);
                 
                 Utils.setBackgroundForView(holder.progressAndButtonHolder, backgroundHolder);
-                holder.downloadProgressBar.setProgress(content.downloadProgress);
+                animate(holder.downloadProgressBar, null, content.downloadProgressOld, content.downloadProgress, 200);
+                content.downloadProgressOld = content.downloadProgress;
+                //holder.downloadProgressBar.setProgress(content.downloadProgress);
             }
             else if (!content.played) {
                 Utils.showProgress(holder, false);
@@ -233,6 +241,49 @@ public class Utils {
             */
         if (content.elapsed > 0)
             holder.elapsedProgressBar.setProgress(percent);
+    }
+    
+    private static void animate(final HoloCircularProgressBar progressBar, final AnimatorListener listener, final float oldProgress, final float progress, final int duration) {
+        
+        ObjectAnimator mProgressBarAnimator;
+    
+        Log.v(TAG, "oldProgress = " + oldProgress + ", progress = " + progress);
+        
+        mProgressBarAnimator = ObjectAnimator.ofFloat(progressBar, "progress", oldProgress, progress);
+        mProgressBarAnimator.setDuration(duration);
+    
+        mProgressBarAnimator.addListener(new AnimatorListener() {
+    
+                @Override
+                public void onAnimationCancel(final Animator animation) {
+                }
+    
+                @Override
+                public void onAnimationEnd(final Animator animation) {
+                        progressBar.setProgress(progress);
+                }
+    
+                @Override
+                public void onAnimationRepeat(final Animator animation) {
+                }
+    
+                @Override
+                public void onAnimationStart(final Animator animation) {
+                }
+        });
+        if (listener != null) {
+                mProgressBarAnimator.addListener(listener);
+        }
+        mProgressBarAnimator.reverse();
+        mProgressBarAnimator.addUpdateListener(new AnimatorUpdateListener() {
+    
+                @Override
+                public void onAnimationUpdate(final ValueAnimator animation) {
+                        progressBar.setProgress((Float) animation.getAnimatedValue());
+                }
+        });
+        //progressBar.setMarkerProgress(progress);
+        mProgressBarAnimator.start();
     }
     
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)

@@ -46,6 +46,7 @@ public class Content {
      */
     public long downloadId = -1L;
     public float downloadProgress = 0f;
+    public float downloadProgressOld = 0f;
     public boolean exists = false;
     public int downloadStatus = -1;
     public String image;
