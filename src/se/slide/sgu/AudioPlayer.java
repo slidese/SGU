@@ -184,10 +184,22 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         Builder builder = new Notification.Builder(this);
         builder.setSmallIcon(R.drawable.ic_actionbar_logo);
         
-        if (showTicker)
-            builder.setTicker(track.title);
+        String title = null;
+        if (track.friendlyTitle != null && !track.friendlyTitle.isEmpty())
+            title = track.friendlyTitle;
+        else
+            title = track.title;
         
-        builder.setContentTitle(track.title);
+        if (showTicker) {
+            builder.setTicker(title);
+        }
+        else {
+            builder.setTicker(null);
+        }
+        
+        Log.d(TAG, "show ticker = " + showTicker);
+        
+        builder.setContentTitle(title);
         builder.setContentText(track.description);
         builder.setWhen(System.currentTimeMillis());
         builder.setContentIntent(pi);
@@ -214,9 +226,9 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         return notification;
     }
     
-    private void startAsForeground() {
+    private void startAsForeground(boolean showTicker) {
         
-        Notification note = buildNotification(true);
+        Notification note = buildNotification(showTicker);
         
         if (note == null)
             return;
@@ -297,7 +309,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
             
             paused = false;
             track.duration = mediaPlayer.getDuration();
-            startAsForeground();
+            startAsForeground(true);
             playPauseUpdated();
         } catch (IOException ioe) {
             Log.e(TAG,"error trying to play " + track , ioe);
@@ -388,7 +400,8 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     
     public void seekAndPlay(int timeInMillis) {
         if(mediaPlayer != null) {
-            play();
+            if (!mediaPlayer.isPlaying())
+                play();
             mediaPlayer.seekTo(timeInMillis);
         }
     }

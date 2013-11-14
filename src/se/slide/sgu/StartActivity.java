@@ -437,7 +437,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         
     }
     
-    private void initPlayerCard(final Content content) {
+    private void loadMetadata(final Content content) {
         if (content == null)
             return;
         
@@ -446,6 +446,11 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         List<Episode> listOfEpisode = DatabaseManager.getInstance().getEpisode(content.mp3);
         if (listOfEpisode != null && listOfEpisode.size() > 0)
             mLatestLoadedEpisode = listOfEpisode.get(0);
+    }
+    
+    private void initPlayerCard(final Content content) {
+        if (content == null)
+            return;
         
         String title = content.title;
         String description = content.description;
@@ -602,12 +607,13 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         else if (currentContent != null && currentContent.mp3.equals(content.mp3) && mAudioPlayer.isPaused())
             mAudioPlayer.play();
         else {
-            mAudioPlayer.play(content);
             mLatestLoadedTrack = content;
+            loadMetadata(content);
+            mAudioPlayer.play(content);
             loadSections(content);
             initPlayerView();
             initPlayerCard(content);
-            
+
             // Update played state
             content.played = true;
             DatabaseManager.getInstance().createOrUpdateContent(content);
