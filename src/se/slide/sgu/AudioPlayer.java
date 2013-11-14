@@ -304,7 +304,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
             mediaPlayer.start();
             mediaPlayer.setOnCompletionListener(this);
             
-            if (track.elapsed > 0)
+            if (track.elapsed > 0 && track.elapsed != track.duration)
                 mediaPlayer.seekTo(track.elapsed);
             
             paused = false;

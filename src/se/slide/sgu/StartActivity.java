@@ -589,8 +589,11 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         if (mAudioPlayer.isPlaying() ) {
             mPlayButton.setImageResource(R.drawable.ic_action_playback_pause);
         } else {
-            if (mAudioPlayer.getCurrentTrack() == null)
-                mPlayButton.setImageResource(R.drawable.ic_action_playback_repeat);
+            if (mAudioPlayer.getCurrentTrack() == null) {
+                initPlayerView();
+                //mPlayButton.setImageResource(R.drawable.ic_action_playback_repeat);
+            }
+                
             else
                 mPlayButton.setImageResource(R.drawable.ic_action_playback_play);
         }
