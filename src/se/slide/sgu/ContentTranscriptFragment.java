@@ -53,7 +53,7 @@ public class ContentTranscriptFragment extends Fragment {
     }
     
     private Episode getEpisode(String mp3) {
-        List<Episode> listOfEpisodes = DatabaseManager.getInstance().getEpisode(mp3);
+        List<Episode> listOfEpisodes = DatabaseManager.getInstance().getEpisodes(mp3);
         
         if (listOfEpisodes != null && listOfEpisodes.size() > 0)
             return listOfEpisodes.get(0);

@@ -258,7 +258,20 @@ public class DatabaseManager {
      * Episode
      */
     
-    public List<Episode> getEpisode(String mp3) {
+    public Episode getEpisode(String mp3) {
+        
+        Episode episode = null;
+        try {
+            List<Episode> listOfEpisode = getHelper().getEpisodeDao().query(getHelper().getEpisodeDao().queryBuilder().where().like("mp3", mp3).prepare());
+            if (listOfEpisode != null && !listOfEpisode.isEmpty())
+                episode = listOfEpisode.get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return episode;
+    }
+    
+    public List<Episode> getEpisodes(String mp3) {
         List<Episode> listOfEpisode = null;
         try {
             listOfEpisode = getHelper().getEpisodeDao().query(getHelper().getEpisodeDao().queryBuilder().where().like("mp3", mp3).prepare());

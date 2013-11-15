@@ -443,7 +443,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         
         // Before trying to load a new, reset the latest episode variable
         mLatestLoadedEpisode = null;
-        List<Episode> listOfEpisode = DatabaseManager.getInstance().getEpisode(content.mp3);
+        List<Episode> listOfEpisode = DatabaseManager.getInstance().getEpisodes(content.mp3);
         if (listOfEpisode != null && listOfEpisode.size() > 0)
             mLatestLoadedEpisode = listOfEpisode.get(0);
     }
@@ -647,8 +647,9 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         args.putString(MainDetailsFragment.CONTENT_MP3, content.mp3);
         //args.putInt(ContentFragment.CONTENT_KEY, ContentFragment.CONTENT_TYPE_ADFREE);
         
-        List<Episode> listOfEpisodes = DatabaseManager.getInstance().getEpisode(content.mp3);
-        if (listOfEpisodes == null || listOfEpisodes.isEmpty()) {
+        //List<Episode> listOfEpisodes = DatabaseManager.getInstance().getEpisodes(content.mp3);
+        Episode episode = DatabaseManager.getInstance().getEpisode(content.mp3);
+        if (episode == null || episode.hosts == null) {
             
             // DialogFragment.show() will take care of adding the fragment
             // in a transaction.  We also want to remove any currently showing

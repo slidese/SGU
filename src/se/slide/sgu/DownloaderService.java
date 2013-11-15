@@ -148,8 +148,10 @@ public class DownloaderService extends Service {
             //List<Section> listOfSection = null;
             List<Episode> listOfEpisodes = null;
             try {
-                //listOfSection = parser.parse(getResources().openRawResource(R.raw.sample_sections));
-                listOfEpisodes = parser.parse(new ByteArrayInputStream(builder.toString().getBytes("UTF-8")));
+                if (Utils.DEBUG)
+                    listOfEpisodes = parser.parse(getResources().openRawResource(R.raw.sgu_metadata));
+                else
+                    listOfEpisodes = parser.parse(new ByteArrayInputStream(builder.toString().getBytes("UTF-8")));
             } catch (NotFoundException e) {
                 e.printStackTrace();
                 returnValue = false;

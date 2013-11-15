@@ -115,7 +115,8 @@ public class SectionParser {
              }
          }
          
-         episode.quote.mp3 = episode.mp3;
+         if (episode.quote != null)
+             episode.quote.mp3 = episode.mp3;
          
          return episode;
      }
