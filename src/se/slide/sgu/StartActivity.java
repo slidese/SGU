@@ -131,8 +131,8 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         bindService(mAudioPlayerIntent, mServiceConnection, Context.BIND_AUTO_CREATE);
         
         IntentFilter downloadFilter = new IntentFilter();
-        downloadFilter.addAction(DownloaderService.DOWNLOAD_FINISHED);
-        downloadFilter.addAction(DownloaderService.DOWNLOAD_STARTED);
+        downloadFilter.addAction(DownloaderService.ACTION_DOWNLOAD_STARTED);
+        downloadFilter.addAction(DownloaderService.ACTION_DOWNLOAD_FINISHED);
         registerReceiver(mDownloadBroadcastReceiver, downloadFilter);
         
         mAudioPlayerBroadcastReceiver = new AudioPlayerBroadCastReceiver();
@@ -199,7 +199,9 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
 
         if (item.getItemId() == R.id.action_reload) {
             
-            startService(new Intent(this, DownloaderService.class));
+            Intent intent = new Intent(this, DownloaderService.class);
+            intent.putExtra(DownloaderService.EXTRA_USER_INITIATED, true);
+            startService(intent);
             
             return true;
         }
@@ -856,7 +858,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         public void onReceive(Context context, Intent intent) {
             Log.d(TAG,"DownloadBroadcastReceiver.onReceive action = " + intent.getAction());
             
-            if(intent.getAction().equals(DownloaderService.DOWNLOAD_FINISHED)) {
+            if(intent.getAction().equals(DownloaderService.ACTION_DOWNLOAD_FINISHED)) {
                 
                 mPullToRefreshAttacher.setRefreshComplete();
                 
@@ -869,7 +871,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
                 }
                 
             }
-            else if (intent.getAction().equals(DownloaderService.DOWNLOAD_STARTED)) {
+            else if (intent.getAction().equals(DownloaderService.ACTION_DOWNLOAD_STARTED)) {
                 mPullToRefreshAttacher.setRefreshing(true);
             }
         }

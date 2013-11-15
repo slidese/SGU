@@ -196,7 +196,11 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
     
     @Override
     public void onRefreshStarted(View view) {
-        getActivity().startService(new Intent(getActivity(), DownloaderService.class));
+        
+        Intent intent = new Intent(getActivity(), DownloaderService.class);
+        intent.putExtra(DownloaderService.EXTRA_USER_INITIATED, true);
+        getActivity().startService(intent);
+        
     }
     
     public class UpdateHolder {

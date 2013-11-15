@@ -52,10 +52,15 @@ public class DownloaderService extends Service {
     
     private final String TAG = "DownloaderService";
     
-    public static final String DOWNLOAD_STARTED     = "se.slide.sgu.DOWNLOAD_STARTED";
-    public static final String DOWNLOAD_FINISHED    = "se.slide.sgu.DOWNLOAD_FINISHED";
+    public static final String ACTION_DOWNLOAD_STARTED     = "se.slide.sgu.intent.action.DOWNLOAD_STARTED";
+    public static final String ACTION_DOWNLOAD_FINISHED    = "se.slide.sgu.intent.action.DOWNLOAD_FINISHED";
     
-    private final int NOTIFICATION_ID = 13;
+    public static final String EXTRA_USER_INITIATED        = "se.slide.sgu.intent.extra.USER_INITIATED";
+    
+    private final int NOTIFICATION_ID                      = 13;
+    private final int NOTIFICATION_NEW                     = 14;
+    
+    private MetadataAsyncTask mMetadataAsyncTask           = null;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -74,22 +79,35 @@ public class DownloaderService extends Service {
         String password = PreferenceManager.getDefaultSharedPreferences(this).getString("password", null);
         
         if (username == null || password == null) {
+            Log.v(TAG, "Username or password is null, stopping service");
             stopSelf();
-            return super.onStartCommand(intent, flags, startId);
+            return START_NOT_STICKY;
         }
         
+        // Are we already running?
+        if (mMetadataAsyncTask != null) {
+            Log.v(TAG, "AsyncTask is not null which means we're already running, stop new request");
+            return START_NOT_STICKY;
+        }
+        
+        // Is this automatic or user initiated?
+        boolean manuallyStarted = false;
+        manuallyStarted = intent.getBooleanExtra(EXTRA_USER_INITIATED, false);
+        Log.v(TAG, "Is manually started: " + manuallyStarted);
+    
         // Let our activity know we have started
         Intent i = new Intent();
-        i.setAction(DOWNLOAD_STARTED);
+        i.setAction(ACTION_DOWNLOAD_STARTED);
         sendBroadcast(i);
 
         long lastEpisodeInMs = PreferenceManager.getDefaultSharedPreferences(this).getLong("last_episode_in_ms", 0L);
         boolean autoDownload = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("auto_download", false);
         
         // Start metadata download
-        new MetadataAsyncTask(username, password, lastEpisodeInMs, autoDownload).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-
-        return super.onStartCommand(intent, flags, startId);
+        mMetadataAsyncTask = new MetadataAsyncTask(username, password, lastEpisodeInMs, autoDownload, manuallyStarted);
+        mMetadataAsyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        
+        return START_NOT_STICKY;
     }
     
     private class MetadataAsyncTask extends AsyncTask<Void, Void, Boolean> {
@@ -99,13 +117,14 @@ public class DownloaderService extends Service {
         private long lastEpisodeInMs;
         private long latestEpisodeFound = 0L;
         private boolean autoDownload;
-        
+        private boolean manuallyStarted = false;
 
-        public MetadataAsyncTask(String username, String password, long lastEpisodeInMs, boolean autoDownload) {
+        public MetadataAsyncTask(String username, String password, long lastEpisodeInMs, boolean autoDownload, boolean manuallyStarted) {
             this.username = username;
             this.password = password;
             this.lastEpisodeInMs = lastEpisodeInMs;
             this.autoDownload = autoDownload;
+            this.manuallyStarted = manuallyStarted;
         }
         
         @Override
@@ -205,7 +224,7 @@ public class DownloaderService extends Service {
             }
             
             // Start RSS download
-            new DownloadAsyncTask(username, password, lastEpisodeInMs, autoDownload).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            new DownloadAsyncTask(username, password, lastEpisodeInMs, autoDownload, manuallyStarted).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
             
         }
         
@@ -218,13 +237,15 @@ public class DownloaderService extends Service {
         private long lastEpisodeInMs;
         private long latestEpisodeFound = 0L;
         private boolean autoDownload;
-        
+        private boolean manuallyStarted = false;
+        private boolean newContent = false;
 
-        public DownloadAsyncTask(String username, String password, long lastEpisodeInMs, boolean autoDownload) {
+        public DownloadAsyncTask(String username, String password, long lastEpisodeInMs, boolean autoDownload, boolean manuallyStarted) {
             this.username = username;
             this.password = password;
             this.lastEpisodeInMs = lastEpisodeInMs;
             this.autoDownload = autoDownload;
+            this.manuallyStarted = manuallyStarted;
         }
 
         @Override
@@ -332,6 +353,7 @@ public class DownloaderService extends Service {
                 
                 if (autoDownload && lastEpisodeInMs != 0 && t > lastEpisodeInMs) {
                     ContentDownloadManager.INSTANCE.addToDownloadQueue(content.mp3, content.title, content.description, Utils.formatFilename(content.title));
+                    newContent = true;
                 }
             }
             
@@ -393,8 +415,14 @@ public class DownloaderService extends Service {
             super.onPostExecute(result);
             
             if (result) {
+                if (manuallyStarted && newContent) {
+                    Notification notification = GlobalContext.INSTANCE.buildNotification(getString(R.string.download_new_ticker), getString(R.string.download_new_title), getString(R.string.download_new_text));
+                    NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    manager.notify(NOTIFICATION_NEW, notification);
+                }
+                
                 Intent intent = new Intent();
-                intent.setAction(DOWNLOAD_FINISHED);
+                intent.setAction(ACTION_DOWNLOAD_FINISHED);
                 sendBroadcast(intent);
                 
                 GlobalContext.INSTANCE.savePreference("last_episode_in_ms", latestEpisodeFound);
@@ -406,6 +434,7 @@ public class DownloaderService extends Service {
                 manager.notify(NOTIFICATION_ID, notification);
             }
             
+            stopSelf();
         }
 
     }
