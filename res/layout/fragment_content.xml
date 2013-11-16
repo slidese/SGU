@@ -21,6 +21,7 @@
     	android:paddingBottom="8dp"
         android:divider="@null"
         android:background="@color/card_listview_background"
+        android:listSelector="@android:color/transparent"
         android:dividerHeight="4dp" >
     </ListView>
     
