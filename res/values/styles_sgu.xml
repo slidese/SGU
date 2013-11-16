@@ -26,7 +26,7 @@
         <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Sgu</item>
         <item name="android:actionDropDownStyle">@style/DropDownNav.Sgu</item>
         <item name="android:actionBarStyle">@style/ActionBar.Solid.Sgu</item>
-        <item name="android:actionModeBackground">@drawable/cab_background_top_sgu</item>
+        <!-- item name="android:actionModeBackground">@drawable/cab_background_top_sgu</item-->
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_sgu</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Sgu</item>
         

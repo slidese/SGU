@@ -27,6 +27,7 @@
 		            android:layout_alignParentRight="true"
 		            android:layout_alignParentTop="true"
 		            android:visibility="visible"
+		            android:duplicateParentState="true"
 		            android:src="@drawable/ic_action_download" />
             
 	            <de.passsy.holocircularprogressbar.HoloCircularProgressBar

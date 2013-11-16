@@ -97,7 +97,7 @@
         <item name="android:paddingLeft">@dimen/card_inner_padding_left</item>
         <item name="android:paddingRight">@dimen/card_inner_padding_right</item>
         <item name="android:paddingTop">@dimen/card_inner_padding_vertical</item>
-        <item name="android:paddingBottom">@dimen/card_inner_padding_vertical</item>
+        <item name="android:paddingBottom">0dp</item>
         <item name="android:background">@drawable/card_selector</item>
         <item name="android:duplicateParentState">true</item>
     </style>

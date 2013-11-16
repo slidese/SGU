@@ -7,22 +7,29 @@ import android.app.DownloadManager;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.util.SparseBooleanArray;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AbsListView;
+import android.widget.AbsListView.MultiChoiceModeListener;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import se.slide.sgu.db.DatabaseManager;
 import se.slide.sgu.model.Content;
@@ -88,6 +95,84 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
         
         mListview = (ListView) view.findViewById(android.R.id.list);
         mListview.setEmptyView(view.findViewById(R.id.empty_list_view));
+        mListview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        
+        mListview.setMultiChoiceModeListener(new MultiChoiceModeListener() {
+            
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                return false;
+            }
+            
+            @Override
+            public void onDestroyActionMode(ActionMode mode) {
+                
+            }
+            
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                MenuInflater inflater = mode.getMenuInflater();
+                inflater.inflate(R.menu.contextual_menu_content, menu);
+                return true;
+            }
+            
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                if (item.getItemId() == R.id.action_delete) {
+                    
+                    StringBuilder builder = new StringBuilder();
+                    
+                    SparseBooleanArray checked = mListview.getCheckedItemPositions();
+                    Content[] params = new Content[checked.size()];
+                    for (int i = 0; i < mListview.getCount(); i++) {
+                        if (checked.get(i)) {
+                            params[i] = (Content)mListview.getItemAtPosition(i);
+                            /*
+                            View view = mListview.getItemAtPosition(i); //mListview.getChildAt(i);
+                            
+                            Animation animation = AnimationUtils.loadAnimation(
+                                getActivity(),
+                                android.R.anim.fade_in);
+                            animation.setDuration(200);
+                            animation.setFillAfter(true);
+                            animation.setStartOffset(100 * (i) );
+                            view.startAnimation(animation);
+                            */
+                            
+                            builder.append(", "+i);
+                        }
+                    }
+                    
+                    new AsyncTask<Content, Void, Void>() {
+
+                        @Override
+                        protected Void doInBackground(Content... params) {
+                            for (Content content : params) {
+                                File file = Utils.getFilepath(content.getFilename());
+                                file.delete();
+                            }
+                            
+                            return null;
+                        }
+                        
+                    }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, params);
+                    
+                    Toast.makeText(getActivity(), builder.toString(), Toast.LENGTH_LONG).show();
+                    
+                    
+                    mode.finish();
+                    return true;
+                }
+                
+                return false;
+            }
+            
+            @Override
+            public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
+                
+            }
+        });
+        
         mListview.setOnItemClickListener(new OnItemClickListener() {
 
             @Override

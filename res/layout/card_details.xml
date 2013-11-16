@@ -108,7 +108,46 @@
         
         <se.slide.sgu.TypefacedTextView android:id="@+id/quoteBy" android:layout_below="@id/quoteText" sgu:typeface="Roboto-Bold.ttf" style="@style/card_quote_by"/>
          
-            
+        <View
+            android:id="@+id/divider"
+    		android:layout_width="match_parent"
+    		android:layout_height="1dip"
+    		android:layout_marginLeft="16dp"
+    		android:layout_marginRight="16dp"
+    		android:layout_marginTop="16dp"
+    		android:layout_below="@id/quoteBy"
+    		android:background="?android:attr/dividerHorizontal" />
+        
+        <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal" 
+	        android:layout_below="@id/divider"
+	        >
+	
+	        <se.slide.sgu.TypefacedButton
+	            android:id="@+id/downloadOrDeleteButton"
+	            style="@style/card_button"
+	            android:layout_width="wrap_content"
+	            android:layout_height="fill_parent"
+	            android:layout_weight="1"
+	            android:paddingTop="8dp"
+	            android:paddingBottom="8dp"
+	            android:background="@drawable/white_button_selector"
+	            sgu:typeface="Roboto-Light.ttf"
+	            android:text="@string/download" />
+		    
+		    <se.slide.sgu.TypefacedButton
+		        android:id="@+id/playButton"
+		        style="@style/card_button"
+		        android:layout_width="wrap_content"
+		        android:layout_height="fill_parent"
+		        android:layout_weight="1"
+		        sgu:typeface="Roboto-Light.ttf"
+		        android:text="@string/play" />
+        
+	    </LinearLayout>
+        
     </RelativeLayout>
     
     

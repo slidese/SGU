@@ -94,7 +94,7 @@ public class ContentAdapter extends ArrayAdapter<Content> {
             podcastImage = content.image;
         
         ImageLoader imageLoader = VolleyHelper.getImageLoader();
-        imageLoader.get(Utils.HTTP_PODCAST_IMAGES + podcastImage, ImageLoader.getImageListener(holder.icon, R.drawable.placeholder_sgu, R.drawable.placeholder_sgu));
+        imageLoader.get(Utils.HTTP_PODCAST_IMAGES + podcastImage, ImageLoader.getImageListener(holder.icon, R.drawable.placeholder_sgu, R.drawable.placeholder_sgu));    
         
         String title = content.title;
         if (content.friendlyTitle != null && !content.friendlyTitle.isEmpty())
@@ -151,36 +151,6 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         TextView elapsedTotal;
         RelativeLayout progressAndButtonHolder;
         HoloCircularProgressBar downloadProgressBar;
-    }
-    
-    private class DeleteOrDownloadAsyncTask extends AsyncTask<Content, Void, Boolean> {
-        
-        @Override
-        protected Boolean doInBackground(Content... contents) {
-            if (contents == null)
-                return false;
-            
-            Content content = contents[0];
-            
-            String filename = Utils.formatFilename(content.title);
-            File file = Utils.getFilepath(filename);
-            
-            // Delete or download; that's the.......
-            boolean exists = file.exists();
-            
-            if (exists) {
-                file.delete();
-            }
-            else {
-                try {
-                    content.downloadId = ContentDownloadManager.INSTANCE.addToDownloadQueue(content.mp3, content.title, content.description, Utils.formatFilename(content.title));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            
-            return exists;
-        }
     }
     
     private class FileExistsAsyncTask extends AsyncTask<File, Void, Boolean> {
