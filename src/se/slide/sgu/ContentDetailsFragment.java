@@ -41,8 +41,8 @@ public class ContentDetailsFragment extends Fragment {
     private TextView                    mQuoteText;
     private TextView                    mQuoteBy;
     private LinearLayout                mScienceHolder;
-    private Button                      mDeleteOrDownloadButton;
-    private Button                      mPlayButton;
+    //private Button                      mDeleteOrDownloadButton;
+    //private Button                      mPlayButton;
     private StartActivity               mListener;
     
     private Content             mContent;
@@ -82,8 +82,8 @@ public class ContentDetailsFragment extends Fragment {
         mQuoteText = (TextView) view.findViewById(R.id.quoteText);
         mQuoteBy = (TextView) view.findViewById(R.id.quoteBy);
         mScienceHolder = (LinearLayout) view.findViewById(R.id.scienceHolder);
-        mDeleteOrDownloadButton = (Button) view.findViewById(R.id.downloadOrDeleteButton);
-        mPlayButton = (Button) view.findViewById(R.id.playButton);
+        //mDeleteOrDownloadButton = (Button) view.findViewById(R.id.downloadOrDeleteButton);
+        //mPlayButton = (Button) view.findViewById(R.id.playButton);
         
         // Setup data
         
@@ -118,13 +118,13 @@ public class ContentDetailsFragment extends Fragment {
                 mScienceHolder.addView(child);
             }
             
-            setupButtons();
+            //setupButtons();
         }
         else if (mContent != null) {
             mTitle.setText(mContent.title);
             mDescription.setText(mContent.description);
             
-            setupButtons();
+            //setupButtons();
         }
         
         return view;
@@ -161,6 +161,7 @@ public class ContentDetailsFragment extends Fragment {
         return drawables;
     }
     
+    /*
     private void setupButtons() {
         File file = Utils.getFilepath(mContent.getFilename());
         
@@ -186,6 +187,7 @@ public class ContentDetailsFragment extends Fragment {
             }
         });
     }
+    */
 
     private Content getContent(String mp3) {
         List<Content> listOfContent = DatabaseManager.getInstance().getContent(mp3);

@@ -108,7 +108,7 @@
         
         <se.slide.sgu.TypefacedTextView android:id="@+id/quoteBy" android:layout_below="@id/quoteText" sgu:typeface="Roboto-Bold.ttf" style="@style/card_quote_by"/>
          
-        <View
+        <!-- View
             android:id="@+id/divider"
     		android:layout_width="match_parent"
     		android:layout_height="1dip"
@@ -146,7 +146,7 @@
 		        sgu:typeface="Roboto-Light.ttf"
 		        android:text="@string/play" />
         
-	    </LinearLayout>
+	    </LinearLayout-->
         
     </RelativeLayout>
     

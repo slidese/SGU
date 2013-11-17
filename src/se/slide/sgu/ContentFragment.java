@@ -120,26 +120,25 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                 if (item.getItemId() == R.id.action_delete) {
                     
-                    StringBuilder builder = new StringBuilder();
-                    
                     SparseBooleanArray checked = mListview.getCheckedItemPositions();
                     Content[] params = new Content[checked.size()];
+                    int index = 0;
+                    int first = mListview.getFirstVisiblePosition();
+                    int last = mListview.getLastVisiblePosition();
                     for (int i = 0; i < mListview.getCount(); i++) {
                         if (checked.get(i)) {
-                            params[i] = (Content)mListview.getItemAtPosition(i);
-                            /*
-                            View view = mListview.getItemAtPosition(i); //mListview.getChildAt(i);
+                            params[index++] = (Content)mListview.getItemAtPosition(i);
                             
-                            Animation animation = AnimationUtils.loadAnimation(
-                                getActivity(),
-                                android.R.anim.fade_in);
-                            animation.setDuration(200);
-                            animation.setFillAfter(true);
-                            animation.setStartOffset(100 * (i) );
-                            view.startAnimation(animation);
-                            */
+                            if (i >= first && i <= last) {
+                                View view = mListview.getChildAt(i-first);
+                                
+                                Animation animation = AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_out_right);
+                                animation.setDuration(200);
+                                //animation.setFillAfter(true);
+                                animation.setStartOffset(100 * (index) );
+                                view.startAnimation(animation);    
+                            }
                             
-                            builder.append(", "+i);
                         }
                     }
                     
@@ -154,11 +153,15 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
                             
                             return null;
                         }
+
+                        @Override
+                        protected void onPostExecute(Void result) {
+                            super.onPostExecute(result);
+                            
+                            mAdapter.notifyDataSetChanged();
+                        }
                         
                     }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, params);
-                    
-                    Toast.makeText(getActivity(), builder.toString(), Toast.LENGTH_LONG).show();
-                    
                     
                     mode.finish();
                     return true;
