@@ -1,5 +1,115 @@
 <sgu>
     <episode>
+        <title>Episode 435</title>
+        <description>Interview with Gerald Posner; This Day in Skepticism: LSD; News Items: Oldest Animal, Junk DNA, Martian Lizard, Dark Energy; Who's That Noisy; Your Questions and E-mails: Knee Ligament; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-11-16adfree6gjruw34.mp3</mp3>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_435</transcript>
+        <image>martian-lizard.jpg</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"If we go back to the beginnings of things, we shall always find that ignorance and fear created the gods; that imagination, rapture and deception embellished them; that weakness worships them; that custom spares them; and that tyranny favors them in order to profit from the blindness of men."</text>
+            <by>Baron d’Holbach</by>
+        </quote>
+        <scienceorfiction>
+            <item science="false">
+                <title>Item #1</title>
+                <description>A new long term study of astronauts finds that prolonged exposure to microgravity may reverse atherosclerotic changes in blood vessels.</description>
+                <link>http://www.sciencedaily.com/releases/2013/10/131031125317.htm</link>
+            </item>
+            <item science="true">
+                <title>Item #2</title>
+                <description>Researchers have found that playing rock or pop music increases the efficiency of one type of solar cell by 40%.</description>
+                <link>http://phys.org/news/2013-11-big-bolster-solar-cell-efficiency.html</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>Orthopedic surgeons have identified a previously unknown ligament in the human knee.</description>
+                <link>http://www.kuleuven.be/english/news/new-ligament-discovered-in-the-human-knee</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism: Happy birthday to Carl Sagan and Florence Rena Sabin</title>
+                <start>0:29</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Tardis Science</title>
+                <start>2:47</start>
+                <link>http://www.dvice.com/2013-11-4/doctor-whos-tardis-could-be-real-theory</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Moving Stones</title>
+                <start>11:06</start>
+                <link>http://www.nature.com/news/ice-proved-cool-way-to-move-stones-for-forbidden-city-1.14090</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Blushing in the Dark</title>
+                <start>16:27</start>
+                <link>http://www.neatorama.com/2013/11/06/Blushing-in-the-Dark-First-Experimental-Proof/#!nOghL</link>
+            </section>
+			<section>
+                <number>6</number>
+                <title>Quickie with Bob: Rock-Paper-Scissors Robot</title>
+                <start>21:05</start>
+                <link>http://www.bbc.co.uk/news/technology-24803751</link>
+            </section>
+            <section>
+                <number>7</number>
+                <title>Who's That Noisy</title>
+                <start>24:09</start>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Swindler's List: Kevin Trudeau's Legal Troubles</title>
+                <start>27:19</start>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Question #1: Li-Fi</title>
+                <start>33:50</start>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Interview with Chris Mooney and Indre Viskontas</title>
+                <start>39:43</start>
+                <link>http://www.motherjones.com/blue-marble/2013/09/inquiring-minds-marsha-ivins-space</link>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Science or Fiction</title>
+                <start>61:17</start>
+            </section>
+            <section>
+                <number>12</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>77:33</start>
+            </section>
+            <section>
+                <number>13</number>
+                <title>Announcements: Special appearance by Steven Novella</title>
+                <start>78:06</start>
+            </section>
+        </sections>
+    </episode>
+    <episode>
         <title>Episode 434</title>
         <description>Interview with Chris Mooney and Indre Viskontas; This Day in Skepticism: Carl Sagan, Florence Rena Sabin; News Items: Tardis Science, Moving Stones, Blushing in the Dark, Rock Paper Scissors Robot; Who's That Noisy; Swindler's List: Kevin Trudeau; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-11-09adfree1bbhd7eyu.mp3</mp3>
