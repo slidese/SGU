@@ -16,24 +16,29 @@
             
         </guests>
         <quote>
-            <text>"If we go back to the beginnings of things, we shall always find that ignorance and fear created the gods; that imagination, rapture and deception embellished them; that weakness worships them; that custom spares them; and that tyranny favors them in order to profit from the blindness of men."</text>
-            <by>Baron d’Holbach</by>
+            <text>"For every complex problem there is an answer that is clear, simple, and wrong."</text>
+            <by>H. L Mencken</by>
         </quote>
         <scienceorfiction>
-            <item science="false">
-                <title>Item #1</title>
-                <description>A new long term study of astronauts finds that prolonged exposure to microgravity may reverse atherosclerotic changes in blood vessels.</description>
-                <link>http://www.sciencedaily.com/releases/2013/10/131031125317.htm</link>
-            </item>
             <item science="true">
+                <title>Item #1</title>
+                <description>New World porcupines, like New World monkeys, have prehensile tails they use to climb trees.</description>
+                <link>http://animals.nationalgeographic.com/animals/mammals/porcupine/</link>
+            </item>
+            <item science="false">
                 <title>Item #2</title>
-                <description>Researchers have found that playing rock or pop music increases the efficiency of one type of solar cell by 40%.</description>
-                <link>http://phys.org/news/2013-11-big-bolster-solar-cell-efficiency.html</link>
+                <description>While porcupines cannot shoot their quills, some species can throw them a short distance by whipping their tails.</description>
+                <link>http://lifestyle.iloveindia.com/lounge/facts-about-porcupine-6509.html</link>
             </item>
             <item science="true">
                 <title>Item #3</title>
-                <description>Orthopedic surgeons have identified a previously unknown ligament in the human knee.</description>
-                <link>http://www.kuleuven.be/english/news/new-ligament-discovered-in-the-human-knee</link>
+                <description>A recent study documented porcupines killings dogs, foxes, and even badgers with their quills.</description>
+                <link>http://news.sciencemag.org/biology/2013/11/scienceshot-license-quill</link>
+            </item>
+            <item science="true">
+                <title>Item #4</title>
+                <description>Porcupine quills are coated in a natural antibiotic.</description>
+                <link>http://link.springer.com/article/10.1007%2FBF01016483</link>
             </item>
         </scienceorfiction>
         <sections>
@@ -44,68 +49,57 @@
             </section>
             <section>
                 <number>2</number>
-                <title>This Day in Skepticism: Happy birthday to Carl Sagan and Florence Rena Sabin</title>
-                <start>0:29</start>
+                <title>This Day in Skepticism: LSD</title>
+                <start>0:38</start>
             </section>
             <section>
                 <number>3</number>
-                <title>Tardis Science</title>
-                <start>2:47</start>
-                <link>http://www.dvice.com/2013-11-4/doctor-whos-tardis-could-be-real-theory</link>
+                <title>Oldest Animal</title>
+                <start>4:52</start>
+                <link>http://sciencenordic.com/new-record-world%E2%80%99s-oldest-animal-507-years-old</link>
             </section>
             <section>
                 <number>4</number>
-                <title>Moving Stones</title>
-                <start>11:06</start>
-                <link>http://www.nature.com/news/ice-proved-cool-way-to-move-stones-for-forbidden-city-1.14090</link>
+                <title>Junk DNA</title>
+                <start>9:58</start>
+                <link>http://theness.com/neurologicablog/index.php/reprogramming-your-junk-dna/</link>
             </section>
             <section>
                 <number>5</number>
-                <title>Blushing in the Dark</title>
-                <start>16:27</start>
-                <link>http://www.neatorama.com/2013/11/06/Blushing-in-the-Dark-First-Experimental-Proof/#!nOghL</link>
+                <title>Martian Lizard</title>
+                <start>23:30</start>
+                <link>http://www.dailymail.co.uk/sciencetech/article-2492862/The-iguana-MARS-Mysterious-rock-looks-like-lizard-spotted-Nasas-Curiosity-rover.html</link>
             </section>
 			<section>
                 <number>6</number>
-                <title>Quickie with Bob: Rock-Paper-Scissors Robot</title>
-                <start>21:05</start>
+                <title>Dark Energy</title>
+                <start>30:27</start>
                 <link>http://www.bbc.co.uk/news/technology-24803751</link>
             </section>
             <section>
                 <number>7</number>
                 <title>Who's That Noisy</title>
-                <start>24:09</start>
+                <start>34:05</start>
             </section>
             <section>
                 <number>8</number>
-                <title>Swindler's List: Kevin Trudeau's Legal Troubles</title>
-                <start>27:19</start>
+                <title>Question #1: Knee Ligament Follow Up</title>
+                <start>36:09</start>
             </section>
             <section>
                 <number>9</number>
-                <title>Question #1: Li-Fi</title>
-                <start>33:50</start>
+                <title>Interview with Gerald Posner</title>
+                <start>39:06</start>
             </section>
             <section>
                 <number>10</number>
-                <title>Interview with Chris Mooney and Indre Viskontas</title>
-                <start>39:43</start>
-                <link>http://www.motherjones.com/blue-marble/2013/09/inquiring-minds-marsha-ivins-space</link>
+                <title>Science or Fiction</title>
+                <start>61:58</start>
             </section>
             <section>
                 <number>11</number>
-                <title>Science or Fiction</title>
-                <start>61:17</start>
-            </section>
-            <section>
-                <number>12</number>
                 <title>Skeptical Quote of the Week</title>
-                <start>77:33</start>
-            </section>
-            <section>
-                <number>13</number>
-                <title>Announcements: Special appearance by Steven Novella</title>
-                <start>78:06</start>
+                <start>78:00</start>
             </section>
         </sections>
     </episode>
