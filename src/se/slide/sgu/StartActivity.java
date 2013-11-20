@@ -205,15 +205,6 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
             
             return true;
         }
-        /*
-        else if (item.getItemId() == R.id.action_show_player) {
-            if (mSlidingLayer.isOpened())
-                mSlidingLayer.closeLayer(true);
-            else
-                mSlidingLayer.openLayer(true);
-            
-        }
-        */
         else if (item.getItemId() == R.id.action_settings) {
             
             Intent intent = new Intent(this, SettingsActivity.class);
@@ -338,9 +329,6 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         
         //getActionBar().setSelectedNavigationItem(mMode);
         getActionBar().setTitle("");
-        
-        
-        
 
         // Create a PullToRefreshAttacher instance
         mPullToRefreshAttacher = PullToRefreshAttacher.get(this);
@@ -393,14 +381,14 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
             }, 10, UPDATE_INTERVAL);
     }
 
-    private void loadSections(final Content track) {
-        if (track == null)
+    private void loadSections(final Content content) {
+        if (content == null)
             return;
         
         LinearLayout sectionLinearLayout = (LinearLayout) findViewById(R.id.section_linearlayout);
         sectionLinearLayout.removeAllViews();
         
-        mLatestLoadedSections = DatabaseManager.getInstance().getSection(track.mp3);
+        mLatestLoadedSections = DatabaseManager.getInstance().getSections(content.guid);
         
         if (mLatestLoadedSections == null)
             return;
@@ -445,7 +433,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         
         // Before trying to load a new, reset the latest episode variable
         mLatestLoadedEpisode = null;
-        List<Episode> listOfEpisode = DatabaseManager.getInstance().getEpisodes(content.mp3);
+        List<Episode> listOfEpisode = DatabaseManager.getInstance().getEpisodes(content.guid);
         if (listOfEpisode != null && listOfEpisode.size() > 0)
             mLatestLoadedEpisode = listOfEpisode.get(0);
     }
@@ -646,11 +634,11 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         */
         
         Bundle args = new Bundle();
-        args.putString(MainDetailsFragment.CONTENT_MP3, content.mp3);
+        args.putString(MainDetailsFragment.CONTENT_GUID, content.guid);
         //args.putInt(ContentFragment.CONTENT_KEY, ContentFragment.CONTENT_TYPE_ADFREE);
         
         //List<Episode> listOfEpisodes = DatabaseManager.getInstance().getEpisodes(content.mp3);
-        Episode episode = DatabaseManager.getInstance().getEpisode(content.mp3);
+        Episode episode = DatabaseManager.getInstance().getEpisodeBy(content.guid);
         if (episode == null || episode.hosts == null) {
             
             // DialogFragment.show() will take care of adding the fragment

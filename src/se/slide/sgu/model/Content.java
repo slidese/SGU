@@ -20,7 +20,7 @@ public class Content {
     @DatabaseField
     public String description;
     
-    @DatabaseField(id = true)
+    @DatabaseField
     public String mp3;
     
     @DatabaseField
@@ -29,7 +29,7 @@ public class Content {
     @DatabaseField
     public int length;
     
-    @DatabaseField
+    @DatabaseField(id = true)
     public String guid;
     
     @DatabaseField

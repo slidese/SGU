@@ -66,8 +66,13 @@ public class SectionParser {
              }
              String name = parser.getName();
              
+             /*
              if (name.equals("mp3")) {
                  episode.mp3 = getText(parser, "mp3");
+             }
+             */
+             if (name.equals("guid")) {
+                 episode.guid = getText(parser, "guid");
              }
              else if (name.equals("title")) {
                  episode.title = getText(parser, "title");
@@ -98,25 +103,25 @@ public class SectionParser {
              }
          }
          
-         // Set the unique mp3 for each section
+         // Set the unique guid for each section
          for (Section section : episode.listOfSection) {
-             section.mp3 = episode.mp3;
+             section.guid = episode.guid;
              
              for (Link link : section.listOfLinks) {
-                 link.mp3 = episode.mp3;
+                 link.guid = episode.guid;
              }
          }
          
          for (Item item : episode.listOfItem) {
-             item.mp3 = episode.mp3;
+             item.guid = episode.guid;
              
              for (Link link : item.listOfLinks) {
-                 link.mp3 = episode.mp3;
+                 link.guid = episode.guid;
              }
          }
          
          if (episode.quote != null)
-             episode.quote.mp3 = episode.mp3;
+             episode.quote.guid = episode.guid;
          
          return episode;
      }

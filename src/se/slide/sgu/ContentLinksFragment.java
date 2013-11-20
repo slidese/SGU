@@ -21,8 +21,7 @@ public class ContentLinksFragment extends Fragment {
 
     private final String TAG = "ContentLinksFragment";
     
-    public static final String CONTENT_MP3 = "content_mp3";
-    
+    public static final String CONTENT_GUID = "content_guid";
     private Spinner mUrls;
 
     public ContentLinksFragment() {
@@ -32,7 +31,7 @@ public class ContentLinksFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        String mp3 = getArguments().getString(CONTENT_MP3);
+        String guid = getArguments().getString(CONTENT_GUID);
         
         View view = inflater.inflate(R.layout.webview_holder, null);
         
@@ -45,7 +44,7 @@ public class ContentLinksFragment extends Fragment {
         
         mUrls = (Spinner) view.findViewById(R.id.urls);
 
-        List<Link> listOfLinks = DatabaseManager.getInstance().getLinks(mp3);
+        List<Link> listOfLinks = DatabaseManager.getInstance().getLinks(guid);
         
         final LinkAdapter adapter = new LinkAdapter(getActivity(), R.layout.spinner_item, listOfLinks);
         mUrls.setAdapter(adapter);

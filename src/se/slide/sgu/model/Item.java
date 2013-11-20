@@ -11,6 +11,9 @@ public class Item {
 
     @DatabaseField(generatedId = true)
     private int id;
+
+    @DatabaseField
+    public String guid;
     
     @DatabaseField
     public String mp3;

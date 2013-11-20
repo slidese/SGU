@@ -24,7 +24,8 @@ public class MainDetailsFragment extends Fragment implements ActionBar.OnNavigat
     
     private final String TAG = "MainDetailsFragment";
     
-    public static final String CONTENT_MP3 = "content_mp3";
+    //public static final String CONTENT_MP3 = "content_mp3";
+    public static final String CONTENT_GUID = "content_guid";
     
     private SectionsPagerAdapter                mSectionsPagerAdapter;
     private ViewPager                           mViewPager;
@@ -76,9 +77,9 @@ public class MainDetailsFragment extends Fragment implements ActionBar.OnNavigat
         
         View view = inflater.inflate(R.layout.fragment_viewpager, null);
         
-        String mp3 = getArguments().getString(CONTENT_MP3);
+        String guid = getArguments().getString(CONTENT_GUID);
         
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getChildFragmentManager(), mp3);
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getChildFragmentManager(), guid);
 
         mViewPager = (ViewPager) view.findViewById(R.id.pager);
         //mViewPager.setOffscreenPageLimit(3);
@@ -134,11 +135,11 @@ public class MainDetailsFragment extends Fragment implements ActionBar.OnNavigat
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
         
-        private String mp3;
+        private String guid;
 
-        public SectionsPagerAdapter(FragmentManager fm, String mp3) {
+        public SectionsPagerAdapter(FragmentManager fm, String guid) {
             super(fm);
-            this.mp3 = mp3;
+            this.guid = guid;
         }
 
         @Override
@@ -160,28 +161,28 @@ public class MainDetailsFragment extends Fragment implements ActionBar.OnNavigat
                 fragment = new ContentDetailsFragment();
                 
                 Bundle args = new Bundle();
-                args.putString(ContentDetailsFragment.CONTENT_MP3, mp3);
+                args.putString(ContentDetailsFragment.CONTENT_GUID, guid);
                 fragment.setArguments(args);
             }
             else if (position == 1) {
                 fragment = new ContentTranscriptFragment();
                 
                 Bundle args = new Bundle();
-                args.putString(ContentTranscriptFragment.CONTENT_MP3, mp3);
+                args.putString(ContentTranscriptFragment.CONTENT_GUID, guid);
                 fragment.setArguments(args);
             }
             else if (position == 2) {
                 fragment = new ContentLinksFragment();
                 
                 Bundle args = new Bundle();
-                args.putString(ContentLinksFragment.CONTENT_MP3, mp3);
+                args.putString(ContentLinksFragment.CONTENT_GUID, guid);
                 fragment.setArguments(args);
             }
             else {
                 fragment = new ContentDetailsFragment();
                 
                 Bundle args = new Bundle();
-                args.putString(ContentDetailsFragment.CONTENT_MP3, mp3);
+                args.putString(ContentDetailsFragment.CONTENT_GUID, guid);
                 fragment.setArguments(args);
             }
             

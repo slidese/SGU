@@ -42,6 +42,18 @@ public class DatabaseManager {
         return helper;
     }
     
+    public Content getContentBy(String guid) {
+        Content content = null;
+        try {
+            List<Content> listOfContent = getHelper().getContentDao().query(getHelper().getContentDao().queryBuilder().where().like("guid", guid).prepare());
+            if (listOfContent != null && !listOfContent.isEmpty())
+                content = listOfContent.get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return content;
+    }
+    
     public List<Content> getContent(String mp3) {
         List<Content> listOfContent = null;
         try {
@@ -114,10 +126,22 @@ public class DatabaseManager {
      * Section
      */
     
-    public List<Section> getSection(String mp3) {
+    public Section getSectionBy(String guid) {
+        Section section = null;
+        try {
+            List<Section> listOxfSection = getHelper().getSectionDao().query(getHelper().getSectionDao().queryBuilder().where().like("guid", guid).prepare());
+            if (listOxfSection != null && !listOxfSection.isEmpty())
+                section = listOxfSection.get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return section;
+    }
+    
+    public List<Section> getSections(String guid) {
         List<Section> listOfSection = null;
         try {
-            listOfSection = getHelper().getSectionDao().query(getHelper().getSectionDao().queryBuilder().where().like("mp3", mp3).prepare());
+            listOfSection = getHelper().getSectionDao().query(getHelper().getSectionDao().queryBuilder().where().like("guid", guid).prepare());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -147,6 +171,18 @@ public class DatabaseManager {
     /**
      * Guest
      */
+    
+    public Guest getGuestBy(String mp3) {
+        Guest guest = null;
+        try {
+            List<Guest> listOfGuest = getHelper().getGuestDao().query(getHelper().getGuestDao().queryBuilder().where().like("mp3", mp3).prepare());
+            if (listOfGuest != null && !listOfGuest.isEmpty())
+                guest = listOfGuest.get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return guest;
+    }
     
     public List<Guest> getGuest(String mp3) {
         List<Guest> listOfGuest = null;
@@ -182,10 +218,22 @@ public class DatabaseManager {
      * Item
      */
     
-    public List<Item> getItem(String mp3) {
+    public Item getItemBy(String guid) {
+        Item item = null;
+        try {
+            List<Item> listOfItem = getHelper().getItemDao().query(getHelper().getItemDao().queryBuilder().where().like("guid", guid).prepare());
+            if (listOfItem != null && !listOfItem.isEmpty())
+                item = listOfItem.get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return item;
+    }
+    
+    public List<Item> getItems(String guid) {
         List<Item> listOfItem = null;
         try {
-            listOfItem = getHelper().getItemDao().query(getHelper().getItemDao().queryBuilder().where().like("mp3", mp3).prepare());
+            listOfItem = getHelper().getItemDao().query(getHelper().getItemDao().queryBuilder().where().like("guid", guid).prepare());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -215,6 +263,18 @@ public class DatabaseManager {
     /**
      * Quote
      */
+    
+    public Quote getQuoteBy(String guid) {
+        Quote quote = null;
+        try {
+            List<Quote> listOfQuote = getHelper().getQuoteDao().query(getHelper().getQuoteDao().queryBuilder().where().like("guid", guid).prepare());
+            if (listOfQuote != null && !listOfQuote.isEmpty())
+                quote = listOfQuote.get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return quote;
+    }
     
     public List<Quote> getQuote(String mp3) {
         List<Quote> listOfQuote = null;
@@ -258,11 +318,11 @@ public class DatabaseManager {
      * Episode
      */
     
-    public Episode getEpisode(String mp3) {
+    public Episode getEpisodeBy(String guid) {
         
         Episode episode = null;
         try {
-            List<Episode> listOfEpisode = getHelper().getEpisodeDao().query(getHelper().getEpisodeDao().queryBuilder().where().like("mp3", mp3).prepare());
+            List<Episode> listOfEpisode = getHelper().getEpisodeDao().query(getHelper().getEpisodeDao().queryBuilder().where().like("guid", guid).prepare());
             if (listOfEpisode != null && !listOfEpisode.isEmpty())
                 episode = listOfEpisode.get(0);
         } catch (SQLException e) {
@@ -270,11 +330,26 @@ public class DatabaseManager {
         }
         return episode;
     }
+   
+    /*
+    public Episode getEpisode(String guid) {
+        
+        Episode episode = null;
+        try {
+            List<Episode> listOfEpisode = getHelper().getEpisodeDao().query(getHelper().getEpisodeDao().queryBuilder().where().like("guid", guid).prepare());
+            if (listOfEpisode != null && !listOfEpisode.isEmpty())
+                episode = listOfEpisode.get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return episode;
+    }
+    */
     
-    public List<Episode> getEpisodes(String mp3) {
+    public List<Episode> getEpisodes(String guid) {
         List<Episode> listOfEpisode = null;
         try {
-            listOfEpisode = getHelper().getEpisodeDao().query(getHelper().getEpisodeDao().queryBuilder().where().like("mp3", mp3).prepare());
+            listOfEpisode = getHelper().getEpisodeDao().query(getHelper().getEpisodeDao().queryBuilder().where().like("guid", guid).prepare());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -315,10 +390,22 @@ public class DatabaseManager {
      * Link
      */
     
-    public List<Link> getLinks(String mp3) {
+    public Link getLinksBy(String guid) {
+        Link link = null;
+        try {
+            List<Link> listOfLinks = getHelper().getLinkDao().query(getHelper().getLinkDao().queryBuilder().where().like("guid", guid).prepare());
+            if (listOfLinks != null && !listOfLinks.isEmpty())
+                link = listOfLinks.get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return link;
+    }
+    
+    public List<Link> getLinks(String guid) {
         List<Link> listOfLinks = null;
         try {
-            listOfLinks = getHelper().getLinkDao().query(getHelper().getLinkDao().queryBuilder().where().like("mp3", mp3).prepare());
+            listOfLinks = getHelper().getLinkDao().query(getHelper().getLinkDao().queryBuilder().where().like("guid", guid).prepare());
         } catch (SQLException e) {
             e.printStackTrace();
         }

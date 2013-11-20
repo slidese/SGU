@@ -10,6 +10,9 @@ import java.util.List;
 public class Episode {
 
     @DatabaseField(id = true)
+    public String guid;
+    
+    @DatabaseField
     public String mp3;
     
     @DatabaseField 

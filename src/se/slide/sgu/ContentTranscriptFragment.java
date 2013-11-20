@@ -17,7 +17,7 @@ public class ContentTranscriptFragment extends Fragment {
     
     private final String TAG = "ContentTranscriptFragment";
     
-    public static final String CONTENT_MP3 = "content_mp3";
+    public static final String CONTENT_GUID = "content_guid";
     
     private WebView mWeb;
 
@@ -28,9 +28,9 @@ public class ContentTranscriptFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        String mp3 = getArguments().getString(CONTENT_MP3);
+        String guid = getArguments().getString(CONTENT_GUID);
         
-        Episode episode = getEpisode(mp3);
+        Episode episode = DatabaseManager.getInstance().getEpisodeBy(guid);
         
         View view = inflater.inflate(R.layout.webview_holder, null);
         
@@ -50,15 +50,6 @@ public class ContentTranscriptFragment extends Fragment {
             mWeb.loadUrl(episode.transcript);
         
         return view;
-    }
-    
-    private Episode getEpisode(String mp3) {
-        List<Episode> listOfEpisodes = DatabaseManager.getInstance().getEpisodes(mp3);
-        
-        if (listOfEpisodes != null && listOfEpisodes.size() > 0)
-            return listOfEpisodes.get(0);
-        else
-            return null;
     }
     
 }

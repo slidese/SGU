@@ -87,7 +87,7 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         final Content content = getItem(position);
         
         // First: set the mp3
-        holder.mp3 = content.mp3;
+        //holder.mp3 = content.mp3;
         
         String podcastImage = "placeholderSGU.png";
         if (content.image != null && !content.image.isEmpty())

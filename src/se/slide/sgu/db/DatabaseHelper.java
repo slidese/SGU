@@ -28,7 +28,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private final String TAG = "DatabaseHelper";
 
     private static final String DATABASE_NAME = "SGU.sqlite";
-    private static final int DATABASE_VERSION = 7;
+    private static final int DATABASE_VERSION = 8;
 
     private Dao<Content, Integer> contentDao = null;
     private Dao<Section, Integer> sectionDao = null;
@@ -92,6 +92,26 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             
             if (oldVersion < 7) {
                 allSql.add("alter table Content add column `elapsed` INTEGER");
+            }
+            
+            if (oldVersion < 8) {
+                // Drop all tables
+                TableUtils.dropTable(connectionSource, Content.class, true);
+                TableUtils.dropTable(connectionSource, Section.class, true);
+                TableUtils.dropTable(connectionSource, Guest.class, true);
+                TableUtils.dropTable(connectionSource, Item.class, true);
+                TableUtils.dropTable(connectionSource, Quote.class, true);
+                TableUtils.dropTable(connectionSource, Episode.class, true);
+                TableUtils.dropTable(connectionSource, Link.class, true);
+                
+                // Recreate all tables
+                TableUtils.createTable(connectionSource, Content.class);
+                TableUtils.createTable(connectionSource, Section.class);
+                TableUtils.createTable(connectionSource, Guest.class);
+                TableUtils.createTable(connectionSource, Item.class);
+                TableUtils.createTable(connectionSource, Quote.class);
+                TableUtils.createTable(connectionSource, Episode.class);
+                TableUtils.createTable(connectionSource, Link.class);
             }
 
             // Execute all changes

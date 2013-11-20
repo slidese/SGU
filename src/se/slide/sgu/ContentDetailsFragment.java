@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import se.slide.sgu.db.DatabaseHelper;
 import se.slide.sgu.db.DatabaseManager;
 import se.slide.sgu.model.Content;
 import se.slide.sgu.model.Episode;
@@ -32,6 +33,7 @@ public class ContentDetailsFragment extends Fragment {
     private final String TAG = "ContentDetailsFragment";
     
     public static final String CONTENT_MP3 = "content_mp3";
+    public static final String CONTENT_GUID = "content_guid";
     
     private ImageView                   mIcon;
     private TextView                    mTitle;
@@ -87,12 +89,12 @@ public class ContentDetailsFragment extends Fragment {
         
         // Setup data
         
-        String mp3 = getArguments().getString(CONTENT_MP3);
+        String guid = getArguments().getString(CONTENT_GUID);
         
-        mContent = getContent(mp3);
-        mEpisode = getEpisode(mp3);
-        mQuote = getQuote(mp3);
-        mList = getItems(mp3);
+        mContent = DatabaseManager.getInstance().getContentBy(guid);
+        mEpisode = DatabaseManager.getInstance().getEpisodeBy(guid);
+        mQuote = DatabaseManager.getInstance().getQuoteBy(guid);
+        mList = DatabaseManager.getInstance().getItems(guid);
         
         if (mEpisode != null) {
             mTitle.setText(mEpisode.title);
@@ -160,66 +162,7 @@ public class ContentDetailsFragment extends Fragment {
         
         return drawables;
     }
-    
-    /*
-    private void setupButtons() {
-        File file = Utils.getFilepath(mContent.getFilename());
-        
-        if (!file.exists()) {
-            mPlayButton.setEnabled(false);
-        }
-        else {
-            mDeleteOrDownloadButton.setText(getString(R.string.delete));
-            mPlayButton.setOnClickListener(new OnClickListener() {
-                
-                @Override
-                public void onClick(View v) {
-                    mListener.playContent(mContent);
-                }
-            });
-        }
-        
-        mDeleteOrDownloadButton.setOnClickListener(new OnClickListener() {
-            
-            @Override
-            public void onClick(View v) {
-                new DeleteOrDownloadAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, mContent);
-            }
-        });
-    }
-    */
 
-    private Content getContent(String mp3) {
-        List<Content> listOfContent = DatabaseManager.getInstance().getContent(mp3);
-        
-        if (listOfContent != null && listOfContent.size() > 0)
-            return listOfContent.get(0);
-        else
-            return null;
-    }
-    
-    private Episode getEpisode(String mp3) {
-        List<Episode> listOfEpisodes = DatabaseManager.getInstance().getEpisodes(mp3);
-        
-        if (listOfEpisodes != null && listOfEpisodes.size() > 0)
-            return listOfEpisodes.get(0);
-        else
-            return null;
-    }
-    
-    private Quote getQuote(String mp3) {
-        List<Quote> listOfQuotes = DatabaseManager.getInstance().getQuote(mp3);
-        
-        if (listOfQuotes != null && listOfQuotes.size() > 0)
-            return listOfQuotes.get(0);
-        else
-            return null;
-    }
-    
-    private List<Item> getItems(String mp3) {
-        return DatabaseManager.getInstance().getItem(mp3);
-    }
-    
     private class ProfileAdapter extends ArrayAdapter<Integer> {
         private Context mContext;
 
@@ -250,6 +193,7 @@ public class ContentDetailsFragment extends Fragment {
         
     }
     
+    /*
     private class DeleteOrDownloadAsyncTask extends AsyncTask<Content, Void, Boolean> {
         
         @Override
@@ -279,4 +223,5 @@ public class ContentDetailsFragment extends Fragment {
             return exists;
         }
     }
+    */
 }

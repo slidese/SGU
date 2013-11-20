@@ -255,14 +255,14 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
         List<Episode> listOfEpisode = DatabaseManager.getInstance().getAllEpisodes();
         Map<String,Episode> episodes = new HashMap<String,Episode>();
         for (Episode episode : listOfEpisode)
-            episodes.put(episode.mp3, episode);
+            episodes.put(episode.guid, episode);    
         
         Log.d(TAG, "episodes length = " + episodes.size());
         
         Map<String, UpdateHolder> updates = gatherMetadata();
         
         for (Content content : listOfContent) {
-            Episode episode = episodes.get(content.mp3);
+            Episode episode = episodes.get(content.guid);
             if (episode != null) {
                 content.friendlyTitle = episode.title;
                 content.image = episode.image;

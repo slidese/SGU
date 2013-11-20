@@ -13,6 +13,9 @@ public class Section {
     private int id;
     
     @DatabaseField
+    public String guid;
+    
+    @DatabaseField
     public String mp3;
     
     @DatabaseField
