@@ -87,7 +87,12 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
     private boolean                         mIsPaused;
     private String                          mMp3;
     
-    static final int UPDATE_INTERVAL = 250;
+    public static final int                 UPDATE_INTERVAL = 250;
+    
+    public static final String              CONST_MODE = "mode";
+    public static final String              CONST_IS_PLAYING = "isPlaying";
+    public static final String              CONST_IS_PAUSED = "isPaused";
+    public static final String              CONST_MP3 = "mp3";
 
     /**
      * Life-cycle methods
@@ -174,10 +179,10 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         
-        outState.putInt("mode", mMode);
-        outState.putBoolean("isPlaying", mAudioPlayer.isPlaying());
-        outState.putBoolean("isPaused", mAudioPlayer.isPaused());
-        outState.putString("mp3", mAudioPlayer.getCurrentTrack().mp3);
+        outState.putInt(CONST_MODE, mMode);
+        outState.putBoolean(CONST_IS_PLAYING, mAudioPlayer.isPlaying());
+        outState.putBoolean(CONST_IS_PAUSED, mAudioPlayer.isPaused());
+        outState.putString(CONST_MP3, mAudioPlayer.getCurrentTrack().mp3);
     }
 
     /**
@@ -345,10 +350,10 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         mSeeker.setOnSeekBarChangeListener(new TimeLineChangeListener());
         
         if (savedInstanceState != null) {
-            mMode = savedInstanceState.getInt("mode"); // default is 0
-            mIsPlaying = savedInstanceState.getBoolean("isPlaying");
-            mIsPaused = savedInstanceState.getBoolean("isPaused");
-            mMp3 = savedInstanceState.getString("mp3");
+            mMode = savedInstanceState.getInt(CONST_MODE); // default is 0
+            mIsPlaying = savedInstanceState.getBoolean(CONST_IS_PLAYING);
+            mIsPaused = savedInstanceState.getBoolean(CONST_IS_PAUSED);
+            mMp3 = savedInstanceState.getString(CONST_MP3);
         }
         else {
             Fragment fragment = new MainPodcastFragment();
