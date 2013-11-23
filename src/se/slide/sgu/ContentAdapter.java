@@ -106,6 +106,9 @@ public class ContentAdapter extends ArrayAdapter<Content> {
         holder.elapsedProgressBar.setMax(100);
         holder.elapsedProgressBar.setProgress(0);
         
+        holder.elapsedProgressBar.setVisibility(View.VISIBLE);
+        holder.elapsedTotal.setVisibility(View.VISIBLE);
+        
         float progressValue = 0f;
         
         holder.downloadProgressBar.setProgress(progressValue);

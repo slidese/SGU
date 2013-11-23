@@ -76,12 +76,16 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
     private Timer                           mWaitForAudioPlayertimer = new Timer();
     private Handler                         mHandler = new Handler();
     private SeekBar                         mSeeker;
-    private int                             mMode;
     private boolean                         mShowingBack = false;
     private List<Section>                   mLatestLoadedSections;
     private Content                         mLatestLoadedTrack;
     private Episode                         mLatestLoadedEpisode;
     private PullToRefreshAttacher           mPullToRefreshAttacher;
+    
+    private int                             mMode;
+    private boolean                         mIsPlaying;
+    private boolean                         mIsPaused;
+    private String                          mMp3;
     
     static final int UPDATE_INTERVAL = 250;
 
@@ -103,11 +107,13 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         bindViews();
         initState(savedInstanceState);
         
-        GlobalContext.INSTANCE.init(this);
-        DatabaseManager.init(this);
-        ContentDownloadManager.INSTANCE.init(this);
-        AppRater.app_launched(this);
-        VolleyHelper.init(this);
+        if (savedInstanceState == null) {
+            GlobalContext.INSTANCE.init(this);
+            DatabaseManager.init(this);
+            ContentDownloadManager.INSTANCE.init(this);
+            AppRater.app_launched(this);
+            VolleyHelper.init(this);
+        }
     }
     
     @Override
@@ -169,6 +175,9 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         super.onSaveInstanceState(outState);
         
         outState.putInt("mode", mMode);
+        outState.putBoolean("isPlaying", mAudioPlayer.isPlaying());
+        outState.putBoolean("isPaused", mAudioPlayer.isPaused());
+        outState.putString("mp3", mAudioPlayer.getCurrentTrack().mp3);
     }
 
     /**
@@ -337,6 +346,9 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         
         if (savedInstanceState != null) {
             mMode = savedInstanceState.getInt("mode"); // default is 0
+            mIsPlaying = savedInstanceState.getBoolean("isPlaying");
+            mIsPaused = savedInstanceState.getBoolean("isPaused");
+            mMp3 = savedInstanceState.getString("mp3");
         }
         else {
             Fragment fragment = new MainPodcastFragment();
@@ -431,11 +443,26 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         if (content == null)
             return;
         
+        mLatestLoadedEpisode = DatabaseManager.getInstance().getEpisode(content.guid);
+        
         // Before trying to load a new, reset the latest episode variable
+        /*
         mLatestLoadedEpisode = null;
         List<Episode> listOfEpisode = DatabaseManager.getInstance().getEpisodes(content.guid);
         if (listOfEpisode != null && listOfEpisode.size() > 0)
             mLatestLoadedEpisode = listOfEpisode.get(0);
+            */
+    }
+    
+    private void notifyFragmentOfBinding() {
+        Fragment fragment = (Fragment) getSupportFragmentManager().findFragmentById(R.id.frame_1);
+        if (fragment instanceof MainPodcastFragment) {
+            ((MainPodcastFragment) fragment).notifyOfBinding();
+        }
+        else if (fragment instanceof MainDetailsFragment) {
+            // Nothing to do here
+        }
+        
     }
     
     private void initPlayerCard(final Content content) {
@@ -613,31 +640,27 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         }
     }
     
-    public int getMode() {
+    public int getSavedStateMode() {
         return mMode;
     }
     
+    public boolean getSavedStateIsPlaying() {
+        return mIsPlaying;
+    }
+    
+    public boolean getSavedStateIsPaused() {
+        return mIsPaused;
+    }
+    
+    public String getSavedStateMp3() {
+        return mMp3;
+    }
+    
     public void showContentDetails(Content content) {
-        /*
-        if (mShowingBack) {
-            getFragmentManager().popBackStack();
-            return;
-        }
-
-        // Flip to the back.
-        mShowingBack = true;
-        
-        .setCustomAnimations(
-                    R.animator.card_flip_right_in, R.animator.card_flip_right_out,
-                    R.animator.card_flip_left_in, R.animator.card_flip_left_out)
-        
-        */
         
         Bundle args = new Bundle();
         args.putString(MainDetailsFragment.CONTENT_GUID, content.guid);
-        //args.putInt(ContentFragment.CONTENT_KEY, ContentFragment.CONTENT_TYPE_ADFREE);
         
-        //List<Episode> listOfEpisodes = DatabaseManager.getInstance().getEpisodes(content.mp3);
         Episode episode = DatabaseManager.getInstance().getEpisodeBy(content.guid);
         if (episode == null || episode.hosts == null) {
             
@@ -665,8 +688,6 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
             R.animator.card_flip_right_in, R.animator.card_flip_right_out,
             R.animator.card_flip_left_in, R.animator.card_flip_left_out)
         */
-        
-        
         
         getSupportFragmentManager().beginTransaction()
             .replace(R.id.frame_1, fragment)
@@ -713,7 +734,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
             mMode = ContentFragment.MODE_PREMIUM;
         }
         
-        fragment.refresh();
+        //fragment.refresh();
         
         return false;
     }
@@ -736,7 +757,6 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
                         //currentTrack.elapsed = mAudioPlayer.elapsed();
                         //DatabaseManager.getInstance().createOrUpdateContent(currentTrack);
                         
-                        
                         publishProgress(currentTrack);
                     }
                 }
@@ -747,7 +767,6 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
                 catch (InterruptedException e) {
                     // Do nothing, we just need to sleep...
                 }
-                
             }
             
             Log.d(TAG,"UpdateCurrentTrackTask AsyncTask stopped");
@@ -802,24 +821,16 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
                 
                 @Override
                 public void run() {
-                    Log.d(TAG,"Delayed Seek Timer run");
-                    
-                    
-                    
                     mAudioPlayer.seek(progress);
-                    
-                    //updatePlayPanel(audioPlayer.getCurrentTrack());
                 }
             }, 170);
         }
 
         public void onStartTrackingTouch(SeekBar seekBar) {
-            Log.d(TAG,"TimeLineChangeListener started tracking touch");
             mUpdateCurrentTrackTask.pause();
         }
 
         public void onStopTrackingTouch(SeekBar seekBar) {
-            Log.d(TAG,"TimeLineChangeListener stopped tracking touch");
             mUpdateCurrentTrackTask.unPause();
         }
         
@@ -847,17 +858,19 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
             Log.d(TAG,"DownloadBroadcastReceiver.onReceive action = " + intent.getAction());
             
             if(intent.getAction().equals(DownloaderService.ACTION_DOWNLOAD_FINISHED)) {
-                
                 mPullToRefreshAttacher.setRefreshComplete();
                 
-                Fragment fragment = (Fragment) getSupportFragmentManager().findFragmentById(R.id.frame_1);
-                if (fragment instanceof MainPodcastFragment) {
-                    ((MainPodcastFragment) fragment).downloadCompleted();
+                boolean successful = intent.getBooleanExtra(DownloaderService.EXTRA_DOWNLOAD_STATE, false);
+                if (successful) {
+                    Fragment fragment = (Fragment) getSupportFragmentManager().findFragmentById(R.id.frame_1);
+                    if (fragment instanceof MainPodcastFragment) {
+                        ((MainPodcastFragment) fragment).downloadCompleted();
+                        ((MainPodcastFragment) fragment).notifyOfBinding();
+                    }
+                    else if (fragment instanceof MainDetailsFragment) {
+                        // Nothing to do here
+                    }    
                 }
-                else if (fragment instanceof MainDetailsFragment) {
-                    // Nothing to do here
-                }
-                
             }
             else if (intent.getAction().equals(DownloaderService.ACTION_DOWNLOAD_STARTED)) {
                 mPullToRefreshAttacher.setRefreshing(true);
@@ -878,6 +891,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
             
             updatePlayQueue();
             initPlayerView();
+            notifyFragmentOfBinding();
         }
 
         public void onServiceDisconnected(ComponentName className) {

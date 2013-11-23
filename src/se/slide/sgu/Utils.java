@@ -181,6 +181,8 @@ public class Utils {
             Drawable action = resources.getDrawable(R.drawable.ic_action_download);
             
             holder.downloadPlay.setImageDrawable(action);
+            holder.elapsedProgressBar.setVisibility(View.GONE);
+            holder.elapsedTotal.setVisibility(View.GONE);
             Utils.setBackgroundForView(holder.downloadPlay, background);
             Utils.setBackgroundForView(holder.progressAndButtonHolder, backgroundHolder);
         }

@@ -56,6 +56,7 @@ public class DownloaderService extends Service {
     public static final String ACTION_DOWNLOAD_FINISHED    = "se.slide.sgu.intent.action.DOWNLOAD_FINISHED";
     
     public static final String EXTRA_USER_INITIATED        = "se.slide.sgu.intent.extra.USER_INITIATED";
+    public static final String EXTRA_DOWNLOAD_STATE        = "se.slide.sgu.intent.extra.DOWNLOAD_STATE";
     
     private final int NOTIFICATION_ID                      = 13;
     private final int NOTIFICATION_NEW                     = 14;
@@ -421,10 +422,6 @@ public class DownloaderService extends Service {
                     manager.notify(NOTIFICATION_NEW, notification);
                 }
                 
-                Intent intent = new Intent();
-                intent.setAction(ACTION_DOWNLOAD_FINISHED);
-                sendBroadcast(intent);
-                
                 GlobalContext.INSTANCE.savePreference("last_episode_in_ms", latestEpisodeFound);
                 
             }
@@ -433,6 +430,11 @@ public class DownloaderService extends Service {
                 NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                 manager.notify(NOTIFICATION_ID, notification);
             }
+            
+            Intent intent = new Intent();
+            intent.setAction(ACTION_DOWNLOAD_FINISHED);
+            intent.putExtra(DownloaderService.EXTRA_DOWNLOAD_STATE, result);
+            sendBroadcast(intent);
             
             stopSelf();
         }

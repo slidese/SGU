@@ -54,8 +54,6 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
     private PullToRefreshAttacher mPullToRefreshAttacher;
     private UpdaterAsyncTask mUpdater;
     private int mScrollState = OnScrollListener.SCROLL_STATE_IDLE;
-    private boolean mScrolling = false;
-    private Resources mResources;
 
     ListView mListview;
     Button mPlayButton;
@@ -91,8 +89,6 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
 
         View view = inflater.inflate(R.layout.fragment_content, null);
 
-        mResources = getResources();
-        
         mListview = (ListView) view.findViewById(android.R.id.list);
         mListview.setEmptyView(view.findViewById(R.id.empty_list_view));
         mListview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
@@ -205,7 +201,7 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
         mPullToRefreshAttacher.addRefreshableView(mListview, this);
         
         mMode = getArguments().getInt(CONTENT_MODE);
-
+        
         return view;
     }
 
@@ -236,47 +232,21 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
     public void refresh() {
         updateAdapter();
     }
+    
+    public void replaceCurrentlyPlayingContent() {
+        GlobalContext.INSTANCE.replaceCurrentlyPLayingContent(mAdapter.getObjects(), mListener.getCurrentTrack());
+    }
 
     private void updateAdapter() {
         Log.d(TAG, "updateAdapter");
         
         //new FetchContentAsyncTask(mMode).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         
-        List<Content> listOfContent;
-        if (mMode == MODE_ADFREE)
-            listOfContent = DatabaseManager.getInstance().getAdFreeContents();
-        else
-            listOfContent = DatabaseManager.getInstance().getPremiumContents();
+        final String mp3 = mListener.getSavedStateMp3();
+        final boolean isPlaying = mListener.getSavedStateIsPlaying();
+        final boolean isPaused = mListener.getSavedStateIsPaused();
         
-        setAdapter(listOfContent);
-    }
-    
-    private void setAdapter(List<Content> listOfContent) {
-        List<Episode> listOfEpisode = DatabaseManager.getInstance().getAllEpisodes();
-        Map<String,Episode> episodes = new HashMap<String,Episode>();
-        for (Episode episode : listOfEpisode)
-            episodes.put(episode.guid, episode);    
-        
-        Log.d(TAG, "episodes length = " + episodes.size());
-        
-        Map<String, UpdateHolder> updates = gatherMetadata();
-        
-        for (Content content : listOfContent) {
-            Episode episode = episodes.get(content.guid);
-            if (episode != null) {
-                content.friendlyTitle = episode.title;
-                content.image = episode.image;
-            }
-            
-            UpdateHolder update = updates.get(content.mp3);
-            if (update != null) {
-                content.exists = update.exists;
-                content.downloadProgress = update.progress;
-                content.downloadStatus = update.status;
-                content.isPaused = update.isPaused;
-                content.isPlaying = update.isPlaying;
-            }
-        }
+        List<Content> listOfContent = GlobalContext.INSTANCE.getCachedContent(mMode, mp3, isPlaying, isPaused);
         
         mAdapter = new ContentAdapter(getActivity(), R.layout.list_item_card, listOfContent);
         mListview.setAdapter(mAdapter);
@@ -289,18 +259,6 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
         intent.putExtra(DownloaderService.EXTRA_USER_INITIATED, true);
         getActivity().startService(intent);
         
-    }
-    
-    public class UpdateHolder {
-        public String mp3;
-        public int status;
-        public boolean played;
-        public float progress;
-        public boolean exists = false;
-        public boolean isPlaying = false;
-        public boolean isPaused = false;
-        //public int elapsed;
-        //public int duration;
     }
     
     private class UpdaterAsyncTask extends AsyncTask<Void, Void, Void> {
@@ -339,17 +297,9 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
             super.onProgressUpdate();
             
             if (mScrollState == OnScrollListener.SCROLL_STATE_IDLE) {
-                //mAdapter.notifyDataSetChanged();
-                
                 // http://stackoverflow.com/questions/2123083/android-listview-refresh-single-row
                 int start = mListview.getFirstVisiblePosition();
                 for(int i = start, j = mListview.getLastVisiblePosition(); i<=j; i++) {
-                    /*
-                    if(target==list.getItemAtPosition(i)){
-                        break;
-                    }
-                    */
-                    
                     View view = mListview.getChildAt(i-start);
                     if (((Content)mListview.getItemAtPosition(i)).dirty) {
                         Log.v(TAG, "Content is dirty");
@@ -359,30 +309,6 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
                 }
             }
             
-            /*
-            final int c = mAdapter.getCount();
-            for (int index = 0; index < c; index++) {
-                Content content = mAdapter.getItem(index);
-                
-                UpdateHolder update = values[0].get(content.mp3);
-                if (update != null) {
-                    content.exists = update.exists;
-                    content.downloadProgress = update.progress;
-                    content.isPaused = update.isPaused;
-                    content.isPlaying = update.isPlaying;
-                }
-            }
-            
-            
-            if (mScrollState == OnScrollListener.SCROLL_STATE_IDLE) {
-                final int count = mListview.getChildCount();
-                for (int i = 0; i < count; i++) {
-                    final ViewHolder holder = (ContentAdapter.ViewHolder)mListview.getChildAt(i).getTag();
-                    UpdateHolder update = values[0].get(holder.mp3);
-                    Utils.updateView(mResources, update, holder);
-                }
-            }
-            */
         }
     }
     
@@ -484,93 +410,16 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
         
     }
     
-    private Map<String, UpdateHolder> gatherMetadata() {
-        
-        Map<String, UpdateHolder> map = new HashMap<String, UpdateHolder>();
-        
-        DownloadManager.Query q = new DownloadManager.Query();
-        q.setFilterByStatus(DownloadManager.STATUS_PENDING | DownloadManager.STATUS_RUNNING);
-        try {
-            Cursor cursor = ContentDownloadManager.INSTANCE.query(q);
-            
-            while (cursor.moveToNext()) {
-                //long id = cursor.getLong(cursor.getColumnIndex(DownloadManager.COLUMN_ID));
-                String uri = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_URI));
-                int status = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS));
-                int downloaded = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
-                int total = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
-                
-                float progress = (float)downloaded/(float)total;
-                
-                UpdateHolder holder = new UpdateHolder();
-                holder.progress = progress;
-                holder.status = status;
-                
-                map.put(uri, holder);
-            }
-            
-            cursor.close();
-            
-            final Content currentContent = mListener.getCurrentTrack();
-            final boolean isPlaying = mListener.isPlaying();
-            final boolean isPaused = mListener.isPaused();
-            
-            List<Content> listOfContent = DatabaseManager.getInstance().getAllContents();
-            for (Content content : listOfContent) {
-                File file = Utils.getFilepath(content.getFilename());
-                
-                UpdateHolder holder = map.get(content.mp3);
-                if (holder == null) {
-                    holder = new UpdateHolder();
-                }
-
-                if (currentContent != null && content.mp3.equals(currentContent.mp3)) {
-                    holder.isPlaying = isPlaying;
-                    holder.isPaused = isPaused;
-                }
-                else {
-                    holder.isPlaying = false;
-                    holder.isPaused = false;
-                }
-                
-                holder.exists = file.exists();
-                holder.played = content.played;
-                //holder.elapsed = content.elapsed;
-                //holder.duration = content.duration;
-                map.put(content.mp3, holder);
-            }
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-        return map;
+    public class UpdateHolder {
+        public String mp3;
+        public int status;
+        public boolean played;
+        public float progress;
+        public boolean exists = false;
+        public boolean isPlaying = false;
+        public boolean isPaused = false;
+        //public int elapsed;
+        //public int duration;
     }
     
-    private class FetchContentAsyncTask extends AsyncTask<Void, Void, List<Content>> {
-        
-        private int mode = MODE_ADFREE;
-        
-        public FetchContentAsyncTask(int mode) {
-            this.mode = mode;
-        }
-        
-        @Override
-        protected List<Content> doInBackground(Void... params) {
-            List<Content> listOfContent = null;
-            if (mode == MODE_ADFREE)
-                listOfContent = DatabaseManager.getInstance().getAdFreeContents();
-            else
-                listOfContent = DatabaseManager.getInstance().getPremiumContents();
-            
-            return listOfContent;
-        }
-
-        @Override
-        protected void onPostExecute(List<Content> listOfContent) {
-            super.onPostExecute(listOfContent);
-            
-            setAdapter(listOfContent);
-        }
-    }
 }

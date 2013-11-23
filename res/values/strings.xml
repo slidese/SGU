@@ -26,7 +26,7 @@
     
     <!-- No details -->
     <string name="no_details_title">No details</string>
-    <string name="no_details_message">This episode does not have any details. Please note that Premium clips don\'t have any additional info.</string>
+    <string name="no_details_message">This episode does not have any details.</string>
     
     <!-- Low memory error -->
     <string name="closing_low_memory_ticker">Low memory, closing player</string>

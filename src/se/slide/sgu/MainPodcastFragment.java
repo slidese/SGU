@@ -89,6 +89,19 @@ public class MainPodcastFragment extends Fragment implements ActionBar.OnNavigat
             fragPremium.refresh();
     }
     
+    public void notifyOfBinding() {
+        String fragmentAdfree = makeFragmentName(mViewPager.getId(), 0);
+        String fragmentPremium = makeFragmentName(mViewPager.getId(), 1);
+        
+        ContentFragment fragAdfree = (ContentFragment) getChildFragmentManager().findFragmentByTag(fragmentAdfree);
+        ContentFragment fragPremium = (ContentFragment) getChildFragmentManager().findFragmentByTag(fragmentPremium);
+        
+        if (fragAdfree != null)
+            fragAdfree.replaceCurrentlyPlayingContent();
+        if (fragPremium != null)
+            fragPremium.replaceCurrentlyPlayingContent();
+    }
+    
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.

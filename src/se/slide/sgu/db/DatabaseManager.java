@@ -331,7 +331,6 @@ public class DatabaseManager {
         return episode;
     }
    
-    /*
     public Episode getEpisode(String guid) {
         
         Episode episode = null;
@@ -344,7 +343,6 @@ public class DatabaseManager {
         }
         return episode;
     }
-    */
     
     public List<Episode> getEpisodes(String guid) {
         List<Episode> listOfEpisode = null;

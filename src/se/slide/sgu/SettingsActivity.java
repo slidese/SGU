@@ -48,7 +48,9 @@ public class SettingsActivity extends PreferenceActivity {
         
         super.onCreate(savedInstanceState);
         
-        GlobalContext.INSTANCE.init(this);
+        if (savedInstanceState == null) {
+            GlobalContext.INSTANCE.init(this);
+        }
         
         setupActionBar();
         GlobalContext.INSTANCE.setScheduling();
