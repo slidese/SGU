@@ -179,10 +179,15 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         
+        String mp3 = null;
+        Content content = mAudioPlayer.getCurrentTrack();
+        if (content != null)
+            mp3 = content.mp3;
+        
         outState.putInt(CONST_MODE, mMode);
         outState.putBoolean(CONST_IS_PLAYING, mAudioPlayer.isPlaying());
         outState.putBoolean(CONST_IS_PAUSED, mAudioPlayer.isPaused());
-        outState.putString(CONST_MP3, mAudioPlayer.getCurrentTrack().mp3);
+        outState.putString(CONST_MP3, mp3);
     }
 
     /**
