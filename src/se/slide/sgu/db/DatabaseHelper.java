@@ -2,6 +2,7 @@
 package se.slide.sgu.db;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -11,6 +12,7 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+import se.slide.sgu.DownloaderService;
 import se.slide.sgu.GlobalContext;
 import se.slide.sgu.model.Content;
 import se.slide.sgu.model.Episode;
@@ -91,7 +93,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             }
             
             if (oldVersion < 7) {
-                allSql.add("alter table Content add column `elapsed` INTEGER");
+                //allSql.add("alter table Content add column `elapsed` INTEGER");
             }
             
             if (oldVersion < 8) {
@@ -112,6 +114,10 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                 TableUtils.createTable(connectionSource, Quote.class);
                 TableUtils.createTable(connectionSource, Episode.class);
                 TableUtils.createTable(connectionSource, Link.class);
+                
+                Intent intent = new Intent(context, DownloaderService.class);
+                intent.putExtra(DownloaderService.EXTRA_USER_INITIATED, true);
+                context.startService(intent);
             }
 
             // Execute all changes
