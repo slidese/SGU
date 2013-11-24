@@ -1,5 +1,110 @@
 <sgu>
     <episode>
+        <title>Episode 436</title>
+        <description>Guest Rogue: Phil Plait; This Day in Skepticism: Dr. Who; News Items: How Many Earth-Like Planets, Image of Saturn, 6-Tailed Asteroid, Chopra Attacks Skeptics, Typhoon Haiyan; Name That Logical Fallacy; Your Questions and E-mails: Blind Mole Rats; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-11-23adfree573kjig89r.mp3</mp3>
+        <guid>http://www.theskepticsguide.org/podcast/sgu/436#590</guid>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_436</transcript>
+        <image>saturn2.jpg</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"Although scientific revolutions in how we see the world do occur, the bulk of our scientific understanding comes from the cumulative impact of numerous incremental studies that together paint an increasingly coherent picture of how nature works."</text>
+            <by>Michael E. Mann</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>A new study suggests that a bacteria found in the turnip might prevent the flu, and human clinical trials are happening right now.</description>
+            </item>
+            <item science="false">
+                <title>Item #2</title>
+                <description>Scientists have reportedly succeeded in killing a bacteria using a protein taken from a virus.</description>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>Researchers have shown that bacteria released from the scent glands of a hyena leaves detailed information about the hyena, information equivalent to what you would read on a person’s Facebook profile.</description>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism: 50th Anniversary of Dr. Who</title>
+                <start>1:09</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Earth-Like Planets</title>
+                <start>6:37</start>
+                <link>http://www.npr.org/2013/11/05/242991030/galaxy-quest-just-how-many-earth-like-planets-are-out-there</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Image of Saturn</title>
+                <start>20:33</start>
+                <link>http://www.nasa.gov/press/2013/november/nasa-cassini-spacecraft-provides-new-view-of-saturn-and-earth/#.UoLUXPmsh8E</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>6-Tailed Asteroid</title>
+                <start>24:36</start>
+                <link>http://www.scientificamerican.com/article.cfm?id=space-telescope-spots-unprecedented-asteroid-with-six-tails</link>
+            </section>
+			<section>
+                <number>6</number>
+                <title>Chopra Attacks Skeptics</title>
+                <start>29:39</start>
+                <link>http://theness.com/neurologicablog/index.php/chopra-skepticism-fail-part-2/</link>
+            </section>
+            <section>
+                <number>7</number>
+                <title>Typhoon Haiyan</title>
+                <start>44:13</start>
+                <link>http://www.bbc.co.uk/news/science-environment-24925580</link>
+                <link>http://www.centerforinquiry.net/news/center_for_inquiry_please_donate_now_for_philippines_typhoon_relief/</link>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Who's That Noisy</title>
+                <start>50:04</start>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Name That Logical Fallacy</title>
+                <start>50:59</start>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Question #1. Do Animals Get Cancer Follow Up</title>
+                <start>53:56</start>
+                <link>http://www.nature.com/news/simple-molecule-prevents-mole-rats-from-getting-cancer-1.13236</link>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Science or Fiction</title>
+                <start>60:56</start>
+            </section>
+            <section>
+                <number>12</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>74:54</start>
+            </section>
+        </sections>
+    </episode>
+    <episode>
         <title>Episode 435</title>
         <description>Interview with Gerald Posner; This Day in Skepticism: LSD; News Items: Oldest Animal, Junk DNA, Martian Lizard, Dark Energy; Who's That Noisy; Your Questions and E-mails: Knee Ligament; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-11-16adfree6gjruw34.mp3</mp3>
