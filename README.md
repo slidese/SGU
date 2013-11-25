@@ -28,12 +28,15 @@ Please not that content taken from the SGU website is not included in the licens
 - A string resource `google_analytics_id` need to be created with a Google Analytics ID.
 - [App Rater][7]
 - [Sliding Layer Library][8]
+- [ActionBar-PullToRefresh][12]
+- [HoloCircularProgressBar][13]
+- [volley][13]
 
 # Developed by
 
 * Mikael Magnusson, <mike@slide.se>
 * [www.slide.se][4]
-* Google+ profile: [https://plus.google.com/113216017223819971202][1]
+* Google+ profile: [https://plus.google.com/+MikaelMagnusson/posts][1]
 
 # License
 
@@ -65,3 +68,6 @@ Images and other content from the SGU website is *not* covered in this license.
 [9]: https://raw.github.com/slidese/SGU/master/2013-11-25-14.45.00.png
 [10]: https://raw.github.com/slidese/SGU/master/2013-11-25-14.55.06.png
 [11]: http://www.theskepticsguide.org/member-subscription
+[12]: https://github.com/chrisbanes/ActionBar-PullToRefresh
+[13]: https://github.com/passsy/android-HoloCircularProgressBar
+[14]: https://android.googlesource.com/platform/frameworks/volley
