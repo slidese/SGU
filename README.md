@@ -1,9 +1,22 @@
 SGU
 ===
 
-SGU is an unofficial podcast player for The Skeptic's Guide to the Universe (SGU).
+SGU is an unofficial podcast player for The Skeptic's Guide to the Universe (SGU). To use it you need a premium subscription to the SGU, please see their [member section][11] for more information.
+
+Features of the app:
+
+1. Easy download of episodes or premium content
+2. Remembers your progress for each episode
+3. Automatically downloads new episodes
+4. Jump to any section in a show
+5. See details such as Science or Fiction items or Skeptical Quote
+6. In-app browser for transcriptions
+7. In-app browser for all links for an episode
+8. Designed based on Holo and Card UI elements
 
 ![Screenshot 1][5] ![Screenshot 2][6]
+
+![Screenshot 2][9] ![Screenshot 4][10]
 
 [![Get it on Google Play][2]][3]
 
@@ -49,3 +62,6 @@ Images and other content from the SGU website is *not* covered in this license.
 [6]: https://raw.github.com/slidese/SGU/master/2013-10-25-02.46.35.png
 [7]: https://github.com/codechimp-org/AppRater
 [8]: https://github.com/6wunderkinder/android-sliding-layer-lib
+[9]: https://raw.github.com/slidese/SGU/master/2013-11-25-14.45.00.png
+[10]: https://raw.github.com/slidese/SGU/master/2013-11-25-14.55.06.png
+[11]: http://www.theskepticsguide.org/member-subscription
