@@ -47,10 +47,12 @@ public enum GlobalContext {
         resetContentCache();
         
         googleAnalytics = GoogleAnalytics.getInstance(this.context);
-        if (Utils.DEBUG)
+        if (Utils.DEBUG) {
             googleAnalytics.setDryRun(true);
-        else
+        }
+        else {
             googleAnalytics.setDryRun(false);
+        }
         
     }
     

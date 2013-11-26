@@ -34,7 +34,11 @@ public class MyLog {
         }
     }
 
-    public static void d(String format, Object... args) {
+    public static void d(String tag, String message) {
+        Log.d(tag, message);
+    }
+    
+    public static void dd(String format, Object... args) {
         Log.d(TAG, buildMessage(format, args));
     }
 
@@ -127,10 +131,10 @@ public class MyLog {
             }
 
             long prevTime = mMarkers.get(0).time;
-            d("(%-4d ms) %s", duration, header);
+            dd("(%-4d ms) %s", duration, header);
             for (Marker marker : mMarkers) {
                 long thisTime = marker.time;
-                d("(+%-4d) [%2d] %s", (thisTime - prevTime), marker.thread, marker.name);
+                dd("(+%-4d) [%2d] %s", (thisTime - prevTime), marker.thread, marker.name);
                 prevTime = thisTime;
             }
         }
