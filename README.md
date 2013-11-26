@@ -38,6 +38,18 @@ Please not that content taken from the SGU website is not included in the licens
 * [www.slide.se][4]
 * Google+ profile: [https://plus.google.com/+MikaelMagnusson/posts][1]
 
+<!-- Place this tag where you want the widget to render. -->
+<div class="g-page" data-href="//plus.google.com/117775420787612987664" data-rel="publisher"></div>
+
+<!-- Place this tag after the last widget tag. -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
 # License
 
 Images and other content from the SGU website is *not* covered in this license.
