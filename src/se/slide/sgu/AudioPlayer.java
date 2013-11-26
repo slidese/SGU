@@ -15,7 +15,6 @@ import android.media.MediaPlayer.OnCompletionListener;
 import android.os.IBinder;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.widget.Toast;
 
 import se.slide.sgu.model.Content;
@@ -73,13 +72,13 @@ public class AudioPlayer extends Service implements OnCompletionListener {
 
     @Override
     public IBinder onBind(Intent intent) {
-        Log.v(TAG, "AudioPlayer: onBind() called");
+        MyLog.v(TAG, "AudioPlayer: onBind() called");
         return audioPlayerBinder; // maybe, return new LocalBinder<AudioPlayer>(this);
     }
     
     @Override
     public void onCreate() {
-        Log.v(TAG, "AudioPlayer: onCreate() called");
+        MyLog.v(TAG, "AudioPlayer: onCreate() called");
         
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(PLAY_TRACK);
@@ -126,7 +125,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
 
     @Override
     public void onStart(Intent intent, int startId) {
-        Log.i(TAG, "AudioPlayer: onStart() called, instance=" + this.hashCode());
+        MyLog.v(TAG, "AudioPlayer: onStart() called, instance=" + this.hashCode());
     }
     
     @Override
@@ -137,7 +136,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
 
     @Override
     public void onDestroy() {
-        Log.i(TAG, "AudioPlayer: onDestroy() called");
+        MyLog.v(TAG, "AudioPlayer: onDestroy() called");
         unregisterReceiver(broadcastReceiver);
         release();
         
@@ -149,7 +148,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     
     @Override
     public void onLowMemory() {
-        Log.e(TAG, "AudioPLayer closes due to low memory");
+        MyLog.wtf(TAG, "AudioPLayer closes due to low memory");
         Notification notification = GlobalContext.INSTANCE.buildNotification(getString(R.string.closing_low_memory_ticker), getString(R.string.closing_low_memory_title), getString(R.string.closing_low_memory_text));
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         manager.notify(NOTIFICATION_ID_LOW_MEMORY, notification);
@@ -197,7 +196,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
             builder.setTicker(null);
         }
         
-        Log.d(TAG, "show ticker = " + showTicker);
+        MyLog.v(TAG, "show ticker = " + showTicker);
         
         builder.setContentTitle(title);
         builder.setContentText(track.description);
@@ -246,7 +245,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     }
     
     private void hideNotification() {
-        Log.d(TAG, "Hiding notification");
+        MyLog.v(TAG, "Hiding notification");
         stopForeground(true);
     }
     
@@ -265,7 +264,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     }
 
     public void addTrack(Content track) {
-        Log.d(TAG, "addTrack " + track);
+        MyLog.v(TAG, "addTrack " + track);
         tracks.add(track);
         if( tracks.size() == 1) {
             play();
@@ -312,7 +311,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
             startAsForeground(true);
             playPauseUpdated();
         } catch (IOException ioe) {
-            Log.e(TAG,"error trying to play " + track , ioe);
+            MyLog.wtf(TAG,"error trying to play " + track , ioe);
             String message = "error trying to play track: " + track + ".\nError: " + ioe.getMessage();
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         }
@@ -448,7 +447,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             long id = intent.getLongExtra("id", -1);
-            Log.d(TAG, "Received intent for action " + intent.getAction() + " for id: " + id);
+            MyLog.v(TAG, "Received intent for action " + intent.getAction() + " for id: " + id);
 
             if(PLAY_ALBUM.equals(action)) {
                 //playAlbum(id);
@@ -464,7 +463,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
                 hideNotification();
             } 
             else {
-                Log.d(TAG, "Action not recognized: " + action);
+                MyLog.wtf(TAG, "Action not recognized: " + action);
             }
         }
 

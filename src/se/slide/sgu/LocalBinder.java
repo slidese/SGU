@@ -2,7 +2,6 @@
 package se.slide.sgu;
 
 import android.os.Binder;
-import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
@@ -17,12 +16,12 @@ public class LocalBinder<S> extends Binder {
     private WeakReference<S> mService;
 
     public LocalBinder(S service) {
-        Log.v(TAG, "LocalBinder created");
+        MyLog.v(TAG, "LocalBinder created");
         mService = new WeakReference<S>(service);
     }
 
     public S getService() {
-        Log.v(TAG, "getService() called");
+        MyLog.v(TAG, "getService() called");
         return mService.get();
     }
 }

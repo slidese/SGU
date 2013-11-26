@@ -13,7 +13,6 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
 import android.os.StrictMode;
-import android.util.Log;
 import android.view.View;
 
 import de.passsy.holocircularprogressbar.HoloCircularProgressBar;
@@ -26,7 +25,7 @@ public class Utils {
     
     private static final String TAG = "Utils";
 
-    public static final boolean DEBUG = true;
+    public static final boolean DEBUG = false;
     public static final String DIR_SGU =                Environment.DIRECTORY_DOWNLOADS + "/sgu/";
     public static final String HTTP_PODCAST_IMAGES =    "http://www.theskepticsguide.org/images/podcast_images/";
     
@@ -168,7 +167,7 @@ public class Utils {
             
         }
         else {
-            Log.e(TAG, "Update view with null updater, should not happen");
+            MyLog.e(TAG, "Update view with null updater, should not happen");
         }
     }
     
@@ -250,8 +249,6 @@ public class Utils {
         
         ObjectAnimator mProgressBarAnimator;
     
-        Log.v(TAG, "oldProgress = " + oldProgress + ", progress = " + progress);
-        
         mProgressBarAnimator = ObjectAnimator.ofFloat(progressBar, "progress", oldProgress, progress);
         mProgressBarAnimator.setDuration(duration);
     

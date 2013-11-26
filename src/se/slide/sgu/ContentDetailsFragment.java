@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -62,7 +61,7 @@ public class ContentDetailsFragment extends Fragment {
 
         try {
             mListener = (StartActivity) activity;
-            Log.d(TAG, "Attached details fragment");
+            MyLog.v(TAG, "Attached details fragment");
             
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must be the StartActivity");

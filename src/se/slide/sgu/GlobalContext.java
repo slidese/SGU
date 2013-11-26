@@ -11,7 +11,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 import com.google.analytics.tracking.android.EasyTracker;
 import com.google.analytics.tracking.android.GoogleAnalytics;

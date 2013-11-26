@@ -14,7 +14,6 @@ import android.os.AsyncTask;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.util.Base64;
-import android.util.Log;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -70,7 +69,7 @@ public class DownloaderService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d(TAG, "Started DownloaderService");
+        MyLog.v(TAG, "Started DownloaderService");
         
         DatabaseManager.init(this);
         GlobalContext.INSTANCE.init(this);
@@ -80,21 +79,21 @@ public class DownloaderService extends Service {
         String password = PreferenceManager.getDefaultSharedPreferences(this).getString("password", null);
         
         if (username == null || password == null) {
-            Log.v(TAG, "Username or password is null, stopping service");
+            MyLog.v(TAG, "Username or password is null, stopping service");
             stopSelf();
             return START_NOT_STICKY;
         }
         
         // Are we already running?
         if (mMetadataAsyncTask != null) {
-            Log.v(TAG, "AsyncTask is not null which means we're already running, stop new request");
+            MyLog.v(TAG, "AsyncTask is not null which means we're already running, stop new request");
             return START_NOT_STICKY;
         }
         
         // Is this automatic or user initiated?
         boolean manuallyStarted = false;
         manuallyStarted = intent.getBooleanExtra(EXTRA_USER_INITIATED, false);
-        Log.v(TAG, "Is manually started: " + manuallyStarted);
+        MyLog.v(TAG, "Is manually started: " + manuallyStarted);
     
         // Let our activity know we have started
         Intent i = new Intent();
@@ -130,7 +129,7 @@ public class DownloaderService extends Service {
         
         @Override
         protected Boolean doInBackground(Void... params) {
-            Log.d(TAG, "Doing in background: MetadataAsyncTask");
+            MyLog.v(TAG, "Doing in background: MetadataAsyncTask");
             
             boolean returnValue = true;
             
@@ -251,7 +250,7 @@ public class DownloaderService extends Service {
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            Log.d(TAG, "Doing in background: DownloadAsyncTask");
+            MyLog.v(TAG, "Doing in background: DownloadAsyncTask");
             
             boolean returnValue = true;
 

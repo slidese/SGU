@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +34,7 @@ public class MainPodcastFragment extends Fragment implements ActionBar.OnNavigat
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.d(TAG, "onCreateView");
+        MyLog.v(TAG, "onCreateView");
         
         View view = inflater.inflate(R.layout.fragment_viewpager, null);
         
@@ -114,7 +113,7 @@ public class MainPodcastFragment extends Fragment implements ActionBar.OnNavigat
 
         @Override
         public Fragment getItem(int position) {
-            Log.d(TAG, "getItem: " + position);
+            MyLog.v(TAG, "getItem: " + position);
             
             Fragment fragment = new ContentFragment();
             

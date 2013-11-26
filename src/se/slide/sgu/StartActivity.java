@@ -16,7 +16,6 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -388,10 +387,10 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         mWaitForAudioPlayertimer.scheduleAtFixedRate( new TimerTask() {
             
             public void run() {
-                Log.v(TAG, "Waiting for bind to service");
+                MyLog.v(TAG, "Waiting for bind to service");
                 
                 if(mAudioPlayer != null) {
-                    Log.v(TAG, "Bind to service completed");
+                    MyLog.v(TAG, "Bind to service completed");
                     mWaitForAudioPlayertimer.cancel();
                     mHandler.post( new Runnable() {
                         public void run() {
@@ -611,7 +610,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
     }
     
     private void updatePlayPauseButtonState() {
-        Log.d(TAG, "Updating player state");
+        MyLog.v(TAG, "Updating player state");
         
         if (mAudioPlayer.isPlaying() ) {
             mPlayButton.setImageResource(R.drawable.ic_action_playback_pause);
@@ -779,7 +778,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
                 }
             }
             
-            Log.d(TAG,"UpdateCurrentTrackTask AsyncTask stopped");
+            MyLog.v(TAG,"UpdateCurrentTrackTask AsyncTask stopped");
             
             return null;
         }
@@ -811,7 +810,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             if( fromUser ) {
-                Log.d(TAG,"TimeLineChangeListener progress received from user: "+progress);
+                MyLog.v(TAG,"TimeLineChangeListener progress received from user: "+progress);
                 
                 scheduleSeek(progress);
                 
@@ -850,7 +849,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.d(TAG,"AudioPlayerBroadCastReceiver.onReceive action=" + intent.getAction());
+            MyLog.v(TAG,"AudioPlayerBroadCastReceiver.onReceive action=" + intent.getAction());
             
             if(AudioPlayer.UPDATE_PLAYLIST.equals( intent.getAction())) {
                 updatePlayQueue();
@@ -865,7 +864,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.d(TAG,"DownloadBroadcastReceiver.onReceive action = " + intent.getAction());
+            MyLog.v(TAG,"DownloadBroadcastReceiver.onReceive action = " + intent.getAction());
             
             if(intent.getAction().equals(DownloaderService.ACTION_DOWNLOAD_FINISHED)) {
                 mPullToRefreshAttacher.setRefreshComplete();
@@ -892,7 +891,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         
         @SuppressWarnings("unchecked")
         public void onServiceConnected(ComponentName className, IBinder baBinder) {
-            Log.d(TAG,"AudioPlayerServiceConnection: Service connected");
+            MyLog.v(TAG,"AudioPlayerServiceConnection: Service connected");
             
             mAudioPlayer = ((LocalBinder<AudioPlayer>) baBinder).getService();
             startService(mAudioPlayerIntent);
@@ -905,7 +904,7 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         }
 
         public void onServiceDisconnected(ComponentName className) {
-            Log.d(TAG,"AudioPlayerServiceConnection: Service disconnected");
+            MyLog.v(TAG,"AudioPlayerServiceConnection: Service disconnected");
             
             mAudioPlayer = null;
         }

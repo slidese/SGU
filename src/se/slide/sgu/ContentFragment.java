@@ -11,7 +11,6 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
@@ -71,7 +70,7 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
 
         try {
             mListener = (StartActivity) activity;
-            Log.d(TAG, "Attached podcast list fragment");
+            MyLog.v(TAG, "Attached podcast list fragment");
             
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must be the StartActivity");
@@ -238,7 +237,7 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
     }
 
     private void updateAdapter() {
-        Log.d(TAG, "updateAdapter");
+        MyLog.v(TAG, "updateAdapter");
         
         //new FetchContentAsyncTask(mMode).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         
@@ -302,7 +301,7 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
                 for(int i = start, j = mListview.getLastVisiblePosition(); i<=j; i++) {
                     View view = mListview.getChildAt(i-start);
                     if (((Content)mListview.getItemAtPosition(i)).dirty) {
-                        Log.v(TAG, "Content is dirty");
+                        MyLog.v(TAG, "Content is dirty");
                         mListview.getAdapter().getView(i, view, mListview);
                     }
                         

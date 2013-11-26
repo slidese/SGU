@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -61,19 +60,19 @@ public class MainDetailsFragment extends Fragment implements ActionBar.OnNavigat
     public void onStart() {
         super.onStart();
         
-        Log.d(TAG, "onStart");
+        MyLog.v(TAG, "onStart");
     }
 
     @Override
     public void onStop() {
         super.onStop();
         
-        Log.d(TAG, "onStop");
+        MyLog.v(TAG, "onStop");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.d(TAG, "onCreateView");
+        MyLog.v(TAG, "onCreateView");
         
         View view = inflater.inflate(R.layout.fragment_viewpager, null);
         
