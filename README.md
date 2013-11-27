@@ -30,7 +30,7 @@ Please not that content taken from the SGU website is not included in the licens
 - [Sliding Layer Library][8]
 - [ActionBar-PullToRefresh][12]
 - [HoloCircularProgressBar][13]
-- [volley][13]
+- [Volley][14]
 
 # Developed by
 
