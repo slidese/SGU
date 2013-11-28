@@ -398,9 +398,11 @@ public class ContentFragment extends Fragment implements PullToRefreshAttacher.O
                     }
                 }
               
+                /*
                 if (content.dirty) {
                     DatabaseManager.getInstance().createOrUpdateContent(content);
                 }
+                */
             }
             
         } catch (Exception e) {

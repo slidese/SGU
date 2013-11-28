@@ -12,11 +12,13 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
+import android.os.AsyncTask;
 import android.os.IBinder;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.widget.Toast;
 
+import se.slide.sgu.db.DatabaseManager;
 import se.slide.sgu.model.Content;
 
 import java.io.IOException;
@@ -58,6 +60,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     private final int NOTIFICATION_ID = 24; // Meaning of life, eh?
     private final int NOTIFICATION_ID_LOW_MEMORY = 11;
     private boolean wasPlaying = false;
+    private UpdateTrackTask updater;
 
     /*
     public class AudioPlayerBinder extends Binder {
@@ -260,6 +263,10 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         mediaPlayer.release();
         mediaPlayer = null;
         
+        if (updater != null) {
+            updater.stopped = true;
+        }
+        
         stopForeground(true);
     }
 
@@ -291,6 +298,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
             paused = false;
             updateNotification();
             playPauseUpdated();
+            startUpdater();
             return;
         } else if( mediaPlayer != null ) {
             release();
@@ -310,10 +318,18 @@ public class AudioPlayer extends Service implements OnCompletionListener {
             track.duration = mediaPlayer.getDuration();
             startAsForeground(true);
             playPauseUpdated();
+            startUpdater();
         } catch (IOException ioe) {
             MyLog.wtf(TAG,"error trying to play " + track , ioe);
             String message = "error trying to play track: " + track + ".\nError: " + ioe.getMessage();
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+        }
+    }
+    
+    private void startUpdater() {
+        if (updater == null || updater.stopped) {
+            updater = new UpdateTrackTask();
+            updater.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void)null);
         }
     }
 
@@ -467,5 +483,48 @@ public class AudioPlayer extends Service implements OnCompletionListener {
             }
         }
 
+    }
+    
+    private class UpdateTrackTask extends AsyncTask<Void, Content, Void> {
+
+        public boolean stopped = false;
+        public boolean paused = false;
+        
+        @Override
+        protected Void doInBackground(Void... params) {
+            while( ! stopped ) {
+                if( ! paused) {
+                    Content currentTrack = getCurrentTrack();
+                    if(currentTrack != null) {
+                        currentTrack.elapsed = elapsed();
+                        currentTrack.dirty = true;
+                        DatabaseManager.getInstance().createOrUpdateContent(currentTrack);
+                    }
+                }
+                
+                try {
+                    Thread.sleep(1000);
+                }
+                catch (InterruptedException e) {
+                    // Do nothing, we just need to sleep...
+                }
+            }
+            
+            MyLog.v(TAG,"UpdateTrackTask AsyncTask stopped");
+            
+            return null;
+        }
+
+        public void stop() {
+            stopped = true;
+        }
+        
+        public void pause() {
+            this.paused = true;
+        }
+
+        public void unPause() {
+            this.paused = false;
+        }
     }
 }

@@ -602,11 +602,13 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
                 mPlayerDurationNow.setText(elapsedMessage);
                 mPlayerDurationTotal.setText(" / " + totalMessage);
                 
+                /*
                 if (mAudioPlayer.getCurrentTrack().guid.equals(track.guid))
                     track.elapsed = elapsedMillis;
                 
                 if (mAudioPlayer.isPlaying())
                     track.dirty = true; // This is important for the elapsed progress to function properly
+                    */
             }
         });
     }
