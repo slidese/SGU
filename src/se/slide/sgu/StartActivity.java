@@ -113,11 +113,13 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         
         if (savedInstanceState == null) {
             GlobalContext.INSTANCE.init(this);
-            DatabaseManager.init(this);
             ContentDownloadManager.INSTANCE.init(this);
             AppRater.app_launched(this);
             VolleyHelper.init(this);
         }
+        
+        // Always initiaze this
+        DatabaseManager.init(this);
     }
     
     @Override
