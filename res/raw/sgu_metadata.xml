@@ -1,5 +1,108 @@
 <sgu>
     <episode>
+        <title>Episode 437</title>
+        <description>This Day in Skepticism: Hodges Meteorite; News Items: MAVEN Launch - with special guest Elliot Goldman, Sylvia Browne Dead, Homeopathy Death, Capturing Lost Energy, FDA Report on Burzynski, Comet ISON; Who's That Noisy; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-11-30adfree82n93hf78.mp3</mp3>
+        <guid>http://www.theskepticsguide.org/podcast/sgu/437#591</guid>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_437</transcript>
+        <image>MAVEN1.jpg</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"The great enemy of truth is very often not the lie--deliberate, contrived and dishonest--but the myth--persistent, persuasive and unrealistic. Too often we hold fast to the cliches of our forebears. We subject all facts to a prefabricated set of interpretations. We enjoy the comfort of opinion without the discomfort of thought."</text>
+            <by>JFK</by>
+        </quote>
+        <scienceorfiction>
+            <item science="false">
+                <title>Item #1</title>
+                <description>A new study examines South African dogs bred and trained to defend livestock, that are capable of fighting and killing cheetahs and other large predators.</description>
+                <link>http://www.kent.ac.uk/news/stories/guarddogs/2013</link>
+            </item>
+            <item science="true">
+                <title>Item #2</title>
+                <description>A recent systematic review finds that people who suffer from food allergies are more likely to die from murder than from their allergy.</description>
+                <link>http://onlinelibrary.wiley.com/doi/10.1111/cea.12211/full</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>A new computer simulation suggests that a major component of the Permian extinction 252 million years ago was sulfuric acid rain with a pH of 2.</description>
+                <link>http://web.mit.edu/newsoffice/2013/permian-acid-rain-extinction-112513.html</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism: Hodges Meteorite</title>
+                <start>2:10</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>MAVEN Launch</title>
+                <start>8:29</start>
+                <link>http://theness.com/neurologicablog/index.php/maven/</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Sylvia Browne Dead</title>
+                <start>21:49</start>
+                <link>http://www.randi.org/site/index.php/swift-blog/2273-message-from-james-randi-on-sylvia-brownes-death.html</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Homeopathy Death</title>
+                <start>30:57</start>
+                <link>http://thelibertarianrepublic.com/mother-accused-negligence-babys-death-homeopathy-treatments-video/#axzz2lfW34kem</link>
+            </section>
+			<section>
+                <number>6</number>
+                <title>Capturing Lost Energy</title>
+                <start>37:22</start>
+                <link>http://phys.org/news/2013-11-wireless-device-lost-energy-electric.html</link>
+            </section>
+            <section>
+                <number>7</number>
+                <title>FDA Report on Burzynski</title>
+                <start>44:21</start>
+                <link>http://www.usatoday.com/story/news/nation/2013/11/15/stanislaw-burzynski-cancer-controversy/2994561/</link>
+                <link>http://thehoustoncancerquack.com/</link>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Comet ISON</title>
+                <start>55:23</start>
+                <link>http://www.washingtonpost.com/national/health-science/comet-ison-if-it-survives-trip-around-the-sun-could-bring-spectacular-sky-show/2013/11/24/f544103a-53b6-11e3-a7f0-b790929232e1_story.html</link>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Who's That Noisy</title>
+                <start>60:11</start>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Science or Fiction</title>
+                <start>63:04</start>
+            </section>
+            <section>
+                <number>12</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>78:11</start>
+            </section>
+        </sections>
+    </episode>
+    <episode>
         <title>Episode 436</title>
         <description>Guest Rogue: Phil Plait; This Day in Skepticism: Dr. Who; News Items: How Many Earth-Like Planets, Image of Saturn, 6-Tailed Asteroid, Chopra Attacks Skeptics, Typhoon Haiyan; Name That Logical Fallacy; Your Questions and E-mails: Blind Mole Rats; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-11-23adfree573kjig89r.mp3</mp3>
