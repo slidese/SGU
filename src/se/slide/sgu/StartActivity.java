@@ -111,15 +111,12 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
         bindViews();
         initState(savedInstanceState);
         
-        if (savedInstanceState == null) {
-            GlobalContext.INSTANCE.init(this);
-            ContentDownloadManager.INSTANCE.init(this);
-            AppRater.app_launched(this);
-            VolleyHelper.init(this);
-        }
-        
-        // Always initiaze this
+        // Always initiaze these
+        GlobalContext.INSTANCE.init(this);
         DatabaseManager.init(this);
+        ContentDownloadManager.INSTANCE.init(this);
+        AppRater.app_launched(this);
+        VolleyHelper.init(this);
     }
     
     @Override

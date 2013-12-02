@@ -42,9 +42,11 @@ public enum GlobalContext {
     private Map<String,Episode>     mapOfEpisodes;
     
     public void init(Context context) {
-        this.context = context.getApplicationContext();
         
-        resetContentCache();
+        if (this.context == null) {
+            this.context = context.getApplicationContext();
+            resetContentCache();
+        }
         
         googleAnalytics = GoogleAnalytics.getInstance(this.context);
         if (Utils.DEBUG) {

@@ -430,6 +430,8 @@ public class DownloaderService extends Service {
                 manager.notify(NOTIFICATION_ID, notification);
             }
             
+            GlobalContext.INSTANCE.resetContentCache();
+            
             Intent intent = new Intent();
             intent.setAction(ACTION_DOWNLOAD_FINISHED);
             intent.putExtra(DownloaderService.EXTRA_DOWNLOAD_STATE, result);
