@@ -159,6 +159,14 @@ public class AudioPlayer extends Service implements OnCompletionListener {
     }
 
     public void onCompletion(MediaPlayer _mediaPlayer) {
+        MyLog.d(TAG, "Track on completion");
+        
+        Content track = getCurrentTrack();
+        if (track != null) {
+            track.elapsed = track.duration;
+            DatabaseManager.getInstance().createOrUpdateContent(track);
+        }
+        
         release();
         nextTrack();
     }
@@ -310,6 +318,8 @@ public class AudioPlayer extends Service implements OnCompletionListener {
             mediaPlayer.prepare();
             mediaPlayer.start();
             mediaPlayer.setOnCompletionListener(this);
+            
+            MyLog.d(TAG, "track elapsed = " + track.elapsed + ", duration = " + track.duration);
             
             if (track.elapsed > 0 && track.elapsed != track.duration)
                 mediaPlayer.seekTo(track.elapsed);
