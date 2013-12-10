@@ -14,6 +14,8 @@ Features of the app:
 7. In-app browser for all links for an episode
 8. Designed based on Holo and Card UI elements
 
+# Screenshots
+
 ![Screenshot 1][5] ![Screenshot 2][6]
 
 ![Screenshot 2][9] ![Screenshot 4][10]
