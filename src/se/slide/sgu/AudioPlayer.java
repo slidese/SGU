@@ -414,7 +414,15 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         if (mediaPlayer == null) {
             return 0;
         }
-        return mediaPlayer.getCurrentPosition();
+        
+        int elapsed = 0;
+        try {
+            elapsed = mediaPlayer.getCurrentPosition(); 
+        }
+        catch (Exception e) {
+            GlobalContext.INSTANCE.sendExceptionToGoogleAnalytics("Trouble in AudioPlayer.elapsed()", Thread.currentThread().getName(), e, false);
+        }
+        return elapsed; 
     }
 
     public void seek(int timeInMillis) {
