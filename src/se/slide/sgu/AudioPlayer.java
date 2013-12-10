@@ -108,14 +108,7 @@ public class AudioPlayer extends Service implements OnCompletionListener {
                     if (wasPlaying)
                         play();
                 }
-                else if(state == TelephonyManager.CALL_STATE_OFFHOOK) {
-                    if (mediaPlayer != null && mediaPlayer.isPlaying())
-                        wasPlaying = true;
-                    else
-                        wasPlaying = false;
-                    
-                   pause();
-                }
+                
                 super.onCallStateChanged(state, incomingNumber);
             }
         };
@@ -270,6 +263,8 @@ public class AudioPlayer extends Service implements OnCompletionListener {
         }
         mediaPlayer.release();
         mediaPlayer = null;
+        
+        wasPlaying = false;
         
         if (updater != null) {
             updater.stopped = true;
