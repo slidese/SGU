@@ -1,5 +1,100 @@
 <sgu>
     <episode>
+        <title>Episode 438</title>
+        <description>Interview with Tim Farley and Susan Gerbic; This Day in Skepticism: Rube Goldberg and Eleanor Gibson; News Items: Male-Female Brain Wiring, Wormholes and Black Holes, Home Genetic Testing; Who's That Noisy; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-12-07adfreeqm57h348g.mp3</mp3>
+        <guid>http://www.theskepticsguide.org/podcast/sgu/438#593</guid>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_438</transcript>
+        <image>brainpnas.jpg</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"The real advantage which truth has, consists in this, that when an opinion is true, it may be extinguished once, twice, or many times, but in the course of ages there will generally be found persons to rediscover it, until some one of its reappearances falls on a time when from favourable circumstances it escapes persecution until it has made such head as to withstand all subsequent attempts to suppress it."</text>
+            <by>John Stuart Mill</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>The human body has more than 12 distinct types of sensation (without dividing taste, smell, vision, or hearing into subtypes).</description>
+                <link>http://www.livescience.com/32314-how-many-senses-do-humans-have.html</link>
+            </item>
+            <item science="false">
+                <title>Item #2</title>
+                <description>There are six known moons of Pluto (five named), and 83 confirmed moons of Jupiter.</description>
+                <link>http://en.wikipedia.org/wiki/Moons_of_Jupiter</link>
+                <link>http://en.wikipedia.org/wiki/Moons_of_Pluto</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>There are 11 known states of matter (not counting non-classical states and purely theoretical states).</description>
+                <link>http://en.wikipedia.org/wiki/State_of_matter</link>
+            </item>
+            <item science="true">
+                <title>Item #4</title>
+                <description>There are currently six people in space.</description>
+                <link>http://www.howmanypeopleareinspacerightnow.com/</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism: Happy birthday to psychologist Eleanor Gibson and deathday to Rube Goldberg</title>
+                <start>0:36</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Male-Female Brain Wiring</title>
+                <start>4:27</start>
+                <link>http://www.bbc.co.uk/news/health-25198063</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Wormholes and Black Holes</title>
+                <start>21:25</start>
+                <link>http://phys.org/news/2013-12-spooky-action-wormhole-entangled-quantum.html</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Home Genetic Testing</title>
+                <start>29:07</start>
+                <link>http://www.bbc.co.uk/news/science-environment-25209956</link>
+            </section>
+            <section>
+                <number>6</number>
+                <title>Who's That Noisy</title>
+                <start>39:36</start>
+            </section>
+			<section>
+                <number>7</number>
+                <title>Interview with Tim Farley and Susan Gerbic</title>
+                <start>42:28</start>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Science or Fiction</title>
+                <start>61:56</start>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>74:50</start>
+            </section>
+        </sections>
+    </episode>
+    <episode>
         <title>Episode 437</title>
         <description>This Day in Skepticism: Hodges Meteorite; News Items: MAVEN Launch - with special guest Elliot Goldman, Sylvia Browne Dead, Homeopathy Death, Capturing Lost Energy, FDA Report on Burzynski, Comet ISON; Who's That Noisy; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-11-30adfree82n93hf78.mp3</mp3>
@@ -1774,6 +1869,13 @@
         </sections>
     </episode>
     <!-- episode>
+        <title>Premium 19</title>
+        <description>Thorium Fuel Concept Car</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/SGUPremium-019-ThoriumCars12-07-13n9482uy.mp3</mp3>
+        <guid>http://www.theskepticsguide.org/members-only-content#594</guid>
+        <image>thorium-fuel-concept.jpg</image>
+    </episode>
+    <episode>
         <title>Premium 18</title>
         <description>Pseudo-zoologists hunt for the thylacine</description>
         <mp3>http://traffic.libsyn.com/sgupremium/SGUPremium-018-Thylacine11-25-13nsndjkf8.mp3</mp3>
