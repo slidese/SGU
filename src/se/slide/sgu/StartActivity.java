@@ -235,6 +235,17 @@ public class StartActivity extends FragmentActivity implements ContentListener, 
             startActivity(intent);
             return true;
         }
+        else if (item.getItemId() == R.id.action_send_feedback) {
+            
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("message/rfc822");
+            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"mike@slide.se"});
+            intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.send_feedback_subject));
+            Intent mailer = Intent.createChooser(intent, null);
+            startActivity(mailer);
+            
+            return true;
+        }
         else if (item.getItemId() == R.id.action_about) {
             
             Intent intent = new Intent(this, AboutActivity.class);
