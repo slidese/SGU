@@ -1868,7 +1868,7 @@
             </section>
         </sections>
     </episode>
-    <!-- episode>
+    <episode>
         <title>Premium 19</title>
         <description>Thorium Fuel Concept Car</description>
         <mp3>http://traffic.libsyn.com/sgupremium/SGUPremium-019-ThoriumCars12-07-13n9482uy.mp3</mp3>
@@ -2000,5 +2000,5 @@
         <mp3>http://traffic.libsyn.com/sgupremium/SGU_Premium_001_Goodall_h83nw2lm4.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#557</guid>
         <image>Jane-Goodall-portrait.jpg</image>
-    </episode-->
+    </episode>
 </sgu>
