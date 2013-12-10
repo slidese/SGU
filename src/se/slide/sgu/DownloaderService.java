@@ -415,7 +415,7 @@ public class DownloaderService extends Service {
             super.onPostExecute(result);
             
             if (result) {
-                if (manuallyStarted && newContent) {
+                if (!manuallyStarted && newContent) {
                     Notification notification = GlobalContext.INSTANCE.buildNotification(getString(R.string.download_new_ticker), getString(R.string.download_new_title), getString(R.string.download_new_text));
                     NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                     manager.notify(NOTIFICATION_NEW, notification);

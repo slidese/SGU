@@ -42,7 +42,7 @@
     <!-- Download new -->
     <string name="download_new_ticker">Downloading new content</string>
     <string name="download_new_title">New SGU content</string>
-    <string name="download_new_text">Downloading new SGU content</string>
+    <string name="download_new_text">New SGU content</string>
     
     <!-- Send feedback -->
     <string name="send_feedback_subject">Feedback SGU (Unofficial)</string>
