@@ -1,5 +1,112 @@
 <sgu>
     <episode>
+        <title>Episode 439</title>
+        <description>This Day in Skepticism: Tycho Brahe; News Items: Atmospheric Mystery, Mima Mounds, Exploding Pig Farms, False Memories, Oldest Human DNA, Mars Radiation; Who's That Noisy; Your Questions and E-mails: Creationist Claims; Science Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-12-14adfree5kgmnf8.mp3</mp3>
+        <guid>http://www.theskepticsguide.org/podcast/sgu/439#595</guid>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_439</transcript>
+        <image>Mima-mounds.jpg</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"Doubt is not a pleasant condition, but certainty is absurd."</text>
+            <by>Voltaire</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>Scientists report a new technique that can distinguish a DNA paternity test between identical twins.</description>
+                <link>http://www.sciencedirect.com/science/article/pii/S1872497313002275</link>
+            </item>
+            <item science="true">
+                <title>Item #2</title>
+                <description>Researchers have discovered a new atmospheric chemical that, molecule for molecule, is 7100 times the global warming impact as carbon dioxide.</description>
+                <link>http://media.utoronto.ca/media-releases/arts/new-long-lived-greenhouse-gas-discovered-by-university-of-toronto-chemistry-team/</link>
+            </item>
+            <item science="false">
+                <title>Item #3</title>
+                <description>New measurements find that Mercury has expanded more than previously thought – about 100 kilometers in diameter over the life of the solar system.</description>
+                <link>http://www.nature.com/news/mercury-shrinking-more-than-thought-1.14331</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism: Happy Birthday to Tycho Brahe</title>
+                <start>1:05</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Atmospheric Mystery</title>
+                <start>7:12</start>
+                <link>http://phys.org/news/2013-12-astronomers-temperature-mystery-planetary-atmosphere.html</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Mima Mounds</title>
+                <start>12:18</start>
+                <link>http://www.bbc.co.uk/news/science-environment-25259133</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Exploding Pig Farms</title>
+                <start>18:59</start>
+                <link>http://nautil.us/blog/the-curious-case-of-the-exploding-pig-farms</link>
+            </section>
+            <section>
+                <number>6</number>
+                <title>False Memories</title>
+                <start>29:13</start>
+                <link>http://theness.com/neurologicablog/index.php/false-memory-fundamental/</link>
+            </section>
+			<section>
+                <number>7</number>
+                <title>Oldest Human DNA</title>
+                <start>38:57</start>
+                <link>http://www.bbc.co.uk/news/science-environment-25193442</link>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Mars Radiation</title>
+                <start>46:36</start>
+                <link>http://www.scientificamerican.com/article.cfm?id=radiation-on-mars-managea</link>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Who's That Noisy</title>
+                <start>49:16</start>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Question #1: Creationist Questions</title>
+                <start>53:11</start>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Science or Fiction</title>
+                <start>61:53</start>
+            </section>
+            <section>
+                <number>12</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>74:31</start>
+            </section>
+        </sections>
+    </episode>
+    <episode>
         <title>Episode 438</title>
         <description>Interview with Tim Farley and Susan Gerbic; This Day in Skepticism: Rube Goldberg and Eleanor Gibson; News Items: Male-Female Brain Wiring, Wormholes and Black Holes, Home Genetic Testing; Who's That Noisy; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-12-07adfreeqm57h348g.mp3</mp3>
@@ -1867,6 +1974,13 @@
                 <start>71:17</start>
             </section>
         </sections>
+    </episode>
+    <episode>
+        <title>Premium 20</title>
+        <description>Interview with Christopher Hitchens</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/SGUPremium-020-Hitchens12-14-13wri90t4f.mp3</mp3>
+        <guid>http://www.theskepticsguide.org/members-only-content#596</guid>
+        <image>Hitchens.jpg</image>
     </episode>
     <episode>
         <title>Premium 19</title>
