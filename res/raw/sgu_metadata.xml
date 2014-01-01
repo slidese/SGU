@@ -1,4 +1,193 @@
 <sgu>
+	<episode>
+        <title>SGU Episode 441</title>
+        <description>2013 Year in Review; Guest Rogue: George Hrab; This Day in Skepticism: Birth of Cinema; SGU Year in Review; Science News 2013; Who's That Noisy; In Memoriam; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-12-28adfree36f03mn.mp3</mp3>
+        <guid>http://www.theskepticsguide.org/podcast/sgu/441#598</guid>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_441</transcript>
+        <image>SGU2013.bmp</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"Not wrong, there is just more to learn."</text>
+            <by>The Doctor</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>Scientists discover quadruple helix DNA in human cells.</description>
+                <link>http://www.sciencedaily.com/releases/2013/01/130120150033.htm</link>
+            </item>
+            <item science="false">
+                <title>Item #2</title>
+                <description>Researchers find that bilingual children have a significantly higher IQ score compared to matched monolingual controls.</description>
+                <link>http://canal.ugr.es/social-economic-and-legal-sciences/item/63121</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>Scientists discover the mechanism by which the single-celled organism, Tetrahymena thermophile, has seven sexes.</description>
+                <link>http://www.eurekalert.org/pub_releases/2013-03/uoc--rd032613.php</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism: The Lumière brothers hold their first public film screening</title>
+                <start>1:05</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Year in Review: Best and Worst of 2013</title>
+                <start>4:07</start>
+            </section>
+            <section>
+                <number>4</number>
+                <title>2013 Year in Science: Best and Worst science news of 2013</title>
+                <start>37:36</start>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Who's That Noisy</title>
+                <start>64:16</start>
+            </section>
+			<section>
+                <number>6</number>
+                <title>In Memoriam</title>
+                <start>66:08</start>
+                <link>http://www.kake.com/home/headlines/Controversial-preacher-Harold-Camping-dies-236118791.html</link>
+            </section>
+            <section>
+                <number>7</number>
+                <title>Science or Fiction</title>
+                <start>71:34</start>
+            </section>
+			<section>
+                <number>8</number>
+                <title>Announcements: SGU Conferences 2014</title>
+                <start>81:51</start>
+            </section>			
+            <section>
+                <number>9</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>83:28</start>
+            </section>
+        </sections>
+    </episode>
+	<episode>
+        <title>SGU Episode 440</title>
+        <description>This Day in Skepticism: HMS Challenger; News Items: Geysers on Europa, Regulation in Genetic Code, Jade Rabbit, Aspartame Safe, Cell Phones on Planes; Who’s That Noisy; Your Questions and E-mails: Reverse Speech; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-12-21adfreepowjief.mp3</mp3>
+        <guid>http://www.theskepticsguide.org/podcast/sgu/440#597</guid>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_440</transcript>
+        <image>jaderabbit.jpg</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"It's hard to light a candle, easy to curse the dark instead"</text>
+            <by>A verse from the song Last Ride Of The Day by Nightwish, lyrics by Tuomas Holopainen. Inspired by a quote from Benjamin Franklin</by>
+        </quote>
+        <scienceorfiction>
+            <item science="false">
+                <title>Item #1</title>
+                <description>NEC Corporation announced it had achieved a wireless transmission record of 1.05 Petabits per second.</description>
+                <link>http://www.corning.com/opticalfiber/news_and_events/news_releases/2013/2013011501.aspx</link>
+            </item>
+            <item science="true">
+                <title>Item #2</title>
+                <description>Astronomers announced early in 2013 that they discovered seven exocomets.</description>
+                <link>http://www.newscientist.com/article/dn23056-exocomets-abound-in-alien-solar-systems.html#.Uq-VcvRDt8F</link>
+            </item>
+            <item science="false">
+                <title>Item #3</title>
+                <description>Japanese scientists created a transparent zebrafish whose brain glows when active, so you can see its thoughts.</description>
+                <link>http://www.popsci.com/science/article/2013-01/watch-zebrafish-think-about-food</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism</title>
+                <start>4:02</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Geysers on Europa</title>
+                <start>6:38</start>
+                <link>http://www.slate.com/blogs/bad_astronomy/2013/12/12/europa_possible_geyser_observed_using_hubble.html</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Regulation of Genetic Code</title>
+                <start>14:02</start>
+                <link>http://www.washington.edu/news/2013/12/12/scientists-discover-double-meaning-in-genetic-code/</link>
+				<link>http://www.sciencemag.org/content/342/6164/1367.short</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Jade Rabbit</title>
+                <start>21:34</start>
+                <link>http://www.bbc.co.uk/news/science-environment-25402455</link>
+            </section>
+			<section>
+                <number>6</number>
+                <title>Aspartame Safe</title>
+                <start>28:07</start>
+                <link>http://www.bbc.co.uk/news/health-25323216</link>
+            </section>
+			<section>
+                <number>7</number>
+                <title>Cell Phones on Planes</title>
+                <start>34:25</start>
+                <link>http://www.bbc.co.uk/news/world-us-canada-25355399</link>
+            </section>			
+            <section>
+                <number>8</number>
+                <title>Who's That Noisy</title>
+                <start>44:52</start>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Questions and Emails: Reverse Speech</title>
+                <start>49:30</start>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Science or Fiction</title>
+                <start>58:37</start>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>76:10</start>
+            </section>
+        </sections>
+    </episode>
     <episode>
         <title>Episode 439</title>
         <description>This Day in Skepticism: Tycho Brahe; News Items: Atmospheric Mystery, Mima Mounds, Exploding Pig Farms, False Memories, Oldest Human DNA, Mars Radiation; Who's That Noisy; Your Questions and E-mails: Creationist Claims; Science Fiction</description>
