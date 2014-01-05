@@ -1,5 +1,105 @@
 <sgu>
 	<episode>
+        <title>SGU Episode 442</title>
+        <description>Interview with Hai Ting and Matthew; This Day in Skepticism: Topsy the Elephant; Predictions 2013; News Items: Atmosphere of a Super Earth, Reverse Ageing, Magnetic Pooping, Virgin Births; Who’s That Noisy; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2014-01-01adfree.mp3</mp3>
+        <guid>http://www.theskepticsguide.org/podcast/sgu/442#599</guid>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_442</transcript>
+        <image>Edison-Electrocuting-Elephant.jpg</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"Science advances through tentative answers to a series of more and more subtle questions which reach deeper and deeper into the essence of natural phenomena."</text>
+            <by>Louis Pasteur</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>Researchers find that human hunter/gatherers follow a movement pattern that is the same as the foraging patterns of many animals, such as sharks and honey bees.</description>
+                <link>http://uanews.org/story/walking-the-walk-what-sharks-honeybees-and-humans-have-in-common</link>
+            </item>
+            <item science="true">
+                <title>Item #2</title>
+                <description>Astronomers report the first discovery of a possible exomoon.</description>
+                <link>http://www.nature.com/news/first-possible-exomoon-spotted-1.14430</link>
+            </item>
+            <item science="false">
+                <title>Item #3</title>
+                <description>A new survey of dinosaur species concludes that as many as half of known species sported some type of feather.</description>
+                <link>http://www.nature.com/news/feathers-were-the-exception-rather-than-the-rule-for-dinosaurs-1.14379</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism</title>
+                <start>1:09</start>
+            </section>
+			<section>
+                <number>3</number>
+                <title>Predictions 2013</title>
+                <start>5:18</start>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Atmosphere on a super earth</title>
+                <start>25:49</start>
+                <link>http://m.phys.org/news/2013-12-hubble-telescope-reveal-cloudy-weather.html</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Reverse Ageing</title>
+                <start>30:27</start>
+                <link>http://www.sciencebasedmedicine.org/reverse-ageing-hype/</link>
+            </section>
+            <section>
+                <number>6</number>
+                <title>Magnetic Pooping</title>
+                <start>38:29</start>
+                <link>http://www.frontiersinzoology.com/content/10/1/80/abstract</link>
+            </section>
+			<section>
+                <number>7</number>
+                <title>Virgin Births</title>
+                <start>46:04</start>
+                <link>http://www.today.com/health/just-time-christmas-could-virgin-births-be-real-2D11762820</link>
+            </section>		
+            <section>
+                <number>8</number>
+                <title>Who's That Noisy</title>
+                <start>49:58</start>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Interview with Hai Ting Chinn and Matthew Schickele</title>
+                <start>50:32</start>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Science or Fiction</title>
+                <start>63:49</start>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>79:43</start>
+            </section>
+        </sections>
+    </episode>
+	<episode>
         <title>SGU Episode 441</title>
         <description>2013 Year in Review; Guest Rogue: George Hrab; This Day in Skepticism: Birth of Cinema; SGU Year in Review; Science News 2013; Who's That Noisy; In Memoriam; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-12-28adfree36f03mn.mp3</mp3>
@@ -2163,6 +2263,13 @@
                 <start>71:17</start>
             </section>
         </sections>
+    </episode>
+    <episode>
+        <title>Premium 21</title>
+        <description>Name That Logical Fallacy - Antiquity and Special Pleading</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/SGUPremium-021-Antiquity01-04-14mneoid.mp3</mp3>
+        <guid>http://www.theskepticsguide.org/members-only-content#600</guid>
+        <image>Galen.gif</image>
     </episode>
     <episode>
         <title>Premium 20</title>
