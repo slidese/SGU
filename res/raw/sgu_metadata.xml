@@ -1,6 +1,223 @@
 <sgu>
 	<episode>
-        <title>SGU Episode 442</title>
+        <title>Episode 444</title>
+        <description>This Day in Skepticism: Jacob Bronowski; News Items: Self-Cleaning Clothing, Fukushima, Tiktaalik Update, Universal Flu Vaccine, Snowden Alien Conspiracy, Blood Type Diet; Who’s That Noisy; Your Questions and E-mails: Destroying Currency; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2014-01-18adfree2kfj84jh.mp3</mp3>
+        <guid>http://www.theskepticsguide.org/podcast/sgu/444#602</guid>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_444</transcript>
+        <image>tiktaalik-3.jpg</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"The line between what is known scientifically and what has to be assumed in order to support knowledge is impossible to draw. Memory itself is an internal rumour."</text>
+            <by>George Santayana</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>A new study reexamines classic moral dilemma psychology scenarios using virtual reality, finding that subjects are more utilitarian (basing decisions on outcomes rather than moral reasoning) when facing the scenarios in virtual reality than when simply asked what they would do.</description>
+                <link>http://www.alphagalileo.org/ViewItem.aspx?ItemId=138033&amp;CultureCode=en</link>
+            </item>
+            <item science="false">
+                <title>Item #2</title>
+                <description>A recently published study finds a so-called “obesity paradox” – overweight or obese patients with type 2 diabetes survive longer than their normal weight counterparts.</description>
+                <link>http://www.nejm.org/doi/pdf/10.1056/NEJMoa1304501</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>New research finds that even the oldest trees grow faster and store more carbon as they age.</description>
+                <link>http://www.sciencedaily.com/releases/2014/01/140115132740.htm</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism: Happy birthday to Jacob Bronowski, mathematician, humanist, polymath</title>
+                <start>1:24</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Self-Cleaning Clothes</title>
+                <start>4:03</start>
+                <link>http://phys.org/news/2014-01-stain-free-self-cleaning-horizon.html</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Fukushima Fallout</title>
+                <start>12:51</start>
+                <link>http://fox5sandiego.com/2014/01/13/west-coast-radiation-from-fukushima-disaster-poses-no-risk-experts-say/#axzz2qUE5gGsf</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Tiktaalik Update</title>
+                <start>23:30</start>
+                <link>http://www.bbc.co.uk/news/science-environment-25713538</link>
+            </section>
+			<section>
+                <number>6</number>
+                <title>Universal Flu Vaccine</title>
+                <start>29:10</start>
+                <link>http://www.scientificamerican.com/article.cfm?id=a-flu-vaccine-thats-always-in-season&amp;WT.mc_id=SA_DD_20140114</link>
+            </section>
+			<section>
+                <number>7</number>
+                <title>Snowden Alien Conspiracy</title>
+                <start>39:41</start>
+                <link>http://www.nationaljournal.com/defense/no-edward-snowden-did-not-blow-the-lid-off-the-alien-conspiracy-20140113</link>
+            </section>	
+			<section>
+                <number>8</number>
+                <title>Blood-Type Diet</title>
+                <start>47:43</start>
+                <link>http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0084749</link>
+            </section>			
+            <section>
+                <number>9</number>
+                <title>Who's That Noisy</title>
+                <start>49:03</start>
+            </section>
+			<section>
+                <number>10</number>
+                <title>Question #1. Destroying Currency</title>
+                <start>52:17</start>
+                <link>http://www.federalreserve.gov/faqs/how-long-is-the-life-span-of-us-paper-money.htm</link>
+                <link>http://www.crazyshirts.com/category/men/money-dyed-t-shirt.do</link>
+                <link>http://www.nytimes.com/1994/05/22/us/in-recycling-of-greenbacks-new-meaning-for-old-money.html</link>
+                <link>http://www.theatlantic.com/business/archive/2011/04/the-destruction-of-money-who-does-it-why-when-and-how/236990/</link>
+            </section>	
+            <section>
+                <number>11</number>
+                <title>Science or Fiction</title>
+                <start>59:42</start>
+            </section>
+            <section>
+                <number>12</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>80:51</start>
+            </section>
+        </sections>
+    </episode>
+    <episode>
+        <title>Episode 443</title>
+        <description>Interview with Mark Crislip; This Day in Skepticism: Amelia Earhart; News Items: Vitamin Supplements, Polar Vortex, Earthquake Lights, I Killed Bigfoot, Cancer Deaths Drop; Who’s That Noisy; Your Questions and E-mails: Distilled Water; Science or Fiction</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2014-01-11adfree5548gjee.mp3</mp3>
+        <guid>http://www.theskepticsguide.org/podcast/sgu/443#601</guid>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_443</transcript>
+        <image>Bigfoot-face-picture.jpg</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"I do not know anything about luck, apart from that the more I practice, the luckier I get."</text>
+            <by>Ingemar Stenmark (Swedish alpine skier)</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>A new study suggests that cleaning bills could save currency producers billions of dollars a year.</description>
+                <link>http://phys.org/news/2014-01-laundering-moneyliterallycould-billions-dollars.html</link>
+            </item>
+            <item science="true">
+                <title>Item #2</title>
+                <description>A new study finds a significant correlation between the location of premature rupture of membranes (water breaking early in pregnant women) and the presence of bacteria.</description>
+                <link>http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0083338</link>
+            </item>
+            <item science="false">
+                <title>Item #3</title>
+                <description>Scientists examining mutation rates in humans, chimps, and their lice find that their DNA mutation rates are remarkably similar.</description>
+                <link>http://rspb.royalsocietypublishing.org/content/281/1777/20132174.abstract</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism</title>
+                <start>1:46</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Vitamin Supplements</title>
+                <start>6:56</start>
+                <link>http://theness.com/neurologicablog/index.php/strike-three-for-multivitamin-use/</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Polar Vortex</title>
+                <start>16:59</start>
+                <link>http://www.npr.org/blogs/thetwo-way/2014/01/07/260455201/what-is-the-polar-vortex-and-why-is-it-doing-this-to-us</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Earthquake Lights</title>
+                <start>23:46</start>
+                <link>http://news.cnet.com/8301-11386_3-57616750-76/extraordinary-earthquake-lights-explained-theyre-not-ufos/</link>
+            </section>
+			<section>
+                <number>6</number>
+                <title>I Killed Bigfoot</title>
+                <start>32:25</start>
+                <link>http://www.ksat.com/news/bigfoot-hunter-shares-pictures-of-dead-creature/-/478452/23743310/-/23q274/-/index.html</link>
+            </section>
+			<section>
+                <number>7</number>
+                <title>Cancer Deaths Drop</title>
+                <start>38:08</start>
+                <link>http://www.sciencedaily.com/releases/2014/01/140107102634.htm</link>
+            </section>				
+            <section>
+                <number>8</number>
+                <title>Who's That Noisy</title>
+                <start>42:21</start>
+            </section>
+			<section>
+                <number>9</number>
+                <title>Question #1. Distilled Water</title>
+                <start>45:00</start>
+            </section>	
+            <section>
+                <number>10</number>
+                <title>Interview with Mark Crislip</title>
+                <start>48:49</start>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Science or Fiction</title>
+                <start>63:52</start>
+            </section>
+            <section>
+                <number>12</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>79:22</start>
+            </section>
+        </sections>
+    </episode>
+	<episode>
+        <title>Episode 442</title>
         <description>Interview with Hai Ting and Matthew; This Day in Skepticism: Topsy the Elephant; Predictions 2013; News Items: Atmosphere of a Super Earth, Reverse Ageing, Magnetic Pooping, Virgin Births; Who’s That Noisy; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2014-01-01adfree.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/442#599</guid>
@@ -100,7 +317,7 @@
         </sections>
     </episode>
 	<episode>
-        <title>SGU Episode 441</title>
+        <title>Episode 441</title>
         <description>2013 Year in Review; Guest Rogue: George Hrab; This Day in Skepticism: Birth of Cinema; SGU Year in Review; Science News 2013; Who's That Noisy; In Memoriam; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-12-28adfree36f03mn.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/441#598</guid>
@@ -187,7 +404,7 @@
         </sections>
     </episode>
 	<episode>
-        <title>SGU Episode 440</title>
+        <title>Episode 440</title>
         <description>This Day in Skepticism: HMS Challenger; News Items: Geysers on Europa, Regulation in Genetic Code, Jade Rabbit, Aspartame Safe, Cell Phones on Planes; Who’s That Noisy; Your Questions and E-mails: Reverse Speech; Science or Fiction</description>
         <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-12-21adfreepowjief.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/440#597</guid>
@@ -2263,6 +2480,13 @@
                 <start>71:17</start>
             </section>
         </sections>
+    </episode>
+    <episode>
+        <title>Premium 22</title>
+        <description>Interview with SGU Rogue - Jay</description>
+        <mp3>http://traffic.libsyn.com/sgupremium/SGUPremium-022-JayInterview01-18-14fj8234f.mp3</mp3>
+        <guid>http://www.theskepticsguide.org/members-only-content#603</guid>
+        <image>Jay%2002.jpg</image>
     </episode>
     <episode>
         <title>Premium 21</title>
