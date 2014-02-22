@@ -1,8 +1,612 @@
 <sgu>
 	<episode>
+        <title>Episode 450</title>
+        <description>This Day in Skepticism: Dialogue Concerning the Two Chief World Systems; News Items: Genovese Myth, Pseudoscience Vandalism, Subway and Azodicarbonamide, Petawatt Lawer, AIDS Denialists Silence Critic; Who's That Noisy; Science or Fiction</description>
+        <guid>http://www.theskepticsguide.org/podcast/sgu/450#610</guid>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_450</transcript>
+        <image>gorlitz-cartouche-khufu.jpg</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"Ignorance is nothing shameful; imposing ignorance is shameful. Most people are not to blame for their own ignorance, but if they wilfully pass it on, they are to blame."</text>
+            <by>Daniel Dennett, Breaking the Spell</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>Scientists report new evidence that purports to find the missing mass from galaxy clusters – a previous 40% discrepancy between observations and predictions from cosmological models.</description>
+                <link>http://www.nature.com/news/missing-galaxy-mass-found-1.14731</link>
+            </item>
+            <item science="false">
+                <title>Item #2</title>
+                <description>New research finds that people make better decisions when they believe that outcomes are predetermined by fate.</description>
+                <link>http://www.psychologicalscience.org/index.php/news/releases/when-faced-with-a-hard-decision-people-tend-to-blame-fate.html</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>Archaeologists report on the oldest human footprints found outside of Africa, from a UK site dated to 0.78 to 1 million years ago, pushing back the earliest known humans in northern Europe by at least 350,000 years.</description>
+                <link>http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0088329;jsessionid=2C1165576C7B540DE436D96F55E63A39</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism: Dialogue Concerning the Two Chief World Systems</title>
+                <start>0:48</start>
+				<link>http://en.wikipedia.org/wiki/Dialogue_Concerning_the_Two_Chief_World_Systems</link>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Genovese Myth</title>
+                <start>8:31</start>
+                <link>http://nypost.com/2014/02/16/book-reveals-real-story-behind-the-kitty-genovese-murder/</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Pseudoscience Vandalism</title>
+                <start>20:39</start>
+                <link>http://www.livescience.com/43469-great-pyramid-vandalized-by-conspiracy-theorists.html</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Subway and Azodicarbonamide</title>
+                <start>29:43</start>
+                <link>http://theness.com/neurologicablog/index.php/eating-yoga-mats/</link>
+            </section>
+			<section>
+                <number>6</number>
+                <title>Petawatt Laser</title>
+                <start>42:15</start>
+                <link>http://www.extremetech.com/extreme/176233-petawatt-death-star-laser-prepares-to-investigate-quantum-mechanics-chemistry-and-more</link>
+            </section>
+			<section>
+                <number>7</number>
+                <title>AIDS Denialist Silence Critic</title>
+                <start>49:05</start>
+                <link>http://www.patreon.com/creation?hid=236649</link>
+            </section>	
+			<section>
+                <number>8</number>
+                <title>Who's That Noisy</title>
+                <start>55:40</start>
+            </section>			
+            <section>
+                <number>9</number>
+                <title>Science or Fiction</title>
+                <start>59:02</start>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>76:39</start>
+            </section>
+        </sections>
+    </episode>
+	<episode>
+        <title>Episode 449</title>
+        <description>This Day in Skepticism: Decimal Day; News Items: Organic Molecule on the Moon, Astrology Belief, Burgess Shale, Boeing Anti-Gravity, Photo Lineups, Fusion Beats Unity; Who's That Noisy; Your Questions and E-mails: Net Neutrality, Placebo Medicine; Science or Fiction</description>
+        <guid>http://www.theskepticsguide.org/podcast/sgu/449#609</guid>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_449</transcript>
+        <image>burgess2.jpg</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"The inclination to sink into the slumber of dogma is so natural to every generation that the most uncompromising critical intellect must without intermission stand upon the watch against it."</text>
+            <by>Otto Pfleiderer, 1902</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>Scientists report the results of the first mapping of a genome of a Clovis skeleton, finding that 80% of present-day Native American populations are direct descendants.</description>
+                <link>http://news.ku.dk/all_news/2014/02/americas-only-clovis-skeleton-had-its-genome-mapped/</link>
+            </item>
+            <item science="false">
+                <title>Item #2</title>
+                <description>A new study finds that crocodiles are able to climb trees, some even vertically.</description>
+                <link>http://www.herpetologynotes.seh-herpetology.org/Volume7_PDFs/Dinets_HerpetologyNotes_volume7_pages3-7.pdf</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>Australian astronomers have discovered the oldest known star, which they date to 14.5 billion years old, 800 million years older than the age of universe.</description>
+                <link>http://www.theguardian.com/science/2014/feb/10/australian-astronomers-discover-oldest-known-star-in-universe</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism</title>
+                <start>3:18</start>
+				<link>http://en.wikipedia.org/wiki/Decimal_Day</link>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Organic Molecules on the Moon</title>
+                <start>10:12</start>
+                <link>http://www.dailymail.co.uk/sciencetech/article-2556947/Could-creatures-one-day-live-MOON-Ice-pockets-lunar-surface-hiding-building-blocks-simple-life.html</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Astrology Belief</title>
+                <start>15:08</start>
+                <link>http://www.motherjones.com/blue-marble/2014/02/public-opinion-astrology-dumb</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>New Burgess Shale Find</title>
+                <start>19:45</start>
+                <link>http://theness.com/neurologicablog/index.php/new-burgess-shale-find/</link>
+            </section>
+			<section>
+                <number>6</number>
+                <title>Boeing Anti-Gravity</title>
+                <start>22:59</start>
+                <link>http://gizadeathstar.com/2014/01/fringe-science-boeing-admits-anti-gravity-work/</link>
+            </section>
+			<section>
+                <number>7</number>
+                <title>Photo Lineups</title>
+                <start>31:46</start>
+                <link>http://gizadeathstar.com/2014/01/fringe-science-boeing-admits-anti-gravity-work/</link>
+            </section>	
+			<section>
+                <number>8</number>
+                <title>Quickie with Bob - Fusion Beats Unity</title>
+                <start>39:44</start>
+                <link>http://www.nature.com/nature/journal/vaop/ncurrent/full/nature13008.html</link>
+            </section>			
+            <section>
+                <number>9</number>
+                <title>Who's That Noisy</title>
+                <start>43:29</start>
+            </section>
+			<section>
+                <number>10</number>
+                <title>Question #1. Net Neutrality</title>
+                <start>47:14</start>
+            </section>
+			<section>
+                <number>11</number>
+                <title>Question #2. Placebo Medicine</title>
+                <start>54:55</start>
+            </section>				
+            <section>
+                <number>12</number>
+                <title>Science or Fiction</title>
+                <start>62:29</start>
+            </section>
+            <section>
+                <number>13</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>78:10</start>
+            </section>
+        </sections>
+    </episode>
+	<episode>
+        <title>Episode 448</title>
+        <description>The SGU crew takes live questions from an online audience</description>
+        <guid>http://www.theskepticsguide.org/podcast/sgu/448#608</guid>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_448</transcript>
+        <image>liveshow.bmp</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>What discovery would you most like scientists to make? - Mike Hamptom</title>
+                <start>1:23</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Would you allow yourself to be teleported? - Tor</title>
+                <start>6:04</start>
+            </section>
+            <section>
+                <number>4</number>
+                <title>How would you conclude a debate against creationists? - Duncan</title>
+                <start>15:42</start>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Thoughts on the net neutrality decision. - Kevin</title>
+                <start>20:32</start>
+            </section>
+			<section>
+                <number>6</number>
+                <title>First or most memorable skeptical thing your kid saying? - Jennie</title>
+                <start>24:21</start>
+            </section>
+			<section>
+                <number>7</number>
+                <title>Roast or slow cook? - Oak</title>
+                <start>27:32</start>
+            </section>
+			<section>
+                <number>8</number>
+                <title>What can we learn from the skeptical movement’s greatest successes and failures? - James Edward Gray II</title>
+                <start>31:19</start>
+            </section>	
+			<section>
+                <number>9</number>
+                <title>What can we do to keep skeptical activism moving forward? - Malcolm Snelgrove</title>
+                <start>39:00</start>
+            </section>			
+            <section>
+                <number>10</number>
+                <title>Who was the person that surprised you the most because you thought they were a skeptic and they turned out not to be? - Jeff Edwards</title>
+                <start>42:32</start>
+            </section>
+			<section>
+                <number>11</number>
+                <title>What is the worst argument you have ever received regarding evolution, climate change, or vaccines? - Damian</title>
+                <start>47:15</start>
+            </section>	
+            <section>
+                <number>12</number>
+                <title>Where do you draw the line between skeptical and confrontational? - Eric and Matthew</title>
+                <start>50:06</start>
+            </section>
+            <section>
+                <number>13</number>
+                <title>Are there any resources that do a particularly good job of explaining basic physical concepts? - Gary Evans</title>
+                <start>55:00</start>
+            </section>
+			<section>
+                <number>14</number>
+                <title>Do you think with modern technology the desire to reproduce is outdated and selfish? - Isaac</title>
+                <start>57:33</start>
+            </section>
+			<section>
+                <number>15</number>
+                <title>What does Stephen Hawking’s notion of there not being a sharp event horizon have to do with the holographic universe? - Jonathan</title>
+                <start>63:03</start>
+            </section>
+        </sections>
+    </episode>
+    <episode>
+        <title>Episode 447</title>
+        <description>This Day in Skepticism: The Devil's Footprints; News Items: Detecting Computer Zombies, Sucralose Fearmongering, Werewolf Diet, Nye-Ham Debate; Who's That Noisy; Your Questions and E-mails: Thorium Car, FTL Communication; Science or Fiction</description>
+        <guid>http://www.theskepticsguide.org/podcast/sgu/447#607</guid>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_447</transcript>
+        <image>devils%20footprints.jpg</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"Fables should be taught as fables, myths as myths, and miracles as poetic fantasies. To teach superstitions as truths is a most terrible thing. The child mind accepts and believes them, and only through great pain and perhaps tragedy can he be in later years relieved of them."</text>
+            <by>Hypatia</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>Scientists report strong evidence confirming the wave-particle duality of sound – demonstrating the coherent transport of quasiparticles called phonons.</description>
+                <link>http://newscenter.lbl.gov/science-shorts/2014/02/05/coherent-phonons-in-superlattices/</link>
+            </item>
+            <item science="false">
+                <title>Item #2</title>
+                <description>Researchers have published the results of a phase III clinical trial of an HIV vaccine demonstrating >80% efficacy in preventing initial infection.</description>
+                <link>http://www.niaid.nih.gov/news/newsreleases/2014/Pages/Durable-End-to-AIDS-.aspx</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>Scientists have developed the first prosthetic hand with real time “near-natural” sensory feedback, allowing sensation of grasping pressure, texture, shape, and hardness of held objects.</description>
+                <link>http://stm.sciencemag.org/content/6/222/222ra19</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism: The Devil’s Footprints</title>
+                <start>0:53</start>
+                <link>http://en.wikipedia.org/wiki/Devil%27s_Footprints</link>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Detecting Computer Zombies</title>
+                <start>8:27</start>
+                <link>http://www.sciencedaily.com/releases/2014/02/140204102054.htm</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Sucralose Fearmongering</title>
+                <start>20:00</start>
+                <link>http://theness.com/neurologicablog/index.php/sucralose-fearmongering/</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Werewolf Diet</title>
+                <start>30:06</start>
+                <link>http://www.dailymail.co.uk/femail/article-2545419/Forget-5-2-time-WEREWOLF-diet-Eating-lunar-calendar-like-Madonna-Demi-Moore-claims-shed-6lb-ONE-DAY.html</link>
+            </section>
+			<section>
+                <number>6</number>
+                <title>Nye-Ham Debate</title>
+                <start>36:27</start>
+                <link>http://www.youtube.com/watch?v=z6kgvhG3AkI&amp;feature=share&amp;t=13m16s</link>
+            </section>			
+            <section>
+                <number>7</number>
+                <title>Who's That Noisy</title>
+                <start>45:50</start>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Question #1: Thorium Car</title>
+                <start>48:00</start>
+                <link>http://matter2energy.wordpress.com/2013/11/11/thorium-laser-car-my-ass/</link>
+                <link>http://www.laserpowersystems.com/</link>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Question #2: FTL Communication</title>
+                <start>54:35</start>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Science or Fiction</title>
+                <start>58:44</start>
+            </section>
+            <section>
+                <number>11</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>72:48</start>
+            </section>
+        </sections>
+    </episode>
+	<episode>
+        <title>Episode 446</title>
+        <description>This Day in Skepticism: Lydia DeWitt; Special Report: What Scientific Idea is Ready for Retirement; News Items: No Black Holes?, Giant Stones of Egypt; Who's That Noisy; Your Questions and E-mails: Mithras; Science or Fiction</description>
+        <guid>http://www.theskepticsguide.org/podcast/sgu/446#605</guid>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_446</transcript>
+        <image>giant%20boxes.jpg</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"Sometimes it happens that a man's intellectual horizon becomes smaller and smaller, and as the radius approaches zero it concentrates on one point. And then that becomes his point of view."</text>
+            <by>David Hilbert</by>
+        </quote>
+        <scienceorfiction>
+            <item science="false">
+                <title>Item #1</title>
+                <description>A team of physicists report that they have, for the first time, created a magnetic monopole in a laboratory.</description>
+                <link>http://rspa.royalsocietypublishing.org/content/133/821/60</link>
+            </item>
+            <item science="true">
+                <title>Item #2</title>
+                <description>Researchers find that some children who were born blind can still have significant development of vision following corrective surgery even as old as 15 years.</description>
+                <link>http://www.pnas.org/content/early/2014/01/15/1311041111</link>
+            </item>
+            <item science="true">
+                <title>Item #3</title>
+                <description>A new study finds that antioxidants speed the progression of lung cancer in mice.</description>
+                <link>http://stm.sciencemag.org/content/6/221/221ra15</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism: Happy birthday to Lydia DeWitt, who conducted important research on the pathology of tuberculosis</title>
+                <start>2:20</start>
+                <link>http://en.wikipedia.org/wiki/Lydia_Maria_Adams_DeWitt</link>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Special Report: What Scientific Idea is Ready for Retirement</title>
+                <start>5:29</start>
+                <link>http://www.edge.org/responses/what-scientific-idea-is-ready-for-retirement</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>No Black Holes?</title>
+                <start>39:54</start>
+                <link>http://news.discovery.com/space/no-black-holes-more-like-grey-holes-says-hawking-140124.htm</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Giant Stones in Egypt</title>
+                <start>46:26</start>
+                <link>http://www.youtube.com/watch?v=8j9uHyDSH0s&amp;feature=youtu.be</link>
+            </section>
+			<section>
+                <number>6</number>
+                <title>Who's That Noisy</title>
+                <start>53:42</start>
+            </section>			
+            <section>
+                <number>7</number>
+                <title>Question #1: Mithras</title>
+                <start>56:20</start>
+                <link>http://en.wikipedia.org/wiki/Mithras_in_comparison_with_other_belief_systems</link>
+            </section>
+            <section>
+                <number>8</number>
+                <title>Science or Fiction</title>
+                <start>65:40</start>
+            </section>
+            <section>
+                <number>9</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>80:44</start>
+            </section>
+            <section>
+                <number>10</number>
+                <title>Announcements: Rogues on Other Podcasts</title>
+                <start>81:31</start>
+                <link>http://filipinofreethinkers.org/2014/01/28/rebecca-watson-skepchick-conversations-for-a-cause/</link>
+                <link>http://kravmagaraleigh.com/kravcast-34-january-26-2014/</link>
+            </section>
+        </sections>
+    </episode>
+	<episode>
+        <title>Episode 445</title>
+        <description>Interview with Karen Stollznow; This Day in Skepticism: Fluoridation; News Items: Cosmic Web, Exorcism Deaths, Ball Lightning, Kepler Update, Creationism in Texas; Who's That Noisy; Name That Logical Fallacy; Science or Fiction</description>
+        <guid>http://www.theskepticsguide.org/podcast/sgu/445#604</guid>
+        <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_445</transcript>
+        <image>Cosmic-Web1.jpg</image>
+        <hosts>
+            <host id="1">Steven Novella</host>
+            <host id="2">Bob Novella</host>
+            <host id="3">Jay Novella</host>
+            <host id="4">Rebecca Watson</host>
+            <host id="5">Evan Bernstein</host>
+        </hosts>
+        <guests>
+            
+        </guests>
+        <quote>
+            <text>"On my 70th birthday, I was asked how I felt about mankind’s prospects. This is my reply: We are behaving like yeasts in a brewer’s vat, multiplying mindlessly while greedily consuming the substance of a finite world. If we continue to imitate the yeasts, we will perish as they perish, having exhausted our resources and poisoned ourselves in the lethal brew of our own wastes. Unlike the yeasts, we have a choice. What will it be?"</text>
+            <by>Farley Mowat</by>
+        </quote>
+        <scienceorfiction>
+            <item science="true">
+                <title>Item #1</title>
+                <description>A new study finds that even positive civil comments can undermine the effectiveness of online public service announcements.</description>
+                <link>http://www.asc.upenn.edu/News/PressDetail.aspx?id=137</link>
+            </item>
+            <item science="true">
+                <title>Item #2</title>
+                <description>Scientists find that taking fever-reducing medication when sick with the flu increases the spread of the disease and leads to more flu-related deaths.</description>
+                <link>http://www.cbc.ca/news/canada/hamilton/news/fever-reducing-meds-encourage-spread-of-flu-mcmaster-report-1.2505505</link>
+            </item>
+            <item science="false">
+                <title>Item #3</title>
+                <description>A new analysis concludes that US carbon emissions can be reduced by 40% if all passenger vehicles by 2050 were fully electric.</description>
+                <link>http://news.ncsu.edu/releases/wms-decarolis-edv2014/</link>
+            </item>
+        </scienceorfiction>
+        <sections>
+            <section>
+                <number>1</number>
+                <title>Introduction</title>
+                <start>0:00</start>
+            </section>
+            <section>
+                <number>2</number>
+                <title>This Day in Skepticism: Grand Rapids MI, first city to fluoridate their drinking water</title>
+                <start>0:57</start>
+            </section>
+            <section>
+                <number>3</number>
+                <title>Cosmic Web</title>
+                <start>7:26</start>
+                <link>http://www.bbc.co.uk/news/science-environment-25809967</link>
+            </section>
+            <section>
+                <number>4</number>
+                <title>Exorcism Deaths</title>
+                <start>12:37</start>
+                <link>http://ca.news.yahoo.com/exorcism-claimed-murders-two-maryland-toddlers-021808136.html</link>
+            </section>
+            <section>
+                <number>5</number>
+                <title>Ball Lightning</title>
+                <start>22:11</start>
+                <link>http://www.newscientist.com/article/dn24886-natural-ball-lightning-probed-for-the-first-time.html#.Ut8WuRAo5Sr</link>
+            </section>
+			<section>
+                <number>6</number>
+                <title>Kepler Update</title>
+                <start>31:16</start>
+                <link>http://www.nasa.gov/kepler/kepler-mission-manager-update-invited-to-2014-senior-review/#.Ut_QCdIo6Hs</link>
+                <link>http://www.nasa.gov/kepler/a-sunny-outlook-for-nasa-keplers-second-light/#.UuBGcBAo5So</link>
+            </section>
+			<section>
+                <number>7</number>
+                <title>Creationism in Texas</title>
+                <start>36:50</start>
+                <link>http://www.slate.com/articles/health_and_science/science/2014/01/creationism_in_texas_public_schools_undermining_the_charter_movement.html</link>
+            </section>	
+			<section>
+                <number>8</number>
+                <title>Who's That Noisy</title>
+                <start>42:05</start>
+            </section>			
+            <section>
+                <number>9</number>
+                <title>Name That Logical Fallacy</title>
+                <start>44:24</start>
+            </section>
+			<section>
+                <number>10</number>
+                <title>Interview: Karen Stollznow</title>
+                <start>46:47</start>
+                <link>http://www.karenstollznow.com/</link>
+            </section>	
+            <section>
+                <number>11</number>
+                <title>Science or Fiction</title>
+                <start>60:17</start>
+            </section>
+            <section>
+                <number>12</number>
+                <title>Skeptical Quote of the Week</title>
+                <start>77:23</start>
+            </section>
+        </sections>
+    </episode>
+	<episode>
         <title>Episode 444</title>
         <description>This Day in Skepticism: Jacob Bronowski; News Items: Self-Cleaning Clothing, Fukushima, Tiktaalik Update, Universal Flu Vaccine, Snowden Alien Conspiracy, Blood Type Diet; Who’s That Noisy; Your Questions and E-mails: Destroying Currency; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2014-01-18adfree2kfj84jh.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/444#602</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_444</transcript>
         <image>tiktaalik-3.jpg</image>
@@ -113,7 +717,6 @@
     <episode>
         <title>Episode 443</title>
         <description>Interview with Mark Crislip; This Day in Skepticism: Amelia Earhart; News Items: Vitamin Supplements, Polar Vortex, Earthquake Lights, I Killed Bigfoot, Cancer Deaths Drop; Who’s That Noisy; Your Questions and E-mails: Distilled Water; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2014-01-11adfree5548gjee.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/443#601</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_443</transcript>
         <image>Bigfoot-face-picture.jpg</image>
@@ -219,7 +822,6 @@
 	<episode>
         <title>Episode 442</title>
         <description>Interview with Hai Ting and Matthew; This Day in Skepticism: Topsy the Elephant; Predictions 2013; News Items: Atmosphere of a Super Earth, Reverse Ageing, Magnetic Pooping, Virgin Births; Who’s That Noisy; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2014-01-01adfree.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/442#599</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_442</transcript>
         <image>Edison-Electrocuting-Elephant.jpg</image>
@@ -319,7 +921,6 @@
 	<episode>
         <title>Episode 441</title>
         <description>2013 Year in Review; Guest Rogue: George Hrab; This Day in Skepticism: Birth of Cinema; SGU Year in Review; Science News 2013; Who's That Noisy; In Memoriam; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-12-28adfree36f03mn.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/441#598</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_441</transcript>
         <image>SGU2013.bmp</image>
@@ -406,7 +1007,6 @@
 	<episode>
         <title>Episode 440</title>
         <description>This Day in Skepticism: HMS Challenger; News Items: Geysers on Europa, Regulation in Genetic Code, Jade Rabbit, Aspartame Safe, Cell Phones on Planes; Who’s That Noisy; Your Questions and E-mails: Reverse Speech; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-12-21adfreepowjief.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/440#597</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_440</transcript>
         <image>jaderabbit.jpg</image>
@@ -508,7 +1108,6 @@
     <episode>
         <title>Episode 439</title>
         <description>This Day in Skepticism: Tycho Brahe; News Items: Atmospheric Mystery, Mima Mounds, Exploding Pig Farms, False Memories, Oldest Human DNA, Mars Radiation; Who's That Noisy; Your Questions and E-mails: Creationist Claims; Science Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-12-14adfree5kgmnf8.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/439#595</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_439</transcript>
         <image>Mima-mounds.jpg</image>
@@ -615,7 +1214,6 @@
     <episode>
         <title>Episode 438</title>
         <description>Interview with Tim Farley and Susan Gerbic; This Day in Skepticism: Rube Goldberg and Eleanor Gibson; News Items: Male-Female Brain Wiring, Wormholes and Black Holes, Home Genetic Testing; Who's That Noisy; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-12-07adfreeqm57h348g.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/438#593</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_438</transcript>
         <image>brainpnas.jpg</image>
@@ -710,7 +1308,6 @@
     <episode>
         <title>Episode 437</title>
         <description>This Day in Skepticism: Hodges Meteorite; News Items: MAVEN Launch - with special guest Elliot Goldman, Sylvia Browne Dead, Homeopathy Death, Capturing Lost Energy, FDA Report on Burzynski, Comet ISON; Who's That Noisy; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-11-30adfree82n93hf78.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/437#591</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_437</transcript>
         <image>MAVEN1.jpg</image>
@@ -813,7 +1410,6 @@
     <episode>
         <title>Episode 436</title>
         <description>Guest Rogue: Phil Plait; This Day in Skepticism: Dr. Who; News Items: How Many Earth-Like Planets, Image of Saturn, 6-Tailed Asteroid, Chopra Attacks Skeptics, Typhoon Haiyan; Name That Logical Fallacy; Your Questions and E-mails: Blind Mole Rats; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-11-23adfree573kjig89r.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/436#590</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_436</transcript>
         <image>saturn2.jpg</image>
@@ -918,7 +1514,6 @@
     <episode>
         <title>Episode 435</title>
         <description>Interview with Gerald Posner; This Day in Skepticism: LSD; News Items: Oldest Animal, Junk DNA, Martian Lizard, Dark Energy; Who's That Noisy; Your Questions and E-mails: Knee Ligament; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-11-16adfree6gjruw34.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/435#589</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_435</transcript>
         <image>martian-lizard.jpg</image>
@@ -1023,7 +1618,6 @@
     <episode>
         <title>Episode 434</title>
         <description>Interview with Chris Mooney and Indre Viskontas; This Day in Skepticism: Carl Sagan, Florence Rena Sabin; News Items: Tardis Science, Moving Stones, Blushing in the Dark, Rock Paper Scissors Robot; Who's That Noisy; Swindler's List: Kevin Trudeau; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-11-09adfree1bbhd7eyu.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/434#586</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_434</transcript>
         <image>tardis.jpg</image>
@@ -1134,7 +1728,6 @@
     <episode>
         <title>Episode 433</title>
         <description>This Day in Skepticism: Charles Van Doren; News Items: Ghost Story, Lorenzo’s Oil, Space Ports, Li Fi, Gender; Who's That Noisy; Live Questions: Getting Involved in Skepticism; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-11-02adfree7yhrfj8.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/433#585</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_433</transcript>
         <image>Spaceport2.jpg</image>
@@ -1235,7 +1828,6 @@
     <episode>
         <title>Episode 432</title>
         <description>Interview with Brian Malow; This Day in Skepticism: Baby Fae; News Items: 1000 Exoplanets, Scientific Literacy and the Tea Party, PPMOs, Wind turbine Syndrome; Who's that Noisy; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-10-26adfree0rogkj4u.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/432#583</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_432</transcript>
         <image>wind%20turbine.jpg</image>
@@ -1342,7 +1934,6 @@
     <episode>
         <title>Episode 431</title>
         <description>This Day in Skepticism: Johnnetta Cole; News Items: Money Predicts Apocalypse, Herbal Supplements, Politics and Dogma, Singularity vs Bridge; Who's That Noisy; Your Questions and E-mails: Cooling Drinks; Name That Logical Fallacy; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-10-19adfreekd8yhfjyw.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/431#581</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_431</transcript>
         <image>golden-crowned-flying-fox.jpg</image>
@@ -1447,7 +2038,6 @@
     <episode>
         <title>Episode 430</title>
         <description>Interview with Marty Klein; This Day in Skepticism: Chicago Fire; News Items: 2013 Nobel Prizes, Kansas Citizens Oppose Science, Open Access Journals, Smart Metals; Who's That Noisy; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-10-12adfree8m3y65g.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/430#579</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_430</transcript>
         <image>smartmetals.jpg</image>
@@ -1547,7 +2137,6 @@
     <episode>
         <title>Episode 429</title>
         <description>This Day in Skepticism: World Teacher Day; News Items: New IPCC Report, Photographic the Soul, Chiropractor Breaks Baby's Neck, Black Hole Explosions and Hair; Who's That Noisy; Your Questions and E-mails: Monsanto, Overpowered Studies; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-10-05adfree16yjr395m.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/429#576</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_429</transcript>
         <image>canola-oil.jpg</image>
@@ -1648,7 +2237,6 @@
     <episode>
         <title>Episode 428</title>
         <description>Interview with Jamie Williams; This Day in Skepticism: Thomas Crapper; News Items: GMO OK, Angry Internet, Warning Labels, When Black Holes Explode, Carbon Nanotube Computers; Who's That Noisy; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-09-28adfree30jsi1v.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/428#573</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_428</transcript>
         <image>carbonnanotube.jpg</image>
@@ -1752,7 +2340,6 @@
     <episode>
         <title>Episode 427</title>
         <description>This Day in Skepticism: David Vetter; News Items: IgNobel 2013, Top Quarks End Universe, Alien Life on Earth, The Physics of Homosexuality, Regeneration; Who's That Noisy; Questions and E-mails: Quantum Energy; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-09-21adfreen5ush20gh.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/427#571</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_427</transcript>
         <image>alienbacteria.jpg</image>
@@ -1854,7 +2441,6 @@
     <episode>
         <title>Episode 426</title>
         <description>This Day in Skepticism: 9/11; News items: Motivated Numeracy, Arctic Ice, Robot Traders, Teenage Exorcists, Homeopathic Vaccines, Mission to Mars; Who's That Noisy; Your Questions and E-mails: Bdellovibrio; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-09-14adfree9erkgjs6ed.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/426#568</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_426</transcript>
         <image>arcticice.jpg</image>
@@ -1964,7 +2550,6 @@
     <episode>
         <title>Episode 425</title>
         <description>This Day in Skepticism: Last Thylacine; News Items: NASA Spiders, Chicken Wings and Penis Size, TCM for Flu, New Element 115; Who's That Noisy; Your Questions and E-mails: Pox Parties, Aromatherapy; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-09-07adfreel8grt4.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/425#565</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_425</transcript>
         <image>SpiderFab.jpg</image>
@@ -2059,7 +2644,6 @@
     <episode>
         <title>Episode 424</title>
         <description>Interview with Cara Santa Maria; This Day in Skepticism: Paul Ehrlich; News Items: Energized Water, Probiotics for Mental Health, Death by Iridology, Immortality; Who's That Noisy; Your Questions and E-mails: Authority; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-08-31adfree.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/424#564</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_424</transcript>
         <image>iridology-chart.jpg</image>
@@ -2164,7 +2748,6 @@
     <episode>
         <title>Episode 423</title>
         <description>Interview with Sanal Edamaruku; This Day in Skepticism: Vesuvius; News Items: No Proof of Creation, Area 51, Hydrating Beer, Indian Rationalist Shot Dead, Free Roaming Planets; Who's That Noisy; Your Questions and E-mails: Sugar and Hyperactivity; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-08-24adfree.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/423#561</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_423</transcript>
         <image>narendra-dabholkar-295.jpg</image>
@@ -2270,7 +2853,6 @@
     <episode>
         <title>Episode 422</title>
         <description>This Day in Skepticism: Hazel Bishop; News Items: NDE Explained, TV Watching, Labor and Autism, Magenta Planet, Spontaneous Baby Combustion; Special Report: Onionated; Who's That Noisy; Name That Logical Fallacy; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-08-17adfree.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/422#556</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_422</transcript>
         <image>magenta%20exoplanet.jpg</image>
@@ -2377,7 +2959,6 @@
     <episode>
         <title>Episode 419</title>
         <description>This Day in Skepticism: Insulin; News Items:  Giant Virus, Gluten, Death Wave, The Pitch Drops, Revenge of the Conspiracy Theorists, Cassini Picture of Earth; Who's That Noisy; Name That Logical Fallacy; Science or Fiction</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/skepticast2013-07-27adfree.mp3</mp3>
         <guid>http://www.theskepticsguide.org/podcast/sgu/419#553</guid>
         <transcript>http://www.sgutranscripts.org/wiki/SGU_Episode_419</transcript>
         <image>EarthfromSaturn.jpg</image>
@@ -2482,156 +3063,140 @@
         </sections>
     </episode>
     <episode>
+        <title>Premium 23</title>
+        <description>Interview with SGU Rogue - Evan Bernstein</description>
+        <guid>http://www.theskepticsguide.org/members-only-content#606</guid>
+        <image>Evan%2001.jpg</image>
+    </episode>
+    <episode>
         <title>Premium 22</title>
-        <description>Interview with SGU Rogue - Jay</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGUPremium-022-JayInterview01-18-14fj8234f.mp3</mp3>
+        <description>Interview with SGU Rogue, Jay Novella</description>
         <guid>http://www.theskepticsguide.org/members-only-content#603</guid>
         <image>Jay%2002.jpg</image>
     </episode>
     <episode>
         <title>Premium 21</title>
         <description>Name That Logical Fallacy - Antiquity and Special Pleading</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGUPremium-021-Antiquity01-04-14mneoid.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#600</guid>
         <image>Galen.gif</image>
     </episode>
     <episode>
         <title>Premium 20</title>
         <description>Interview with Christopher Hitchens</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGUPremium-020-Hitchens12-14-13wri90t4f.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#596</guid>
         <image>Hitchens.jpg</image>
     </episode>
     <episode>
         <title>Premium 19</title>
         <description>Thorium Fuel Concept Car</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGUPremium-019-ThoriumCars12-07-13n9482uy.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#594</guid>
         <image>thorium-fuel-concept.jpg</image>
     </episode>
     <episode>
         <title>Premium 18</title>
         <description>Pseudo-zoologists hunt for the thylacine</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGUPremium-018-Thylacine11-25-13nsndjkf8.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#592</guid>
         <image>thylacine.jpg</image>
     </episode>
     <episode>
         <title>Premium 17</title>
         <description>Uncut Interview with Gerald Posner regarding JFK Assassination</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGUPremium-017-Posner11-13-13j34890t.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#588</guid>
         <image>Posner2013.jpg</image>
     </episode>
     <episode>
         <title>Premium 16</title>
         <description>Is Science Broken?</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGUPremium-016-Sciencequality11-09-13g94kjgj9.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#587</guid>
         <image>science.jpg</image>
     </episode>
     <episode>
         <title>Premium 15</title>
         <description>Casimir Effect and Free Energy</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGUPremium-015-Casimir10-24-13fje823th.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#584</guid>
         <image>casimir.jpg</image>
     </episode>
     <episode>
         <title>Premium 14</title>
         <description>Video - Uncut discussion of politics and dogma</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/Podcast10-16-13video-dogma.mp4</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#582</guid>
         <image>video-dogma.jpg</image>
     </episode>
     <episode>
         <title>Premium 13</title>
         <description>Cyberchondria - health obsession online</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGU_Premium_013_cyberchondria_10-09-13_xi93kg4.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#580</guid>
         <image>Health-Computer.jpg</image>
     </episode>
     <episode>
         <title>Premium 12</title>
         <description>An examination of Scenar Cosmodic devices</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGU_Premium_012_Scenar_Cosmodic_10-02-13_03kgnsj.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#578</guid>
         <image>scenar_cosmodic.jpg</image>
     </episode>
     <episode>
         <title>Premium 11</title>
         <description>Saudi Cleric claims driving harms women's ovaries</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGU_Premium_011_Driving_Ovaries_10-02-13_kgoe8.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#577</guid>
         <image>Saudi-woman-driving.jpg</image>
     </episode>
     <episode>
         <title>Premium 10</title>
         <description>Implicit Association and Faith in Science</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGU_Premium_010_Implicit_Faith_09-25-13_fl04ng8.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#575</guid>
         <image>Sciencefish.JPG</image>
     </episode>
     <episode>
         <title>Premium 9</title>
         <description>WTC7 Collapse</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGU_Premium_009_WTC7_09-18-13_jgio490sd.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#572</guid>
         <image>WTC7b.jpg</image>
     </episode>
     <episode>
         <title>Premium 8</title>
         <description>World Health Organization (WHO) Position on Acupuncture</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGU_Premium_008_WHO_Acupuncture_09-11-13_jg947jdm.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#570</guid>
         <image>acupuncture2.jpg</image>
     </episode>
     <episode>
         <title>Premium 7</title>
         <description>World's Largest Volcano</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGU_Premium_007_Giant_Volcano_09-11-13_ke8gjhwei.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#567</guid>
         <image>Volcano-large.jpg</image>
     </episode>
     <episode>
         <title>Premium 6</title>
         <description>Review of logical fallacies in Evolution vs God</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGU_Premium_006_Evolution_Vs_God_08-31-13_9gk348gjd78.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#563</guid>
         <image>evovgod.jpg</image>
     </episode>
     <episode>
         <title>Premium 5</title>
         <description>Review of a video debunking the moon hoax conspiracy theory.</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGU_Premium_005_Moon_Hoax_08-24-13_uwiofajp9gah.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#562</guid>
         <image>Moon%20Hoax.jpg</image>
     </episode>
     <episode>
         <title>Premium 4</title>
         <description>Rogues review a study looking at religion and intelligence</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGU_Premium_004_Religion_08-17-13_kg8en3mmdf9.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#560</guid>
         <image>Religion.png</image>
     </episode>
     <episode>
         <title>Premium 3</title>
         <description>The Rogues Take a Look at Recycling</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGU_Premium_003_Recycle_08-07-13_69flgk4sn34.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#559</guid>
         <image>recycling-logo2.jpg</image>
     </episode>
     <episode>
         <title>Premium 2</title>
         <description>There and Back Again: Mission to Mars</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGU_Premium_002_Mars_Mission_07-24-13_9gjwk8wslg.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#558</guid>
         <image>mars-mission.jpg</image>
     </episode>
     <episode>
         <title>Premium 1</title>
         <description>Review of Jane Goodall's Latest Book</description>
-        <mp3>http://traffic.libsyn.com/sgupremium/SGU_Premium_001_Goodall_h83nw2lm4.mp3</mp3>
         <guid>http://www.theskepticsguide.org/members-only-content#557</guid>
         <image>Jane-Goodall-portrait.jpg</image>
     </episode>
