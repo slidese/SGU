@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SGU.iml" filepath="$PROJECT_DIR$/SGU.iml" />
+      <module fileurl="file://$PROJECT_DIR$/actionBarPullToRefreshlibrary/actionBarPullToRefreshlibrary.iml" filepath="$PROJECT_DIR$/actionBarPullToRefreshlibrary/actionBarPullToRefreshlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appRater/appRater.iml" filepath="$PROJECT_DIR$/appRater/appRater.iml" />
+      <module fileurl="file://$PROJECT_DIR$/holoCircularProgressBar/holoCircularProgressBar.iml" filepath="$PROJECT_DIR$/holoCircularProgressBar/holoCircularProgressBar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sGU/sGU.iml" filepath="$PROJECT_DIR$/sGU/sGU.iml" />
+      <module fileurl="file://$PROJECT_DIR$/slidingLayerLibrary/slidingLayerLibrary.iml" filepath="$PROJECT_DIR$/slidingLayerLibrary/slidingLayerLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/volley/volley.iml" filepath="$PROJECT_DIR$/volley/volley.iml" />
+    </modules>
+  </component>
+</project>
+
