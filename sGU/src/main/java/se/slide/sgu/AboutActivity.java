@@ -10,6 +10,8 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Window;
 import android.widget.TextView;
 
+import se.slide.sgu.gcm.GcmRegistrationAsyncTask;
+
 public class AboutActivity extends FragmentActivity {
 
     @Override
@@ -38,6 +40,8 @@ public class AboutActivity extends FragmentActivity {
         
         TextView textViewVersion = (TextView) findViewById(R.id.version);
         textViewVersion.setText(message);
+
+        new GcmRegistrationAsyncTask().execute(this);
         
     }
 

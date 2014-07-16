@@ -33,7 +33,6 @@ dependencies {
     compile project(':volley')
     compile project(':holoCircularProgressBar')
     compile project(':slidingLayerLibrary')
-    compile 'com.android.support:support-v4:20.+'
     compile files('libs/commons-lang3-3.1.jar')
     compile files('libs/crashlytics.jar')
     compile files('libs/httpmime-4.1.2.jar')
@@ -41,4 +40,8 @@ dependencies {
     compile files('libs/libGoogleAnalyticsServices.jar')
     compile files('libs/ormlite-android-4.42.jar')
     compile files('libs/ormlite-core-4.42.jar')
+    // You must install or update the Support Repository through the SDK manager to use this dependency.
+    compile 'com.android.support:support-v4:20.+'
+    compile 'com.google.android.gms:play-services:3.1.+'
+    compile project(path: ':backend', configuration: 'android-endpoints')
 }

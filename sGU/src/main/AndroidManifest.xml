@@ -18,13 +18,13 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:logo="@drawable/ic_actionbar_logo"
         android:label="@string/app_name"
+        android:logo="@drawable/ic_actionbar_logo"
         android:theme="@style/Theme.Sgu" >
-        
+
         <!-- Activities -->
         <activity
-            android:name="se.slide.sgu.StartActivity"
+            android:name=".StartActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,36 +32,58 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="se.slide.sgu.SettingsActivity"
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:theme="@style/Theme.Sgu"
-            android:parentActivityName="se.slide.sgu.StartActivity" >
+            android:parentActivityName=".StartActivity"
+            android:theme="@style/Theme.Sgu" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="se.slide.sgu.StartActivity" />
         </activity>
         <activity
-            android:name="se.slide.sgu.AboutActivity"
+            android:name=".AboutActivity"
             android:label="@string/action_about"
-            android:theme="@style/Theme.Sgu"
-            android:parentActivityName="se.slide.sgu.AboutActivity" >
+            android:parentActivityName=".AboutActivity"
+            android:theme="@style/Theme.Sgu" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="se.slide.sgu.StartActivity" />
         </activity>
-        
+
         <!-- Services -->
-        <service android:name="se.slide.sgu.DownloaderService" />
-        <service android:name="se.slide.sgu.AudioPlayer" />
+        <service android:name=".DownloaderService" />
+        <service android:name=".AudioPlayer" />
 
         <!-- Receivers -->
-        <receiver android:name="se.slide.sgu.BootReceiver">
-			<intent-filter>
-				<action android:name="android.intent.action.BOOT_COMPLETED"/>
-			</intent-filter>
-		</receiver>
-        <receiver android:name="se.slide.sgu.StartDownloadReceiver"></receiver>
-        <meta-data android:name="com.crashlytics.ApiKey" android:value="5ed0746b8daa9e45a4b43ba68c996373bf3dc9ac"/>
+        <receiver android:name=".BootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".StartDownloadReceiver" />
+
+        <!-- Google Cloud Messaging, GCM -->
+        <receiver
+            android:name="se.slide.sgu.gcm.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="se.slide.sgu.gcm" />
+            </intent-filter>
+        </receiver>
+        <service android:name="se.slide.sgu.gcm.GcmIntentService" />
+
+        <meta-data
+            android:name="com.crashlytics.ApiKey"
+            android:value="5ed0746b8daa9e45a4b43ba68c996373bf3dc9ac" />
     </application>
+
+    <permission
+        android:name="com.example.gcm.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="com.example.gcm.permission.C2D_MESSAGE" />
 
 </manifest>
