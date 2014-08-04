@@ -1,0 +1,160 @@
+
+<!doctype html>
+<html>
+<head>
+
+  <script src="bower_components/platform/platform.js"></script>
+
+  <link href="bower_components/core-icons/core-icons.html" rel="import">
+  <link href="bower_components/core-icon-button/core-icon-button.html" rel="import">
+  <link href="bower_components/core-toolbar/core-toolbar.html" rel="import"> 
+  <link href="bower_components/core-animated-pages/core-animated-pages.html" rel="import">
+  <link rel="import" href="bower_components/core-ajax/core-ajax.html">
+
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    .toolbar {
+      background-color: steelblue;
+    }
+
+    #container {
+      overflow: auto;
+    }
+
+    .card {
+      position: relative;
+      height: 150px;
+      width: 150px;
+      font-size: 50px;
+      margin: 8px;
+      background-color: tomato;
+      border-radius: 4px;
+      cursor: default;
+    }
+
+    .view {
+      font-size: 250px;
+      background-color: tomato;
+    }
+
+  </style>
+
+</head>
+<body unresolved fullbleed vertical layout>
+
+  <core-ajax
+        auto
+        url="episodes.json"
+        on-core-response="{{handleResponse}}"
+        >
+  </core-ajax>
+
+  <template is="auto-binding">
+    <core-toolbar class="toolbar">
+      <core-icon-button icon="{{$.pages.selected != 0 ? 'arrow-back' : 'menu'}}" on-tap="{{back}}"></core-icon-button>
+      <div flex>Stuff</div>
+      <core-icon-button icon="more-vert" on-tap="{{handleResponse}}"></core-icon-button>
+    </core-toolbar>
+
+    <core-animated-pages id="pages" flex selected="{{page}}" on-core-animated-pages-transition-end="{{transitionend}}" transitions="hero-transition">
+
+      <section vertical layout>
+
+        <div id="container" flex horizontal wrap around-justified layout hero-p>
+          <template repeat="{{item in items}}">
+            <div class="card" vertical center center-justified layout hero-id="item-{{item.title}" hero?="{{$.pages.selected === item + 1 || lastSelected === item + 1}}" on-tap="{{selectView}}"><span cross-fade>{{item.title}}</span></div>
+          </template>
+        </div>
+
+      </section>
+
+      <template repeat="{{item in items}}">
+        <section vertical layout>
+          <div class="view" flex vertical center center-justified layout hero-id="item-{{item.title}}" hero?="{{$.pages.selected === item + 1 || $.pages.selected === 0}}"><span cross-fade>{{item.description}}</span></div>
+        </section>
+      </template>
+
+    </core-animated-pages>
+  </template>
+
+  <script>
+
+/*
+    Polymer({
+      ready: function() {
+        console.log('Mike');
+      },
+
+      handleResponse: function(event, response) {
+          console.log(response);
+
+          //scope.items = response.response.items;
+
+
+
+          var items = [], count=50;
+          for (var i=0; i < count; i++) {
+            items.push(i);
+          }
+
+          //scope.items = items;
+
+      }
+    });*/
+
+    
+
+    addEventListener('template-bound', function(e) {
+      var scope = e.target;
+      
+      var items = [], count=10;
+      for (var i=0; i < count; i++) {
+        items.push(i);
+      }
+      
+      var page = 0;
+
+      scope.items = items;
+
+      var ajax = document.querySelector('core-ajax');
+      ajax.addEventListener('core-response', function(e) {
+          console.log(this.response);
+
+          scope.items = this.response.items;
+        });
+      ajax.go();
+
+      scope.handleResponse = function(event, response) {
+        var items = [], count=20;
+        for (var i=0; i < count; i++) {
+          items.push(i);
+        }
+
+        scope.items = items;
+      }
+
+      scope.selectView = function(e) {
+        var i = e.target.templateInstance.model.item;
+        this.$.pages.selected = i+1;
+      }
+
+      scope.back = function() {
+        this.lastSelected = this.$.pages.selected;
+        console.log(this.lastSelected);
+        this.$.pages.selected = 0;
+      }
+
+      scope.transitionend = function() {
+        if (this.lastSelected) {
+          this.lastSelected = null;
+        }
+      }
+    })
+
+  </script>
+
+</body>
+</html>

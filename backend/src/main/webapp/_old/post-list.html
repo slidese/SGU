@@ -1,0 +1,61 @@
+﻿<link rel="import" href="/components/polymer/polymer.html">
+<!--link rel="import" href="../post-service/post-service.html"-->
+<link rel="import" href="post-card.html">
+<link rel="import" href="/components/core-ajax/core-ajax.html">
+<link rel="import" href="/components/paper-shadow/paper-shadow.html" >
+
+<polymer-element name="post-list" attributes="show">
+  <template>
+    <style>
+    :host {
+      display: block;
+      padding: 20px;
+    }
+    post-card {
+      margin-bottom: 30px;
+    }
+    </style>
+
+    <!--post-service id="service" posts="{{posts}}"></post-service-->
+
+    <core-ajax
+        auto
+        url="http://localhost:8080/_ah/api/metaDataEndpoint/v1/episodecollection"
+        response="{{response.items}}">
+
+    </core-ajax>
+    
+    <div layout vertical center>
+      <template repeat="{{item in items}}">
+        <post-card on-tap={{ontap}}>
+          <!--img src="{{post.avatar}}" width="70" height="70"-->
+          <h2>{{item.title}}</h2>
+          <p>{{item.description}}</p>
+          <p>{{item.transcript}}</p>
+          <p>{{item.uid}}</p>
+          <p>{{item.guid}}</p>
+
+        </post-card>
+      </template>
+    </div>
+  </template>
+
+  <script>
+  Polymer({
+    ready: function() {
+
+    },
+
+    handleResponse: function(event, response) {
+        console.log(response);
+
+        this.items = response.response.items;
+
+    },
+
+    ontap: function() {
+        console.log("tap");
+    }
+  });
+  </script>
+</polymer-element>

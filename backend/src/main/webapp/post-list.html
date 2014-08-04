@@ -1,0 +1,91 @@
+﻿<link rel="import" href="bower_components/polymer/polymer.html">
+<!--link rel="import" href="../post-service/post-service.html"-->
+<link rel="import" href="post-card.html">
+<link rel="import" href="bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="bower_components/paper-shadow/paper-shadow.html" >
+<link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html" >
+
+<polymer-element name="post-list" attributes="show">
+  <template>
+    <style>
+    :host {
+      display: block;
+      padding: 20px;
+    }
+    post-card {
+      margin-bottom: 30px;
+    }
+    core-animated-pages {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      font-size: 72px;
+      overflow: hidden;
+    }
+    </style>
+
+    <!--post-service id="service" posts="{{posts}}"></post-service-->
+
+    <!-- url="http://localhost:8080/_ah/api/metaDataEndpoint/v1/episodecollection" --> 
+    <core-ajax
+        auto
+        url="episodes.json"
+        response="{{episodes}}">
+
+    </core-ajax>
+    
+    <div layout vertical center>
+
+      <core-animated-pages transitions="cross-fade">
+
+        
+
+        <template repeat="{{item in episodes.items}}">
+          <section>
+            <post-card on-tap={{ontap}}>
+              <!--img src="{{post.avatar}}" width="70" height="70"-->
+              <h2>{{item.title}}</h2>
+              <p>{{item.description}}</p>
+              <p>{{item.transcript}}</p>
+              <p>{{item.uid}}</p>
+              <p>{{item.guid}}</p>
+
+            </post-card>
+          </section>
+        </template>
+
+
+        <section vertical layout>
+            Mike2
+        </section>
+
+      </core-animated-pages>
+
+    </div>
+  </template>
+
+  <script>
+  Polymer({
+    selected: 0,
+
+    ready: function() {
+
+    },
+
+    handleResponse: function(event, response) {
+        console.log(response);
+
+        this.items = response.response.items;
+
+    },
+
+    ontap: function() {
+        console.log("tap");
+        var p = document.querySelector('core-animated-pages');
+        //p.selected = 2;
+    }
+  });
+  </script>
+</polymer-element>

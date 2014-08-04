@@ -1,0 +1,491 @@
+{
+  "items" : [ {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/470#639",
+    "uid" : "639",
+    "title" : "Episode 470",
+    "description" : "This Day in Skepticism: Buckminster Fuller; News Items: Solar Freakin' Rebuttal, Slower Light, Orion Capsule, UFO Sightings, Facebook Experiment; Who's That Noisy; Your Questions and E-mails: Transdermal Direct Current Stimulation; Science or Fiction; ",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_470",
+    "image" : "Orion2.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/469#637",
+    "uid" : "637",
+    "title" : "Episode 469",
+    "description" : "This Day in Skepticism: PT Barnum; News Items: Food Fears, Higgs Follow Up, Free Will, Rights of Unvaccinated, KFC Hoax; Who's That Noisy; Your Questions and E-mails: Isagenix; Science or Fiction; ",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_469",
+    "image" : "Earth.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/468#636",
+    "uid" : "636",
+    "title" : "Episode 468",
+    "description" : "This Day in Skepticism: Baron of Arizona; News Items: Micro Architecture, Massive Underground Ocean, 9/11 Debate, Whooping Cough Epidemic, Trophy Wife; Who's That Noisy; Your Questions and E-mails: Teleporting Information; Science or Fiction; ",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_468",
+    "image" : "microlatice.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/467#634",
+    "uid" : "634",
+    "title" : "Episode 467",
+    "description" : "This Day in Skepticism: Summer Solstice; Cosmos Review; News Items: Chopra Challenge, New Computer Architecture, Oz Skewered, Self-Repairing Teeth; Who's That Noisy; Your Questions and E-mails: Solar Power; Science or Fiction; ",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_467",
+    "image" : "solar1.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/466#632",
+    "uid" : "632",
+    "title" : "Episode 466",
+    "description" : "This Day in Skepticism: Space Monkeys; News Items: Turing Test, Psychic Fails, Origin of the Moon, Dragon V2, NASA Starship, Smallest Star; Who's That Noisy; Your Questions and E-mails: Schizophrenia or Possession; Science or Fiction; ",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_466",
+    "image" : "DragonV2.png"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/465#630",
+    "uid" : "630",
+    "title" : "Episode 465",
+    "description" : "Interview with Bug Girl; This Day in Skepticism: British Museum; News Items: Mega - Earth, Secondary Drowning, Medical Information on Wikipedia, Black Hole Magnetism, Lady Hurricanes; Who's That Noisy; Your Questions and E-mails: Third-Hand Smoke; Science or Fiction; ",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_465",
+    "image" : "Mega-Earth.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/464#628",
+    "uid" : "628",
+    "title" : "Episode 464",
+    "description" : "This Day in Skepticism: Jaffina Public Library; News Items: Solar Highways, Suspended Animation, Comb Jellies, PETA Autism, Planetary Diameters; Who's That Noisy; Your Questions and E-mails: Corrections; Science or Fiction; ",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_464",
+    "image" : "combjellies.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/463#626",
+    "uid" : "626",
+    "title" : "Episode 463",
+    "description" : "Interview with Jason Luchtefeld and Grant Ritchey; This Day in Skepticism: Yness Mexica and Helen Taussig; News Items: Planet-Eating Stars, Fluoride and Vaccines are Safe, Nasal Strips for Horses, Jupiter's Red Spot Shrinking, Military Response to Zombies; Who's That Noisy; Your Questions and E-mails: Harmonized Water; Science or Fiction; ",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_463",
+    "image" : "horse%20nasal%20strips.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/462#625",
+    "uid" : "625",
+    "title" : "Episode 462",
+    "description" : "With Guest Rogue: Ajia Moon; Interview with Massimo Piggliucci; This Day in Skepticism: Nathan Kline; News Items: Afterlife Debate, Five Finger Shoes Settles, Graphene and Heat, Correlation and Causation, Lab Grown Vaginas; Who's That Noisy; Science or Fiction; ",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_462",
+    "image" : "correlation-square.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/461#623",
+    "uid" : "623",
+    "title" : "Episode 461",
+    "description" : "Live Recording at NECSS 2014; With Guest Rogue: George Hrab; This Day in Skepticism: Chernobyl; News Items: Black Salve, Homeopathy Report, Tetraquarks, Stradivarius Study, Video Game Aggression; Science or Fiction; ",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_461",
+    "image" : "Stradivarius_Violin.png"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/460#622",
+    "uid" : "622",
+    "title" : "Episode 460",
+    "description" : "Interview with Elise Andrew; This Day in Skepticism: Manuel Elizade; News Items: Neuromorphic Computer, Mixing Supplements and Meds, Microbial Doom, Marketing Organic; Who's That Noicy; Your Questions and E-mails: Life Energy; Science or Fiction; ",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_460",
+    "image" : "neurogrid_news.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/459#621",
+    "uid" : "621",
+    "title" : "Episode 459",
+    "description" : "This Day in Skepticism: L'Aigle Meteorite; News Items: Food Babe Strikes Again, Dream Weaver, Super Mantis Shrimp, Motivated Memory, Silverstone Goes McCarthy; Who's That Noicy; Your Questions and E-mails: Fuel from Seawater; Name That Logical Fallacy; Science or Fiction; ",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_459",
+    "image" : "mantis_shrimp.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/458#619",
+    "uid" : "619",
+    "title" : "Episode 458",
+    "description" : "A: Skeptical Parenting",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_458",
+    "image" : "Ant-Web.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/457#618",
+    "uid" : "618",
+    "title" : "Episode 457",
+    "description" : "This day In Skepticism: SPAM; News Items: Chilis and Antivaxers, Crowdfunding Pseudoscience, Ocean under Enceladus, Looking Intelligent; Who's That Noisy; Your Questions and E-mails: Justina Case, Car Remotes; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_457",
+    "image" : "enceladus_interior.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/456#617",
+    "uid" : "617",
+    "title" : "Episode 456",
+    "description" : "Interview with James Marsters; This Day in Skepticism: Hattie Alexander; News Items: Medical Conspiracies, Autism Onset, Artificial Yeast, Conflicts of Interest; Who's That Noisy; Name That Logical Fallacy; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_456",
+    "image" : "BuddingYeast.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/455#616",
+    "uid" : "616",
+    "title" : "Episode 455",
+    "description" : "Interview with David Gorski and Bob Blaskiewicz; Guest Rogue: Brian Wecht; This Day in Skepticism: Sanctorius Sanctorius; News Items: Oil Pulling, Wikipedia Standards, Techno Fossils, Twin Prime Conjecture, Asteroid with Rings; Who's That Noisy; Your Questions and E-mails: Cartouche Again, Jet Stability; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_455",
+    "image" : "asteroid-rings.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/454#615",
+    "uid" : "615",
+    "title" : "Episode 454",
+    "description" : "Interview with Joe Anderson; This Day in Skepticism: Ulugh Beg; News Items: Waking from Coma with Psychic Powers, Cosmic Inflation, 24-192 audio; Who's That Noisy; Your Questions and E-mails: Cartouche Again, Jet Stability; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_454",
+    "image" : "cartouche.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/453#614",
+    "uid" : "614",
+    "title" : "Episode 453",
+    "description" : "Interview with Jennifer Ouellette; This Day in Skepticism: Ides of March; Review: Cosmos: A Spacetime Odyssey; News Items: Flight 370 Mystery, Earth's Shields, Meat Study; Who's That Noisy; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_453",
+    "image" : "Cosmos2014_620.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/452#613",
+    "uid" : "613",
+    "title" : "Episode 452",
+    "description" : "This Day in Skepticism: Tilly Shilling; News Items: Countering Anti-Vaccine Fears, Dowsing in CA, Capturing Earth's Energy, Crank Sues NASA; Your Questions and E-mails: Michio Kaku, Dealing with Negativity; Who's That Noisy; Name That Logical Fallacy: Eating Meat; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_452",
+    "image" : "Mars%20Jelly%20Donut.png"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/451#611",
+    "uid" : "611",
+    "title" : "Episode 451",
+    "description" : "Interview with Michio Kaku; This Day in Skepticism: Rebecca Lee Crumpler; News Items: My Three Parents, Dowsing for HIV, Climate Engineering, Open Data; Who's That Noisy; Your Questions and E-mails: Food Babe Follow Up; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_451",
+    "image" : "HIV%20scam.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/450#610",
+    "uid" : "610",
+    "title" : "Episode 450",
+    "description" : "This Day in Skepticism: Dialogue Concerning the Two Chief World Systems; News Items: Genovese Myth, Pseudoscience Vandalism, Subway and Azodicarbonamide, Petawatt Lawer, AIDS Denialists Silence Critic; Who's That Noisy; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_450",
+    "image" : "gorlitz-cartouche-khufu.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/449#609",
+    "uid" : "609",
+    "title" : "Episode 449",
+    "description" : "This Day in Skepticism: Decimal Day; News Items: Organic Molecule on the Moon, Astrology Belief, Burgess Shale, Boeing Anti-Gravity, Photo Lineups, Fusion Beats Unity; Who's That Noisy; Your Questions and E-mails: Net Neutrality, Placebo Medicine; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_449",
+    "image" : "burgess2.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/448#608",
+    "uid" : "608",
+    "title" : "Episode 448",
+    "description" : "The SGU crew takes live questions from an online audience",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_448",
+    "image" : "liveshow.bmp"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/447#607",
+    "uid" : "607",
+    "title" : "Episode 447",
+    "description" : "This Day in Skepticism: The Devil's Footprints; News Items: Detecting Computer Zombies, Sucralose Fearmongering, Werewolf Diet, Nye-Ham Debate; Who's That Noisy; Your Questions and E-mails: Thorium Car, FTL Communication; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_447",
+    "image" : "devils%20footprints.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/446#605",
+    "uid" : "605",
+    "title" : "Episode 446",
+    "description" : "This Day in Skepticism: Lydia DeWitt; Special Report: What Scientific Idea is Ready for Retirement; News Items: No Black Holes?, Giant Stones of Egypt; Who's That Noisy; Your Questions and E-mails: Mithras; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_446",
+    "image" : "giant%20boxes.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/445#604",
+    "uid" : "604",
+    "title" : "Episode 445",
+    "description" : "Interview with Karen Stollznow; This Day in Skepticism: Fluoridation; News Items: Cosmic Web, Exorcism Deaths, Ball Lightning, Kepler Update, Creationism in Texas; Who's That Noisy; Name That Logical Fallacy; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_445",
+    "image" : "Cosmic-Web1.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/444#602",
+    "uid" : "602",
+    "title" : "Episode 444",
+    "description" : "This Day in Skepticism: Jacob Bronowski; News Items: Self-Cleaning Clothing, Fukushima, Tiktaalik Update, Universal Flu Vaccine, Snowden Alien Conspiracy, Blood Type Diet; Who’s That Noisy; Your Questions and E-mails: Destroying Currency; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_444",
+    "image" : "tiktaalik-3.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/443#601",
+    "uid" : "601",
+    "title" : "Episode 443",
+    "description" : "Interview with Mark Crislip; This Day in Skepticism: Amelia Earhart; News Items: Vitamin Supplements, Polar Vortex, Earthquake Lights, I Killed Bigfoot, Cancer Deaths Drop; Who’s That Noisy; Your Questions and E-mails: Distilled Water; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_443",
+    "image" : "Bigfoot-face-picture.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/442#599",
+    "uid" : "599",
+    "title" : "Episode 442",
+    "description" : "Interview with Hai Ting and Matthew; This Day in Skepticism: Topsy the Elephant; Predictions 2013; News Items: Atmosphere of a Super Earth, Reverse Ageing, Magnetic Pooping, Virgin Births; Who’s That Noisy; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_442",
+    "image" : "Edison-Electrocuting-Elephant.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/441#598",
+    "uid" : "598",
+    "title" : "Episode 441",
+    "description" : "2013 Year in Review; Guest Rogue: George Hrab; This Day in Skepticism: Birth of Cinema; SGU Year in Review; Science News 2013; Who's That Noisy; In Memoriam; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_441",
+    "image" : "SGU2013.bmp"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/440#597",
+    "uid" : "597",
+    "title" : "Episode 440",
+    "description" : "This Day in Skepticism: HMS Challenger; News Items: Geysers on Europa, Regulation in Genetic Code, Jade Rabbit, Aspartame Safe, Cell Phones on Planes; Who’s That Noisy; Your Questions and E-mails: Reverse Speech; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_440",
+    "image" : "jaderabbit.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/439#595",
+    "uid" : "595",
+    "title" : "Episode 439",
+    "description" : "This Day in Skepticism: Tycho Brahe; News Items: Atmospheric Mystery, Mima Mounds, Exploding Pig Farms, False Memories, Oldest Human DNA, Mars Radiation; Who's That Noisy; Your Questions and E-mails: Creationist Claims; Science Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_439",
+    "image" : "Mima-mounds.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/438#593",
+    "uid" : "593",
+    "title" : "Episode 438",
+    "description" : "Interview with Tim Farley and Susan Gerbic; This Day in Skepticism: Rube Goldberg and Eleanor Gibson; News Items: Male-Female Brain Wiring, Wormholes and Black Holes, Home Genetic Testing; Who's That Noisy; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_438",
+    "image" : "brainpnas.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/437#591",
+    "uid" : "591",
+    "title" : "Episode 437",
+    "description" : "This Day in Skepticism: Hodges Meteorite; News Items: MAVEN Launch - with special guest Elliot Goldman, Sylvia Browne Dead, Homeopathy Death, Capturing Lost Energy, FDA Report on Burzynski, Comet ISON; Who's That Noisy; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_437",
+    "image" : "MAVEN1.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/436#590",
+    "uid" : "590",
+    "title" : "Episode 436",
+    "description" : "Guest Rogue: Phil Plait; This Day in Skepticism: Dr. Who; News Items: How Many Earth-Like Planets, Image of Saturn, 6-Tailed Asteroid, Chopra Attacks Skeptics, Typhoon Haiyan; Name That Logical Fallacy; Your Questions and E-mails: Blind Mole Rats; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_436",
+    "image" : "saturn2.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/435#589",
+    "uid" : "589",
+    "title" : "Episode 435",
+    "description" : "Interview with Gerald Posner; This Day in Skepticism: LSD; News Items: Oldest Animal, Junk DNA, Martian Lizard, Dark Energy; Who's That Noisy; Your Questions and E-mails: Knee Ligament; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_435",
+    "image" : "martian-lizard.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/434#586",
+    "uid" : "586",
+    "title" : "Episode 434",
+    "description" : "Interview with Chris Mooney and Indre Viskontas; This Day in Skepticism: Carl Sagan, Florence Rena Sabin; News Items: Tardis Science, Moving Stones, Blushing in the Dark, Rock Paper Scissors Robot; Who's That Noisy; Swindler's List: Kevin Trudeau; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_434",
+    "image" : "tardis.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/433#585",
+    "uid" : "585",
+    "title" : "Episode 433",
+    "description" : "This Day in Skepticism: Charles Van Doren; News Items: Ghost Story, Lorenzo’s Oil, Space Ports, Li Fi, Gender; Who's That Noisy; Live Questions: Getting Involved in Skepticism; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_433",
+    "image" : "Spaceport2.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/432#583",
+    "uid" : "583",
+    "title" : "Episode 432",
+    "description" : "Interview with Brian Malow; This Day in Skepticism: Baby Fae; News Items: 1000 Exoplanets, Scientific Literacy and the Tea Party, PPMOs, Wind turbine Syndrome; Who's that Noisy; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_432",
+    "image" : "wind%20turbine.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/431#581",
+    "uid" : "581",
+    "title" : "Episode 431",
+    "description" : "This Day in Skepticism: Johnnetta Cole; News Items: Money Predicts Apocalypse, Herbal Supplements, Politics and Dogma, Singularity vs Bridge; Who's That Noisy; Your Questions and E-mails: Cooling Drinks; Name That Logical Fallacy; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_431",
+    "image" : "golden-crowned-flying-fox.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/430#579",
+    "uid" : "579",
+    "title" : "Episode 430",
+    "description" : "Interview with Marty Klein; This Day in Skepticism: Chicago Fire; News Items: 2013 Nobel Prizes, Kansas Citizens Oppose Science, Open Access Journals, Smart Metals; Who's That Noisy; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_430",
+    "image" : "smartmetals.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/429#576",
+    "uid" : "576",
+    "title" : "Episode 429",
+    "description" : "This Day in Skepticism: World Teacher Day; News Items: New IPCC Report, Photographic the Soul, Chiropractor Breaks Baby's Neck, Black Hole Explosions and Hair; Who's That Noisy; Your Questions and E-mails: Monsanto, Overpowered Studies; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_429",
+    "image" : "canola-oil.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/428#573",
+    "uid" : "573",
+    "title" : "Episode 428",
+    "description" : "Interview with Jamie Williams; This Day in Skepticism: Thomas Crapper; News Items: GMO OK, Angry Internet, Warning Labels, When Black Holes Explode, Carbon Nanotube Computers; Who's That Noisy; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_428",
+    "image" : "carbonnanotube.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/427#571",
+    "uid" : "571",
+    "title" : "Episode 427",
+    "description" : "This Day in Skepticism: David Vetter; News Items: IgNobel 2013, Top Quarks End Universe, Alien Life on Earth, The Physics of Homosexuality, Regeneration; Who's That Noisy; Questions and E-mails: Quantum Energy; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_427",
+    "image" : "alienbacteria.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/426#568",
+    "uid" : "568",
+    "title" : "Episode 426",
+    "description" : "This Day in Skepticism: 9/11; News items: Motivated Numeracy, Arctic Ice, Robot Traders, Teenage Exorcists, Homeopathic Vaccines, Mission to Mars; Who's That Noisy; Your Questions and E-mails: Bdellovibrio; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_426",
+    "image" : "arcticice.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/425#565",
+    "uid" : "565",
+    "title" : "Episode 425",
+    "description" : "This Day in Skepticism: Last Thylacine; News Items: NASA Spiders, Chicken Wings and Penis Size, TCM for Flu, New Element 115; Who's That Noisy; Your Questions and E-mails: Pox Parties, Aromatherapy; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_425",
+    "image" : "SpiderFab.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/424#564",
+    "uid" : "564",
+    "title" : "Episode 424",
+    "description" : "Interview with Cara Santa Maria; This Day in Skepticism: Paul Ehrlich; News Items: Energized Water, Probiotics for Mental Health, Death by Iridology, Immortality; Who's That Noisy; Your Questions and E-mails: Authority; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_424",
+    "image" : "iridology-chart.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/423#561",
+    "uid" : "561",
+    "title" : "Episode 423",
+    "description" : "Interview with Sanal Edamaruku; This Day in Skepticism: Vesuvius; News Items: No Proof of Creation, Area 51, Hydrating Beer, Indian Rationalist Shot Dead, Free Roaming Planets; Who's That Noisy; Your Questions and E-mails: Sugar and Hyperactivity; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_423",
+    "image" : "narendra-dabholkar-295.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/422#556",
+    "uid" : "556",
+    "title" : "Episode 422",
+    "description" : "This Day in Skepticism: Hazel Bishop; News Items: NDE Explained, TV Watching, Labor and Autism, Magenta Planet, Spontaneous Baby Combustion; Special Report: Onionated; Who's That Noisy; Name That Logical Fallacy; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_422",
+    "image" : "magenta%20exoplanet.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/podcast/sgu/419#553",
+    "uid" : "553",
+    "title" : "Episode 419",
+    "description" : "This Day in Skepticism: Insulin; News Items:  Giant Virus, Gluten, Death Wave, The Pitch Drops, Revenge of the Conspiracy Theorists, Cassini Picture of Earth; Who's That Noisy; Name That Logical Fallacy; Science or Fiction",
+    "transcript" : "http://www.sgutranscripts.org/wiki/SGU_Episode_419",
+    "image" : "EarthfromSaturn.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#606",
+    "uid" : "606",
+    "title" : "Premium 23",
+    "description" : "Interview with SGU Rogue - Evan Bernstein",
+    "image" : "Evan%2001.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#603",
+    "uid" : "603",
+    "title" : "Premium 22",
+    "description" : "Interview with SGU Rogue, Jay Novella",
+    "image" : "Jay%2002.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#600",
+    "uid" : "600",
+    "title" : "Premium 21",
+    "description" : "Name That Logical Fallacy - Antiquity and Special Pleading",
+    "image" : "Galen.gif"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#596",
+    "uid" : "596",
+    "title" : "Premium 20",
+    "description" : "Interview with Christopher Hitchens",
+    "image" : "Hitchens.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#594",
+    "uid" : "594",
+    "title" : "Premium 19",
+    "description" : "Thorium Fuel Concept Car",
+    "image" : "thorium-fuel-concept.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#592",
+    "uid" : "592",
+    "title" : "Premium 18",
+    "description" : "Pseudo-zoologists hunt for the thylacine",
+    "image" : "thylacine.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#588",
+    "uid" : "588",
+    "title" : "Premium 17",
+    "description" : "Uncut Interview with Gerald Posner regarding JFK Assassination",
+    "image" : "Posner2013.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#587",
+    "uid" : "587",
+    "title" : "Premium 16",
+    "description" : "Is Science Broken?",
+    "image" : "science.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#584",
+    "uid" : "584",
+    "title" : "Premium 15",
+    "description" : "Casimir Effect and Free Energy",
+    "image" : "casimir.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#582",
+    "uid" : "582",
+    "title" : "Premium 14",
+    "description" : "Video - Uncut discussion of politics and dogma",
+    "image" : "video-dogma.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#580",
+    "uid" : "580",
+    "title" : "Premium 13",
+    "description" : "Cyberchondria - health obsession online",
+    "image" : "Health-Computer.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#578",
+    "uid" : "578",
+    "title" : "Premium 12",
+    "description" : "An examination of Scenar Cosmodic devices",
+    "image" : "scenar_cosmodic.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#577",
+    "uid" : "577",
+    "title" : "Premium 11",
+    "description" : "Saudi Cleric claims driving harms women's ovaries",
+    "image" : "Saudi-woman-driving.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#575",
+    "uid" : "575",
+    "title" : "Premium 10",
+    "description" : "Implicit Association and Faith in Science",
+    "image" : "Sciencefish.JPG"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#572",
+    "uid" : "572",
+    "title" : "Premium 9",
+    "description" : "WTC7 Collapse",
+    "image" : "WTC7b.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#570",
+    "uid" : "570",
+    "title" : "Premium 8",
+    "description" : "World Health Organization (WHO) Position on Acupuncture",
+    "image" : "acupuncture2.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#567",
+    "uid" : "567",
+    "title" : "Premium 7",
+    "description" : "World's Largest Volcano",
+    "image" : "Volcano-large.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#563",
+    "uid" : "563",
+    "title" : "Premium 6",
+    "description" : "Review of logical fallacies in Evolution vs God",
+    "image" : "evovgod.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#562",
+    "uid" : "562",
+    "title" : "Premium 5",
+    "description" : "Review of a video debunking the moon hoax conspiracy theory.",
+    "image" : "Moon%20Hoax.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#560",
+    "uid" : "560",
+    "title" : "Premium 4",
+    "description" : "Rogues review a study looking at religion and intelligence",
+    "image" : "Religion.png"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#559",
+    "uid" : "559",
+    "title" : "Premium 3",
+    "description" : "The Rogues Take a Look at Recycling",
+    "image" : "recycling-logo2.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#558",
+    "uid" : "558",
+    "title" : "Premium 2",
+    "description" : "There and Back Again: Mission to Mars",
+    "image" : "mars-mission.jpg"
+  }, {
+    "guid" : "http://www.theskepticsguide.org/members-only-content#557",
+    "uid" : "557",
+    "title" : "Premium 1",
+    "description" : "Review of Jane Goodall's Latest Book",
+    "image" : "Jane-Goodall-portrait.jpg"
+  } ]
+}

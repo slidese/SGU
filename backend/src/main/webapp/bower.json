@@ -1,0 +1,22 @@
+{
+  "name": "sgu.io",
+  "version": "0.0.0",
+  "authors": [
+    "slidese <mike@slide.se>"
+  ],
+  "description": "SGU I/O for meta data",
+  "license": "MIT",
+  "homepage": "sgu.io",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.4",
+    "core-elements": "Polymer/core-elements#~0.3.4",
+    "paper-elements": "Polymer/paper-elements#~0.3.4"
+  }
+}

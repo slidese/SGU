@@ -1,0 +1,72 @@
+<link rel="import" href="../core-scaffold/core-scaffold.html">
+<link rel="import" href="../core-header-panel/core-header-panel.html">
+<link rel="import" href="../core-menu/core-menu.html">
+<link rel="import" href="../core-item/core-item.html">
+<link rel="import" href="../core-icon-button/core-icon-button.html">
+<link rel="import" href="../core-toolbar/core-toolbar.html">
+<link rel="import" href="../core-menu/core-submenu.html">
+
+<polymer-element name="test-element">
+
+    <template>
+        <style>
+            :host {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            }
+            #core_scaffold {
+            top: 110px;
+            right: 0px;
+            bottom: 0px;
+            left: 100px;
+            }
+            #core_header_panel {
+            background-color: rgb(255, 255, 255);
+            }
+            #core_toolbar {
+            color: rgb(255, 255, 255);
+            background-color: rgb(79, 125, 201);
+            }
+            #core_menu {
+            font-size: 16px;
+            }
+            #core_card {
+            width: 300px;
+            height: 300px;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+            border-bottom-left-radius: 2px;
+            box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
+            margin: 20px;
+            background-color: rgb(255, 255, 255);
+            }
+        </style>
+        <core-scaffold id="core_scaffold">
+            <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
+                <core-toolbar id="core_toolbar"></core-toolbar>
+                <core-menu selected="Item2" valueattr="label" selectedindex="1" id="core_menu" theme="core-light-theme">
+                    <core-item label="Item1" icon="settings" size="24" id="core_item" horizontal center layout></core-item>
+                    <core-item label="Item2" icon="settings" size="24" id="core_item1" horizontal center layout active></core-item>
+                </core-menu>
+            </core-header-panel>
+            <div id="div" tool>Title</div>
+            <core-card id="core_card" layout vertical>
+                <div class="paper-shadow paper-shadow-bottom-z-3"></div>
+                <div class="paper-shadow paper-shadow-top-z-3"></div>
+                <paper-shadow z="3"></paper-shadow>
+            </core-card>
+        </core-scaffold>
+    </template>
+
+    <script>
+
+    Polymer('test-element', {
+      
+    });
+
+  </script>
+
+</polymer-element>

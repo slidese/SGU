@@ -1,118 +1,245 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html>
 <head>
-    <title>Hello, Google Cloud Messaging!</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <title>core-animated-pages</title>
+
+  <script src="bower_components/platform/platform.js"></script>
+
+  <link rel="import" href="bower_components/font-roboto/roboto.html">
+  <link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
+  <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+  <link rel="import" href="bower_components/core-menu/core-menu.html">
+  <link rel="import" href="bower_components/core-item/core-item.html">
+  <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="bower_components/core-menu/core-submenu.html">
+  <link rel="import" href="bower_components/core-icon/core-icon.html">
+  <link rel="import" href="bower_components/core-icons/iconsets/social-icons.html">
+
+  <link href="bower_components/core-animated-pages/core-animated-pages.html" rel="import">
+  <link rel="import" href="bower_components/core-ajax/core-ajax.html">
+
+  <style>
+
+    html,body {
+        height: 100%;
+        margin: 0;
+        background-color: #E5E5E5;
+        font-family: 'RobotoDraft', sans-serif;
+    }
+    #core_scaffold {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+    }
+    #core_header_panel {
+        background-color: rgb(255, 255, 255);
+    }
+    #core_toolbar {
+        color: rgb(255, 255, 255);
+        background-color: rgb(79, 125, 201);
+    }
+    #core_menu {
+        font-size: 16px;
+    }
+    .content {
+        padding: 20px;
+    }
+
+    /*
+    body {
+      font-family: 'Roboto 2', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      margin: 0;
+      background: #f1f1f1;
+    }
+
+    .green {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 350px;
+      background: #70c26f;
+    }
+    */
+  </style>
 </head>
-<body role="document" style="padding-top: 70px;">
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Hello, Google Cloud Messaging!</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="https://developers.google.com/appengine/docs/java/">Google App Engine</a></li>
-                        <li><a href="https://developers.google.com/appengine/docs/java/endpoints/">Google Cloud Endpoints</a></li>
-                        <li><a href="http://developer.android.com/google/gcm/">Google Cloud Messaging</a></li>
-                        <li><a href="https://github.com/GoogleCloudPlatform/gradle-appengine-templates/tree/master/GcmEndpoints">Connecting your Android application to this backend</a></li>
-                    </ul>
-                </li>
-                <li><a href="/_ah/api/explorer">Google Cloud Endpoints API Explorer</a></li>
-                <li><a href="https://console.developers.google.com">Google Developers Console</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
+<body>
 
-<div class="container theme-showcase" role="main">
-    <!--
-      Output from GCM call.
-    -->
-    <div class="alert alert-success" style="visibility: collapse;" id="outputAlert"></div>
+  <polymer-element name="music-demo">
+  <template>
 
-    <!--
-      A form that takes a message text and submits it to "messaging" Endpoints API,
-      access to this Endpoints API is enabled once the client is loaded below.
-    -->
-    <div class="jumbotron">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>Hello, Google Cloud Messaging!</h1>
-                <p>Enter your message below and press "Send Message" button to send it over Google Cloud Messaging to all registered devices.</p>
-                <form>
-                    <div class="input-group">
-                        <input type="text" class="form-control input-lg" placeholder="Message text" id="messageTextInput" />
-                          <span class="input-group-btn">
-                             <button class="btn btn-default btn-primary btn-group btn-lg" type="submit" id="sendMessageButton">Send Message &raquo;</button>
-                          </span>
-                    </div>
-                </form>
-                <br/>
-                <p>If you need step-by-step instructions for connecting your Android application to this backend module, see <a href="https://github.com/GoogleCloudPlatform/gradle-appengine-templates/tree/master/GcmEndpoints">"App Engine Backend with Google Cloud Messaging" template documentation</a>.</p>
-                <p>
-                    <small>
-                        For more information about Google App Engine for Java, check out the <a href="https://developers.google.com/appengine/docs/java/">App Engine documentation</a>.<br />
-                        To learn more about Google Cloud Endpoints, see <a href="https://developers.google.com/appengine/docs/java/endpoints/">Cloud Endpoints documentation</a>.<br />
-                        Similarly, for more information about Google Cloud Messaging, see <a href="http://developer.android.com/google/gcm/">Cloud Messaging documentation</a>.<br />
-                        If you'd like to access your generated Google Cloud Endpoints APIs directly, see the <a href="/_ah/api/explorer">Cloud Endpoints API Explorer</a>.
-                    </small>
-                </p>
+    <style>
+      .chip-container {
+        position: absolute;
+        top: 25px;
+        right: 0;
+        left: 0;
+        text-align: center;
+      }
+
+      .chip {
+        display: inline-block;
+        position: relative;
+        border-radius: 3px;
+        margin: 4px;
+        overflow: hidden;
+        text-align: start;
+        background-color: #fff;
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+        width: 200px;
+      }
+
+      .chip-top {
+        width: 200px;
+        height: 200px;
+      }
+
+      .chip-bottom {
+        padding: 8px;
+        line-height: 1.5;
+      }
+
+      .chip-album-title {
+        font-weight: bold;
+      }
+
+      #details {
+        padding: 25px 25px 0;
+      }
+
+      .card {
+        height: 400px;
+        width: 100%;
+        border-radius: 3px;
+        text-align: start;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+
+      .card-left {
+        width: 200px;
+      }
+
+      .card-right {
+        padding: 24px;
+      }
+
+      .card-icon {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        margin-right: 16px;
+      }
+
+      .card-album-title {
+        font-size: 2em;
+      }
+    </style>
+
+    <core-ajax
+        auto
+        url="episodes.json"
+        response="{{episodes}}">
+
+    </core-ajax>
+
+
+
+    <core-animated-pages selected="{{page}}" transitions="hero-transition cross-fade" on-core-animated-pages-transition-end="{{complete}}">
+
+      <section>
+
+        <div class="chip-container" hero-p on-tap="{{transition}}">
+
+          <template repeat="{{item in episodes.items}}">
+
+            <div class="chip" hero-id="{{item.uid}}" hero?="{{selectedAlbum === item }}" cross-fade>
+              <div class="chip-top" style="background-image:url('http://www.theskepticsguide.org/images/podcast_images/{{item.image}}');background-size: 100% auto;" hero-id="{{item.uid}}-art" hero?="{{selectedAlbum === item}}"></div>
+              <div class="chip-bottom">
+                <div class="chip-album-title">{{item.title}}</div>
+                <!--div class="chip-artist">{{item.guid}}</div-->
+              </div>
             </div>
+
+          </template>
+
         </div>
-    </div>
-</div>
+      </section>
 
-<script type="text/javascript">
-    // A function that attaches a "Send Message" button click handler
-    function enableClick() {
-      document.getElementById('sendMessageButton').onclick = function() {
-        var message = document.getElementById('messageTextInput').value;
-        if (!message) {
-          message = '(Empty message)';
+      <section id="details">
+
+        <div class="card" layout horizontal hero-id="{{selectedAlbum.uid}}" hero on-tap="{{transition}}">
+          <div class="card-left" style="background-image:url('http://www.theskepticsguide.org/images/podcast_images/{{selectedAlbum.image}}');background-size: 100% auto;background-repeat: no-repeat;" hero-id="{{selectedAlbum.uid}}-art" hero></div>
+          <div class="card-right" flex>
+            <div layout horizontal center>
+              <div>
+                <div class="card-icon" style="background:#f4db33;"></div>
+              </div>
+              <div flex>
+                <div class="card-album-title">{{selectedAlbum.title}}</div>
+                <div class="card-album-artist">{{selectedAlbum.description}}</div>
+                <div class="card-album-artist">{{selectedAlbum.uid}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </core-animated-pages>
+
+  </template>
+  <script>
+
+    Polymer('music-demo', {
+
+      page: 0,
+
+      
+
+      selectedAlbum: null,
+
+      transition: function(e) {
+        if (this.page === 0) {
+          this.selectedAlbum = e.target.templateInstance.model.item;
+          this.page = 1;
+        } else {
+          this.page = 0;
         }
-
-        gapi.client.messaging.messagingEndpoint.sendMessage({'message': message}).execute(
-          function(response) {
-            var outputAlertDiv = document.getElementById('outputAlert');
-            outputAlertDiv.style.visibility = 'visible';
-
-            if (response && response.error) {
-              outputAlertDiv.className = 'alert alert-danger';
-              outputAlertDiv.innerHTML = '<b>Error Code:</b> ' + response.error.code + ' [' + response.error.message +']';
-            }
-            else {
-              outputAlertDiv.className = 'alert alert-success';
-              outputAlertDiv.innerHTML = '<b>Success:</b> Message \"' + message + '\" sent to all registered devices!</h2>';
-            }
-          }
-        );
-        return false;
       }
-    }
+    });
 
-    // This is called initially
-    function init() {
-      var apiName = 'messaging'
-      var apiVersion = 'v1'
-      // set the apiRoot to work on a deployed app and locally
-      var apiRoot = '//' + window.location.host + '/_ah/api';
-      var callback = function() {
-        enableClick();
-      }
-      gapi.client.load(apiName, apiVersion, callback, apiRoot);
-    }
   </script>
-<!--
- Load the Google APIs Client Library for JavaScript
- More info here : https://developers.google.com/api-client-library/javascript/reference/referencedocs
--->
-<script src="https://apis.google.com/js/client.js?onload=init"></script>
+  </polymer-element>
+
+  <core-scaffold id="core_scaffold">
+      <core-header-panel mode="seamed" id="core_header_panel" navigation flex>
+          <core-toolbar id="core_toolbar"></core-toolbar>
+          <core-menu valueattr="label" id="core_menu" theme="core-light-theme">
+              <core-item label="Episodes" icon="view-list" size="24" id="episodes" horizontal center layout ></core-item>
+              <core-item label="Science or Fiction" icon="social:poll" size="24" id="poll" horizontal center layout></core-item>
+          </core-menu>
+      </core-header-panel>
+
+      <div id="div" tool>sgu.io</div>
+
+      <div class="content">
+
+          <music-demo></music-demo>
+
+
+      </div>
+  </core-scaffold>
+
+  <!--div class="green"></div>
+
+  <music-demo></music-demo-->
 </body>
 </html>

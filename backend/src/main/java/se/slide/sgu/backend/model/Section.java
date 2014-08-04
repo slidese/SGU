@@ -16,7 +16,7 @@ public class Section {
     public static int TYPE_WHOSTHATNOISY        = 60;
 
     public long _id;
-    public int index;
+    public int number;
     public String start;
     public int pointsToType;
     public int pointsToId;

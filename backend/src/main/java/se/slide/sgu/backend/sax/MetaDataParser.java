@@ -8,10 +8,12 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+import java.util.logging.Logger;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+import se.slide.sgu.backend.MetaDataEndpoint;
 import se.slide.sgu.backend.model.Episode;
 import se.slide.sgu.backend.model.Host;
 import se.slide.sgu.backend.model.Link;
@@ -23,6 +25,8 @@ import se.slide.sgu.backend.model.Section;
  * Created by slide on 2014-07-10.
  */
 public class MetaDataParser {
+
+    private static final Logger LOG = Logger.getLogger(MetaDataEndpoint.class.getName());
 
     public List<Episode> parse(InputStream is) {
 
@@ -148,7 +152,7 @@ public class MetaDataParser {
                     }
                     else if (qName.equalsIgnoreCase("number")) {
                         if (parentTag.equalsIgnoreCase("section")) {
-                            section.index = Integer.parseInt(currentValue);
+                            section.number = Integer.parseInt(currentValue);
                         }
                     }
                     else if (qName.equalsIgnoreCase("start")) {

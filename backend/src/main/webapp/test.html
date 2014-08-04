@@ -1,0 +1,103 @@
+
+<!doctype html>
+<html>
+<head>
+
+  <script src="bower_components/platform/platform.js"></script>
+  <link href="bower_components/core-animated-pages/core-animated-pages.html" rel="import">
+  <!--link href="bower_components/transitions/cross-fade.html" rel="import">
+  <link href="bower_components/transitions/slide-from-right.html" rel="import"-->
+
+  <style>
+    body {
+      font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      margin: 0;
+    }
+
+    core-animated-pages {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      font-size: 72px;
+      overflow: hidden;
+    }
+
+    section > div {
+      height: 100%;
+      color: black;
+    }
+
+  </style>
+
+</head>
+<body unresolved>
+  <select onchange="change();">
+    <option value="cross-fade-all" selected>cross-fade-all</option>
+    <option value="slide-from-right">slide-from-right</option>
+  </select>
+
+  <!--core-animated-pages onclick="stuff();" transitions="cross-fade-all">
+    <section>
+      <div layout vertical center center-justified style="background:red;">
+        <div>1</div>
+      </div>
+    </section>
+    <section>
+      <div layout vertical center center-justified style="background:blue;">
+        <div>2</div>
+      </div>
+    </section>
+    <section>
+      <div layout vertical center center-justified style="background:purple;">
+        <div>3</div>
+      </div>
+    </section>
+    <section>
+      <div layout vertical center center-justified style="background:orange;">
+        <div>4</div>
+      </div>
+    </section>
+    <section>
+      <div layout vertical center center-justified style="background:green;height: 50%;width: 50%;">
+        <div>5</div>
+      </div>
+    </section>
+  </core-animated-pages-->
+
+  <core-animated-pages selected="{{selected}}" onclick="stuff();" transitions="cross-fade-all">
+  <section id="page1">
+    <div hero-id="hero" hero>Mike1</div>
+  </section>
+  <section id="page2">
+    <div id="foo" hero-id="hero" hero?="{{selected === 1 || selected === 0}}" cross-fade="{{selected === 2}}">Mike2</div>
+  </section>
+  <section id="page3">Mike3
+  </section>
+</core-animated-pages>
+
+  <script>
+    function change() {
+      var s = document.querySelector('select');
+      document.querySelector('core-animated-pages').transitions = document.querySelector('select').options[s.selectedIndex].value;
+    }
+
+    var selected = 0;
+
+    var up = true;
+    var max = 2;
+    function stuff() {
+      var p = document.querySelector('core-animated-pages');
+      if (up && p.selected === max || !up && p.selected === 0) {
+        up = !up;
+      }
+      if (up) {
+        p.selected += 1;
+      } else {
+        p.selected -= 1;
+      }
+    }
+  </script>
+</body>
+</html>
